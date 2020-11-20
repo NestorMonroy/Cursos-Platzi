@@ -162,3 +162,18 @@ console.log(generatorHello.next().value)
 console.log(generatorHello.next().value)
 console.log(generatorHello.next().value)
 
+
+/*
+Notas
+
+  string.includes()
+  default.params
+  concatenacion
+  let, const, multilinea
+  arrow funcion
+  parametros en objectos
+  promesas
+  clases
+  generadores
+  Modulos
+*/

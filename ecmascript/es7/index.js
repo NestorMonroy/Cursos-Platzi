@@ -12,3 +12,12 @@ let result = base ** exponent;
 
 console.log(result);
 
+
+/*
+Notas
+
+	array.includes()
+	expontencia
+	
+
+*/

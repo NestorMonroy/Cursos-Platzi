@@ -19,7 +19,7 @@ console.log(hello.trimEnd());
 /* try {
     
 } catch {
-    error
+    
 }
  */
 
@@ -31,3 +31,17 @@ let mySimbol = `My Symbol`
 let simbol = Symbol(mySimbol)
 console.log(simbol.desciption)
 
+
+
+/*
+	Notas
+
+	Array.flat
+    Flatmap
+    trimStart
+    Optinal catch bind (no es necesario pasar error al catch)
+	
+    Object.fromEntries
+    Symbol description
+
+*/

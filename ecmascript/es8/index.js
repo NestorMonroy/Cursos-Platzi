@@ -54,3 +54,15 @@ const anothorFuntion = async () => {
 };
 
 anothorFuntion()
+
+/*
+	Notas
+
+	Async y await
+	Object.entries
+	Object.values
+	padStart
+	padEnd
+
+
+*/
