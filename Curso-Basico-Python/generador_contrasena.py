@@ -1,16 +1,17 @@
 import random
+import string
 
 def generar_contrasena():
-    mayusculas = ['A', 'B', 'C', 'D', 'E', 'F']
-    minuscula = ['a', 'b', 'c', 'd']
-    simbolos = ['!', '$', '&']
-    numeros = ['1', '2', '3']
+    mayusculas = list(string.ascii_uppercase)
+    minuscula = list(string.ascii_lowercase)
+    simbolos = list(string.punctuation)
+    numeros = list(string.digits)
 
     caracteres = mayusculas + minuscula + simbolos + numeros
 
     contrasena = []
 
-    for i in range(6):
+    for i in range(15):
         caracter_random = random.choice(caracteres)
         contrasena.append(caracter_random)
 
