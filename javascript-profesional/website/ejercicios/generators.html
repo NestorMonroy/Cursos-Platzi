@@ -34,6 +34,8 @@
       }
     }
 
+    //const gen = idMaker()
+
     // Cuando llamamos next tambien podemos pasar valores que la funcion recibe
 
     function* idMakerWithReset() {
@@ -49,6 +51,8 @@
       }
     }
 
+    //const gen = idMakerWithReset()
+
     //Ahora hagamos un ejemplo mas complejo, la secuencia fibonacci
     function* fibonacci() {
       let a = 1;
@@ -60,6 +64,9 @@
         yield nextNumbert
       }
     }
+
+    //const gen = fibonacci()
+    //gen.next
   </script>
 </body>
 
