@@ -87,7 +87,7 @@ function area(r:Rectangulo ) {
 }
 
 const areaRect = area(rect)
-console.log(areaRect)
+//console.log(areaRect)
 
 rect.toString = function(){
   return  this.color ? `Un rectangulo ${this.color}` : `Un rectangulo `
