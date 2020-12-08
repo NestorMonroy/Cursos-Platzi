@@ -1,72 +1,63 @@
 <html>
+  <head>
+    <title>this</title>
+  </head>
 
-<head>
-  <title>This</title>
-</head>
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
 
-<body>
-  <a href="/ejercicios/">Go back</a>
-  <p><em>Abre la consola</em></p>
+    <h1>
+      <code>this</code> se refiere a un objeto. Ese objeto es el que actualmente
+      está ejecutando un pedazo de código.
+    </h1>
 
-  <script>
-    /// this en el scope global this is a window
-    //console.log(`this: ${this}` )
+    <script>
+      // this en el scope global
+      console.log(`this: ${this}`);
 
-    // this en el scope de una funcion
-
-    function whoIsThis() {
-      return this
-    }
-    //console.log(`this: ${whoIsThis()}`)
-
-    // this en el scope de una funcion en strict mode // undefine
-
-    "use strict"
-
-    function whoIsThisStrict() {
-      "use strict"
-      return this
-    }
-
-    console.log(`this: ${whoIsThisStrict()}`)
-
-    // This en el contexto de un objecto
-    const person = {
-      name: 'Nestor',
-      saludar: function () {
-        console.log(`Hola soy ${this.name}`)
+      // this en el scope de una función
+      function whoIsThis() {
+        return this;
       }
-    }
 
-    person.saludar()
+      console.log(`whoIsThis(): ${whoIsThis()}`);
 
-    // this cuando sacamos a una fucnion de un objecto
+      // this en el scope de una función en strict mode
+      function whoIsThisStrict() {
+        'use strict';
+        return this;
+      }
 
-    const accion = person.saludar
-    accion()
+      console.log(`whoIsThisStrict(): ${whoIsThisStrict()}`);
 
-    // this en el contexto de una "clase" //  funciona como un constructor
+      // this en el contexto de un objeto
+      const person = {
+        name: 'Gabriel',
+        saludar: function() {
+          console.log(`Hola soy ${this.name}`);
+        },
+      };
 
-    function Person(name) {
-      this.name = name
-    }
+      person.saludar();
 
-    Person.prototype.saludar = function () {
-      console.log(`Me llamo ${this.name}`)
+      // this cuando sacamos a una función de un objeto
+      const accion = person.saludar;
+      accion();
 
-    }
+      // this en el contexto de una "clase"
+      //funcioa como constructor
+      function Person(name) {
+        // this = {}
+        this.name = name;
+      }
 
-    const joel = new Person("Joel")
-    joel.saludar()
+      Person.prototype.saludar = function() {
+        console.log(`Me llamo ${this.name}`);
+      };
 
-    /*
-      this se refiere a la instancia de un objecto
-      global this es window, funcion es window execpto si es strip mode 
-      si se pone en un objecto, this el objecto 
-      cuando se llama una funcion se puede llamar directamente this con call apply y bind
-    */
-
-  </script>
-</body>
-
+      const angela = new Person('Angela');
+      angela.saludar();
+    </script>
+  </body>
 </html>

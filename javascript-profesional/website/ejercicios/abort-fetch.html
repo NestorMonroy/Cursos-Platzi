@@ -34,12 +34,11 @@
 
       loadButton.onclick = async function() {
         startLoading();
-        // AbortController se puede detener una funcion
+
         controller = new AbortController();
 
         try {
           const response = await fetch(url, { signal: controller.signal });
-          // blob es la imagen en la forma binaria
           const blob = await response.blob();
           const imgUrl = URL.createObjectURL(blob);
           img.src = imgUrl;
