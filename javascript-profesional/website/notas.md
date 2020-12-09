@@ -66,3 +66,17 @@ Cuando se llama a una función o variable que no se encuentra en el mismo objeto
 La función hasOwnProperty sirve para verificar si una propiedad es parte del objeto o si viene heredada desde su prototype chain.
 SomeObject.prototype es un objeto donde definimos el prototipo de las instancias de SomeObject. Es decir, las instancias de SomeObject van a "heredar" de SomeObject.prototype.
 SomeObject.[[Prototype]] es el prototipo de SomeObject. Es decir, SomeObject "hereda" de SomeObject.prototype.
+
+¿Qué pasa cuando llega un script al navegador?
+
+Reciben un código fuente lo analizan y lo deconstruyen en el AST(Abstract Syntax Tree). Esté AST lo toma un interpretador y lo convierte en bytecode que es lo que se va a ejecutar, el programa va a empezar ejecutando bytecode y eventualmente va a tener suficiente información para ejecutar machine code que es el mismo código pero automizado.
+
+Que hace un JS Engine?
+
+-recibe código fuente,
+-Parsea código y produce Abstract Syntax Tree(AST)
+-Se compila a bytecode y se ejecuta.
+-Se optimiza a machine code y se remplaza el código base.
+
+
+![Alt text](relative/assets/img/v8.jpg?raw=true "v8")
