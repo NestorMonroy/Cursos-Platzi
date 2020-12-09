@@ -78,8 +78,7 @@ Que hace un JS Engine?
 -Se compila a bytecode y se ejecuta.
 -Se optimiza a machine code y se remplaza el código base.
 
-https://raw.githubusercontent.com/NestorMonroy/Cursos-Platzi/master/javascript-profesional/website/
-assets/img/v8.jpg
 
-![Alt text](/assets/img/v8.jpg?raw=true "v8")
+![v8](https://raw.githubusercontent.com/NestorMonroy/Cursos-Platzi/master/javascript-profesional/website/assets/img/v8.jpg)
+
 
