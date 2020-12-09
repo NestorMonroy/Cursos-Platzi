@@ -45,3 +45,24 @@ Métodos Call, Apply y Bind
 This no es un valor que podemos asignar directamente, no podemos escribir this = 'valor', pero si existen unos métodos que son parte del prototipo de function (call, apply, bind).Estos 3 métodos nos van ha ayudar a establecer cual es el this que va ha ser el contexto de la llamada a una función .
 
 Todas las funciones tienen (call, apply, bind)
+
+Call - comma
+Apply - arreglo
+
+bind no va a llamar la función automáticamente sino que va a construir una nueva función, está nueva función va a tener el this que le pasamos ya integrado y cuando llamemos ha está nueva función se va a ejecutar.
+
+Call y Apply van a establecer el this y va a llamar la función inmediatamente, bind va a crear una nueva función donde this estará guardado y luego tocará guardar y ejecutar esa nueva función.
+
+Prototype **
+
+La regla que usa new cuando hace el Object.create es que siempre va a sacar el prototype de lo que sea el constructor
+
+Herencia Prototipal **
+
+Por default los objetos en JavaScript tienen cómo prototipo a Object que es el punto de partida de todos los objetos, es el prototipo padre. Object es la raíz de todo, por lo tanto tiene un prototipo padre undefined.
+
+Cuando se llama a una función o variable que no se encuentra en el mismo objeto que la llamó, se busca en toda la prototype chain hasta encontrarla o regresar undefined.
+
+La función hasOwnProperty sirve para verificar si una propiedad es parte del objeto o si viene heredada desde su prototype chain.
+SomeObject.prototype es un objeto donde definimos el prototipo de las instancias de SomeObject. Es decir, las instancias de SomeObject van a "heredar" de SomeObject.prototype.
+SomeObject.[[Prototype]] es el prototipo de SomeObject. Es decir, SomeObject "hereda" de SomeObject.prototype.

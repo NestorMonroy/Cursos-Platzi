@@ -50,6 +50,7 @@
       danielSaluda();
 
       const danielCamina = caminar.bind(daniel, 2000);
+      //argunemtos parciales Está técnica se llama kurin 
       danielCamina('oeste');
 
       // Cuándo es útil usar uno de estos métodos
@@ -59,6 +60,7 @@
       // });
 
       // NodeList
+      //Los nodeList se parecen a los arreglos pero no del todo, lo que si sabemos es que tienen una propiedad se llama leght y está es suficiente para hacer alguna de las operaciones de arreglos
       Array.prototype.forEach.call(buttons, button => {
         button.onclick = () => alert('Nunca pares de aprender!');
       });

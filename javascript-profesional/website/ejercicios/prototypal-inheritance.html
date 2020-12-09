@@ -47,6 +47,31 @@
       // inspeccionemos el prototipo del zelda
       // inspeccionemos el prototipo del Hero
       // inspeccionemos el prototipo del Object
+
+      /*
+      Nosotros podemos escribrir zelda._proto_ y va funcionar, pero esa propiedad proro es algo que puede variar no es algo que está especificado en el lenguaje es un detalle de implementación que ponen los browsers o node o cualquier otro entorno. 
+      La forma correcta o sugerida es utilizando Object.getPrototypeOf(zelda), 
+      el cual nos va a regresar ese prototipo.
+      si comparamos:
+      
+      const prototypeOfZelda = Object.getPrototypeOf(zelda);
+      prototypeOfZelda === Hero.prototype;
+      // true
+
+      Esté objeto es identico al que está a prototypeOfZelda, no solo porque tiene el mismo contenido sino porque es el mismo objeto
+      el mismo lugar en memoria. Si esto es cierto nosotros podemos hacer lo siguiente:
+
+      const prototypeOfZelda = Object.getPrototypeOf(zelda);
+      prototypeOfZelda === Hero.prototype;
+      // true
+      Hero.prototype.fight = function () {console.log("FIGHT")}
+      zelda.fight();
+
+      Es una referencia desde zelda hasta prototype, el lenguaje lo está encadenando, porque si vamos a zelda.hasOwnProperty("fight"); 
+      es false porque no le pertenece, le pertence al prototype.
+
+      
+      */
     </script>
   </body>
 </html>
