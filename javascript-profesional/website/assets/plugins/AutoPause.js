@@ -7,8 +7,9 @@ class AutoPause {
 
   run(player) {
     this.player = player;
-
+    // const observer = new IntersectionObserver(handler, config)
     const observer = new IntersectionObserver(this.handleIntersection, {
+      // threshold: umbral define que porciento del elemento tiene que tener interseccion
       threshold: this.threshold,
     });
 
@@ -19,7 +20,7 @@ class AutoPause {
 
   handleIntersection(entries) {
     const entry = entries[0];
-
+    //console.log(entry)
     const isVisible = entry.intersectionRatio >= this.threshold;
 
     if (isVisible) {

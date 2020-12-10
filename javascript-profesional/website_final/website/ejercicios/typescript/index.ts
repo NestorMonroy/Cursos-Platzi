@@ -69,7 +69,7 @@ const nestor = fullName('Agente')
 //console.log(nestor)
 
 //Interfaces
-
+//Las interfaces nos permiten declarar la forma que tiene un objeto, esto puede ser útil, porque nos ayuda en autocompletado y evitar cometer algunos erroes.
 interface Rectangulo {
   ancho: number,
   alto: number, 
@@ -94,3 +94,8 @@ rect.toString = function(){
 }
 
 console.log(rect.toString())
+
+/* 
+  Las interfaces definen la forma exacta que debe tener un objeto,
+  no podemos añadir propiedades de más, ni de menos, en caso de que una propiedad sea opcional, la tenemos que marcar como opcional 
+*/
