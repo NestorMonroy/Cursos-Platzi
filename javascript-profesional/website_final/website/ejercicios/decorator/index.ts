@@ -52,3 +52,10 @@ function EmailFieldDecorator(field: Field): Field {
 let field = new Field(document.querySelector('#email'));
 field = RequiredFieldDecorator(field);
 field = EmailFieldDecorator(field);
+
+/* 
+  https://es.wikipedia.org/wiki/Principio_de_abierto/cerrado
+
+  Una entidad de sofware (clase, funcion, modulo, etc ) 
+  debe quedar abierta para su extension, pero cerrada para su modificacion
+*/

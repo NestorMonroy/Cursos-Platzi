@@ -497,10 +497,6 @@ Implementación del patrón Singleton con Typescript
 
 Uno de los patrones de diseño de creación más populares es el patrón Singleton que restringe la creación de instancias de una clase a un objeto.
 
-En esta publicación, le mostraré cómo usar el patrón junto con TypeScript.
-
-
-
 La biblia de los patrones de diseño, a saber, el libro de Gang of Four (GoF), presenta la aplicación de patrones utilizando el lenguaje C ++, un lenguaje estáticamente tipado.
 
 TypeScript permite implementar el patrón Singleton gracias a las siguientes características:
@@ -539,6 +535,8 @@ console.log("¿A es igual a B?", a === b);
 ```
 
  Observer (patrón de diseño)
+
+https://medium.com/@maniakhitoccori/qu%C3%A9-es-la-programaci%C3%B3n-reactiva-ce0b424c69a0
 
 Observador (en inglés:[ Observer](https://en.wikipedia.org/wiki/Observer_pattern)) es un [patrón de diseño](https://es.wikipedia.org/wiki/Patr%C3%B3n_de_dise%C3%B1o) de software que define una dependencia del tipo uno a muchos entre objetos, de manera que cuando uno de los objetos cambia su estado, notifica este cambio a todos los dependientes. Se trata de un patrón de comportamiento (existen de tres tipos: creación, estructurales y de comportamiento), por lo que está relacionado con algoritmos de funcionamiento y asignación de responsabilidades a [clases](https://es.wikipedia.org/wiki/Clase_(inform%C3%A1tica)) y [objetos](https://es.wikipedia.org/wiki/Objeto_(programaci%C3%B3n)).
 
@@ -729,13 +727,21 @@ Esto es básicamente toda la idea de Redux. Tenga en cuenta que no hemos utiliza
 
 Patrón Decoratory casos de uso
 
-Decorator (patrón de diseño)
+Decorator (patrón de diseño)**
+
+
+/* 
+  https://es.wikipedia.org/wiki/Principio_de_abierto/cerrado
+
+  Una entidad de sofware (clase, funcion, modulo, etc ) 
+  debe quedar abierta para su extension, pero cerrada para su modificacion
+
+  Monkey Patching
+*/
 
 El patrón [Decorator](https://es.wikipedia.org/wiki/Decorator_(patr%C3%B3n_de_dise%C3%B1o)) responde a la necesidad de añadir dinámicamente funcionalidad a un Objeto. Esto nos permite no tener que crear sucesivas clases que hereden de la primera incorporando la nueva funcionalidad, sino otras que la implementan y se asocian a la primera.
 
-
-
-Decorator motivation
+Decorator motivation**
 
 Un ejemplo para poder ver la aplicabilidad del patrón decorador podría ser el siguiente:
 
@@ -743,8 +749,6 @@ Disponemos de una herramienta para crear interfaces gráﬁcas, que permite aña
 Una posible solución sería utilizar la herencia para extender las responsabilidades de la clase. Si optamos por esta solución, estaríamos haciendo un diseño inflexible (estático), ya que el cliente no puede controlar cuándo y cómo decorar el componente con esa propiedad.
 La solución está en encapsular dentro de otro objeto, llamado Decorador, las nuevas responsabilidades. El decorador redirige las peticiones al componente y, además, puede realizar acciones adicionales antes y después de la redirección. De este modo, se pueden añadir decoradores con cualidades añadidas recursivamente.
 
-
-![decorator](https://raw.githubusercontent.com/NestorMonroy/Cursos-Platzi/master/javascript-profesional/website/assets/img/decorator.png)
 
 <div align="center">
 <img src="./assets/img/decorator.png" alt="Decorator patterns">
@@ -758,3 +762,64 @@ También se puede ver que el cliente no necesita hacer distinción entre los com
 <div align="center">
 <img src="./assets/img/secuencia.png" alt="Decorator patterns">
 </div>
+
+Decorator Aplicabilidad
+
+Añadir responsabilidades a objetos individuales de forma dinámica y transparente
+Responsabilidades de un objeto pueden ser retiradas
+Cuando la extensión mediante la herencia no es viable
+Hay una necesidad de extender la funcionalidad de una clase, pero no hay razones para extenderlo a través de la herencia.
+Existe la necesidad de extender dinámicamente la funcionalidad de un objeto y quizás quitar la funcionalidad extendida.
+
+ Decorator: Estructura
+
+<div align="center">
+<img src="./assets/img/decoratorgenerico.png" alt="Decorator patterns">
+</div>
+
+Decorator: Participantes
+
+- Componente
+Deﬁne la interfaz para los objetos que pueden tener responsabilidades añadidas.
+
+- Componente Concreto
+Deﬁne un objeto al cual se le pueden agregar responsabilidades adicionales.
+
+- Decorador
+Mantiene una referencia al componente asociado. Implementa la interfaz de la superclase Componente delegando en el componente asociado.
+
+- Decorador Concreto
+Añade responsabilidades al componente.
+
+Decorator Colaboraciones:
+
+El decorador redirige las peticiones al componente asociado.
+Opcionalmente puede realizar tareas adicionales antes y después de redirigir la petición
+
+Decorator Consecuencias
+
+Más flexible que la herencia. Al utilizar este patrón, se pueden añadir y eliminar responsabilidades en tiempo de ejecución. Además, evita la utilización de la herencia con muchas clases y también, en algunos casos, la herencia múltiple.
+Evita la aparición de clases con muchas responsabilidades en las clases superiores de la jerarquía. Este patrón nos permite ir incorporando de manera incremental responsabilidades.
+Genera gran cantidad de objetos pequeños. El uso de decoradores da como resultado sistemas formados por muchos objetos pequeños y parecidos.
+Puede haber problemas con la identidad de los objetos. Un decorador se comporta como un envoltorio transparente. Pero desde el punto de vista de la identidad de objetos, estos no son idénticos, por lo tanto no deberíamos apoyarnos en la identidad cuando estamos usando decoradores.
+
+Decorator Implementación
+
+El patrón Decorator soluciona este problema de una manera mucho más sencilla y extensible.
+
+Se crea a partir de Ventana la subclase abstracta VentanaDecorator y, heredando de ella, BordeDecorator y BotonDeAyudaDecorator. VentanaDecorator encapsula el comportamiento de Ventana y utiliza composición recursiva para que sea posible añadir tantas “capas” de Decorators como se desee. Podemos crear tantos Decorators como queramos heredando de VentanaDecorator.
+
+<div align="center">
+<img src="./assets/img/openclosed.png" alt="open closed software">
+</div>
+<br>
+
+<div align="center">
+<img src="./assets/img/monkeypatching.png" alt="monkeypatching">
+</div>
+<br>
+
+<div align="center">
+<img src="./assets/img/timeexecute.png" alt="timeexecute">
+</div>
+
