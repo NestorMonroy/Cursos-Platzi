@@ -40,8 +40,10 @@ module.exports = {
 						loader: 'html-loader'
 					}
 				]
-			},
+      },
+      //nueva regla que nos va a permitir a nosotros trabajar con los archivos de css y scss.
 			{
+        //test: expresión regular que nos permita a nosotros identificar nuestros archivos css y scss
 				test: /\.(s*)css$/,
 				use: [
 					{
@@ -63,7 +65,9 @@ module.exports = {
 			template: './public/index.html',
 			filename: './index.html'
     }),
+    //mini-css-extract-plugin
     new MiniCssExtractPlugin({
+      //como llamar el archivo resultante
       filename: 'assets/[name].css'
 
     })
