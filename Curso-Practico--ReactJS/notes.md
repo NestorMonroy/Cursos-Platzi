@@ -166,8 +166,31 @@ webpack.config.js, donde va a vivir la configuración para todo nuestro proyecto
 
 ver los cambios en tiempo real con Webpack es webpack-dev-server
 --
-SASS. Un preprocesador que nos va a permitir trabajar con CSS y añadirle unas bondades muy particulares. Como una de ellas sería las variables o trabajar con mixins.
+SASS
 
-npm install mini-css-extract-plugin. Este me va a permitir extraer el CSS del bundle resultante para poder crear un nuevo archivo de ese CSS. 
-css-loader ->  un loader que necesitamos
+Un preprocesador que nos va a permitir trabajar con CSS y añadirle unas bondades muy particulares. Como una de ellas sería las variables o trabajar con mixins.
+
+mini-css-extract-plugin -> Este me va a permitir extraer el CSS del bundle resultante para poder crear un nuevo archivo de ese CSS. 
+css-loader -> un loader que necesitamos
 node-sass y un sass-loader -> compatibilidad con Sass 
+
+Se guardan como dependencias de desarrollo
+--
+
+
+ESLint. 
+Que es una herramienta que nos va a ayudar a nosotros a que no tengamos los errores que previamente tuvimos, sino que nos va a ayudar a detectar esos bugs, esos tipos o ayudarnos a que podamos tener un estándar dentro de nuestro código. 
+
+instalar los paquetes que necesitamos. 
+eslint
+babel-eslint
+eslint-config-airbnb
+eslint-plugin-import
+eslint-plugin-react -> se va a encargar de la parte del React. En este caso se revisaría nuestro código. 
+eslint-plugin-jsx-a11y -> va añadir le accesibilidad a nuestros proyectos y que pueda detectarnos aquellos que sean necesarios para el navegador.
+
+¿Qué es Gist?
+
+Es una herramienta que nos provee GitHub para compartir pequeños archivos o estos recursos y que podamos utilizar entre desarrolladores sin necesidad de utilizar un repositorio. Es como un acceso más rápido a un recurso
+
+
