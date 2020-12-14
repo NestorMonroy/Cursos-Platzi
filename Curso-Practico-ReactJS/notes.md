@@ -256,3 +256,9 @@ const Component = () => {
 Una de las características de React Hooks es poder crear nuestros propios custom Hooks. 
 
 nos permite separar la lógica de los componentes a una función que vamos a poder utilizar en cualquier otro de los componentes y donde la necesitemos
+
+---
+PropTypes 
+nos ofrece una manera dinámica de verificar las propiedades que le pasamos a nuestros componentes. Con esto, nosotros tenemos la forma de verificar el tipo de dato que le estamos pasando. Así, poder saber si es un string, si es un booleano, sí es un número, si es un arreglo o una función. Y, de esta forma, identificar cómo está constituido nuestro componente. También tenemos la opción de poderlos pedir como requeridos o pasar por defecto algunos valores.
+
+npm install prop-types
