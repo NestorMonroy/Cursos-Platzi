@@ -189,8 +189,5 @@ eslint-plugin-import
 eslint-plugin-react -> se va a encargar de la parte del React. En este caso se revisaría nuestro código. 
 eslint-plugin-jsx-a11y -> va añadir le accesibilidad a nuestros proyectos y que pueda detectarnos aquellos que sean necesarios para el navegador.
 
-¿Qué es Gist?
-
-Es una herramienta que nos provee GitHub para compartir pequeños archivos o estos recursos y que podamos utilizar entre desarrolladores sin necesidad de utilizar un repositorio. Es como un acceso más rápido a un recurso
-
-
+Webpack con Imagenes
+npm install file-loader --save-dev
