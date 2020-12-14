@@ -78,3 +78,10 @@ El ciclo de vida de los componentes tiene 3 fases :
 Props
 
 Argunmentos a una funcion
+
+Eventos dentro del formulario
+
+click -> evento que se desencadena al hacer click sobre el elemento
+onChange -> evento que se desencadena al tener un cambio en valor del elemento (handleChange para manejar los cambios en los valores de los inputs)
+onSubmit -> evento que se desencadena al ejecutar el submit de formulario
+ 
