@@ -252,3 +252,7 @@ const Component = () => {
   return <div>{name}</div>;
 }
 ```
+
+Una de las características de React Hooks es poder crear nuestros propios custom Hooks. 
+
+nos permite separar la lógica de los componentes a una función que vamos a poder utilizar en cualquier otro de los componentes y donde la necesitemos
