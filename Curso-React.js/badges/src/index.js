@@ -5,9 +5,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./global.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Badge from "./components/Badge";
+import BadgeNew from "./pages/BadgeNew";
 
-ReactDOM.render(<Badge />, document.getElementById("root"));
+ReactDOM.render(
+  <BadgeNew
+  />,
+  document.getElementById("root")
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

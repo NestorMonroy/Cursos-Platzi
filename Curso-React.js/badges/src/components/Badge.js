@@ -1,26 +1,31 @@
 import React, { Component } from "react";
 import confLogo from "../images/badge-header.svg";
 
-import './styles/Badge.css'
+import "./styles/Badge.css";
 
 class Badge extends Component {
   render() {
+    const { firstName, lastName, jotTitle, twitter, avatarUrl } = this.props;
     return (
-      <div className='Badge'>
-        <div className='Badge__header'>
+      <div className="Badge">
+        <div className="Badge__header">
           <img src={confLogo} alt="logo" />
         </div>
-        <div className='Badge__section-name' >
-          <img className='Badge__avatar' src="https://www.gravatar.com/avatar?d=identicon" alt="Avatar" />
+        <div className="Badge__section-name">
+          <img
+            className="Badge__avatar"
+            src={avatarUrl}
+            alt="Avatar"
+          />
           <h1>
-            Nestor <br /> Monroy{" "}
+            {firstName} <br /> {lastName}{" "}
           </h1>
         </div>
-        <div className='Badge__section-info' >
-          <h3>Frontend</h3>
-          <div>@NestorMonroy</div>
+        <div className="Badge__section-info">
+          <h3>{jotTitle} </h3>
+          <div>@{twitter} </div>
         </div>
-        <div className='Badge__footer' >#platziConfi</div>
+        <div className="Badge__footer">#platziConfi</div>
       </div>
     );
   }
