@@ -191,3 +191,64 @@ eslint-plugin-jsx-a11y -> va añadir le accesibilidad a nuestros proyectos y que
 
 Webpack con Imagenes
 npm install file-loader --save-dev
+
+Fake-Json
+npm install json-server -g
+json-server (nombre del json)
+
+React Hooks 
+
+fue presentado en Octubre de 2018 en la React Conf de Las Vegas por Dan Abramov
+da estado y ciclo de vida a nuestros componentes de tipo función o mejor conocidos como stateless
+
+problemas con los componentes. -> se volvía una cascada de elementos. Y que era un poco más complejo transmitir las propiedades entre cada uno de estos elementos.
+
+solo está disponible en la versión > 16.8 si estás trabajando con una versión anterior, no vas a poder implementar estas cualidades en nuestro proyecto si ya se tiene un proyecto que está en marcha y lo quisieras implementar, tendrías que evaluar muy bien el uso de esta tecnología, porque puede haber incompatibilidades con tu proyecto.
+
+
+useEffect y useState
+Con useState ->  manejar mi estado
+useEffect -> hacer las transmisiones. Esto significa que puedo hacer peticiones de una API o algún evento que se tenga que transmitir dentro nuestros componentes, así como también estar escuchando algún cambio que vaya a ser necesario. 
+
+//Lectura
+
+Los React Hooks son una característica de React que tenemos disponible a partir de la versión 16.8. Nos permiten agregar estado y ciclo de vida a nuestros componentes creados como funciones.
+
+El Hook useState nos devuelve un array con dos elementos: la primera posición es el valor de nuestro estado, la segunda es una función que nos permite actualizar ese valor.
+
+El argumento que enviamos a esta función es el valor por defecto de nuestro estado (initial state).
+
+```js
+import React, { useState } from 'react';
+
+const Component = () => {
+  const [name, setName] = useState('Nombre por defecto');
+
+  return <div>{name}</div>;
+}
+```
+
+El Hook useEffect nos permite ejecutar código cuando se monta, desmonta o actualiza nuestro componente.
+
+El primer argumento que le enviamos a useEffect es una función que se ejecutará cuando React monte o actualice el componente. Esta función puede devolver otra función que se ejecutará cuando el componente se desmonte.
+
+El segundo argumento es un array donde podemos especificar qué propiedades deben cambiar para que React vuelva a llamar nuestro código. Si el componente actualiza pero estas props no cambian, la función no se ejecutará.
+
+Por defecto, cuando no enviamos un segundo argumento, React ejecutará la función de useEffect cada vez que el componente o sus componentes padres actualicen. En cambio, si enviamos un array vacío, esta función solo se ejecutará al montar o desmontar el componente.
+
+```js
+import React, { useState, useEffect } from 'react';
+
+const Component = () => {
+  const [name, setName] = useState('Nombre por defecto');
+
+  useEffect(() => {
+    document.title = name;
+    return () => {
+      document.title = 'el componente se desmontó';
+    };
+  }, [name]);
+
+  return <div>{name}</div>;
+}
+```
