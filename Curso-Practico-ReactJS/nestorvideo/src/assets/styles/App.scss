@@ -1,7 +1,9 @@
+@import './Vars.scss';
+
 body {
   margin: 0;
-  font-family: 'Muli', sans-serif;
-  background-color: rgb(20, 59, 83);
+  font-family: $theme-font;
+  background-color: $main-color;
 }
 
 * {

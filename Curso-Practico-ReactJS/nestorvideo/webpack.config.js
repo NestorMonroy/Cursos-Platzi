@@ -52,6 +52,19 @@ module.exports = {
 					'css-loader',
 					'sass-loader'
 				]
+			},
+			{
+				// expresión regular, en la cual yo le estoy diciendo que cualquier elemento que coincida con .png, .gif o .jpg va a ser utilizado dentro de nuestros proyectos. 
+				test: /\.(png|gif|jpg)$/,
+				use: [
+					{
+						'loader': 'file-loader',
+						//nombre del nuestro archivo. en este casi, se llamara HASH, con la asignación de un random de letras y números que se le ponen a este archivo sino que para mandarse producción va a tomar el nombre del hash. 
+						options: {
+							name: 'assets/[hash].[ext]'
+						}
+					}
+				]
 			}
 		]
   },
