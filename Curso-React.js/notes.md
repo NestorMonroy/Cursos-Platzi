@@ -161,3 +161,6 @@ Si no hay data es vital hacer un CTA para introducir data
 https://storyset.com/
 
 md5
+
+
+Polling -> consiste en que cada cierto tiempo que es definido por nosotros se buscan los datos y se actualizan automaticamente. Esto se hara constantemente hasta que el usuario se vaya de la pagina

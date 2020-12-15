@@ -3,13 +3,13 @@ import header from "../images/platziconf-logo.svg";
 import Badge from "../components/Badge";
 import BadgeFrom from "../components/BadgeForm";
 import PageLoading from "../components/PageLoading";
-import "./styles/BadgeNew.css";
+import "./styles/BadgeEdit.css";
 
 import api from "../api";
 
-class BadgeNew extends Component {
+class BadgeEdit extends Component {
   state = {
-    loading: false,
+    loading: true,
     error: null,
     form: {
       firstName: "",
@@ -20,6 +20,20 @@ class BadgeNew extends Component {
     },
   };
 
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = async (e) => {
+    this.setState({ loading: true, error: null });
+
+    try {
+      const data = await api.badges.read(this.props.match.params.badgeId);
+      this.setState({ loading: false, form: data });
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+    }
+  };
   handleChange = (e) => {
     // const nextForm = this.state.form;
     // nextForm[e.target.name] = e.target.value;
@@ -36,7 +50,7 @@ class BadgeNew extends Component {
     e.preventDefault();
     this.setState({ loading: true, error: null });
     try {
-      await api.badges.create(this.state.form);
+      await api.badges.update(this.props.match.params.badgeId, this.state.form);
       this.setState({ loading: false });
       this.props.history.push("/badges");
     } catch (error) {
@@ -50,9 +64,9 @@ class BadgeNew extends Component {
     }
     return (
       <React.Fragment>
-        <div className="BadgeNew__hero">
+        <div className="BadgeEdit__hero">
           <img
-            className="BadgeNew__hero-image img-fluid"
+            className="BadgeEdit__hero-image img-fluid"
             src={header}
             alt="Logo"
           />
@@ -60,7 +74,6 @@ class BadgeNew extends Component {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <h1>New Attendant</h1>
               <Badge
                 firstName={this.state.form.firstName || "FIRST_NAME"}
                 lastName={this.state.form.lastName || "LAST_NAME"}
@@ -71,6 +84,8 @@ class BadgeNew extends Component {
               />
             </div>
             <div className="col-6">
+              <h1>Edit</h1>
+
               <BadgeFrom
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
@@ -85,4 +100,4 @@ class BadgeNew extends Component {
   }
 }
 
-export default BadgeNew;
+export default BadgeEdit;
