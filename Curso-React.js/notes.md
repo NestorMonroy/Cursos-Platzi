@@ -85,3 +85,12 @@ click -> evento que se desencadena al hacer click sobre el elemento
 onChange -> evento que se desencadena al tener un cambio en valor del elemento (handleChange para manejar los cambios en los valores de los inputs)
 onSubmit -> evento que se desencadena al ejecutar el submit de formulario
  
+React Router tiene 4 componentes principales:
+
+Browser Router. Es necesario colocar el componente en la parte superiorde la aplicación, lo que esté dentro de este va a servir como unaSingle Page App y les va a permitir al resto de las herramientasfuncionar. Ya que fuera de él NO Funciona.
+
+Route. Representa una dirección de Internet, el path es donde va arenderizar el componente y el componente es el componente que va arenderizar, usualmente es un a página.
+
+Switch. Componente que nos sirve para representar 1 sola ruta de variasque podemos poner dentro del componente.
+
+Link. Toma el lugar del elemento ancla, evita que se recarguecompletamente la página, actualiza la URL sin recargar la páginacompleta.
