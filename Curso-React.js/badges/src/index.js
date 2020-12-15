@@ -6,9 +6,10 @@ import "./global.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import BadgeNew from "./pages/BadgeNew";
+import Badges from "./pages/Badges";
 
 ReactDOM.render(
-  <BadgeNew
+  <Badges
   />,
   document.getElementById("root")
 );
