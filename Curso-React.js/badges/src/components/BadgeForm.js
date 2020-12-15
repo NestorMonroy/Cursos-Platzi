@@ -19,18 +19,18 @@ class BadgeForm extends Component {
     console.log("Button was clicked");
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("form was submit");
-    console.log(this.state)
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("form was submit");
+  //   console.log(this.state)
     
-  };
+  // };
 
   render() {
     return (
       <div>
         <h1>New Attendant</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.props.onSubmit}>
           <div className="form-group">
             <label htmlFor="">FirstName</label>
             <input
@@ -84,6 +84,7 @@ class BadgeForm extends Component {
           <button onClick={this.handeClick} className="btn btn-primary">
             Save
           </button>
+          {this.props.error && <p className="text-danger" > {this.props.error.message} </p> }
         </form>
       </div>
     );
