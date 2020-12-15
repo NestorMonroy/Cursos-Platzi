@@ -31,7 +31,7 @@ babel -> traduce javaScript
 const jsx = (
   <div>
     <h1>Hola</h1>
-    <p>Soy nestor</p>
+    Soy nestor
   </div>
 )
 
@@ -84,13 +84,59 @@ Eventos dentro del formulario
 click -> evento que se desencadena al hacer click sobre el elemento
 onChange -> evento que se desencadena al tener un cambio en valor del elemento (handleChange para manejar los cambios en los valores de los inputs)
 onSubmit -> evento que se desencadena al ejecutar el submit de formulario
- 
+
+Las aplicaciones que se trabajan en React son llamadas single page apps. Esto es posible gracias a React Router que es una librería Open Source
+
+Multi Page Apps: Cada página implica una petición al servidor. La respuesta usualmente tiene todo el contenido de la página
+
+Single Page Apps (SPA): Aplicaciones que cargan una sola página de HTML y cualquier actualización la hacen re-escribiendo el HTML que ya tenían.
+
 React Router tiene 4 componentes principales:
 
-Browser Router. Es necesario colocar el componente en la parte superiorde la aplicación, lo que esté dentro de este va a servir como unaSingle Page App y les va a permitir al resto de las herramientasfuncionar. Ya que fuera de él NO Funciona.
+Browser Router. Es necesario colocar el componente en la parte superior de la aplicación, lo que esté dentro de este va a servir como una Single Page App y les va a permitir al resto de las herramientas funcionar. Ya que fuera de él NO Funciona.
 
 Route. Representa una dirección de Internet, el path es donde va arenderizar el componente y el componente es el componente que va arenderizar, usualmente es un a página.
 
 Switch. Componente que nos sirve para representar 1 sola ruta de variasque podemos poner dentro del componente.
 
 Link. Toma el lugar del elemento ancla, evita que se recarguecompletamente la página, actualiza la URL sin recargar la páginacompleta.
+
+Cuando su estado cambia o recibe unos props diferentes se actualiza. 
+Cuando cambiamos de página y ese componente ya no está, decimos que se desmontó
+
+Montaje:
+
+Representa el momento donde se inserta el código del componente en el DOM
+
+Se llaman tres métodos: 
+constructor, render y componentDidMount
+
+Cuando decimos que se monta el componente, significa que React está introduciendo el código que lo representa en el DOM. El ++DOM ++es este documento HTML que representa la página que estamos viendo.
+
+El constructor es el lugar perfecto para inicializar estado, o para inicializar valores.
+
+El render es el momento preciso donde React va a calcular el elemento que representa este componente y lo va a introducir en el código.
+
+Una vez eso ocurra, React va a llamar a una señal, el método componentDidMount. Cuando componentDidMount se llama, nuestro componente ya es visible en pantalla (ya está su código en el DOM).
+
+Actualización:
+
+Ocurre cuando los props o el estado del componente cambia.
+
+Se llaman dos métodos: render y componentDidUpdate.
+
+Cuando los props o el state del componente cambia, ocurre una actualización.
+
+El componente vuelve a renderizarse, pues su información cambió, así que posiblemente su aspecto visual es otro. Por ende, hay que volver a renderizar. Esto también aplica a cualquier componente descendiente de este componente.
+
+Como segundo paso de la actualización, React va a llamar a otra señal, el método componentDidUpdate. Este método va a recibir dos argumentos: los props que tenía anteriormente y el estado que tenía anteriormente. Esto nos va a servir por si queremos comparar con la versión anterior del componente y la versión actual.
+
+
+Desmontaje:
+
+Nos da la oportunidad de hacer limpieza de nuestro componente.
+
+Se llama sólo un método: componentWillUnmount.
+
+Es cuando el componente sale de escena, desaparece de la pantalla, cuando por ejemplo se navega de una página a otra y ya no está ese código.
+React llama a la señal componentWillUnmount, que es lugar perfecto para limpiar memoria, a veces podemos usar timeout o intervalos, que si no cancelamos hará que perdamos memoria en el componente, cosa que debemos evitar

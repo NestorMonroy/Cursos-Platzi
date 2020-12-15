@@ -3,14 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "./global.css";
-import App from "./App";
+import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
-import BadgeNew from "./pages/BadgeNew";
-import Badges from "./pages/Badges";
+
 
 ReactDOM.render(
-  <Badges
-  />,
+  <App />,
   document.getElementById("root")
 );
 
