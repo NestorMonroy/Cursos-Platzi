@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-
-import './styles/BadgesList.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./styles/BadgesList.css";
 
 class BadgesListItem extends Component {
   render() {
@@ -27,10 +27,20 @@ class BadgesListItem extends Component {
 
 class BadgesList extends Component {
   render() {
+    if (this.props.badges.length === 0) {
+      return (
+        <div>
+          <h3>not badges were found </h3>
+          <Link className="btn btn-primary" to="/badges/new">
+            Create new badge
+          </Link>
+        </div>
+      );
+    }
     return (
       <div className="BadgesList">
         <ul className="list-unstyled">
-          {this.props.badges.map(badge => {
+          {this.props.badges.map((badge) => {
             return (
               <li key={badge.id}>
                 <BadgesListItem badge={badge} />

@@ -140,3 +140,22 @@ Se llama sólo un método: componentWillUnmount.
 
 Es cuando el componente sale de escena, desaparece de la pantalla, cuando por ejemplo se navega de una página a otra y ya no está ese código.
 React llama a la señal componentWillUnmount, que es lugar perfecto para limpiar memoria, a veces podemos usar timeout o intervalos, que si no cancelamos hará que perdamos memoria en el componente, cosa que debemos evitar
+
+Una llamada a una API tiene tres estados
+
+Una promesa
+
+Loading
+  =>
+    Error
+    ||
+    Data
+        Without data {}
+        ||
+        With data {…}
+
+Es vital indicar que se está cargando
+Si no hay data es vital hacer un CTA para introducir data
+
+
+https://storyset.com/
