@@ -164,3 +164,6 @@ md5
 
 
 Polling -> consiste en que cada cierto tiempo que es definido por nosotros se buscan los datos y se actualizan automaticamente. Esto se hara constantemente hasta que el usuario se vaya de la pagina
+
+
+Portales => Elemento fuera del nodo principal de la aplicacion
