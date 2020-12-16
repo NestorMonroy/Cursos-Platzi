@@ -167,3 +167,4 @@ Polling -> consiste en que cada cierto tiempo que es definido por nosotros se bu
 
 
 Portales => Elemento fuera del nodo principal de la aplicacion
+
