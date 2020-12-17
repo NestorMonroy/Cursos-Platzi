@@ -184,3 +184,14 @@ SuperClase -> SubClase
 <div align="center">
 <img src="./assets/img/diagrama_.png" alt="diagrama">
 </div>
+
+Metodo constructor
+
+Dar un estado inicial al objecto
+TIene el mismo nombre de la clase
+Son los parametros minimos que necesita el objecto para que pueda vivir
+
+<div align="center">
+<img src="./assets/img/metodos_constructor.png" alt="metodos_constructor">
+</div>
+

@@ -1,8 +1,16 @@
 <?php
 class Car{
-  public $id ;
-  public $license;
-  public $driver;
-  public $passenger;
+    public $id;
+    public $license;
+    public $drive;
+    public $passenger;
+
+    public function __construct($license, $driver){
+        $this->license = $license;
+        $this->driver = $driver;
+    }
+    public function getDataCar () {
+        echo "License: $this->license Driver:".$this->driver->name;
+    }
 }
 ?>
