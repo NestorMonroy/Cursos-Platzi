@@ -74,8 +74,11 @@ En la parte superior se colocan los atributos o propiedades, y debajo las opera 
 Estos son los niveles de visibilidad que puedes tener:
 
 - private
-+ public
+
+* public
+
 # protected
+
 ~ default
 
 Una forma de representar las relaciones que tendrá un elemento con otro es a través de las flechas en UML, y aquí tenemos varios tipos, estos son los más comunes:
@@ -129,10 +132,10 @@ Composición
 </div>
 
 Este es similar al anterior solo que su relación es totalmente compenetrada de tal modo que conceptualmente una de estas clases no podría vivir si no existiera la otra.
+
 <div align="center">
 <img src="./assets/img/Composicion_001.png" alt="uml-relacion-composicion">
 </div>
-
 
 “Objetos”
 
@@ -146,7 +149,7 @@ nombre, tamaño, forma, estado, etc.
 -Comportamientos: Serán todas las operaciones del objeto, suelen ser verbos o sustantivo
 y verbo. Ejemplos: login(), logout(),makeReport()
 
-sesion de usuario_ puede tener comportamientos (Objecto conseptual)
+sesion de usuario\_ puede tener comportamientos (Objecto conseptual)
 
 Por cada objecto analizar sus propiedades, sus comportamientos
 
@@ -176,9 +179,7 @@ Resolución Rápida de Problemas
 4- Tomar
 -Detectar los objetos
 
-
-
-Herencia -> Creacion de nuevas clases apartir de otras 
+Herencia -> Creacion de nuevas clases apartir de otras
 SuperClase -> SubClase
 
 <div align="center">
@@ -195,3 +196,7 @@ Son los parametros minimos que necesita el objecto para que pueda vivir
 <img src="./assets/img/metodos_constructor.png" alt="metodos_constructor">
 </div>
 
+En Java: Palabra clave “<strong>super</strong>” para referirnos al método constructor de la clase padre<br>
+En PHP: “<strong>parent::</strong>” seguido de su constructor
+
+php -S localhost:8080 index.php
