@@ -196,7 +196,7 @@ Son los parametros minimos que necesita el objecto para que pueda vivir
 <img src="./assets/img/metodos_constructor.png" alt="metodos_constructor">
 </div>
 
-En Java: Palabra clave “<strong>super</strong>” para referirnos al método constructor de la clase padre<br>
+En Java: Palabra clave “<strong>super</strong>” para referirnos al método constructor de la clase padre
 En PHP: “<strong>parent::</strong>” seguido de su constructor
 
 php -S localhost:8080 index.php
@@ -205,3 +205,81 @@ El Principio de Inyección de Dependencias
 
 El Principio de inyección de dependencia no es más que poder pasar (inyectar) las dependencias cuando sea necesario en lugar de inicializar las dependencias dentro de la clase receptora.
 Desacoplar la construcción de sus clases de la construcción de las dependencias de sus clase
+
+Encapsulamiento:
+
+Es hacer que los datos sean inviolables, inalterable o hacer que se esconda, cuando se le asigne un Modificador de Acceso.
+
+Modificadores de Acceso:
+
+Public: Es el mas permisivos de todos, Accede a todo.
+Protected: Podrá ser accedido por la clase, paquetes y subclases.
+Default: Permite el acceso a nivel de clses de internas y paquetes (No podremos ver las herencias si ha detener (Osea subclases))
+Private: Solo podrá ser modificado dentro de la clase.
+
+Se puede encapsular: elementos o atributos, clases o incluso métodos; El encapsulamiento nos permite tener dicho elemento inalterable en la POO.
+
+Public: Todas las Clases.
+Protected: En la misma Clase, paquetes, subclases.
+Default: En la misma Clase y paquetes internos. (no es accedido a la herencia)
+Private: Solo en la misma Clase
+
+Polimorfismo: 
+Construir métodos con el mismo nombre pero con comportamiento diferente
+
+El Diagrama UML de Uber 
+
+<div align="center">
+<img src="./assets/img/diagrama_UML_uber.png" alt="diagrama_UML_uber">
+</div>
+
+En primer lugar notarás que tenemos 3 tipos de flechas:
+
+Asociación
+
+<div align="center">
+<img src="./assets/img/Asociacion_003.png" alt="Asociacion_003">
+</div>
+
+Como su nombre lo dice, notarás que cada vez que esté referenciada este tipo de flecha significará que ese elemento contiene al otro en su definición. Si recuerdas la clase Car, este contenía una instancia de Driver. La flecha apuntará hacia la dependencia.
+
+<div align="center">
+<img src="./assets/img/Asociacion_004.png" alt="Asociacion_004">
+</div>
+
+Herencia
+
+<div align="center">
+<img src="./assets/img/Herencia_003.png" alt="Herencia_003">
+</div>
+
+
+Siempre que veamos este tipo de flecha se estará expresando la herencia.
+En nuestro diagrama tuvimos al menos tres familias conviviendo. La dirección de la flecha irá desde el hijo hasta el padre.
+
+<div align="center">
+<img src="./assets/img/Herencia_004.png" alt="Herencia_004">
+</div>
+
+<div align="center">
+<img src="./assets/img/Herencia_005.png" alt="Herencia_005">
+</div>
+
+<div align="center">
+<img src="./assets/img/Herencia_006.png" alt="Herencia_006">
+</div>
+
+Composición
+
+<div align="center">
+<img src="./assets/img/Composicion_003.png" alt="Composicion_003">
+</div>
+
+Pasemos a una de nuestras piezas claves, pues notarás en el centro del diagrama la clase Trip que está vinculada a User, Car, Route y Payment. La composición va a significar una asociación entre estas clases con la diferencia de que para que esta clase pueda vivir forzosamente necesita a las demás. Es decir que estas clases son obligatorias para que la clase Trip pueda existir, esta dependencia obligatoria podríamos expresarla en el método constructor de la clase Trip, pues para que un objeto pueda ser creado dependerá de que los demás existan.
+
+
+<div align="center">
+<img src="./assets/img/Composicion_004.png" alt="Composicion_004">
+</div>
+
+Esta clase Trip poseerá la lógica más fuerte del negocio aquí será donde se concentrarán la mayor cantidad de clases.
