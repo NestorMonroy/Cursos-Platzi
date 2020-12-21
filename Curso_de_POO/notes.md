@@ -200,3 +200,8 @@ En Java: Palabra clave “<strong>super</strong>” para referirnos al método c
 En PHP: “<strong>parent::</strong>” seguido de su constructor
 
 php -S localhost:8080 index.php
+
+El Principio de Inyección de Dependencias
+
+El Principio de inyección de dependencia no es más que poder pasar (inyectar) las dependencias cuando sea necesario en lugar de inicializar las dependencias dentro de la clase receptora.
+Desacoplar la construcción de sus clases de la construcción de las dependencias de sus clase
