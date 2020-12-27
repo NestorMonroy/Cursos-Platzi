@@ -305,4 +305,4 @@ Encapsulamiento: Es aislar un dato para que este sea privado y no pueda ser vist
 
 Herencia: Es crear una o más clases a partir de una clase que ya existe. Y se les llaman subclases.
 
-**Polomorfismo:**Es construir  métodos con el mismo nombre pero con comportamiento diferente.
+**Polimorfismo:**Es construir  métodos con el mismo nombre pero con comportamiento diferente.
