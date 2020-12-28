@@ -198,3 +198,201 @@ continue termina la iteración en curso y continua con el siguiente ciclo de
 iteración.
 
 Python tenemos 53 bits de precisión para números flotantes
+
+Abstracción: no necesitas saber cómo algo funciona internamente para poderlo utilizar.
+
+Descomposición:
+Dividir el código en componentes que colaboran con un fín en común.
+
+
+El scope o alcance básicamente define las variables, funciones demás a los que una parte del código tiene acceso. El scope va cambiando conforme la ejecución avanza en el programa, por ejemplo, al invocarse una función, el scope actual queda guardado en memoria y se crear un nuevo scope para la función.
+Se puede visualizar como esas muñecas rusas que se pueden meter una dentro de otra, de la misma forma hay scopes dentro de un scope dentro de otro scope y así sucesivamente.
+
+El docstring o la documentación está dividido en tres partes importantes que son las siguientes:
+Primero se da una descripción clara y concisa de la función y su funcionamiento
+En medio se agrega la descripción de los diferentes parámetros, su tipo, su nombre y que es lo que se espera de esos parámetros
+Por ultimo se agrega que es lo que devuelve nuestra función
+
+limite de recursividad en python
+1000
+
+```py
+>>> import sys
+>>> print(sys.getrecursionlimit())
+1000
+
+```
+
+Las funciones en Python son “ciudadanos de primera clase”.
+
+Esto, en sentido amplio, significa que en Python las funciones:
+
+Tienen un tipo
+Se pueden pasar como argumentos de otras funciones
+Se pueden utilizar en expresiones
+Se pueden incluir en varias estructuras de datos (como listas, tuplas, diccionarios, etc.)
+
+
+Argumentos de otras funciones
+
+```py
+def multiplicar_por_dos(n):
+    return n * 2
+
+def sumar_dos(n):
+    return n + 2
+
+def aplicar_operacion(f, numeros):
+    resultados = []
+    for numero in numeros:
+        resultado = f(numero)
+        resultados.append(resultado)
+
+>>> nums = [1, 2, 3]
+>>> aplicar_operacion(multiplicar_por_dos, nums)
+[2, 4, 6]
+
+>>> aplicar_operacion(sumar_dos, nums)
+[3, 4, 5]
+
+```
+
+Funciones en expresiones
+
+Una forma de definir una función en una expresión es utilizando el keyword lambda. lambda tiene la siguiente sintaxis: lambda <vars>: <expresion>.
+
+
+```py
+sumar = lambda x, y: x + y
+
+>>> sumar(2, 3)
+5
+
+```
+
+Funciones en estructuras de datos
+
+Las funciones también se pueden incluir en diversas estructuras que las permiten almacenar. Por ejemplo, una lista puede guardar diversas funciones a aplicar o un diccionario las puede almacenar como valores.
+
+
+```py
+def aplicar_operaciones(num):
+    operaciones = [abs, float]
+
+    resultado = []
+    for operacion in operaciones:
+        resultado.append(operacion(num))
+
+    return resultado
+
+>>> aplicar_operaciones(-2)
+[2, -2.0]
+
+```
+
+Tuplas
+
+Una tupla consiste en objetos inmutables. (Objetos que no pueden cambiar después de la creación)
+Una tupla tiene poca memoria.
+Una tupla se almacena en un solo bloque de memoria.
+Crear una tupla es más rápido que crear una lista.
+Un elemento en una tupla no se puede quitar ni reemplazar.
+
+```py
+tuple_name = ('first_value', 2, 'u_can_add_ints')
+
+```
+Listas
+
+Una lista consta de objetos mutables. (Objetos que se pueden cambiar después de la creación)
+La lista tiene una gran memoria.
+La lista se almacena en dos bloques de memoria (uno es de tamaño fijo y el otro es de tamaño variable para almacenar datos)
+Crear una lista es más lento porque se necesita acceder a dos bloques de memoria.
+Un elemento en una lista se puede eliminar o reemplazar.
+
+Rangos
+
+son inmutables
+Representan una secuencia de enteros
+
+```py
+#range(comienzo, fin , pasos)
+
+my_range = range(1,5)
+for i in my_range
+    print(i)
+
+1
+2
+3
+4
+
+```
+listas: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+
+Los nuevos que encontré además de los de la clase:
+
+lista.extend(iterable) #extiende la lista con valores dentro de un iterable como un range()
+lista.insert(i, ‘valor’) #Agrega un valor en la posición i y recorre todos los demás. No borra nada.
+lista.pop(i) #Elimina valor en la posición i de la lista.
+lista.remove(‘valor’) #Elimina el primer elemento con ese valor.
+lista.clear() #Borra elementos en la lista.
+lista.index(‘valor’) #Retorna posición del primer elemento con el valor.
+lista.index(‘valor’, start, end) #Retorna posición del elemento con el valor dentro de los elementos desde posición start hasta posición end)
+lista.count(‘valor’) #Cuenta cuántas veces esta ese valor en la lista.
+lista.sort() #Ordena los elementos de mayor a menor.
+lista.sort(reverse = True) #Ordena los elementos de menor a mayor.
+lista.reverse() #Invierte los elementos
+lista.copy() #Genera una copia de la lista. También útil para clonar listas.
+
+Pruebas de caja negra
+
+Las pruebas de caja negra se basan en la especificación de la función o el programa, aquí debemos probas sus inputs y validar los outputs. Se llama caja negra por que no necesitamos saber necesariamente los procesos internos del programa, solo contrastar sus resultados.
+Estos tipos de pruebas son muy importantes para 2 tipos de test:
+
+Unit testing: se realizan pruebas a cada uno de los módulos para determinar su correcto funcionamiento.
+
+Integration testing: es cuando vemos que todos los módulos funcionan entre sí.
+
+Es una buena práctica realizar los test antes de crear tus lineas de código, esto es por que cualquier cambio que se realice a futuro los test estaran incorporados para determinar si los cambios cumplen lo esperado.
+
+En Python existe la posibilidad de realizar test gracias a la libreria unittest. Puede ser que el siguiente código no lo entiendas en su totalidad, pero en una próxima guía detallare mas el tema de clases en programación. Por ahora te mostrare como se realizan estos test.
+
+Pruebas de caja de cristal
+
+Se basan en el flujo del programa, por lo que se asume que conocemos el funcionamiento del programa, por lo que podemos probar todos los caminos posibles de una función. Esto significa que vamos a probar las ramificaciones, bucles for y while, recursiónes, etc.
+
+Este tipo de pruebas son muy buenas cuando debemos realizar:
+
+Regression testing o mocks: descubrimos un bug cuando corremos el programa, por lo que vamos a buscar el bug gracias a que conocemos como esta estructurado el código.
+
+Debugging
+
+Los bugs son un problema que les sucede a todos, sin embargo si realizamos test a nuestro programa probablemente tendremos menos bugs, pero esto no es suficiente.
+
+Existen unas reglas generales que nos ayudaran:
+
+No te molestes con el debugger. Aprende a utilizar el print statement.
+Estudia los datos disponibles.
+Utiliza los datos para crear hipótesis y experimentos. Método científico.
+Ten una mente abierta. Si entendieras el programa, probablemente no habría bugs.
+Lleva un registro de lo que has tratado, preferentemente en la forma de tests.
+
+Debuguear es un proceso de búsqueda de los bugs, por lo que al diseñar nuestros experimentos debemos acotar el espacio de búsqueda en cada prueba. Una forma ágil de debugear es utilizando una búsqueda binaria con print statements, esto significa que ejecutamos la mitad del código, si no falla entonces sabemos que el problema esta en la otra mitad, y en cada área que vamos acortando lo dividimos por mitades, de esta forma hallaremos rápidamente nuestro bug.
+
+Existe un listado de errores comunes de los cuales también nos podemos apoyar:
+
+Encuentra a los sospechosos comunes (llamado a una función mal escrita, parámetros en orden incorrecto, etc.)
+En lugar de preguntarte por qué un programa no funciona, pregúntate por qué está funcionando de esta manera.
+Es posible que el bug no se encuentre donde crees que está.
+Explícale el problema a otra persona. De preferencia que no tenga contexto.
+Lleva un registro de lo que has tratado, preferentemente en la forma de tests.
+Vete a dormir.
+
+Excepciones y afirmaciones
+
+Los manejos de excepciones son muy comunes en la programación, no tienen nada de excepcional. Las excepciones de Python normalmente se relacionan con errores de semántica, también podemos crear nuestras propias excepciones, pero cuando una excepción no se maneja (unhandled exception), el programa termina en error.
+
+Las excepciones se manejan con los keywords: try, except, finally. Se pueden utilizar también para ramificar programas.
+
+No deben manejarse de manera silenciosa (por ejemplo, con print statements). Para crear tu propia excepción utiliza el keyword raise.
