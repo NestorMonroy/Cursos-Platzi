@@ -176,3 +176,15 @@ La **abstracción** es:
 - Enfocarnos en la información relevante.
 - Separar la información central de los detalles secundarios.
 - Podemos utilizar variables y métodos (privados o públicos).
+
+Encapsulación, getters and setters
+
+La **encapsulación** nos permite agrupar datos y su comportamiento, controla el acceso a dichos datos y previene modificaciones no autorizadas.
+
+Herencia
+
+La **herencia** permite modelar una jerarquía de clases, con el cual compartiremos comportamientos en común. Al padre se le conoce como _superclase_ y al hijo como _subclase_.
+
+Polimorfismo
+
+El **polimorfismo** es la habilidad de tomar varias formas, en este caso la habilidad de cambiar el comportamiento de un método. En Python, nos permite cambiar el comportamiento de una _superclase_ para adaptarlo a la subclase solo nombrando el método y escribiendo su comportamiento.
