@@ -188,3 +188,81 @@ La **herencia** permite modelar una jerarquía de clases, con el cual compartire
 Polimorfismo
 
 El **polimorfismo** es la habilidad de tomar varias formas, en este caso la habilidad de cambiar el comportamiento de un método. En Python, nos permite cambiar el comportamiento de una _superclase_ para adaptarlo a la subclase solo nombrando el método y escribiendo su comportamiento.
+
+Introducción a la complejidad algorítmica
+
+La **complejidad algorítmica** nos permite comparar la eficiencia de 2 algoritmos, esto a su vez va a predecir el **tiempo** que va a tomar resolver un problema. No solamente podemos analizar la complejidad desde la perspectiva **temporal**, también la podemos hacer desde la **espacial**, como por ejemplo cuanto espacio en memoria necesitamos.
+
+La complejidad algorítmica temporal la podemos definir como **T(n)** el cual determinara el tiempo que demora en resolver nuestro algoritmo.
+
+Aproximaciones
+
+¿Como podríamos aplicar nuestra función **T(n)**?
+
+- Cronometrar el tiempo en el que corre un algoritmo. Sin embargo **no es una buena forma de medir** los algoritmos, ya que no se puede predecir cuanto demorara a medida que crece nuestros pasos.
+
+- Contar los pasos con una medida abstracta de operación. Nos puede acercar a una medición ideal, sin embargo varia mucho de algoritmo en algoritmo y a medida que crece nuestro dataset existen muchos términos que llegan a ser irrelevantes.
+
+- Contar los pasos conforme nos aproximamos al infinito pero con una medida asintótica.
+
+Medición temporal
+
+Para una realizar una medida temporal simplemente calculamos la diferencia del tiempo previo y posterior de la ejecución del algoritmo.
+
+Conteo abstracto de operación
+
+Con esta técnica contamos los pasos que realiza nuestro algoritmo. En el siguiente ejemplo `respuesta` tendrá los números de pasos que realiza nuestro código al ejecutar.
+
+
+```py
+def f(x):
+
+    respuesta = 0
+
+    for i in range(1000):
+        respuesta += 1
+
+    for i in range(x):
+        respuesta += x
+
+    for i in range(x):
+        for j in range(x):
+            respuesta += 1
+            respuesta += 1
+
+    return respuesta
+```
+
+Notación asintótica
+
+Cuando hablamos de **notación asintótica** no importan las variaciones pequeñas, el enfoque se centra en lo que pasa conforme el tamaño del problema se acerca al infinito.
+
+Siempre tenemos que estar preparados para cualquier caso, por lo que tenemos que saber medir a nuestro algoritmo en el mejor, promedio y peor de los casos.
+
+Lo mejor que nos permite comparar nuestros algoritmos y su capacidad es medir el peor de los casos, ahí es donde entra el **Big O notation**, donde lo único que importa es el termino de mayor tamaño, sin importar las constantes que las acompañan. 
+
+
+https://cses.fi/book/book.pdf
+
+Clases de complejidad algorítmica
+
+Existen distintos tipos de complejidad algorítmica:
+
+- **O(1) Constante:** no importa la cantidad de input que reciba, siempre demorara el **mismo tiempo**.
+- **O(n) Lineal:** la complejidad crecerá de forma **proporcional** a medida que crezca el input.
+- **O(log n) Logarítmica:** nuestra función crecerá de forma **logarítmica** con respecto al input. Esto significa que en un inicio crecerá rápido, pero luego se estabilizara.
+- **O(n log n) Log lineal:** crecerá de forma **logarítmica** pero junto con una **constante**.
+- **O(n²) Polinomial:** crecen de forma cuadrática. No son recomendables a menos que el input de datos en pequeño.
+- **O(2^n) Exponencial:** crecerá de forma **exponencial**, por lo que la carga es muy alta. Para nada recomendable en ningún caso, solo para análisis conceptual.
+- **O(n!) Factorial:** crece de forma **factorial**, por lo que al igual que el exponencial su carga es muy alta, por lo que jamas utilizar algoritmos de este tipo.
+
+<div align="center"> 
+  <img src="/assets/img/big-o-complexity-chart.png" width="70%">
+</div>
+
+
+Búsqueda lineal
+
+La **búsqueda lineal** es un algoritmo muy sencillo. Consta en buscar si un elemento se encuentra dentro de una lista, array o un sistema ordenado o no ordenado para poder determinar si el elemento se encuentra en el o forma parte de el.
+
+¿Cuál es el peor caso del siguiente código? Si nos fijamos existe un **for loop** que crece según el tamaño de la lista, por lo cual nuestro Big O es O(n).

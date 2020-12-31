@@ -30,9 +30,10 @@ class Employee:
 emp_1 = Employee('Jonh', 'Smith')
 emp_1.first = 'Nestor'
 emp_1.fullname = 'Joel Hernandez'
+emp_1.first = 'Nestor'
 
 print(emp_1.first)
 print(emp_1.email)
 print(emp_1.fullname)
 
-del emp_1.fullname
+#del emp_1.fullname

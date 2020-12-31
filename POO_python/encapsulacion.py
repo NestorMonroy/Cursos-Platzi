@@ -9,6 +9,11 @@ class CasillaDeVotacion:
 
     # getters
     # utilizamos el decorador @property
+    #@property
+    def pais(self):
+        return self._pais
+    
+    
     @property
     def region(self):
         return self._region
@@ -25,6 +30,7 @@ class CasillaDeVotacion:
 
 
 casilla = CasillaDeVotacion(123, ['Ciudad de México', 'Morelos'])
+print(casilla.pais())
 print(casilla.region)
 casilla.region = 'Ciudad de México'
 print(casilla.region)
