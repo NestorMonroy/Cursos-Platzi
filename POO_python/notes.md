@@ -268,7 +268,7 @@ La **búsqueda lineal** es un algoritmo muy sencillo. Consta en buscar si un ele
 ¿Cuál es el peor caso del siguiente código? Si nos fijamos existe un **for loop** que crece según el tamaño de la lista, por lo cual nuestro Big O es O(n).
 
 
-Búsqueda binaria
+Búsqueda binaria O (log n)
 
 La **búsqueda binaria** toma una estrategia llamada "Divide y conquista", la cual consiste en dividir el problema en 2 en cada iteración. Este algoritmo asume que la lista se encuentra ordenada, por lo que es necesario realizar este paso primero.
 
@@ -296,4 +296,12 @@ La **búsqueda binaria** es uno de los mejores algoritmos que se tienen hoy en d
 
 <div align="center"> 
   <img src="/assets/img/linear-vs-binary-search-best-case.gif" width="70%">
+</div>
+
+Ordenamiento de burbuja O(n**2)
+
+El primer algoritmo de ordenamiento que veremos es el **ordenamiento de burbuja**. Es un algoritmo que recorre repetidamente una lista que necesita ordenarse. Compara elementos adyacentes y los intercambia si están en el orden incorrecto. Este procedimiento se repite hasta que no se requiere mas intercambios, lo que indica que la lista se encuentra ordenada.
+
+<div align="center"> 
+  <img src="/assets/img/bubble-sort.gif" width="80%">
 </div>
