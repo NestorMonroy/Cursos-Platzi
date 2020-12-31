@@ -38,37 +38,37 @@ def main():
         principio = time.time()
         print(f'El resultado de complejidad constante para n igual a {n} es: ', complejidad.constante())
         fin = time.time()
-        tiempo = fin - principio
+        tiempo = round((fin - principio), 10) 
         print(f'has tardado {tiempo} segundos\n')
         
         principio = time.time()
         print(f'El resultado de complejidad logaritmica para n igual a {n} es: ', complejidad.logaritmica())
         fin = time.time()
-        tiempo = fin - principio
+        tiempo = round((fin - principio), 10) 
         print(f'has tardado {tiempo} segundos\n')
         
         principio = time.time()
         print(f'El resultado de complejidad lineal para n igual a {n} es: ', complejidad.lineal())
         fin = time.time()
-        tiempo = fin - principio
+        tiempo = round((fin - principio), 10) 
         print(f'has tardado {tiempo} segundos\n')
         
         principio = time.time()
         print(f'El resultado de complejidad logaritmica lineal para n igual a {n} es: ', complejidad.log_lineal())
         fin = time.time()
-        tiempo = fin - principio
+        tiempo = round((fin - principio), 10) 
         print(f'has tardado {tiempo} segundos\n')
         
         principio = time.time()
         print(f'El resultado de complejidad polinomial para n igual a {n} es: ', complejidad.polinomial())
         fin = time.time()
-        tiempo = fin - principio
+        tiempo = round((fin - principio), 10) 
         print(f'has tardado {tiempo} segundos\n')
        
         principio = time.time()
         print(f'El resultado de complejidad exponencial para n igual a {n} es: ', complejidad.exponencial())
         fin = time.time()
-        tiempo = fin - principio
+        tiempo = round((fin - principio), 10) 
         print(f'has tardado {tiempo} segundos\n')
         
         print('\n\n')

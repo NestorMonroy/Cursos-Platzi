@@ -266,3 +266,34 @@ Búsqueda lineal
 La **búsqueda lineal** es un algoritmo muy sencillo. Consta en buscar si un elemento se encuentra dentro de una lista, array o un sistema ordenado o no ordenado para poder determinar si el elemento se encuentra en el o forma parte de el.
 
 ¿Cuál es el peor caso del siguiente código? Si nos fijamos existe un **for loop** que crece según el tamaño de la lista, por lo cual nuestro Big O es O(n).
+
+
+Búsqueda binaria
+
+La **búsqueda binaria** toma una estrategia llamada "Divide y conquista", la cual consiste en dividir el problema en 2 en cada iteración. Este algoritmo asume que la lista se encuentra ordenada, por lo que es necesario realizar este paso primero.
+
+La **búsqueda binaria** es uno de los mejores algoritmos que se tienen hoy en día para búsqueda, ya que reduce significativamente el numero de pasos, y así disminuyendo nuestro Big O.
+
+<div align="center">
+  <h4>Caso Promedio</h4>
+</div>
+
+<div align="center"> 
+  <img src="/assets/img/binary-and-linear-search-animations.gif" width="70%">
+</div>
+
+<div align="center">
+  <h4>Peor de los Casos</h4>
+</div>
+
+<div align="center"> 
+  <img src="/assets/img/linear-vs-binary-search-worst-case.gif" width="70%">
+</div>
+
+<div align="center">
+  <h4>Mejor de los Casos</h4>
+</div>
+
+<div align="center"> 
+  <img src="/assets/img/linear-vs-binary-search-best-case.gif" width="70%">
+</div>
