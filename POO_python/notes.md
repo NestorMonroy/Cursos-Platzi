@@ -363,3 +363,63 @@ El último valor es 8. 9 es más grande que 8 por lo que lo movemos a la derecha
 Ahora la lista se encuentra ordenada y no quedan más elementos en la sublista desordenada.
 
 
+Ordenamiento por mezcla
+
+El **ordenamiento por mezcla** creado por **John von Neumann** el cual aplica el concepto de "divide y conquista". Primero divide una lista en partes iguales hasta que quedan sublistas de 1 o 0 elementos. Luego las recombina en forma ordenada.
+
+<div align="center"> 
+  <img src="/assets/img/merge-sort.gif" width="60%">
+</div>
+
+
+Ambientes virtuales
+
+Los **ambientes virtuales** permiten aislar el ambiente para poder instalar diversas versiones de paquetes. A partir de _python 3_ se incluye en la librería estándar en el módulo **venv**. Ningún ingeniero profesional de Python trabaja sin ellos.
+
+**Pip** permite descargar paquetes de terceros para utilizar en nuestro programa, también permite compartir nuestros paquetes con terceros y también podemos definir la versión del paquete que necesitamos.
+
+Para crear un ambiente virtual primer crearemos el directorio para nuestro proyecto.
+
+
+```bash
+mkdir graficado             # Creamos el directorio del proyecto.
+cd graficado/               # Ingresamos al directorio.
+python3 -m venv env         # Creamos un ambiente virtual en env.
+source env/bin/activate     # Activamos el ambiente.
+```
+
+Para poder instalar librerías lo haremos con el comando pip.
+
+```bash
+pip install bokeh   # pip install instalara la librería.
+pip freeze          # Con pip freeze veremos que librerías están instaladas.
+```
+
+Para desactivar el ambiente virtual lo haremos con el siguiente comando.
+
+```bash
+deactivate          # Comando para desactivar ambiente Virtual
+```
+
+Graficado
+
+¿Por qué graficar?
+
+Es importante que podamos traducir los datos que nos arrojan nuestro programa en un elemento visual, así podemos realizar reconocimientos de patrones, predicción de series, simplifica la interpretación y la conclusión acerca de los datos.
+
+
+<div align="center"> 
+  <img src="/assets/img/grafico.svg" width="80%">
+</div>
+
+
+Graficado simple
+
+La librería [**Bokeh**](http://docs.bokeh.org/en/latest/index.html) permite construir gráficas complejas de manera rápida y con comandos simples, también nos permite exportar a varios formatos como html, notebooks, imágenes, etc. [**Bokeh**](http://docs.bokeh.org/en/latest/index.html#) se puede utilizar en el servidor con **Flask** y **Django**.
+
+
+Algoritmos de optimización
+
+## Introducción a la optimización
+
+El concepto de **optimización** permite resolver muchos problemas de manera computacional. Cuando pensamos en un algoritmo de optimización debemos definir una función objetivo que debemos maximizar o minimizar, respetando una serie de limitantes que definamos. 
