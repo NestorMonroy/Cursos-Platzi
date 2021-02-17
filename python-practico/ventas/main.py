@@ -15,6 +15,7 @@ def _initialize_clients_for_storage():
             clients.append(row)
 
 
+
 def _save_clients_to_storage():
     tmp_table_name = '{}.tmp'.format(CLIENT_TABLE)
     with open(tmp_table_name, mode='w') as f:
@@ -23,8 +24,6 @@ def _save_clients_to_storage():
 
         os.remove(CLIENT_TABLE)
         os.rename(tmp_table_name, CLIENT_TABLE)
-
-
 
 
 def _not_found_clients():
