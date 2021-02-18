@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     'users',
 ]
 
+"""
+    middleware es una serie de hooks y una API de bajo nivel que nos permiten modificar el 
+    objeto request antes de que llegue a la vista y response antes de que salga de la vista.
+    
+"""
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'nestorgram.middleware.ProfileCompletionMiddleware'
 ]
 
 ROOT_URLCONF = 'nestorgram.urls'
