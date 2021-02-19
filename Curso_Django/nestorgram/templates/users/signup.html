@@ -13,6 +13,8 @@
 
     {% csrf_token %}
 
+    {{form.as_p}}
+<!-- 
     <div class="form-group">
         <input class="form-control" type="text" placeholder="Username" name="username" required="true">
     </div>
@@ -36,9 +38,9 @@
 
     <div class="form-group">
         <input class="form-control" type="email" placeholder="Email" name="email" required="true">
-    </div>
+    </div -->
 
-    <button class="btn btn-primary btn-block mt-5" type="submit">Sign in</button>
+    <button class="btn btn-primary btn-block mt-5" type="submit">Sign in</button> 
 
 </form>
 {% endblock %}

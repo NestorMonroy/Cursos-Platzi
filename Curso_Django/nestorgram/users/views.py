@@ -7,7 +7,7 @@ from django.db.utils import IntegrityError
 
 from django.contrib.auth.models import User
 from .models import Profile
-from .forms import ProfileForm
+from .forms import ProfileForm, SignupForm
 
 
 def login_view(request):
@@ -23,7 +23,7 @@ def login_view(request):
             login(request, user)
             return redirect('feed')
         else:
-            return render(request, 'users/login.html', {'error': 'Invalid usdername and password'})
+            return render(request, 'users/login.html', {'error': 'Invalid username and password'})
 
     return render(request, 'users/login.html')
 
@@ -36,33 +36,26 @@ def logout_view(request):
 
 def signup(request):
     #import pdb; pdb.set_trace()
-
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        password_confirmation = request.POST.get('password_confirmation')
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
 
-        if password != password_confirmation:
-            return render(request, 'users/signup.html', {'error': 'Password confirmation is incorrect'})
+            #import pdb; pdb.set_trace()
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
 
-        try:
-            user = User.objects.create_user(
-                username=username, password=password)
-        except IntegrityError:
-            return render(request, 'users/signup.html', {'error': 'Username is already in use'})
+            return redirect('feed')
+            
+    else:
+        form = SignupForm()
 
-        user.first_name = request.POST['first_name']
-        user.last_name = request.POST['last_name']
-        user.email = request.POST['email']
-
-        user.save()
-        profile = Profile(user=user)
-        profile.save()
-        # return redirect('login')
-        login(request, user)
-        return redirect('feed')
-
-    return render(request, 'users/signup.html')
+    ctx = {
+        'form': form
+    }
+    return render(request, 'users/signup.html', ctx)
 
 
 @login_required

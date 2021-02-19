@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import Profile
 
 
 class ProfileForm(forms.Form):
@@ -93,7 +94,6 @@ class SignupForm(forms.Form):
             raise forms.ValidationError('Username is already in use')
         return username
 
-    
     def clean(self):
         """ Verify password confirmation match """
         data = super().clean()
@@ -101,5 +101,16 @@ class SignupForm(forms.Form):
         password_confirmation = data['password_confirmation']
 
         if password != password_confirmation:
-            raise forms.ValidationError('Password confirmation is incorrect')
-        return password
+            raise forms.ValidationError('Passwords do not match.')
+        return data
+        
+
+
+    def save(self):
+        """Create user and profile."""
+        data = self.cleaned_data
+        data.pop('password_confirmation')
+
+        user = User.objects.create_user(**data)
+        profile = Profile(user=user)
+        profile.save()
