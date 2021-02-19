@@ -3,13 +3,15 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 
-class ProfileForm(forms.Form):
-
-    website = forms.URLField(max_length=200, required=True)
-    biography = forms.CharField(max_length=500, required=False)
+class ProfileForm(forms.ModelForm):
+    website = forms.URLField(max_length=200, required=False)
+    biography = forms.CharField(max_length=500, required=True)
     phone_number = forms.CharField(max_length=20, required=False)
+    picture = forms.ImageField(required=True)
 
-    picture = forms.ImageField()
+    class Meta:
+        model = Profile
+        fields = ['website', 'biography', 'phone_number', 'picture']
 
 
 class SignupForm(forms.Form):
@@ -103,8 +105,6 @@ class SignupForm(forms.Form):
         if password != password_confirmation:
             raise forms.ValidationError('Passwords do not match.')
         return data
-        
-
 
     def save(self):
         """Create user and profile."""

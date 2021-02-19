@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect, render
-from django.urls import reverse
-from django.views.generic.detail import DetailView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import DetailView, FormView, UpdateView
 
 from django.db.utils import IntegrityError
 
@@ -30,28 +31,40 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         return context
 
 
-def login_view(request):
-
-    #import pdb; pdb.set_trace()
-    if request.method == 'POST':
-
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-        if user:
-            login(request, user)
-            return redirect('posts:feed')
-        else:
-            return render(request, 'users/login.html', {'error': 'Invalid username and password'})
-
-    return render(request, 'users/login.html')
+class LoginView(auth_views.LoginView):
+    template_name = 'users/login.html'
+    redirect_authenticated_user = True
 
 
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('users:login')
+
+
+class LogoutView(auth_views.LogoutView):
+    """Vista de logout"""
+    pass
+
+
+class SignupView(FormView):
+    template_name = 'users/signup.html'
+    form_class = SignupForm
+    success_url = reverse_lazy('posts:feed')
+    """ Siempre en FormView se tiene que usar el form_valid """
+
+    def form_valid(self, form):
+        form.save()
+
+        username = form['username'].value()
+        password = form['password'].value()
+
+        user = authenticate(
+            self.request, username=username, password=password)
+
+        login(self.request, user)
+
+        return super().form_valid(form)
 
 
 def signup(request):
@@ -76,6 +89,22 @@ def signup(request):
         'form': form
     }
     return render(request, 'users/signup.html', ctx)
+
+
+class UpdateProfileUpdateView(LoginRequiredMixin, UpdateView):
+
+    template_name = 'users/update_profile.html'
+    model = Profile
+    form_class = ProfileForm
+
+    def get_object(self):
+        """ Return user's profile """
+        return self.request.user.profile
+
+    def get_success_url(self):
+        """ Return to user's profile """
+        username = self.object.user.username
+        return reverse('users:detail', kwargs={'username': username})
 
 
 @login_required
