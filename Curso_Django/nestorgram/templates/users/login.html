@@ -1,7 +1,7 @@
 {% extends "users/base.html" %}
 
 {% block head_content %} 
-<title>Nestorgram sing in</title>
+<title>Animalsgram sing in</title>
 {% endblock %}
 
 {% block container %}
@@ -9,7 +9,7 @@
     {% if error %}
     <p class='alert alert-danger' > {{error}} </p>    
     {% endif %}
-    <form method="POST" action="{% url "login" %}">
+    <form method="POST" action="{% url 'users:login' %}">
         {% csrf_token %}
         <div class="form-group">
             <input class="form-control mb-2" type="text" placeholder="Username" name="username" />
@@ -18,5 +18,5 @@
         <button class="btn btn-primary btn-block mt-5" type="submit">Sign in</button>
 
     </form>
-    <p class="mt-4">Dont have and account yet <a href="{% url 'signup' %}">Sign up here.</a> </p>
+    <p class="mt-4">Dont have and account yet <a href="{% url 'users:signup' %}">Sign up here.</a> </p>
 {% endblock %}

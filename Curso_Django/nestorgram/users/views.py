@@ -1,13 +1,33 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
+from django.urls import reverse
+from django.views.generic.detail import DetailView
 
 from django.db.utils import IntegrityError
 
 from django.contrib.auth.models import User
 from .models import Profile
+from posts.models import Post
 from .forms import ProfileForm, SignupForm
+
+
+class UserDetailView(LoginRequiredMixin, DetailView):
+
+    template_name = 'users/detail.html'
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
+    queryset = User.objects.all()
+    context_object_name = 'user'
+
+    def get_context_data(self, **kwargs):
+        """Add user's posts to context."""
+        context = super().get_context_data(**kwargs)
+        user = self.get_object()
+        context['posts'] = Post.objects.filter(user=user).order_by('-created')
+        return context
 
 
 def login_view(request):
@@ -21,7 +41,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            return redirect('feed')
+            return redirect('posts:feed')
         else:
             return render(request, 'users/login.html', {'error': 'Invalid username and password'})
 
@@ -31,7 +51,7 @@ def login_view(request):
 @login_required
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('users:login')
 
 
 def signup(request):
@@ -47,8 +67,8 @@ def signup(request):
             user = authenticate(request, username=username, password=password)
             login(request, user)
 
-            return redirect('feed')
-            
+            return redirect('posts:feed')
+
     else:
         form = SignupForm()
 
@@ -73,7 +93,9 @@ def update_profile(request):
             profile.picture = data['picture']
             profile.save()
 
-            return redirect('updated_profile')
+            url = reverse('users:detail', kwargs={
+                          'username': request.user.username})
+            return redirect(url)
 
     else:
         form = ProfileForm()

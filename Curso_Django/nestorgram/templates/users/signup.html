@@ -1,12 +1,12 @@
 {% extends "users/base.html" %}
 
 {% block head_content %}
-<title>Nestorgram sign up</title>
+<title>Animalsgram sign up</title>
 {% endblock %}
 
 
 {% block container %}
-<form action=" {% url 'signup' %}" method="POST">
+<form action=" {% url 'users:signup' %}" method="POST">
     {% if error %}
     <p class='alert alert-danger'> {{error}} </p>
     {% endif %}
