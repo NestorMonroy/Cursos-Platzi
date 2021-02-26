@@ -74,7 +74,7 @@ EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[Comparte Rid
 # Admin
 ADMIN_URL = env('DJANGO_ADMIN_URL')
 
-# Anymail (Mailgun)
+# Anymail  libreria que permite conectar con ESP (Mailgun)
 INSTALLED_APPS += ['anymail']  # noqa F405
 EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 ANYMAIL = {
