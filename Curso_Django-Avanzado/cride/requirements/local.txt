@@ -5,6 +5,10 @@ ipdb==0.13.3
 
 # Tools
 django-extensions==3.0.8
+autopep8==1.5.5
+toml==0.10.2
+pycodestyle==2.6.0
+
 
 # Testing
 mypy==0.782
