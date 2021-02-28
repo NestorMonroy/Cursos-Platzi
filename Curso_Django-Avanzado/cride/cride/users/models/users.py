@@ -3,10 +3,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
 
-from cride.utils.models import CrideModel
+from cride.utils.models import CRideModel
 
 
-class User(CrideModel, AbstractUser):
+class User(CRideModel, AbstractUser):
     """ User model.
     Extend from Django's Abstract User, chane the username field to email and
     add some extra fields
