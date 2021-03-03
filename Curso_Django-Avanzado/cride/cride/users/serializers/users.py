@@ -15,8 +15,8 @@ from rest_framework.validators import UniqueValidator
 from cride.users.models import User, Profile
 
 # Utilities
-#https://pyjwt.readthedocs.io/en/stable/usage.html#encoding-decoding-tokens-with-hs256
-import jwt 
+# https://pyjwt.readthedocs.io/en/stable/usage.html#encoding-decoding-tokens-with-hs256
+import jwt
 from datetime import timedelta
 
 
@@ -134,3 +134,35 @@ class UserLoginSerializer(serializers.Serializer):
             user.last_login = timezone.now()
             user.save(update_fields=['last_login'])
         return user, token.key
+
+
+class AccountVerificationSerializer(serializers.Serializer):
+    """Account verification Serializer"""
+
+    token = serializers.CharField()
+
+    def validate_token(self, data):
+        """Verify token is valid
+            https://pyjwt.readthedocs.io/en/stable/api.html#exceptions
+        """
+
+        try:
+            payload = jwt.decode(data, settings.SECRET_KEY, algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise serializers.ValidationError('Verification link has expired')
+        except jwt.PyJWTError:
+            raise serializers.ValidationError('Invalid token')
+        if payload['type'] != 'email_confirmation':
+            raise serializers.ValidationError('Invalid token')
+        self.context['payload'] = payload
+        return data
+
+    # create regresa la instancia de un objecto
+    # en este caso usamos save
+    def save(self):
+        """Update users verified status"""
+
+        payload = self.context['payload']
+        user = User.objects.get(username=payload['user'])
+        user.is_verified = True
+        user.save()
