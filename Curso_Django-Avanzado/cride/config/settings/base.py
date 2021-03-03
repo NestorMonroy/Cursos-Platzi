@@ -42,6 +42,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'rest_framework.authtoken', #Token seguro con django, criptografia
 ]
 LOCAL_APPS = [
     'cride.users.apps.UsersAppConfig',
@@ -156,3 +157,11 @@ CELERYD_TASK_SOFT_TIME_LIMIT = 60
 
 #User & Authentication
 AUTH_USER_MODEL = 'users.User'
+
+# Django REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+
+}
