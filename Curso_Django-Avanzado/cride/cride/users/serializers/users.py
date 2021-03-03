@@ -68,7 +68,7 @@ class UserSignUpSerializer(serializers.Serializer):
         """Handle User and creation"""
 
         data.pop('password_confirmation')
-        user = User.objects.create_user(**data)
+        user = User.objects.create_user(**data, is_verified=False)
         profile = Profile.objects.create(user=user)
         return user
 
@@ -88,6 +88,8 @@ class UserLoginSerializer(serializers.Serializer):
         user = authenticate(username=data['email'], password=data['password'])
         if not user:
             raise serializers.ValidationError('Invalid credentials')
+        if not user.is_verified:
+            raise serializers.ValidationError('Account is not active :( ')
         self.context['user'] = user  # todos los serializers comparten el context => es un atributo de clase
         return data
 

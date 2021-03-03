@@ -28,7 +28,7 @@ class User(CRideModel, AbstractUser):
     is_client = models.BooleanField('client ', default=True, help_text=(
         'Help easily distinguish user and perfom queris.' 'Clients are the main type of user'))
 
-    is_verfied = models.BooleanField('verified', default=False,
+    is_verified = models.BooleanField('verified', default=False,
                                      help_text='Set to True when the user have verified its email addres ')
 
     def __str__(self):
