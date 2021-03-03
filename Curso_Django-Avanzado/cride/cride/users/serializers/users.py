@@ -1,5 +1,6 @@
 """User serializers """
 # Django
+from django.conf import settings
 from django.contrib.auth import authenticate, password_validation
 from django.utils import timezone
 from django.core.validators import RegexValidator
@@ -12,6 +13,11 @@ from rest_framework.validators import UniqueValidator
 
 # Models
 from cride.users.models import User, Profile
+
+# Utilities
+#https://pyjwt.readthedocs.io/en/stable/usage.html#encoding-decoding-tokens-with-hs256
+import jwt 
+from datetime import timedelta
 
 
 class UserModelSerializer(serializers.ModelSerializer):
@@ -89,8 +95,14 @@ class UserSignUpSerializer(serializers.Serializer):
 
     def gen_verification_token(self, user):
         """Create JWT token that the user can use to verifity its account"""
-
-        return 'abc'
+        exp_date = timezone.now() + timedelta(days=3)
+        payload = {
+            'user': user.username,
+            'exp': int(exp_date.timestamp()),
+            'type': 'email_confirmation'
+        }
+        token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
+        return token
 
 
 class UserLoginSerializer(serializers.Serializer):
