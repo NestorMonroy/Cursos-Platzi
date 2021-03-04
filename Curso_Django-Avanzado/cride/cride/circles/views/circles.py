@@ -1,23 +1,27 @@
 """Circle views."""
 
 # Django REST Framework
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 
 # Serializers
 from cride.circles.serializers import CircleModelSerializer
 
 # Permissions
 from rest_framework.permissions import IsAuthenticated
+from cride.circles.permissions.circles import IsCircleAdmin
 
 # Models
 from cride.circles.models import Circle, Membership
 
 
-class CircleViewSet(viewsets.ModelViewSet):
+class CircleViewSet(mixins.CreateModelMixin,
+                    mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.ListModelMixin,
+                    viewsets.GenericViewSet):
     """Circle view set."""
 
     serializer_class = CircleModelSerializer
-    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         """Restric list to public-only"""
@@ -26,6 +30,7 @@ class CircleViewSet(viewsets.ModelViewSet):
             return queryset.filter(is_public=True)
         return queryset
 
+    #https://www.django-rest-framework.org/tutorial/4-authentication-and-permissions/#associating-snippets-with-users
     def perform_create(self, serializer):
         """Assign circle admin."""
         circle = serializer.save()
@@ -39,6 +44,13 @@ class CircleViewSet(viewsets.ModelViewSet):
             remaining_invitations=10
         )
 
+    # https://www.django-rest-framework.org/api-guide/viewsets/#introspecting-viewset-actions
+    def get_permissions(self):
+        """Assign permissions based on action."""
+        permissions = [IsAuthenticated]
+        if self.action in ['update', 'partial_update']:
+            permissions.append(IsCircleAdmin)
+        return [permission() for permission in permissions]
 
 # """Circles views"""
 # from django.http import JsonResponse
