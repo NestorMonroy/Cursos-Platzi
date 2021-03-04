@@ -14,6 +14,10 @@ from rest_framework.validators import UniqueValidator
 # Models
 from cride.users.models import User, Profile
 
+# Serializers
+from cride.users.serializers.profiles import ProfileModelSerializer
+
+
 # Utilities
 # https://pyjwt.readthedocs.io/en/stable/usage.html#encoding-decoding-tokens-with-hs256
 import jwt
@@ -22,6 +26,8 @@ from datetime import timedelta
 
 class UserModelSerializer(serializers.ModelSerializer):
     """User model serializer"""
+    profile = ProfileModelSerializer(read_only=True)
+
     class Meta:
         model = User
         fields = (

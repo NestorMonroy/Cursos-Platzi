@@ -22,13 +22,17 @@ from cride.users.serializers import (
     UserSignUpSerializer,
     AccountVerificationSerializer
 )
+from cride.circles.serializers import CircleModelSerializer
+from cride.users.serializers.profiles import ProfileModelSerializer
+
 
 # Models
 from cride.users.models import User
 from cride.circles.models import Circle
-from cride.circles.serializers import CircleModelSerializer
+
 
 class UserViewSet(mixins.RetrieveModelMixin,  # Metodo Retrieve para obtener la data basica del user y como extra data los circulos a que dicho user es miembro
+                  mixins.UpdateModelMixin,
                   viewsets.GenericViewSet):
     """User view set.
         Handle sign up, login and account verification.
@@ -42,7 +46,7 @@ class UserViewSet(mixins.RetrieveModelMixin,  # Metodo Retrieve para obtener la 
         """Assign permissions based on action."""
         if self.action in ['signup', 'login', 'verify']:  # excluye los metodos
             permissions = [AllowAny]
-        elif self.action in ['retrieve']:
+        elif self.action in ['retrieve', 'update', 'partial_update', 'profile']:
             permissions = [IsAuthenticated, IsAccountOwner]
         else:
             permissions = [IsAuthenticated]
@@ -78,6 +82,22 @@ class UserViewSet(mixins.RetrieveModelMixin,  # Metodo Retrieve para obtener la 
         data = {'message': 'Congratulation, now go share some rides!'}
         return Response(data, status=status.HTTP_200_OK)
 
+    @action(detail=True, methods=['put', 'patch'])
+    def profile(self, request, *args, **kwargs):
+        """Update profile data."""
+        user = self.get_object()
+        profile = user.profile
+        partial = request.method == 'PATCH'  # Si el metodo es PATCH, partial es TRUE
+        serializer = ProfileModelSerializer(
+            profile,
+            data=request.data,
+            partial=partial
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        data = UserModelSerializer(user).data
+        return Response(data)
+
     def retrieve(self, request, *args, **kwargs):
         """Add extra data to the response."""
         response = super(UserViewSet, self).retrieve(request, *args, **kwargs)
@@ -87,7 +107,8 @@ class UserViewSet(mixins.RetrieveModelMixin,  # Metodo Retrieve para obtener la 
         )
         data = {
             'user': response.data,
-            'circles': CircleModelSerializer(circles, many=True).data # https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/
+            # https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/
+            'circles': CircleModelSerializer(circles, many=True).data
         }
         response.data = data
         return response
