@@ -42,7 +42,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'rest_framework.authtoken', #Token seguro con django, criptografia
+    'rest_framework.authtoken',  # Token seguro con django, criptografia
 ]
 LOCAL_APPS = [
     'cride.users.apps.UsersAppConfig',
@@ -163,5 +163,9 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
-
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 3,
 }
