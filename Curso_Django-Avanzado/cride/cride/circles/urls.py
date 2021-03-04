@@ -13,7 +13,7 @@ from .views import memberships as membership_views
 router = DefaultRouter()
 router.register(r'circles', circle_views.CircleViewSet, basename='circle')
 router.register(
-    r'circles/(?P<slug_name>[-a-zA-Z0-0_]+)/members',
+    r'circles/(?P<slug_name>[a-zA-Z-0-9_-]+)/members',
     membership_views.MembershipViewSet,
     basename='membership'
 )
