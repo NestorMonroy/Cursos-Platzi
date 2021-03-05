@@ -6,6 +6,8 @@ from django.db import models
 # Utilities
 from cride.utils.models import CRideModel
 
+# Managers
+from cride.circles.managers import InvitationManager
 
 
 class Invitation(CRideModel):
@@ -36,6 +38,9 @@ class Invitation(CRideModel):
 
     used = models.BooleanField(default=False)
     used_at = models.DateTimeField(blank=True, null=True)
+
+    # Manager https://docs.djangoproject.com/en/3.1/topics/db/managers/
+    objects = InvitationManager() 
 
 
     def __str__(self):
