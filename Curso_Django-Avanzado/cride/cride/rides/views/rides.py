@@ -8,22 +8,35 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from cride.circles.permissions.memberships import IsActiveCircleMember
 
+# Filters
+from rest_framework.filters import SearchFilter, OrderingFilter
+
 # Serializers
 from cride.rides.serializers import (
     CreateRideSerializer,
+    RideModelSerializer
 )
 
 # Models
 from cride.circles.models import Circle
 
+# Utilities
+from datetime import timedelta
+from django.utils import timezone
 
-class RideViewSet(mixins.CreateModelMixin,
+
+class RideViewSet( mixins.ListModelMixin, 
+                    mixins.CreateModelMixin,
                   viewsets.GenericViewSet):
     
     """Ride view set."""
 
-    serializer_class = CreateRideSerializer
-    permissions = [IsAuthenticated, IsActiveCircleMember]
+    permission_classes = [IsAuthenticated, IsActiveCircleMember]
+    filter_backends = (SearchFilter, OrderingFilter)
+    ordering = ('departure_date', 'arrival_date', 'available_seats')
+    ordering_fields = ('departure_date', 'arrival_date', 'available_seats')
+    search_fields = ('departure_location', 'arrival_location')
+
 
     def dispatch(self, request, *args, **kwargs):
         """Verify that the circle exists."""
@@ -32,7 +45,24 @@ class RideViewSet(mixins.CreateModelMixin,
         return super(RideViewSet, self).dispatch(request, *args, **kwargs)
 
     def get_serializer_context(self):
-        """Add circle to serializer context."""
+        """Add circle to serializer context.""" # se envian datos addicionales
         context = super(RideViewSet, self).get_serializer_context()
         context['circle'] = self.circle
         return context
+
+    def get_serializer_class(self): 
+        """Return serializer based on action.""" # Multiples serializers 
+        if self.action == 'create':
+            return CreateRideSerializer
+        return RideModelSerializer
+
+    def get_queryset(self):
+        """Return active circle's rides."""
+        if self.action not in ['finish', 'retrieve']:
+            offset = timezone.now() + timedelta(minutes=15)
+            return self.circle.ride_set.filter(
+                departure_date__gte=offset,
+                is_active=True,
+                available_seats__gte=1
+            )
+        return self.circle.ride_set.all()

@@ -12,6 +12,21 @@ from datetime import timedelta
 from django.utils import timezone
 
 
+class RideModelSerializer(serializers.ModelSerializer):
+    """Ride model serializer."""
+
+    class Meta:
+        """Meta class."""
+
+        model = Ride
+        fields = '__all__'
+        read_only_fields = (
+            'offered_by',
+            'offered_in',
+            'rating'
+        )
+
+
 class CreateRideSerializer(serializers.ModelSerializer):
     """Create ride serializer."""
 
@@ -26,10 +41,10 @@ class CreateRideSerializer(serializers.ModelSerializer):
 
     def validate_departure_date(self, data):
         """Verify date is not in the past."""
-        min_date = timezone.now() + timedelta(minutes=30)
+        min_date = timezone.now() + timedelta(minutes=15)
         if data < min_date:
             raise serializers.ValidationError(
-                'Departure time must be at least pass the next 30 minutes window.'
+                'Departure time must be at least pass the next 15 minutes window.'
             )
         return data
 
