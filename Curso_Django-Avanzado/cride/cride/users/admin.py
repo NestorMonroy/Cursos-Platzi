@@ -23,5 +23,5 @@ class ProfileAdmin(admin.ModelAdmin):
     search_fields = ('user__username', 'user__email', 'user__first_name', 'user__last_name')
     list_filter = ('reputation',)
 
-#se sobre escribe el nuevo admin
+"""se sobre escribe el nuevo admin """
 admin.site.register(User, CustomUserAdmin)
