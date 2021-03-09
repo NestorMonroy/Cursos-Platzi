@@ -3,13 +3,22 @@
 # Django
 from django.test import TestCase
 
+# Django REST Framework
+from rest_framework import status
+from rest_framework.test import APITestCase
 
 # Model
-from cride.circles.models import Invitation, Circle
-from cride.users.models import User
+from cride.circles.models import Invitation, Circle, Membership
+from cride.users.models import User, Profile
+from rest_framework.authtoken.models import Token
+
 
 # docker-compose run --rm django pytest
-# https://docs.python.org/3.7/library/unittest.html
+"""
+    https://realpython.com/testing-in-django-part-1-best-practices-and-examples/#types-of-tests
+    https://factoryboy.readthedocs.io/en/stable/
+    https://docs.python.org/3.7/library/unittest.html
+"""
 
 
 class InvitationsManagerTestCase(TestCase):
@@ -66,3 +75,64 @@ class InvitationsManagerTestCase(TestCase):
         )
 
         self.assertNotEqual(code, invitation.code)
+
+
+class MemberInvitationsAPITestCase(APITestCase):
+    """Member invitation API test case."""
+
+    def setUp(self):
+        """Test case setup."""
+        self.user = User.objects.create(
+            first_name='Joel',
+            last_name='Hdez',
+            email='jhdez@abc',
+            username='joehdez',
+            password='admin123'
+        )
+        self.profile = Profile.objects.create(user=self.user)
+        self.circle = Circle.objects.create(
+            name='Facultad de Ciencias',
+            slug_name='fciencias',
+            about='Grupo oficial de la Facultad de Ciencias de la UNAM',
+            verified=True
+        )
+        self.membership = Membership.objects.create(
+            user=self.user,
+            profile=self.profile,
+            circle=self.circle,
+            remaining_invitations=10
+        )
+
+        # Auth
+        self.token = Token.objects.create(user=self.user).key
+        self.client.credentials(HTTP_AUTHORIZATION='Token {}'.format(self.token))
+
+        # URL
+        self.url = '/circles/{}/members/{}/invitations/'.format(
+            self.circle.slug_name,
+            self.user.username
+        )
+
+    def test_response_success(self):
+        """Verify request succeed."""
+ 
+        request = self.client.get(self.url)
+        #import pdb; pdb.set_trace()
+        #request.data
+        self.assertEqual(request.status_code, status.HTTP_200_OK)
+
+    def test_invitation_creation(self):
+        """Verify invitation are generated if none exist previously."""
+        # Invitations in DB must be 0
+        self.assertEqual(Invitation.objects.count(), 0)
+
+        # Call member invitations URL
+        request = self.client.get(self.url)
+        self.assertEqual(request.status_code, status.HTTP_200_OK)
+
+        # Verify new invitations were created
+        invitations = Invitation.objects.filter(issued_by=self.user)
+        #import pdb; pdb.set_trace()
+        self.assertEqual(invitations.count(), self.membership.remaining_invitations)
+        for invitation in invitations:
+            self.assertIn(invitation.code, request.data['invitations'])
