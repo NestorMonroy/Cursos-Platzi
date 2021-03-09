@@ -3,6 +3,8 @@
 # Django REST Framework
 from rest_framework import mixins, viewsets, status
 from rest_framework.generics import get_object_or_404
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 # Permissions
 from rest_framework.permissions import IsAuthenticated
@@ -15,7 +17,8 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 # Serializers
 from cride.rides.serializers import (
     CreateRideSerializer,
-    RideModelSerializer
+    RideModelSerializer,
+    JoinRideSerializer
 )
 
 # Models
@@ -53,7 +56,6 @@ class RideViewSet(mixins.ListModelMixin,
             permissions.append(IsNotRideOwner)
         return [p() for p in permissions]
 
-
     def get_serializer_context(self):
         """Add circle to serializer context."""  # se envian datos addicionales
         context = super(RideViewSet, self).get_serializer_context()
@@ -64,6 +66,8 @@ class RideViewSet(mixins.ListModelMixin,
         """Return serializer based on action."""  # Multiples serializers
         if self.action == 'create':
             return CreateRideSerializer
+        if self.action == 'join':
+            return JoinRideSerializer
         return RideModelSerializer
 
     def get_queryset(self):
@@ -76,3 +80,21 @@ class RideViewSet(mixins.ListModelMixin,
                 available_seats__gte=1
             )
         return self.circle.ride_set.all()
+
+    @action(detail=True, methods=['post'])
+    def join(self, request, *args, **kwargs):
+        """Add requesting user to ride. partial update"""
+        ride = self.get_object()
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(
+            ride,
+            data={'passenger': request.user.pk},
+            context={'ride': ride, 'circle': self.circle},
+            partial=True
+        )
+        serializer.is_valid(raise_exception=True)
+        ride.available_seats -= 1 # Lineas que 
+        ride.save()
+        ride = serializer.save()
+        data = RideModelSerializer(ride).data
+        return Response(data, status=status.HTTP_200_OK)
