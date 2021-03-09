@@ -142,13 +142,11 @@ class JoinRideSerializer(serializers.ModelSerializer):
             )
         except Membership.DoesNotExist:
             raise serializers.ValidationError('User is not an active member of the circle.')
-            
 
         self.context['user'] = user
         self.context['member'] = membership
-        
-        return data
 
+        return data
 
     def validate(self, data):
         """Verify rides allow new passengers."""
@@ -164,7 +162,7 @@ class JoinRideSerializer(serializers.ModelSerializer):
 
         return data
 
-    def update(self, instance, data): #http://www.cdrf.co/3.9/rest_framework.serializers/ModelSerializer.html
+    def update(self, instance, data):  # http://www.cdrf.co/3.9/rest_framework.serializers/ModelSerializer.html
         """Add passenger to ride, and update stats."""
         ride = self.context['ride']
         user = self.context['user']
@@ -187,3 +185,23 @@ class JoinRideSerializer(serializers.ModelSerializer):
         circle.save()
 
         return ride
+
+
+class EndRideSerializer(serializers.ModelSerializer):
+    """End ride serializer."""
+
+    current_time = serializers.DateTimeField()
+
+    class Meta:
+        """Meta class."""
+
+        model = Ride
+        fields = ('is_active', 'current_time')
+
+    def validate_current_time(self, data):
+        """Verify ride have indeed started."""
+        #import pdb; pdb.set_trace() 
+        ride = self.context['view'].get_object() #self.context
+        if data <= ride.departure_date:
+            raise serializers.ValidationError('Ride has not started yet')
+        return data
