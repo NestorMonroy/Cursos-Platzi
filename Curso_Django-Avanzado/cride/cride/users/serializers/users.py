@@ -17,6 +17,8 @@ from cride.users.models import User, Profile
 # Serializers
 from cride.users.serializers.profiles import ProfileModelSerializer
 
+# Tasks
+from cride.taskapp.tasks import send_confirmation_email
 
 # Utilities
 # https://pyjwt.readthedocs.io/en/stable/usage.html#encoding-decoding-tokens-with-hs256
@@ -82,33 +84,10 @@ class UserSignUpSerializer(serializers.Serializer):
 
         data.pop('password_confirmation')
         user = User.objects.create_user(**data, is_verified=False, is_client = True)
-        profile = Profile.objects.create(user=user)
-        self.send_confirmation_email(user)
+        Profile.objects.create(user=user)
+        send_confirmation_email.delay(user_pk=user.pk)
         return user
 
-    def send_confirmation_email(self, user):
-        """Send account verification link to given user"""
-        verification_token = self.gen_verification_token(user)
-        subject = 'Welcome @{}! Verify your account to start using Compare Ride'.format(user.username)
-        from_email = 'Comparte Ride <noreply@comparteride.com>'
-        content = render_to_string(
-            'emails/users/account_verification.html',
-            {'token': verification_token, 'user': user}
-        )
-        msg = EmailMultiAlternatives(subject, content, from_email, [user.email])
-        msg.attach_alternative(content, "text/html")
-        msg.send()
-
-    def gen_verification_token(self, user):
-        """Create JWT token that the user can use to verifity its account"""
-        exp_date = timezone.now() + timedelta(days=3)
-        payload = {
-            'user': user.username,
-            'exp': int(exp_date.timestamp()),
-            'type': 'email_confirmation'
-        }
-        token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
-        return token
 
 
 class UserLoginSerializer(serializers.Serializer):

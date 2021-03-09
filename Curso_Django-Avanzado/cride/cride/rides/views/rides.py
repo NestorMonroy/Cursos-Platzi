@@ -79,8 +79,8 @@ class RideViewSet(mixins.ListModelMixin,
 
     def get_queryset(self):
         """Return active circle's rides."""
-        if self.action != 'finish':
-            offset = timezone.now() + timedelta(minutes=15)
+        if self.action not in ['finish', 'retrieve', 'rate']:
+            offset = timezone.now() + timedelta(minutes=10)
             return self.circle.ride_set.filter(
                 departure_date__gte=offset,
                 is_active=True,
@@ -130,7 +130,7 @@ class RideViewSet(mixins.ListModelMixin,
         context = self.get_serializer_context()
         context['ride'] = ride
         serializer = serializer_class(
-            data=request.data, 
+            data=request.data,
             context=context
         )
         serializer.is_valid(raise_exception=True)
