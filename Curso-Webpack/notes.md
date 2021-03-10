@@ -164,8 +164,7 @@ module.exports = {
 ```
 
 Loader de imágenes => genera el hash a los archivos,
-solo modificando las rutas del template
-
+solo modificando las rutas del template 
 
 ```js
 
@@ -181,4 +180,58 @@ module.exports = {
   },
 }
 
+```
+
+Loaders de fuentes
+
+Es importante que dentro de los estilos agregues @font-face
+```css
+@font-face {
+	font-family: "Ubuntu";
+	src: url("../assets/fonts/ubuntu-regular.woff2") format('woff2'),
+			 url("../assets/fonts/ubuntu-regular.woff") format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+```
+
+Por ello es importante usarlo dentro de webpack
+Para esta tarea instalaras y usaras “file-loader” y “url-loader”
+
+npm install url-loader file-loader -D
+
+Se agrega una nueva salida y una nueva regla
+```js
+
+module.exports = {
+  output: {
+  //para insertar el cambio y mover las fuentes a otra carpte lohacemos aqui
+  assetModuleFilename: 'assets/images/[hash][ext][query]'
+  }
+	
+  module: {
+    rules: [
+			...
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            // limit => limite de tamaño
+            limit: 10000,
+            // Mimetype => tipo de dato
+            mimetype: "application/font-woff",
+            // name => nombre de salida
+            name: "[name].[ext]",
+            // outputPath => donde se va a guardar en la carpeta final
+            outputPath: "./assets/fonts/",
+            publicPath: "./assets/fonts/",
+            esModule: false,
+          }
+        }
+      }
+    ]
+  },
+	...
+}
 ```

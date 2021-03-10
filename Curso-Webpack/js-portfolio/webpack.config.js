@@ -8,6 +8,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js', // nombre de la salida
+    //para insertar el cambio y mover las fuentes a otra carpte lo hacemos aqui
+    assetModuleFilename: 'assets/images/[hash][ext][query]'
   },
   resolve: {
     extensions: ['.js']
@@ -35,6 +37,24 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.(woff|woff2)$/, // Regla para archivos 
+        use: {
+          loader: "url-loader", // Nombre del Loader
+          options: {
+            // limit => limite de tamaño
+            limit: 10000,
+            // Mimetype => tipo de dato
+            mimetype: "application/font-woff",
+            // name => nombre de salida
+            name: "[name].[ext]",
+            // outputPath => donde se va a guardar en la carpeta final
+            outputPath: "./assets/fonts/",
+            publicPath: "./assets/fonts/",
+            esModule: false,
+          }
+        }
+      }
     ]
   },
 
