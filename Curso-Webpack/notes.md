@@ -292,3 +292,26 @@ module.exports = {
 }
 
 ```
+
+Variables de entorno
+
+las variables de entorno va a ser un espacio seguro donde podemos guardar datos sensibles 
+
+npm install dotenv-webpack -D
+
+Posteriormente debemos crear un archivo .env donde estarán la clave para acceder a la misma y el valor que contendrán
+
+debemos agregar la siguiente configuración en webpack.config.js
+
+```js
+
+const Dotenv = require('dotenv-webpack');
+module.exports = {
+	...
+	plugins: [
+		new Dotenv()
+  ],
+}
+
+```
+
