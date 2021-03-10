@@ -346,3 +346,15 @@ module.exports = {
 }
 
 ```
+
+Webpack Watch
+
+El modo watch hace que nuestro proyecto se compile de forma automática 
+
+
+```js
+module.exports = {
+	...
+	watch: true
+}
+```
