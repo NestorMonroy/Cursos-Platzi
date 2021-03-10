@@ -99,3 +99,44 @@ se agrega a package.json el script
     "dev": "webpack --mode development"
   },
 ```
+
+MiniCssExtractPlugin
+
+Este loader lo que nos permite es que en nuestro proyecto de desarrollo poder importar en los archivos JavaScript importar archivos CSS o de otros preprocesadores, al final webpack importara en nuestro HTML todo nuestro css.
+
+npm i mini-css-extract-plugin css-loader -D
+
+Se elimina la dependencia css del public/index.html
+Se agrega el recurso a index.js
+
+
+npm i stylus-loader -D
+
+
+Se agregan nueva configuracion a webpack.config
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+rules: [
+  {
+    test: /\.css|.styl$/i,
+    use: [MiniCssExtractPlugin.loader,
+      'css-loader'
+    ],
+  }
+]
+plugins: [
+  new MiniCssExtractPlugin(),
+]
+```
+
+Si deseamos posteriormente podemos agregar herramientas poderosas de CSS como ser:
+pre procesadores
+-Sass
+-Less
+-Stylus
+post procesadores
+-Post CSS
+
+
+npm i stylus stylus-loader -D
