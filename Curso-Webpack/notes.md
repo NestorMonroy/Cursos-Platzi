@@ -235,3 +235,45 @@ module.exports = {
 	...
 }
 ```
+
+Unos de las razones por que utilizamos webpack es porque nos permite optimizar y comprimir nuestro proyecto
+
+
+npm i css-minimizer-webpack-plugin terser-webpack-plugin -D
+se agrega a la configuracion webpack config
+
+```js
+
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
+module.exports = {
+	...
+	optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin()
+    ]
+  }
+}
+
+filename: '[name].[contenthash].js', // nombre de la salida
+
+```
+
+vamos a identificar cada bild de nuestro proyecto con un hash
+
+se anade en output
+en fuentes
+y lo añadimos en la instancia de la dependencia que compila nuestro css
+
+```js
+new MiniCssExtracPlugin({
+  filename: 'assets/[name].[contenthash].css'
+
+}),
+
+```
+
+

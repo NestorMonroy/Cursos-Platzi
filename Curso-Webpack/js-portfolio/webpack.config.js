@@ -2,12 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
 
 module.exports = {
   entry: './src/index.js', // punto de entrada
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js', // nombre de la salida
+    filename: '[name].[contenthash].js',// nombre de la salida
     //para insertar el cambio y mover las fuentes a otra carpte lo hacemos aqui
     assetModuleFilename: 'assets/images/[hash][ext][query]'
   },
@@ -47,7 +50,7 @@ module.exports = {
             // Mimetype => tipo de dato
             mimetype: "application/font-woff",
             // name => nombre de salida
-            name: "[name].[ext]",
+            name: "[name].[contenthash].[ext]",            
             // outputPath => donde se va a guardar en la carpeta final
             outputPath: "./assets/fonts/",
             publicPath: "./assets/fonts/",
@@ -65,7 +68,9 @@ module.exports = {
       template: './public/index.html', // La ruta al template HTML
       filename: './index.html' // Nombre final del archivo
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].[contenthash].css'    
+    }),
     new CopyPlugin({
       patterns: [
         {
@@ -75,5 +80,15 @@ module.exports = {
         }
       ]
     }),
-  ]
+  ],
+
+  optimization: {
+    minimize: true,
+    minimizer: [
+      //Instanciamos las dependencias que estamos importando
+      new CssMinimizerPlugin(),
+      new TerserPlugin(),
+    ]
+  }
+
 }
