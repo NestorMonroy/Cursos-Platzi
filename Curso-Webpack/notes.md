@@ -315,3 +315,34 @@ module.exports = {
 
 ```
 
+
+Webpack en modo desarrollo
+
+Se crea un archivo webpack.config.dev.js eliminando las optimizaciones, adicional en package.json se actualiza la llamada a este archivo
+
+```js
+{
+  "scripts": {
+    "dev": "webpack --config webpack.config.dev.js "
+  },
+}
+```
+
+
+Webpack en modo producción
+
+Se puede limpiar la carpeta cada vez que hacemos un build, usando clean-webpack-plugin
+
+npm install clean-webpack-plugin -D 
+
+a la configuración de webpack agregamos los siguientes cambios a webpack.config.js
+
+```js
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+module.exports = {
+	plugins: [
+		new CleanWebpackPlugin()
+	]
+}
+
+```
