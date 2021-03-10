@@ -138,11 +138,34 @@ pre procesadores
 post procesadores
 -Post CSS
 
-
 npm i stylus stylus-loader -D
+
+npm i copy-webpack-plugin -D => nos servirá para copiar archivos y lanzarlos a la carpeta dist. //no es necesario si se llaman las imagenes desde el Loader
+
+
+Se modifica webpack config
+```js
+const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = {
+	...
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "assets/images"),
+          to: "assets/images"
+        }
+      ]
+    }),
+  ]
+}
+
+```
 
 Loader de imágenes => genera el hash a los archivos,
 solo modificando las rutas del template
+
 
 ```js
 
