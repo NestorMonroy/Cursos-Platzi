@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js', // punto de entrada
@@ -22,6 +23,15 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  }
+  },
+  
+  // Secion de plugins 
+  plugins: [
+    new HtmlWebpackPlugin({ // Configura el pluging
+      inject: true, // Inyecta el bundle al template HTML 
+      template: './public/index.html', // La ruta al template HTML
+      filename: './index.html' // Nombre final del archivo
+    })
+  ]
 
 }
