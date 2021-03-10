@@ -276,4 +276,19 @@ new MiniCssExtracPlugin({
 
 ```
 
+Webpack Alias
 
+Usamos alias para que cuando tengamos que mandar a llamar un archivo que se encuentra en una carpetea muy lejana, evitemos algo como import ../../../../
+
+```js
+module.exports = {
+	...
+	resolve: {
+		...
+    alias: {
+      '@nombreDeAlias': path.resolve(__dirname, 'src/<directorio>'),
+    },
+	}
+}
+
+```
