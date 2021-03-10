@@ -437,3 +437,11 @@ module.exports = {
 }
 
 ```
+
+
+React 
+
+# Inicializar npm
+npm init -y
+# instalar dependencias
+npm install react react-dom  -S
