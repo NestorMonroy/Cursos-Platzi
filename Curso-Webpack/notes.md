@@ -140,3 +140,22 @@ post procesadores
 
 
 npm i stylus stylus-loader -D
+
+Loader de imágenes => genera el hash a los archivos,
+solo modificando las rutas del template
+
+```js
+
+module.exports = {
+	...
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource"
+      }
+    ]
+  },
+}
+
+```
