@@ -358,3 +358,82 @@ module.exports = {
 	watch: true
 }
 ```
+
+Webpack Dev Server
+
+con webpack deseamos ver los cambios en tiempo real en un navegador
+Para tener esta característica esta webpack-dev-server
+
+npm install  webpack-dev-server -D
+
+agregar la siguiente configuración en webpack.config.dev.js
+
+```js
+module.exports = {
+	...
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'), // Le dice al servidor donde tiene que servir el contenido, solo es necesario si quieres servir archivos estáticos
+    compress: true,  // Habilita la compresión gzip
+    historyApiFallback: true, // cuando estas usando HTML5 History API la página index.html sera mostrada en vez de una respuesta 404
+    port: 3000, // es el puerto donde vamos a realizar las peticiones
+  }
+
+}
+```
+Para comenzar a utilizarlo debes agregar el siguiente script a package.json
+
+
+```js
+{
+	"scripts": {
+	"start": "webpack serve --config webpack.config.dev.js"
+	}
+}
+```
+
+Se deshabilita ya que no es necesario 
+watch: true,
+
+
+Webpack Bundle Analyzer
+
+Optimizar y entender el proyecto, optimizandolo
+
+npm install webpack-bundle-analyzer -D
+
+agregar la siguiente configuración en webpack.config.dev.js
+
+```js
+
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+	plugins: [
+		new BundleAnalyzerPlugin()
+	]
+}
+```
+
+Se ejecutan para analizar y guardar el recurso en .json
+
+npx webpack --profile --json > stats.json
+
+con este comando se puede analizar el archivo
+
+npx webpack-bundle-analyzer stats.json
+
+
+Webpack DevTools
+permite crear un mapa de tu proyecto y con el podemos
+Leer a detalle
+Analizar particularidades de lo que está compilando nuestro proyecto
+
+En  webpack.config.dev.js
+```js
+
+module.exports = {
+  mode: 'development',
+  devtool: 'source-map'
+}
+
+```

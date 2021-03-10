@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: './src/index.js', // punto de entrada
@@ -13,7 +14,8 @@ module.exports = {
     assetModuleFilename: 'assets/images/[hash][ext][query]'
   },
   mode: 'development',
-  watch: true,
+  devtool: 'source-map',
+  //watch: true,
   resolve: {
     extensions: ['.js'],
     alias: {
@@ -87,7 +89,13 @@ module.exports = {
       ]
     }),
     new Dotenv(),
+    new BundleAnalyzerPlugin()  
   ],
-
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'), // Le dice al servidor donde tiene que servir el contenido, solo es necesario si quieres servir archivos estáticos
+    compress: true,  // Habilita la compresión gzip
+    historyApiFallback: true, // cuando estas usando HTML5 History API la página index.html sera mostrada en vez de una respuesta 404
+    port: 3000, // es el puerto donde vamos a realizar las peticiones
+  }
 
 }
