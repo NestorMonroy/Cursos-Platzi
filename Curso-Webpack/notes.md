@@ -597,4 +597,94 @@ module.exports = {
 ```
 
 Se actualiza el package.json
+------------------------------------
+¿Cuál es el comando de webpack-cli para ejecutar nuestro proyecto en modo de producción?
+R= webpack --mode production
 
+¿A qué nos ayuda clean-webpack-plugin?
+R= A limpiar nuestra carpeta del build cada vez que volvemos a transpilar el proyecto.
+
+¿Con cuál comando creamos nuestro package.json?
+R= npm init -y
+
+¿Cuál es el comando de webpack-cli para ejecutar nuestro proyecto en modo de desarrollo?
+R= webpack --mode development
+
+¿Con qué repositorios te puedes conectar a Netlify?
+R1= Todas las respuestas son correctas
+
+¿En cuál archivo habilitamos el watch en nuestro proyecto?
+R= webpack.config.js
+
+¿Cuáles loaders usamos para trabajar en Webpack con CSS?
+R=css-loader y style-loader
+
+¿Cuál es la expresión regular para que Webpack transpile nuestros archivos .css y .styl con su loader correspondiente?
+R= /\.css|.styl$/
+
+
+Después de hacer un import de las imágenes, ¿cómo las llamamos?
+R= Como variables.
+
+¿Qué es Webpack?
+R= Un module bundler que nos permite trabajar con gran variedad de archivos en nuestros proyectos.
+
+¿Para qué sirven los loaders y plugins en Webpack?
+R= Agregar funcionalidades o configuraciones para trabajar con nuestros recursos.
+
+Netlify es la única plataforma en la que se puede desplegar un proyecto hecho con React.js. Esta afirmación es:
+R= Falsa
+
+¿Qué dependencia adicional agregamos a nuestro proyecto para entender la sintaxis de React y JSX?
+R= @babel/preset-react
+
+¿Con qué comando puedes instalar Webpack en tu proyecto como dependencia de desarrollo?
+R= npm install webpack webpack-cli -D
+
+¿Cómo conseguimos que nuestro código de JavaScript sea compatible con todos los navegadores?
+R= Integrando Babel a nuestro proyecto y babel-loader a la configuración de Webpack para archivos .js.
+
+¿Cuál es el script adecuado que nos permitirá habilitar nuestro proyecto en un entorno de desarrollo local y no de producción?
+R= "start" : "webpack serve"
+
+¿En dónde establecemos la configuración, loaders y plugins que usamos en Webpack?
+R= webpack.config.js
+
+¿Cuál es la función de las variables de entorno?
+R=  Crear un espacio seguro para la configuración de nuestro proyecto que no queremos exponer en nuestro código. 
+
+¿Para qué sirven los Alias en Webpack?
+R= Para identificar más fácilmente el "path" de los archivos con los que trabajamos en el proyecto.
+
+¿Cuáles loaders usamos para trabajar en Webpack con fuentes?
+R= url-loader y file-loader
+
+¿Debemos usar expresiones regulares para definir la extensión de los archivos que afectarán nuestros loaders?
+R= Verdadero
+
+
+Son los loaders necesarios para ejecutar nuestro proyecto de webpack con SASS
+R= style-loader, css-loader, sass-loader
+
+¿Qué propiedad agregamos al archivo de configuración para indicarle a Webpack que trabajaremos en modo desarrollo?
+R= mode: “development”
+
+¿Cuál es la función del source-map?
+R= Crear un mapa para encontrar las piezas de nuestro código por separado y hacer más fácilmente debugging.
+
+¿Cuál es la propiedad del archivo de configuración de Webpack que guarda las opciones de optimización?
+R= module.exports = { [...] optimization: { minimize: true, minimizer: [ new CssMinimizerPlugin(), new TerserPlugin() ] } }
+
+
+¿Cuál plugin nos ayuda a mover archivos a la carpeta de distribution?
+R= CopyWebpack
+
+
+¿Cuál plugin nos permite minificar nuestros estilos CSS?
+R2 = CssMinimizerPlugin
+
+La propiedad template en nuestro plugin HTMLWebpackPlugin se refiere al archivo FINAL que se ejecuta como resultado de las configuraciones que le aplicamos al HTML de nuestro proyecto:
+R= Falso
+
+¿Con qué comando puedes instalar Webpack Dev Server?
+r2 = npm install webpack-dev-server --save-dev
