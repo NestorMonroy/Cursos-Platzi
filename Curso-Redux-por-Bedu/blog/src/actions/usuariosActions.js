@@ -1,7 +1,10 @@
-//Funcion que retorna a otra funcion
-export const traerTodos = () => (dispatch) => {
+import axios from 'axios';
+import { TRAER_TODOS } from '../types/usuariosTypes';
+
+export const traerTodos = () => async (dispatch) => {
+  const respuesta = await axios.get('https://jsonplaceholder.typicode.com/users');
   dispatch({
-    type: 'traer_usuarios',
-    payload: [1, 2, 3]
+    type: TRAER_TODOS,
+    payload: respuesta.data
   })
 };
