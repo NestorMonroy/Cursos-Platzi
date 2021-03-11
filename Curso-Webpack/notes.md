@@ -445,3 +445,87 @@ React
 npm init -y
 # instalar dependencias
 npm install react react-dom  -S
+
+Instalación de dependencias
+
+Babel
+npm install -D @babel/core @babel/preset-env @babel/preset-react babel-loader
+
+En el archivo .babelrc
+
+```js
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
+```
+
+Se instala WebPack
+
+npm install -D webpack webpack-cli webpack-dev-server
+
+En el archivo webpack.config.js
+
+```js
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8080
+  },
+}
+```
+
+Configuracion de plugins y loaders para React
+
+npm i -D html-loader html-webpack-plugin
+
+
+
+En el archivo webpack.config.js
+
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.html$/,
+				use: {
+					loader: 'html-loader'
+				}
+			}
+		]
+	},
+	plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/public/index.html',
+            filename: 'index.html'
+        })
+    ]
+}
+```
