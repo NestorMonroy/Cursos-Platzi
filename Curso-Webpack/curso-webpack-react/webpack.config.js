@@ -5,7 +5,6 @@ const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -38,6 +37,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [
+          'style-loader',
           'css-loader',
           'sass-loader'
         ]
