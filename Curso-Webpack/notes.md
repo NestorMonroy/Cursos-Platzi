@@ -529,3 +529,72 @@ module.exports = {
     ]
 }
 ```
+
+Instalación de dependencias de css
+
+npm install -D mini-css-extract-plugin css-loader style-loader sass sass-loader
+
+En el archivo webpack.config.js
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+module: {
+  rules: [
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+        ]
+      }
+  ]
+  plugins: [
+      new MiniCssExtractPlugin({
+          filename: '[name].css'
+      })
+  ]
+}
+```
+
+Dependencias de optimización
+
+npm install -D css-minimizer-webpack-plugin terser-webpack-plugin clean-webpack-plugin
+
+En el archivo webpack.config.js  este es a produccion
+Se crea la copia para desarrollo
+```js
+
+
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+
+module.exports = {
+
+  resolve: {
+    alias: {
+      "@components": path.resolve(__dirname, 'src/components/'),
+      "@styles": path.resolve(__dirname, 'src/styles/')
+    }
+  },
+  mode: 'production',
+
+  plugins: [
+    new CleanWebpackPlugin()
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerWebpackPlugin(),
+      new TerserWebpackPlugin()
+    ]
+  }
+}
+
+
+```
+
+Se actualiza el package.json
+
