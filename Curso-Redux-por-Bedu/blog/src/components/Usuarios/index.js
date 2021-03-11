@@ -24,7 +24,9 @@ class Usuarios extends Component {
   ));
 
   render() {
-    console.log(this.props)
+    console.log(this.props.cargando);
+    console.log(this.props.eror)
+
     return (
       <div>
         <table className="tabla">
