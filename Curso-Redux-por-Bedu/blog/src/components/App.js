@@ -1,15 +1,17 @@
+import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Menu from './Menu';
-import Usuarios from './Usuarios/index'
+import Usuarios from './Usuarios';
 
-const Tareas = () => <div>Tareas</div>
+const Prueba = () => <div>hola</div>
 
-const App = () => (
-
+const App = (props) => (
   <BrowserRouter>
     <Menu />
-    <Route exact path='/' component={Usuarios} />
-    <Route exact path='/tareas' component={Tareas} />
+    <div id="margen">
+      <Route exact path='/' component={Usuarios} />
+      <Route exact path='/tareas' component={Prueba} />
+    </div>
   </BrowserRouter>
 );
 
