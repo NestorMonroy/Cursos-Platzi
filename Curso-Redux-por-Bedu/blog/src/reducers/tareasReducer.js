@@ -10,8 +10,8 @@ const INITIAL_STATE = {
   tareas: {},
   cargando: false,
   error: '',
-  usuario_id: '9',
-  titulo: 'quertly'
+  usuario_id: '',
+  titulo: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -35,6 +35,14 @@ export default (state = INITIAL_STATE, action) => {
 
     case CAMBIO_TITULO:
       return { ...state, titulo: action.payload };
+
+    case 'agregada':
+      return {
+        ...state,
+        tareas: {},
+        cargando: false,
+        error: ''
+      };
 
     default: return state;
   };

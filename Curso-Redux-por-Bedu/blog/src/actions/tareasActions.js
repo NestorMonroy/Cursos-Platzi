@@ -52,3 +52,24 @@ export const cambioTitulo = (valor) => (dispatch) => {
     payload: valor
   })
 };
+
+export const agregar = (nueva_tarea) => async (dispatch) => {
+  //console.log('agregar nuvea tarea', nueva_tarea)
+  dispatch({
+    type: CARGANDO
+  });
+
+  try {
+    const respuesta = await axios.post('https://jsonplaceholder.typicode.com/todos', nueva_tarea);
+    console.log(respuesta)
+    dispatch({
+      type: 'agregada'
+    });
+  }
+  catch (error) {
+    console.log(error.message);
+    dispatch({
+      type: ERROR
+    });
+  }
+};

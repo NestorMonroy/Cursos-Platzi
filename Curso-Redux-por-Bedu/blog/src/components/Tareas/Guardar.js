@@ -5,12 +5,30 @@ import * as tareasActions from '../../actions/tareasActions';
 
 class Guardar extends Component {
   cambioUsuarioId = (event) => {
-    //console.log(event.target.value)
     this.props.cambioUsuarioId(event.target.value);
   };
 
   cambioTitulo = (event) => {
     this.props.cambioTitulo(event.target.value);
+  };
+
+  guardar = () => {
+    const { usuario_id, titulo, agregar } = this.props; //destructurar
+    const nueva_tarea = {
+      userId: usuario_id,
+      title: titulo,
+      completed: false
+    };
+    agregar(nueva_tarea);
+  };
+
+  deshabilitar = () => {
+    const { usuario_id, titulo } = this.props;
+
+    if (!usuario_id || !titulo)
+      return true;
+
+    return false;
   };
 
   render() {
@@ -30,7 +48,10 @@ class Guardar extends Component {
           onChange={this.cambioTitulo}
         />
         <br /><br />
-        <button>
+        <button
+          disabled={this.deshabilitar()}
+          onClick={this.guardar}
+        >
           Guardar
 				</button>
       </div>
