@@ -6,7 +6,8 @@ import {
   CAMBIO_USUARIO,
   CAMBIO_TITULO,
   GUARDADA,
-  ACTUALIZAR
+  ACTUALIZAR,
+  LIMPIAR
 } from '../types/tareasTypes';
 
 export const traerTodas = () => async (dispatch) => {
@@ -94,7 +95,6 @@ export const editar = (tarea_editada) => async (dispatch) => {
     });
   }
 };
-//https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns#correct-approach-copying-all-levels-of-nested-data
 
 export const cambioCheck = (usu_id, tar_id) => (dispatch, getState) => {
   const { tareas } = getState().tareasReducer;
@@ -123,8 +123,7 @@ export const eliminar = (tar_id) => async (dispatch) => {
   });
 
   try {
-    const respuesta = await axios.delete(`https://jsonplaceholder.typicode.com/todos/${tar_id}`);
-    console.log(respuesta)
+    await axios.delete(`https://jsonplaceholder.typicode.com/todos/${tar_id}`);
     dispatch({
       type: TRAER_TODAS,
       payload: {}
@@ -137,4 +136,10 @@ export const eliminar = (tar_id) => async (dispatch) => {
       payload: 'Servicio no disponible en este momento.'
     })
   }
+};
+
+export const limpiarForma = () => (dispatch) => {
+  dispatch({
+    type: LIMPIAR
+  });
 };
