@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import { registerRequest } from '../actions';
 import { Link } from 'react-router-dom';
 import '../assets/styles/components/Register.scss';
 
@@ -21,7 +20,6 @@ const Register = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.registerRequest(form);
     props.history.push('/');
   }
 
@@ -64,8 +62,5 @@ const Register = props => {
   );
 }
 
-const mapDispatchToProps = {
-  registerRequest, 
-}
 
-export default connect(null, mapDispatchToProps)(Register);
+export default Register;

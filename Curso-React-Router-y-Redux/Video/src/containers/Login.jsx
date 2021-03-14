@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loginRequest } from '../actions';
 import Header from '../components/Header';
 import '../assets/styles/components/Login.scss';
 import googleIcon from '../assets/static/google-icon.png';
@@ -59,9 +58,9 @@ const Login = props => {
             <div><img src={twitterIcon} /> Inicia sesión con Twitter</div>
           </section>
           <p className="login__container--register">
-              No tienes ninguna cuenta {' '}
-              <Link to="/register">
-                Regístrate
+            No tienes ninguna cuenta {' '}
+            <Link to="/register">
+              Regístrate
               </Link>
           </p>
         </section>
@@ -70,8 +69,5 @@ const Login = props => {
   );
 }
 
-const mapDispatchToProps = {
-  loginRequest,
-};
 
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;
