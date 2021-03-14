@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import { logoutRequest } from '../actions';
 import gravatar from '../utils/gravatar';
 import '../assets/styles/components/Header.scss';
 import logo from '../assets/static/logo-platzi-video-BW2.png';
@@ -10,9 +11,12 @@ import userIcon from '../assets/static/user-icon.png';
 const Header = props => {
   const { user } = props;
   const hasUser = Object.keys(user).length > 0;
+  const handleLogout = () => {
+    props.logoutRequest({});
+  }
 
   return (
-    <header>
+    <header className='header'>
       <Link to="/">
         <img className="header__img" src={logo} alt="Platzi Video" />
       </Link>
@@ -30,7 +34,7 @@ const Header = props => {
             : null
           }
           {hasUser ?
-            <li><a href="#logout" >Cerrar Sesión</a></li>
+            <li><a href="#logout" onClick={handleLogout} >Cerrar Sesión</a></li>
             :
             <li>
               <Link to="/login">
@@ -50,5 +54,8 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = {
+  logoutRequest,
+}
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
