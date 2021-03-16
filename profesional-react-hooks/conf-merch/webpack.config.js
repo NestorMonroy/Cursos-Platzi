@@ -49,6 +49,9 @@ module.exports = {
       filename: 'assets/[name].css',
     }),
   ],
+  performance: {
+    hints: false,
+  },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
