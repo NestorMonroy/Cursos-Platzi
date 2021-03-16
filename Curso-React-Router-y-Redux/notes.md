@@ -1,92 +1,98 @@
-¿Cúal es la sintaxis del operador ternario?
-R= (condición) ? veradero : falso
+¿Cuál es la librería que nos permite manejar rutas en nuestra apliación?
+R1 BIEN= React Router
 
-¿Qué simula el reducer?
-R= Estados
+Para utilizar React Router en nuestro proyecto necesitamos importar:
+R1 BIEN= react-router-dom
 
-¿Cómo cambiamos una variable de falso a verdadero y viceversa?
-R= !variable
+En Redux, todo el estado es almacenado en un único objeto y es la unica fuente de información.
 
-¿En dónde se declara el estado?
-R= Constructor
+R1 BIEN= Verdadero
 
-¿Qué es redux thunk?
-R= Middleware
+¿Cuál es la principal finalidad del componente "Redirect"?
+R1 BIEN= Nos permite redireccionar a una ruta especifica, reemplazando la ubicacion existente
 
-¿Qué se usa para evitar que se recargue la página?
-R= Link
+¿Qué componente nos permite definir las rutas dentro de nuestra aplicación?
+R1 BIEN= Route
 
-¿Qué se necesita para crear una app react?
-R= Node
+Redux DevTools nos permite probar nuestro flujo de trabajo
+R1 BIEN=  Verdadero
 
-¿Cómo recorremos un arreglo para generar uno nuevo?
-R= .map()
+¿Cual es la forma propuesta de importar un recurso visual dentro del proyecto?
+R1 BIEN= import removeIcon from '../assets/static/remove-icon.png';
 
-¿Cómo insertamos código javascript en jsx?
-R= {}
+¿Quien es el creador de Redux?
+R1 BIEN = Dan Abramov
 
-¿Cómo se declara un parámetro en la etiqueta Route?
-R= /:nombre
+¿Cuál es el nombre del archivo que utilizaremos para crear nuestras rutas que utilizamos en PlatziVideo?
+R1 BIEN= App
 
-¿Para qué sirve el try catch?
-R= Validar
+Para qué nos sirve "mapStateToProps"
+R1 BIEN=  Devuelve los props que deseas utilizar en el componente.
 
-¿Cuáles son los 3 estados de una llamada asíncrona?
-R= Cargando, error y exitoso
 
-¿Cómo se le conoce a JSX?
-R= Fusión de HTML y JS
+¿Cómo agregamos un flag a un componente para saber si pertenece a una lista?
+R1 BIEN =  Un booleano llamado isList
 
-¿Cómo debemos importar las acciones?
-R= import * as
+¿Para qué nos sirve la función "connect"?
+R1 BIEN= Es un método de Redux que permite conectar nuestra aplicación y recibir mapStateToProps y mapDispatchToProps
 
-¿Cuál es el corazón de redux?
-R= Store
+¿Para qué nos sirve un provider?
+R1 BIEN= Permite disponer del store dentro de todos los componentes del contenedor en la aplicación
 
-¿Cómo evitamos que se sobreescriban las funciones de diferentes acciones?
-R= Renombrándolas
 
-¿Quién tiene más peso?
-R= Estados
+¿Para qué utilizamos el método filter en nuestro proyecto?
+R1 BIEN = Crea un nuevo array con todos los elementos que cumplan la condición implementada
 
-¿Cómo accedemos al reducer desde el componente?
-R= this.props
+¿Cuál es el componente de React Router que encapsula nuestra aplicación?
 
-¿El reducer de un componente puede compartirse con otro componente?
-R= Verdadero
+R2 BIEN= BrowserRouter
 
-¿Cómo se comunica el action creator con el reducer?
-R= dispatch
+¿Por qué utilizamos "CreateStore"?
 
-La inmutabilidad sobreescribe los estados u objetos actuales
-R= Falso
+R2 BIEN= Crea un store de Redux que mantiene el estado de tu aplicación. Solo debe haber un único store en tu aplicación.
 
-¿Qué etiqueta entrega el almacenamiento?
-R= Provider
+¿Cuales son los tres principios de Redux?
+R2 BIEN = 1 Única fuente de la verdad 2 El estado es de solo lectura 3 Los cambios se realizan con funciones puras 
 
-¿Qué es lo que se actualiza cuando cambia el estado?
-R= Render
+¿Qué es un Reducer?
 
-¿Quién le entrega el estado actualizado al componente?
+R2 BIEN = El reducer es una función pura que toma el estado anterior y una acción, y devuelve un nuevo estado
 
-R= mapStateToProps
+¿Para qué nos sirve el Store?
+R2 BIEN = Contiene el estado de la aplicación;
 
-¿Qué instrucción me regresa el estado actual?
+¿Para qué nos sirve “mapDispatchToProps”?
 
-R= getState()
+R2 BIEN = Recibe el método dispatch() y devuelve los props que deseas utilizar en el componente.
 
-¿Qué formato cambiamos para la normalización?
+El siguiente fragmento de código nos sirve para: `props.history.push('/');`
 
-R= De arreglos a objetos
+R2 BIEN = Movernos dentro de la aplicación sin necesidad de que el usuario haga clicks, es navegación basada en eventos (como un loging exitoso)
 
-¿Cuál de las opciones no es objetivo de los archivos types?
-R= Desplegar el estado
 
-¿Qué parte no es obligatoria para redux?
-R= Types
+¿En que lenguaje esta inspirado Redux?
+R2 BIEN = Elm
 
-¿Cuántos almacenamientos de redux debemos tener?
-R= 1
+React Router nos facilita la creación de una aplicación SPA (Single Page Aplicacion)
+R2 BIEN = Verdadero
 
-¿Quién tiene la información de la respuesta?
+¿Qué es un Action?
 
+R2 BIEN = Es un bloque de información que envía datos desde tu aplicación a tu store
+
+El componente de React Router llamado "Link" nos sirve para:
+
+R2 BIEN = Manejar la configuración de nuestras rutas y navegar en nuestra aplicación de forma fluida a través de hipervínculos 
+
+¿Qué componente nos permite renderizar el primer hijo que cumpla con el match de la ruta indicada?
+
+R3 BIEN= Switch
+
+¿Cuál es el componente que creamos para persistir el footer y el header en todas nuestras rutas?
+R3 BIEN=  Layout.jsx
+
+El método Object.keys() devuelve un:
+R3 BIEN = un array de las propiedades de un objeto, en el mismo orden como se obtienen
+
+¿En que paradigma esta basado Redux?
+R4 = Flux
