@@ -1,2 +1,2 @@
-## curso-platzi-react-avanzado ⚛️
+## curso-react-avanzado ⚛️
 
