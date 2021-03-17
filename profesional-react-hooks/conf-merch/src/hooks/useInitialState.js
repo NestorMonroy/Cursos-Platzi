@@ -32,13 +32,12 @@ const useInitialState = () => {
     })
   }
 
-
   return {
     addToCart,
     removeFromCart,
-    state,
     addToBuyer,
-    addNewOrder
+    addNewOrder,
+    state,
   };
 };
 
