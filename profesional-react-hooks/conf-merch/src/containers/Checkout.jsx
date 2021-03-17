@@ -23,8 +23,7 @@ const Checkout = () => {
   return (
     <>
       <Helmet>
-        <title>List Products</title>
-
+        <title>Lista de Pedidos</title>
       </Helmet>
 
       <div className="Checkout">
