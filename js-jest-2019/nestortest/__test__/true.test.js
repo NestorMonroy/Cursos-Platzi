@@ -30,3 +30,9 @@ describe("Probar resultados indefinidos", () => {
     expect(isUndefined()).toBeUndefined();
   });
 });
+
+describe("Probar resultados no verderos", () => {
+  test("Falso o verdadero", () => {
+    expect(isFalse()).not.toBeTruthy();
+  });
+});
