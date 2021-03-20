@@ -17,7 +17,7 @@ describe("Es hora de las intantaneas", () => {
   test("Tenemos una excepsion dentro del codigo", () => {
     const user = {
       id: Math.floor(Math.random() * 20),
-      name: "Oscar Barajas Tavares",
+      name: "Nestor Monroy Valero",
     };
     expect(user).toMatchSnapshot({
       id: expect.any(Number),

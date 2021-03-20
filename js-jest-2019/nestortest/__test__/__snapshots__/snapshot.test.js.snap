@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Es hora de las intantaneas Siempre fallara la instantanea 1`] = `
+Object {
+  "createAt": 2021-03-20T04:35:45.903Z,
+  "id": 8,
+}
+`;
+
 exports[`Es hora de las intantaneas Snapshot 1`] = `
 Object {
   "gender": "Male",
@@ -7,5 +14,12 @@ Object {
   "name": "Rick Sanchez",
   "species": "Human",
   "status": "Alive",
+}
+`;
+
+exports[`Es hora de las intantaneas Tenemos una excepsion dentro del codigo 1`] = `
+Object {
+  "id": Any<Number>,
+  "name": "Oscar Barajas Tavares",
 }
 `;
