@@ -13,4 +13,9 @@ describe("Calculos matematicos", () => {
   test("Dividr ", () => {
     expect(dividir(10, 2)).toBe(5);
   });
+
+  test("Dividr ", () => {
+    expect(sumar(2, 2)).toBeLessThanOrEqual(4);
+  });
+  
 });
