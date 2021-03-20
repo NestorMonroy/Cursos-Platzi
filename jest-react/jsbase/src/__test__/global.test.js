@@ -54,3 +54,11 @@ test("Probando async/await", async () => {
   /* const string = await reverseString2('Hola'); */
   expect(await reverseString2("Hola")).toBe("aloH");
 });
+
+// // Run code we need after each test
+// afterEach(() => console.log("After each test"));
+// afterAll(() => console.log("After all tests"));
+
+// // Run code we need before each test
+// beforeEach(() => console.log("Before each test"));
+// beforeAll(() => console.log("Before all tests"));
