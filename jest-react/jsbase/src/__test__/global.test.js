@@ -28,7 +28,29 @@ const reverseString = (str, cb) => {
 
 // Test callbacks
 test("The callback should return a reversed word", () => {
-  reverseString("Platzi", (str) => {
-    expect(str).toBe("iztalP");
+  reverseString("Hola", (str) => {
+    expect(str).toBe("aloH");
   });
+});
+
+// Reverse strings function
+const reverseString2 = (str) => {
+  return new Promise((resolve, reject) => {
+    if (!str) {
+      reject(Error("Error"));
+    }
+
+    resolve(str.split("").reverse().join(""));
+  });
+};
+
+test("Probando una promesa", () => {
+  reverseString2("Hola").then((string) => {
+    expect(string).toBe("aloH");
+  });
+});
+
+test("Probando async/await", async () => {
+  /* const string = await reverseString2('Hola'); */
+  expect(await reverseString2("Hola")).toBe("aloH");
 });
