@@ -20,23 +20,22 @@ export default class Recipe extends React.Component {
     this.setState({ recipe, isLoading: false });
   }
 
-  compartir = (e) => {
+  share = (e) => {
     e.preventDefault();
     if (!navigator.share) {
-      alert("Tu browser no soporta la Web Share API");
+      alert("Your browser don'nt support Web Share API");
       return;
     }
 
     const { recipe } = this.state;
-
     navigator
       .share({
         title: `${recipe.name}`,
         text: "Receta",
         url: document.location.href,
       })
-      .then(() => alert("Contenido compartido!"))
-      .catch((error) => alert("Hubo un error"));
+      .then(() => alert("Recipe shared!"))
+      .catch((error) => error);
   };
 
   render() {
@@ -65,9 +64,7 @@ export default class Recipe extends React.Component {
             <p>{recipe.origin}</p>
           </div>
           <div>
-            <a className="share" onClick={this.compartir}>
-              Compartir
-            </a>
+            <a onClick={this.share}>Share</a>
           </div>
         </div>
 

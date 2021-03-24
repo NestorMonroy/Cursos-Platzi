@@ -6,7 +6,7 @@
 
 // Precarga la app
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
+//workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 // App Shell
@@ -19,6 +19,19 @@ workbox.routing.registerRoute(
   /^https?:\/\/www.themealdb.com\/api\/.*/,
   new workbox.strategies.StaleWhileRevalidate(),
   "GET"
+);
+
+workbox.routing.registerRoute(
+  /^https?:\/\/www.themealdb.com\/images\/.*/,
+  new workbox.strategies.CacheFirst({
+    cacheName: "image-cache",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 7 * 24 * 60 * 60,
+        maxEntries: 20,
+      }),
+    ],
+  })
 );
 
 // Last fuentes van con Cache First y vencen al mes
@@ -35,8 +48,7 @@ workbox.routing.registerRoute(
   "GET"
 );
 
-// Todo lo demás usa Network First // Por defecto, va al final de todo
-
+// Todo lo demás usa Network First
 workbox.routing.registerRoute(
   /^https?.*/,
   workbox.strategies.networkFirst(),
