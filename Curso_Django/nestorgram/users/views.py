@@ -90,7 +90,6 @@ def signup(request):
     }
     return render(request, 'users/signup.html', ctx)
 
-
 class UpdateProfileUpdateView(LoginRequiredMixin, UpdateView):
 
     template_name = 'users/update_profile.html'
