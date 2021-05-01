@@ -1,4 +1,3 @@
-import Navbar from '../components/Navbar/Navbar'
 import react from 'react'
 
 const Home = () => {
@@ -14,7 +13,6 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar />
       <div>Hello! </div>
       {ProductList.map(product => (
         <div>{product.price}</div>
