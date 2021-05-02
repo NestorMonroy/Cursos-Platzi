@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import Layout from '@components/Layout/Layout'
 
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   // Providers - Context/Providers, theme , data 
   // Aditional props
