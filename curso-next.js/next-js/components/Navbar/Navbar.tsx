@@ -1,22 +1,22 @@
-import React, { useContext } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Menu, Container } from "semantic-ui-react";
+import React, { useContext } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { Menu, Container } from 'semantic-ui-react'
 
-import { Avocado } from "@components/SVGIcons";
-import ShoppingCartIcon from "./ShoppingCartIcon";
-import { useCart } from "@store/Cart";
+import { Avocado } from '@components/SVGIcons'
+import ShoppingCartIcon from './ShoppingCartIcon'
+import { useCart } from '@store/Cart'
 
 const Navbar = () => {
-  const { pathname } = useRouter();
-  const { count: cartCount } = useCart();
+  const { pathname } = useRouter()
+  const { count: cartCount } = useCart()
 
   return (
     <Menu size="huge" borderless pointing as="header">
       <Container text>
         <Link href="/" passHref>
           <Menu.Item
-            active={pathname === "/"}
+            active={pathname === '/'}
             title="Inicio | Todos los productos"
           >
             <Avocado />
@@ -25,7 +25,7 @@ const Navbar = () => {
         </Link>
         <Menu.Menu position="right">
           <Link href="/cart" passHref>
-            <Menu.Item active={pathname === "/cart"}>
+            <Menu.Item active={pathname === '/cart'}>
               <ShoppingCartIcon cartCount={cartCount} name="Canasta" />
             </Menu.Item>
           </Link>
@@ -37,7 +37,7 @@ const Navbar = () => {
         }
       `}</style>
     </Menu>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

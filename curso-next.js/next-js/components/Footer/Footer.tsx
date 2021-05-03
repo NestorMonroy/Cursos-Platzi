@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { Segment, Container, Grid, List, Header } from "semantic-ui-react";
+import Link from 'next/link'
+import { Segment, Container, Grid, List, Header } from 'semantic-ui-react'
 
 const Footer = () => (
   <Segment
     vertical
     as="footer"
     style={{
-      padding: "4em 0em",
-      marginTop: "3em",
-      borderTop: "1px solid #f2f2f2",
+      padding: '4em 0em',
+      marginTop: '3em',
+      borderTop: '1px solid #f2f2f2',
     }}
   >
     <Container text>
@@ -39,17 +39,17 @@ const Footer = () => (
             <p>
               <a href="https://twitter.com/nestormonroy_">@nestormonroy_</a>
             </p>
-            <List horizontal style={{ display: "flex" }}>
+            <List horizontal style={{ display: 'flex' }}>
               <List.Item
                 icon="twitter"
-                style={{ display: "flex" }}
+                style={{ display: 'flex' }}
                 content={
                   <a href="https://twitter.com/nestormonroy_">Twitter</a>
                 }
               />
               <List.Item
                 icon="github"
-                style={{ display: "flex" }}
+                style={{ display: 'flex' }}
                 content={
                   <a href="https://github.com/NestorMonroy/Cursos-Platzi">
                     GitHub
@@ -62,7 +62,7 @@ const Footer = () => (
       </Grid>
       <div className="colophon">
         <p className="colophon-entry">
-          Icons made by{" "}
+          Icons made by{' '}
           <a
             target="_blank"
             href="https://www.flaticon.com/authors/freepik"
@@ -70,13 +70,13 @@ const Footer = () => (
           >
             Freepik
           </a>
-          {" from "}
+          {' from '}
           <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">
             www.flaticon.com
           </a>
         </p>
         <p className="colophon-entry">
-          Avocado images taken from{" "}
+          Avocado images taken from{' '}
           <a
             className="acnor"
             target="_blank"
@@ -85,7 +85,7 @@ const Footer = () => (
           >
             Avocado 101
           </a>
-          {" at "}
+          {' at '}
           <a
             target="_blank"
             href="https://www.californiaavocado.com"
@@ -109,6 +109,6 @@ const Footer = () => (
       }
     `}</style>
   </Segment>
-);
+)
 
-export default Footer;
+export default Footer

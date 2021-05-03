@@ -1,24 +1,38 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 import Layout from '@components/Layout/Layout'
 import ProductSummary from '@components/ProductSummary/ProductSummary'
 
-const ProductPage = () => {
-  const { query } = useRouter()
-  const [product, setProduct] = React.useState<TProduct | null>(null)
+export const getStaticPaths: GetStaticPaths = async () => {
+  const response = await fetch('https://avoc-store.vercel.app/api/avo')
+  const { data }: TAPIAvoResponse = await response.json()
 
-  React.useEffect(() => {
-    if (query.id) {
-      fetch(`/api/avo/${query.id}`)
-        .then((response) => response.json())
-        .then((data: TProduct) => {
-          setProduct(data)
-        })
-    }
-  }, [query.id])
+  const paths = data.map(({ id }) => ({ params: { id } }))
 
+  return {
+    // Statically generate all paths
+    paths,
+    // Display 404 for everything else
+    fallback: false,
+  }
+}
+
+// This also gets called at build time
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  // params contains the post `id`.
+  // If the route is like /posts/1, then params.id is 1
+  const response = await fetch(
+    `https://avoc-store.vercel.app/api/avo/${params?.id}`
+  )
+  const product = await response.json()
+
+  // Pass post data to the page via props
+  return { props: { product } }
+}
+
+const ProductPage = ({ product }: { product: TProduct }) => {
   return (
     <Layout>
       {product == null ? null : <ProductSummary product={product} />}

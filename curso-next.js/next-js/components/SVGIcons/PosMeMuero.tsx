@@ -1,11 +1,11 @@
-import { SVGIconProps } from "./svg.types";
+import { SVGIconProps } from './svg.types'
 
 /**
  * Original Icon from Freepik, set: Cinco de Mayo.
  * And edited por yo merengues.
  * www.flaticon.com
  */
-const PosMeMuero = ({ size = "58px", ...otherProps }: SVGIconProps) => (
+const PosMeMuero = ({ size = '58px', ...otherProps }: SVGIconProps) => (
   <svg width={size} height={size} viewBox="0 0 640 640" {...otherProps}>
     <defs>
       <path
@@ -103,6 +103,6 @@ const PosMeMuero = ({ size = "58px", ...otherProps }: SVGIconProps) => (
     <use xlinkHref="#p" />
     <use xlinkHref="#q" />
   </svg>
-);
+)
 
-export default PosMeMuero;
+export default PosMeMuero

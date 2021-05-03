@@ -5,6 +5,7 @@
       "@database": ["database/db.ts"],
       "@cors": ["cors-middleware.ts"],
       "@components/*": ["components/*"],
+      "@context/*": ["context/*"],
       "@store/*": ["store/*"]
     },
     "target": "es6",

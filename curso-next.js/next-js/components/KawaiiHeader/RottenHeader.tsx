@@ -1,6 +1,6 @@
-import { Header } from "semantic-ui-react";
+import { Header } from 'semantic-ui-react'
 
-import { PosMeMuero } from "@components/SVGIcons";
+import { PosMeMuero } from '@components/SVGIcons'
 
 const RottenHeader = () => (
   <Header size="huge" as="h1">
@@ -8,6 +8,6 @@ const RottenHeader = () => (
     <PosMeMuero size="58px" />
     Avo
   </Header>
-);
+)
 
-export default RottenHeader;
+export default RottenHeader

@@ -1,61 +1,61 @@
-import React  from "react";
-import { Input, Icon, Transition } from "semantic-ui-react";
-import { useCartMutations } from "@store/Cart";
+import React from 'react'
+import { Input, Icon, Transition } from 'semantic-ui-react'
+import { useCartMutations } from '@store/Cart'
 
 type AddToCartProps = {
-  product: TProduct;
-};
+  product: TProduct
+}
 
 // Fake a server Response, we don't care on this project
 // about data persistency, but you may add it :)
 const addToCartRequest = () =>
   new Promise((resolve, reject) => {
-    window.setTimeout(resolve, 600);
-  });
+    window.setTimeout(resolve, 600)
+  })
 
 const validate = (quantity: number) => {
-  let error = "";
-  if (quantity < 1) error = "Can't be blank";
+  let error = ''
+  if (quantity < 1) error = "Can't be blank"
 
-  return error;
-};
+  return error
+}
 
 const AddToCart = ({ product }: AddToCartProps) => {
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState("");
-  const [quantity, setQuantity] = React.useState(1);
-  const [visible, setVisible] = React.useState(false);
-  const { addToCart } = useCartMutations();
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState('')
+  const [quantity, setQuantity] = React.useState(1)
+  const [visible, setVisible] = React.useState(false)
+  const { addToCart } = useCartMutations()
 
   const toggleMessage = () => {
     setTimeout(() => {
-      setVisible(false);
-    }, 1000);
-  };
+      setVisible(false)
+    }, 1000)
+  }
 
   const handleSubmit = async () => {
-    const error = validate(quantity);
-    setError(error);
+    const error = validate(quantity)
+    setError(error)
 
     if (!error) {
-      setLoading(true);
+      setLoading(true)
       addToCartRequest()
         .then(() => {
-          addToCart(product, quantity);
-          setLoading(false);
-          setQuantity(quantity);
-          setVisible(true);
-          toggleMessage();
+          addToCart(product, quantity)
+          setLoading(false)
+          setQuantity(quantity)
+          setVisible(true)
+          toggleMessage()
         })
         .catch((err: Error) => {
-          setError(`Error: ${err}` || "Something went wrong");
-          setLoading(false);
-        });
+          setError(`Error: ${err}` || 'Something went wrong')
+          setLoading(false)
+        })
     }
-  };
+  }
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) =>
-    setQuantity(parseInt(target.value, 10));
+    setQuantity(parseInt(target.value, 10))
 
   return (
     <>
@@ -68,25 +68,25 @@ const AddToCart = ({ product }: AddToCartProps) => {
         error={!!error}
         onChange={handleChange}
         action={{
-          color: "green",
-          content: "Add to Cart",
-          icon: "plus cart",
+          color: 'green',
+          content: 'Add to Cart',
+          icon: 'plus cart',
           onClick: handleSubmit,
           loading,
           disabled: loading,
         }}
       />
       {error && (
-        <div style={{ color: "red", position: "absolute" }}>{error}</div>
+        <div style={{ color: 'red', position: 'absolute' }}>{error}</div>
       )}
       <Transition duration={{ hide: 500, show: 500 }} visible={visible}>
-        <div style={{ color: "green", position: "absolute" }}>
+        <div style={{ color: 'green', position: 'absolute' }}>
           <Icon name="check" />
           Added to cart
         </div>
       </Transition>
     </>
-  );
-};
+  )
+}
 
-export default AddToCart;
+export default AddToCart

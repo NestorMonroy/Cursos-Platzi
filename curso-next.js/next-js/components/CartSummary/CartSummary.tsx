@@ -1,8 +1,8 @@
-import { Segment, Button } from "semantic-ui-react";
+import { Segment, Button } from 'semantic-ui-react'
 
 type CartSummaryProps = {
-  totalAmount: number;
-};
+  totalAmount: number
+}
 
 const CartSummary = ({ totalAmount }: CartSummaryProps) => {
   return (
@@ -15,7 +15,7 @@ const CartSummary = ({ totalAmount }: CartSummaryProps) => {
         Check out
       </Button>
     </Segment>
-  );
-};
+  )
+}
 
-export default CartSummary;
+export default CartSummary

@@ -1,29 +1,29 @@
-import React from "react";
-import { Confirm } from "semantic-ui-react";
+import React from 'react'
+import { Confirm } from 'semantic-ui-react'
 
-import PuesVivo from "./AnimatedHeader";
-import PuesMuero from "./RottenHeader";
-import ModalHeaderContent from "./ModalHeaderContent";
+import PuesVivo from './AnimatedHeader'
+import PuesMuero from './RottenHeader'
+import ModalHeaderContent from './ModalHeaderContent'
 
 const KawaiiHeader = () => {
-  const [visible, setVisible] = React.useState(true);
-  const [meMori, setMeMori] = React.useState(false);
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const [count, setCount] = React.useState(0);
+  const [visible, setVisible] = React.useState(true)
+  const [meMori, setMeMori] = React.useState(false)
+  const [modalOpen, setModalOpen] = React.useState(false)
+  const [count, setCount] = React.useState(0)
 
-  const closeModal = () => setModalOpen(false);
-  const toggleVisible = () => setVisible((prevVisible) => !prevVisible);
+  const closeModal = () => setModalOpen(false)
+  const toggleVisible = () => setVisible((prevVisible) => !prevVisible)
 
   React.useEffect(() => {
-    window.setTimeout(toggleVisible, 350);
-  }, []);
+    window.setTimeout(toggleVisible, 350)
+  }, [])
 
   React.useEffect(() => {
     if (count === 4) {
-      setMeMori(true);
-      setModalOpen(true);
+      setMeMori(true)
+      setModalOpen(true)
     }
-  }, [count]);
+  }, [count])
 
   return (
     <div className="container">
@@ -60,7 +60,7 @@ const KawaiiHeader = () => {
         `}
       </style>
     </div>
-  );
-};
+  )
+}
 
-export default KawaiiHeader;
+export default KawaiiHeader
