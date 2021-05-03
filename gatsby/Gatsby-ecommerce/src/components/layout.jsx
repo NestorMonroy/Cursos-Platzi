@@ -11,7 +11,7 @@ const Layout = ({ children }) => (
       <main>{children}</main>
       <Footer>
         © {new Date().getFullYear()} ♥︎ por
-        <a href="">Nestor</a>
+        <a href="#">Nestor</a>
       </Footer>
     </Content>
   </>

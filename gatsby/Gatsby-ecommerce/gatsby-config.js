@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Ecommerce`,
-    description: `Example  eccommerce`,
+    description: `EL mejor swag disponible`,
     author: `@nestormonroy`,
   },
   plugins: [

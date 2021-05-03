@@ -1,17 +1,32 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
+import { graphql } from "gatsby";
+import { SEO, Jumbo } from "../components";
 
-import { SEO, Jumbo } from "../components"
+export const query = graphql`
+  query GET_DATA {
+    allSite {
+      edges {
+        node {
+          siteMetadata {
+            description
+          }
+        }
+      }
+    }
+  }
+`;
 
-const IndexPage = () => (
-  <>
-    <SEO title="Home" />
-    <Jumbo />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/gracias/">Go to gracias</Link>
-  </>
-)
+const IndexPage = ({ data }) => {
+  console.log(data);
+  return (
+    <>
+      <SEO title="Home" />
+      <Jumbo
+        description={data.allSite.edges[0].node.siteMetadata.description}
+      />
+    </>
+  );
+};
 
-export default IndexPage
+export default IndexPage;
