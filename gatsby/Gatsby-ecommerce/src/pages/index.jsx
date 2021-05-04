@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { SEO, Jumbo } from "../components";
+import { SEO, Jumbo, Products } from "../components";
+
 
 export const query = graphql`
   query GET_DATA {
@@ -13,9 +14,24 @@ export const query = graphql`
         }
       }
     }
+    allStripePrice{
+      edges{
+        node{
+          id
+          unit_amount
+          product{
+            name
+            metadata{
+              img
+              description
+              wear
+            }      
+          }
+        }
+      }
+    }
   }
-`;
-
+`
 const IndexPage = ({ data }) => {
   console.log(data);
   return (
@@ -24,6 +40,7 @@ const IndexPage = ({ data }) => {
       <Jumbo
         description={data.allSite.edges[0].node.siteMetadata.description}
       />
+      <Products products={data.allStripePrice.edges} />
     </>
   );
 };
