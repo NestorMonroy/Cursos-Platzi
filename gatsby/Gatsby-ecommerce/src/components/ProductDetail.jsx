@@ -9,7 +9,7 @@ import {
   StyledProductDetail,
   QtySelect,
 } from "../styles/components";
-import { SEO } from "./";
+import { SEO, Stars } from "./";
 
 export default function ProductDetail({
   unit_amount,
@@ -26,7 +26,8 @@ export default function ProductDetail({
       <div>
         <Tag>Popular</Tag>
         <h2>{name}</h2>
-        <b>MXN {formatPrice}</b>
+        <b>USD {formatPrice}</b>
+        <Stars />
         {/* {metadata.wear && <h1>Color: Azul</h1>} */}
         <small>{metadata.description}</small>
         {metadata.wear && (
