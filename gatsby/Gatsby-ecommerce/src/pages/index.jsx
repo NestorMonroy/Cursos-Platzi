@@ -18,7 +18,7 @@ export const query = graphql`
       edges{
         node{
           id
-          unit_amount
+          price: unit_amount
           product{
             name
             metadata{
