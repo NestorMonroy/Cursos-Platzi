@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
+  <title>Video</title>
+</head>
+<style>
+  body {
+    margin: 0px;
+    background-color: #2b4f60;
+    font-family: 'Muli', sans-serif;
+  }
+
+  .header {
+    /*     background-color: #21C08B;
+ */
+    width: 100%;
+    height: 100px;
+  }
+
+  .header__img {
+    width: 200px;
+    margin: 5px 0px 5px 40px;
+    outline: none;
+  }
+
+  .headermain {
+    width: 100%;
+    height: 70px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .headermain__img {
+    width: 200px;
+    margin: 5px 0px 5px 10px;
+    outline: none;
+  }
+
+  .headermain__menu {
+    margin-right: 20px;
+  }
+
+  .headermain__menu ul {
+    display: none;
+    list-style: none;
+    padding: 0px;
+    position: absolute;
+    width: 100px;
+    text-align: right;
+    margin: 0px 0px 0px -14px;
+  }
+
+  .headermain__menu:hover ul,
+  ul:hover {
+    display: block;
+  }
+
+  .headermain__menu li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .headermain__menu li a:hover {
+    text-decoration: underline;
+  }
+
+  .headermain__menu--profile {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .headermain__menu--profile:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .headermain__menu--profile img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+
+  .headermain__menu--profile>a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+</style>
+
+<body>
+  <header class="headermain">
+    <img class="headermain__img" src="https://raw.githubusercontent.com/JKGC/Platzi-Video/master/img/platzi_video.png"
+      alt="logo de Platzi Video">
+    <div class="headermain__menu">
+      <div class="headermain__menu--profile">
+        <a href="register.html"><img src="https://raw.githubusercontent.com/JKGC/Platzi-Video/master/img/icono_user.png"
+            alt="icono de usuario"></a>
+        <a href="">
+          <p>Perfil</p>
+        </a>
+      </div>
+      <ul>
+        <li><a href="register.html">Cuenta</a></li>
+        <li><a href="register.html">Cerrar Sesion</a></li>
+      </ul>
+    </div>
+  </header>
+</body>
+
+</html>
