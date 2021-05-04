@@ -11,6 +11,9 @@ const Header = ({ siteTitle }) => (
     <nav>
       <ul>
         <MenuItem margin>
+          <Link to="/">Productos</Link>
+        </MenuItem>
+        <MenuItem>
           <Link to="/cart">
             <span>
               <img
@@ -19,9 +22,6 @@ const Header = ({ siteTitle }) => (
               />
             </span>
           </Link>
-        </MenuItem>
-        <MenuItem margin>
-          <Link to="/">Productos</Link>
         </MenuItem>
       </ul>
     </nav>
