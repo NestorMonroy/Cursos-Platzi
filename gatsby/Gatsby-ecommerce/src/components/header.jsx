@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { MenuItem, StyledHeader } from "../styles/components";
-import { CartContext } from "../context";
+import { CartContext } from "../Context";
 
 const Header = ({ siteTitle }) => {
   const { cart } = React.useContext(CartContext);

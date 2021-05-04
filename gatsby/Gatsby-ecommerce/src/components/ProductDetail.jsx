@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import priceFormat from "../utils/priceFormat";
+import { CartContext } from "../Context";
 import {
   Tag,
   SizeButton,
@@ -11,24 +12,29 @@ import {
 } from "../styles/components";
 import { SEO, Stars } from "./";
 
-export default function ProductDetail({
+export default function ProductDetails({
+  id,
   unit_amount,
-  sku: id,
   product: { name, metadata },
 }) {
-  const formatPrice = priceFormat(unit_amount);
-  const [size, setSize] = useState(2);
-  const [qty, setQty] = useState(1);
+  const price = priceFormat(unit_amount);
+  const [size, setSize] = React.useState(2);
+  const [quantity, setQuantity] = React.useState(1);
+  const { addToCart } = React.useContext(CartContext);
+
+  const handleSubmit = () => {
+    addToCart({ id, name, price: unit_amount, metadata, quantity });
+  };
   return (
     <StyledProductDetail>
       <SEO title={name} />
-      <img src={metadata.img} alt="name" />
+      <img src={metadata.img} alt={name} />
       <div>
         <Tag>Popular</Tag>
         <h2>{name}</h2>
-        <b>USD {formatPrice}</b>
+        <b>USD: {price}</b>
         <Stars />
-        {/* {metadata.wear && <h1>Color: Azul</h1>} */}
+        {metadata.wear && <h3>Color: {metadata.wear.color}</h3>}
         <small>{metadata.description}</small>
         {metadata.wear && (
           <SizeSelect selected={size}>
@@ -38,13 +44,17 @@ export default function ProductDetail({
             <SizeButton onClick={() => setSize(4)}>L</SizeButton>
           </SizeSelect>
         )}
-        <p>Cantidad</p>
+        <p>Quantity:</p>
         <QtySelect>
-          <button onClick={() => (qty > 1 ? setQty(qty - 1) : null)}>-</button>
-          <input type="text" disabled value={qty} />
-          <button onClick={() => setQty(qty + 1)}>+</button>
+          <button
+            onClick={() => (quantity > 1 ? setQuantity(quantity - 1) : null)}
+          >
+            -
+          </button>
+          <input type="text" disabled value={quantity} />
+          <button onClick={() => setQuantity(quantity + 1)}>+</button>
         </QtySelect>
-        <Button>Agregar al carrito</Button>
+        <Button onClick={handleSubmit}>Add to cart</Button>
       </div>
     </StyledProductDetail>
   );
