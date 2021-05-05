@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  background-color: #524f70;
+}
+
+.header {
+/*     background-color: #21C08B;
+*/    width: 100%;
+  height: 100px;
+}
+.header__img {
+  width: 200px;
+  margin: 5px 0px 5px 40px;
+  outline: none;
+}
+.headermain {
+  width: 100%;
+  height: 70px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headermain__img {
+  width: 200px;
+  margin: 5px 0px 5px 10px;
+  outline: none;
+}
+.headermain__menu {
+  margin-right: 20px;
+}
+.headermain__menu ul {
+  display: none;
+  list-style: none;
+  padding: 0px;
+  position: absolute;
+  width: 100px;
+  text-align: right;
+  margin: 0px 0px 0px -14px;
+}
+.headermain__menu:hover ul, ul:hover {
+  display: block;
+}
+.headermain__menu li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.headermain__menu li a:hover {
+  text-decoration: underline;
+}
+.headermain__menu--profile {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+.headermain__menu--profile:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+.headermain__menu--profile img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+.headermain__menu--profile > a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.categories__title {
+  color: #ffffff;
+  padding-left: 30px;
+  font-size: 16px;
+  position: absolute;
+  width: 100%;
+}
+.login {
+  /* background: linear-gradient(#21c08b, #ab88ff); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+  min-height: calc(100vh - 200px);
+}
+.login__container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+  color: #ffffff;
+  padding: 60px 68px 40px;
+  min-height: 700px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.login__container h2 {
+  outline: none;
+}
+.login__container a {
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+}
+.login__container a:hover {
+  font-weight: bold;
+}
+.login__container--form {
+  display: flex;
+  flex-direction: column;
+}
+.login__container--form label {
+  font-size: 14px;
+}
+.login__container--remember-me {
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+.login__container--remember-me p {
+  margin: 0;
+}
+.login__container--remember-me label {
+  display: flex;
+}
+.login__container--remember-me a {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.login__container--remember-me a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.login__container--social-media {
+  margin-top: 70px;
+}
+.login__container--social-media img {
+  height: 30px;
+  margin-right: 10px;
+  outline: none;
+}
+.login__container--social-media div {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.login__container--register {
+  font-size: 14px;
+}
+.login__container--register a {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+}
+.login__container--register a:hover {
+  text-decoration: underline;
+}
+.input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  padding: 0px 20px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+}
+.input::placeholder {
+  color: #ffffff;
+  font-size: 16px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+.footer a {
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  padding-left: 30px;
+}
+.footer a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .login__container {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    width: 100%;
+}
+  .footer {
+      align-items: flex-start;
+      flex-direction: column;
+  }
+  .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .header__img {
+      margin: 0;
+  }
+}

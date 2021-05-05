@@ -6,159 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css">
   <title>Video</title>
+
 </head>
-<style>
-  body {
-    margin: 0px;
-    background-color: #1f5a64;
-    font-family: "Muli", sans-serif;
-  }
-
-  .header {
-    /*     background-color: #21C08B;
- */
-    width: 100%;
-    height: 100px;
-  }
-
-  .header__img {
-    width: 200px;
-    margin: 5px 0px 5px 40px;
-    outline: none;
-  }
-
-  .headermain {
-    width: 100%;
-    height: 70px;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .login {
-    /* background: linear-gradient(#21c08b, #ab88ff); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0px 30px;
-    min-height: calc(100vh - 200px);
-  }
-
-  .login__container {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #dadada;
-    border-radius: 40px;
-    color: #ffffff;
-    padding: 60px 68px 40px;
-    min-height: 700px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  .login__container h2 {
-    outline: none;
-  }
-
-  .login__container a {
-    color: #ffffff;
-    text-decoration: none;
-    text-align: center;
-    font-size: 18px;
-  }
-
-  .login__container a:hover {
-    font-weight: bold;
-  }
-
-  .login__container--form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .login__container--form label {
-    font-size: 14px;
-  }
-
-  .login__container--remember-me {
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 10px;
-  }
-
-  .login__container--remember-me p {
-    margin: 0;
-  }
-
-  .login__container--remember-me label {
-    display: flex;
-  }
-
-  .login__container--remember-me a {
-    font-size: 14px;
-    color: #ffffff;
-    text-decoration: none;
-  }
-
-  .login__container--remember-me a:hover {
-    text-decoration: underline;
-    font-weight: bold;
-  }
-
-  .login__container--social-media {
-    margin-top: 70px;
-  }
-
-  .login__container--social-media img {
-    height: 30px;
-    margin-right: 10px;
-    outline: none;
-  }
-
-  .login__container--social-media div {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-
-  .login__container--register {
-    font-size: 14px;
-  }
-
-  .login__container--register a {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-  }
-
-  .login__container--register a:hover {
-    text-decoration: underline;
-  }
-
-  .input {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid #ffffff;
-    padding: 0px 20px;
-    margin-bottom: 20px;
-    color: #ffffff;
-    font-family: 'Muli', sans-serif;
-    font-size: 16px;
-    height: 50px;
-  }
-</style>
 
 <body>
   <header class="headermain">
+    <img class="headermain__img" src="https://raw.githubusercontent.com/JKGC/Platzi-Video/master/img/platzi_video.png"
+      alt="logo de Platzi Video">
+    <div class="headermain__menu">
+      <div class="headermain__menu--profile">
+        <a href="register.html"><img src="https://raw.githubusercontent.com/JKGC/Platzi-Video/master/img/icono_user.png"
+            alt="icono de usuario"></a>
+        <a href="">
+          <p>Perfil</p>
+        </a>
+      </div>
+      <ul>
+        <li><a href="register.html">Cuenta</a></li>
+        <li><a href="register.html">Cerrar Sesion</a></li>
+      </ul>
+    </div>
   </header>
   <section class="login">
     <section class="login__container">
@@ -176,14 +45,19 @@
         </div>
       </form>
       <section class="login__container--social-media">
-        <div><img tabindex="0" src="../img/google-icon.png"
-            alt="inicia sesión con google">Inicia sesión con Google</div>
-        <div><img tabindex="0" src="../img/twitter-icon.png"
-            alt="inicia sesión con twitter">Inicia sesión con Twitter</div>
+        <div><img tabindex="0" src="./img/google-icon.png" alt="inicia sesión con google">Inicia sesión con Google</div>
+        <div><img tabindex="0" src="./img/twitter-icon.png" alt="inicia sesión con twitter">Inicia sesión con Twitter
+        </div>
       </section>
       <p class="login__container--register">No tienes ninguna cuenta <a href="register.html">Regístrate</a></p>
     </section>
+
   </section>
+  <footer class="footer">
+    <a href="#">Terminos de uso</a>
+    <a href="#">Declaración de privacidad</a>
+    <a href="#">Centro de ayuda</a>
+  </footer>
 </body>
 
 </html>
