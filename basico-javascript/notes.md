@@ -193,3 +193,50 @@ Simbolo	Descripcion
 !	NOT niega un valor
 &&	AND
 ||	OR
+
+En el scope local de una función puedo usar variables:
+R = Variables del scope global y locales de esa función.
+
+¿Qué valor se asigna por defecto a las variables cuando caen en hoisting?
+R = undefined.
+
+¿En qué consiste la coerción explícita?
+
+R= En obligar cambiar el tipo de una variable a otra.
+
+¿Cuál es la naturaleza de los valores booleanos?
+R = true y false.
+
+¿Qué diferencia hay entre comparar con "'==" y "==="?
+R = "==" compara valores. "===" compara valores y tipo de dato.
+
+
+Básicamente un switch es como un if pero diferente en su sintaxis y su uso, pero fuera de algunas ocasiones son muy parecidos.
+
+–
+
+¿Como usar switch?
+- La sintaxis de switch es:
+
+```js
+switch('valor a validar') {
+	case 'opción 1':
+				'acción a realizar';
+				break;
+	}
+```
+
+(El uso de break es importante, ya que si no lo pones accionara todas las opciones dentro del switch, digamos que es como un puente, si no lo pones vas a tener que caminar por un lugar donde cada ‘case’ es una autopista más, mientras que break es un puente directo hacia la siguiente acera).
+
+¿Para qué nos sirve el operador ternario "?" ?
+R = Para definir una condición, el resultado cuando se cumple y cuando no se cumple, en una sola línea.
+
+¿En qué casos es conveniente utilizar `switch`?
+R = Cuando tenemos múltiples casos a evaluar y evitar el uso de múltiples “if else”.
+
+¿Qué retorna el siguiente código? if (false === !true) { console.log(false == true) } else { console.log(true === !false) }
+
+R = false
+
+¿Qué pasa si no coloco la sentencia `break` en un `switch`?
+R = Se validan todos los casos como verdaderos y se realizan las acciones asignadas a cada uno.

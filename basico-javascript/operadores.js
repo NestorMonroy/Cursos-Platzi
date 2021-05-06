@@ -29,3 +29,5 @@ var edad = 40
 edad++ //Incrementa el valor en 1
 
 edad += 2 //Incrementa el valor por 2
+
+
