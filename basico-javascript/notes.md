@@ -240,3 +240,106 @@ R = false
 
 ¿Qué pasa si no coloco la sentencia `break` en un `switch`?
 R = Se validan todos los casos como verdaderos y se realizan las acciones asignadas a cada uno.
+
+
+Un Array es un tipo de estructura de datos, objeto. 
+
+.lenght devuelve la longitud del array.
+.push() agrega elementos al final de array.
+.pop() elimina un elemento del array.
+.unshift() agrega un elemento al array, pero lo agrega en primer lugar.
+**.shift() **elimina el elemento que está en el inicio del array.
+**.indexOf ** devuelve la posición de un elemento del array.
+
+Un array se mantiene inmutable, es decir, no puede aumentar o disminuir su tamaño. Esta afirmación es:
+R = Falsa.
+
+Los arrays pueden contener más arrays, esto es:
+R = Verdadero.
+
+Son los elementos principales de un array:
+R = Índice y elemento.
+
+
+Los bucles pueden ejecutar un bloque de código varias veces. JavaScript admite diferentes tipos de bucles:
+
+for - recorre un bloque de código varias veces
+
+for/in - recorre las propiedades de un objeto
+
+for/of - recorre los valores de un objeto iterable
+
+while - recorre un bloque de código mientras se cumple una condición específica
+
+do/while - también recorre un bloque de código mientras se cumple una condición específica
+
+
+Objetos: JS es un lenguaje que está diseñado en un paradigma de objetos
+
+```js
+var miAuto = {
+	marca: "Toyota",
+	modelo: "Corolla",
+	annio: 2020
+}
+
+consolo.log(miAuto.marca) //Toyota
+
+```
+
+Se pueden agregar propiedades que van a ser una función, se les llama métodos de objetos.
+
+
+```js
+var miAuto = {
+  marca: "Toyota",
+  modelo: "Corolla",
+  año: 2020, 
+
+  detallesDelAuto: function () {
+    console.log(`Auto ${this.modelo} ${this.año}`);
+
+  }
+}
+
+```
+
+¿Quién es this?
+Es una variable que hace referencia al objeto. En este caso: this = miAuto.
+
+- RECORRER EL CONTENIDO DEL ARRAY:
+  - filter: filtra en base a validaciones (genera un nuevo array)
+  - map:    regresa un atributo de los objetos (genera un nuevo array)
+
+  - find() : Devuelve el primer elemento del array que cumpla con la condición dada
+    https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+  - foreach() : Ejecuta lo que le definamos una vez por cada elemento de nuestro array
+    https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+  - some() : Comprueba si al menos un elemento del array cumple con la condición que le damos
+    https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+  - filter() : Devuelve todos los elementos del array que cumplan con la condición dada
+    https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+  -.push() : El método .push() nos permite agregar uno o más elementos al  final de un array.
+  - .shift() :  eliminar el primer elemento de un array, es decir, elimina el elemento que esté en el índice 0.
+
+
+¿Qué hace el método `filter()`?
+R= Crea un nuevo array con los elementos del array que se pasó como parámetro y que cumplan con la condición definida.
+
+¿Qué hace el método `map()`?
+R = Crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+
+
+¿Qué hace el método `find()`?
+R = Retorna el primer elemento de un array que cumple con una condición definida en un nuevo array.
+
+¿Qué hace el método `forEach()`?
+R  = Ejecuta la función indicada una vez por cada elemento del array.
+
+¿Qué hace el método `some()`?
+R = Retorna "true"o “false” si hay elementos en un array que cumplan con la condición indicada.
+
+¿Qué método debo utilizar para eliminar el último elemento de un array?
+R = .pop()  

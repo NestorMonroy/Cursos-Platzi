@@ -13,3 +13,4 @@ console.log(c);
 
 var d = Number(c); //Aquí obligamos a la variable a convertirse en número (coerción explícita)
 console.log(d);
+
