@@ -96,3 +96,40 @@ Tercer dígito: estos son patch, bug fixes o cambios menores
 *Lo recomendo si queremos tener el control sobre estas actualizacion garantizando que nos queremos quedar en cierta versión lo mejor es elimina el caret (^)
 
 Package-lock.json a partir de la versión 5 npm encontramos este archivo que nos permite tener ciertas configuraciones la cual nos permite saber que esta sucediendo a lo largo de nuestro proyecto sabiendo que versiones, que paquetes y que dependencias se encuentran en este, permitiendonos tener un versionado uno poco mas establecido, podremos compartir este documento con los demás desarrolladores y garantizar que las versiones que se están instalando sean las correctas, al igual nos sirve para cuando los proyectos estén en la nube y nuestro servidor instale de manera automática todas estas dependencias
+
+
+En caso de que nuestros archivos de node_module no estén bien instalados o tengamos una versión anterior lo que podemos hacer es lo siguiente:
+
+se elimina el cache
+
+npm cache clear --force
+
+#Para verificar que verdaderamente se borro podemos usar
+npm cache verify
+
+Uno de los errores que podemos tener es tener algún valor corrupto en node_module, o tambien que la instalación no este completa de los paquetes que hemos instalado, para ello podemos eliminar el paquete con el siguiente comando:
+
+rm -rf node_modules  #este comando eliminar la carpeta 
+
+Otra alternativa para eliminar de forma segura una carpeta es instalando el siguiente paquete:
+
+sudo npm install -g rimraf
+
+Ahora podemos ejecutar el siguiente comando para eliminar node_module
+
+rimraf node_modules 
+#Ahora podemos volver a instalar nuestro paquetes
+npm install
+
+Podemos revisar las vulnerabilidades de nuestro proyecto con:
+npm audit
+npm audit --json
+
+npm update name-pack --depth 2
+
+En caso de tener vulverabilidades, se recomienda usar el comando:
+npm audit fix
+
+Y en caso de que esto no lo solucione, podemos ir actualizandolos de uno en uno.
+
+https://snyk.io/
