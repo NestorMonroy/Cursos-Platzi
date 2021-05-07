@@ -95,3 +95,10 @@ const another = () => {
 another()
 
 ```
+
+https://www.youtube.com/watch?v=uI6o97A4IrI&t=1s
+
+Hoisting: Eleva las declaraciones, esto pasa en el momento en que se compila nuestro código antes de ser interpretado por el navegador.
+
+De esta forma podemos asignar nuestros valores o acceder a un valor que previamente no ha sido declarado dentro de esta estructura.
+
