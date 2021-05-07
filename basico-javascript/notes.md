@@ -343,3 +343,71 @@ R = Retorna "true"o “false” si hay elementos en un array que cumplan con la 
 
 ¿Qué método debo utilizar para eliminar el último elemento de un array?
 R = .pop()  
+
+
+---------
+¿Qué método llamaríamos para saber el index de un elemento de mi array?
+R = indexOf()
+
+¿Qué es un array?
+R = Es una estructura de datos de tipo objeto.
+
+¿Qué significa Coerción en JS?
+R = Es el proceso de convertir el valor de un tipo a otro.
+
+¿Es correcta la siguiente sentencia ?
+switch (false) { 
+	case false: console.log("Soy falso :( ") 
+	case true: console.log("Soy verdadero!") 
+}
+R = No
+
+¿Cómo se llama al siguiente ejemplo de funciones?
+var myFunction = function() { 
+	...
+}
+R = Función expresiva.
+
+¿Qué resultado podría esperar de ésta validación?
+6 === “6”
+R = FALSE
+
+¿Qué podemos esperar al llamar al método .pop(); ?
+R = Borrar el último elemento de mi array.
+
+¿Qué resultado podría esperar de ésta validación?
+4 == “4”
+R = TRUE
+
+¿Cómo se le llama al siguiente ejemplo de funciones?
+function myfunction() { 
+	...
+}
+R = Función declarativa.
+
+¿Qué es una variable?
+R = Es la representación de un espacio en memoria.
+
+¿Qué es el hoisting en Javascript?
+R = Es cuando las declaraciones de variables y funciones se procesan antes de ejecutar cualquier código.
+
+¿Por qué decimos que JavaScript es un lenguaje dinámico?
+R = Porque es un lenguaje que corre en tiempo de ejecución.
+
+¿Qué resultado podría esperar de ésta validación?
+1 = “1”
+R = Syntax Error
+
+¿Cuáles son los tipos de scope tenemos?
+R = Scope global y Scope local.
+
+¿Cómo podemos crear notas o comentarios en nuestro JavaScript?
+R = // …
+
+¿Cómo se le conoce a la siguiente sentencia?
+nombre = “Diego”
+R = Inicializar una variable.
+
+¿Cómo se le conoce a la siguiente sentencia?
+var nombre;
+R = Declarar una variable.

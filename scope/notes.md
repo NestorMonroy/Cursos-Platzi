@@ -62,8 +62,6 @@ El ámbito léxico es cuando las funciones se ejecutan utilizando la cadena del 
 
 Esto significa que podemos acceder al valor “count” dentro de la función porque es el alcance donde está asignado.
 
-Podemos tener varias formas de manejar la constante “buildCount”, significa que la podemos asignar a myCount y myOtherCount. Trabajaremos con el scope(alcance) que tiene esta variable, poder ejecutarla y empezar a contar desde donde necesitemos.
-
 
 Variables privadas con Closures: 
 
@@ -102,3 +100,58 @@ Hoisting: Eleva las declaraciones, esto pasa en el momento en que se compila nue
 
 De esta forma podemos asignar nuestros valores o acceder a un valor que previamente no ha sido declarado dentro de esta estructura.
 
+-------------------------
+El scope es el alcance de una variable en determinada parte de un programa
+R = Verdadero
+
+¿Qué es Code Runner?
+R = Es un plugin de Visual Studio Code que permite ejecutar el código dentro del editor
+
+¿Qué representa el siguiente código?
+const fruits = () => { var fruit = 'apple'; console.log(fruit); }
+R = Local Scope
+
+JavaScript solo utiliza el hoisting en declaraciones, mas no en inicializaciones
+R = Verdadero
+
+¿Qué sucederá si ejecutamos el siguiente código?
+nameOfDog("Elmo"); 
+function nameOfDog(name) 
+{ console.log(name); };
+R = Se muestra en consola el siguiente mensaje: "Elmo"
+
+Las variables declaradas con let y const, NO se pueden volver a declarar en el mismo ámbito.
+R = Verdadero
+
+¿La herramienta de Google Chrome que nos permite hacer debugging se llama?
+R = Chrome DevTools
+
+El uso de variables globales en nuestro código, ¿debería ser evitado?
+R = Verdadero
+
+Variables declaradas con "let" y "const" son de "block scope"
+R = Verdadero
+
+¿Cuál de los siguientes códigos es un closure?
+R = const buildCount = (i) => { let count = i; const displayCount = () => { console.log(count++); }; return displayCount; }
+
+¿Cuál es la sección de Chrome DevTools donde podemos depurar el scope?
+R =Sources
+
+¿Cuál de las siguientes opciones NO se puede considerar como una variable global?
+R = var = "I am global";
+
+Analiza el siguiente código e identifica la variable declarada en el alcance de la función
+const fruits = () => { 
+	if (true) { 
+		var fruit1 = 'apple'; 
+		const fruit2 = 'banana'; 
+		let fruit3 = 'kiwi'; 
+		} 
+} 
+R = var fruit1 = 'apple';
+
+Analiza el siguiente código:
+const helloWorld = () => { globalVar = "I'm global"; } helloWorld();
+¿Cómo se crea la variable globalVar?
+R = globalVar se crea como una variable global
