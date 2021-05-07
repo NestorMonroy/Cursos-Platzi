@@ -133,3 +133,12 @@ npm audit fix
 Y en caso de que esto no lo solucione, podemos ir actualizandolos de uno en uno.
 
 https://snyk.io/
+
+--
+Primero se debe probar de forma local.
+pwd
+sudo npm link
+#Se ejecuta la función
+random-msg-n
+
+sudo npm install -g  pwd
