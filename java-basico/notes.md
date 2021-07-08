@@ -29,3 +29,24 @@ Apache Maven -- desarrollo web
 gradle -- desarrollo web y servidor 
 java spring
 
+
+OpenJDK 8
+sudo apt-get install openjdk-8-jre
+
+OpenJDK 11
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt update
+sudo apt install openjdk-11-jdk
+
+
+java -version
+
+Cambiar la version de java
+
+sudo update-alternatives --config java
+
+Install IntelliJ IDEA 
+
+snap find "intellij"
+
+sudo snap install intellij-idea-ultimate --classic
