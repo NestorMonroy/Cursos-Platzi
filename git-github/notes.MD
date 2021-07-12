@@ -32,8 +32,6 @@ Git solo funciona con texto plano
 |git init     |inicializa el repositorio de git |
 |git add       | Agrega todos los cambios en todos los archivos al área de staging|
 |git status | Para ver sí se han hecho cambios, pero no se han agregado, ahí saldrá |
-|git show | Muestra todos los cambios históricos hechos y sus detalles (qé cambió, cuándo y quién los hizo)|
-|git log “nombre del archivo” | Muestra el historial de ese archivo |
 |git commit -m | se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
 |git push | envía los cambios al repositorio remoto |
 |git pull | Agrega los cambios del commit más nuevo al repositorio local
@@ -43,5 +41,9 @@ Git solo funciona con texto plano
 |git config  --list --show-origin| ver donde esta guardada la configuracion|
 |git --global user.name "Tu Nombre" |Configura tu nombre de usuario|
 |git config --global user.email "tu@email.com" |Configurar tu email|
+|git log |Muestra todala historia|
+|git log “nombre del archivo” | Muestra el historial de ese archivo|
+|git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo)|
+|git show “nombre del archivo” | Muestra todos los cambios del archivo|
 
 
