@@ -2,15 +2,6 @@
 
 Un sistema de control de versiones como Git nos ayuda a guardar el historial de cambios y crecimiento de los archivos de nuestro proyecto.
 
-* git init -> inicializa el repositorio de git
-* git add -> Agrega todos los cambios en todos los archivos al área de staging
-* git status -> Para ver el estado de la BD sí se han hecho cambios, pero no se han agregado, ahí saldrá
-* git show -> Muestra todos los cambios históricos hechos y sus detalles (qé cambió, cuándo y quién los hizo)
-* git log “nombre del archivo” -> Muestra el historial de ese archivo
-* git commit -m -> Agrega definitivamente los cambios hechos al repositorio, se puede poner un comentario para indicar que cambió
-git push -> envía los cambios al repositorio remoto
-- git pull -> Agrega los cambios del commit más nuevo al repositorio local
-
 Git solo funciona con texto plano
 
 #### Introducción a la terminal y línea de comandos
@@ -32,5 +23,25 @@ Git solo funciona con texto plano
 | history | nos muestra un historial de los comandos que hemos utilizado|
 |rm <nombre del archivo> |me permite borrar un archivo |
 |comando -- help| obtener informacion sobre un comando en especifico|
+
+
+### Comandos git
+
+|Comando| Resumen                  |
+|-------------|--------------------------|
+|git init     |inicializa el repositorio de git |
+|git add       | Agrega todos los cambios en todos los archivos al área de staging|
+|git status | Para ver sí se han hecho cambios, pero no se han agregado, ahí saldrá |
+|git show | Muestra todos los cambios históricos hechos y sus detalles (qé cambió, cuándo y quién los hizo)|
+|git log “nombre del archivo” | Muestra el historial de ese archivo |
+|git commit -m | se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
+|git push | envía los cambios al repositorio remoto |
+|git pull | Agrega los cambios del commit más nuevo al repositorio local
+|git rm “nombre del archivo”   | lo usamos para borrar un archivo que hayamos añadido, para eliminarlo por completo de nuestra rama usamos  git rm “nombre del archivo”  --cached
+|git config | ver la configuración de git|
+|git config  --list| ver la configuración actual de git|
+|git config  --list --show-origin| ver donde esta guardada la configuracion|
+|git --global user.name "Tu Nombre" |Configura tu nombre de usuario|
+|git config --global user.email "tu@email.com" |Configurar tu email|
 
 
