@@ -46,4 +46,7 @@ Git solo funciona con texto plano
 |git log “nombre del archivo” | Muestra el historial de ese archivo|
 |git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo)|
 |git show “nombre del archivo” | Muestra todos los cambios del archivo|
+|git diff | Para ver los cambios entre tu entorno de trabajo y tu área de ensayo (staging)|
+|git diff | Git diff [referencia del commit escogido]: Al solo poner un solo parámetro (commit), comparara la versión inicial con la actual|
+
 
