@@ -31,19 +31,19 @@ Git solo funciona con texto plano
 |-------------|--------------------------|
 |git init     |inicializa el repositorio de git |
 |git add       | Agrega todos los cambios en todos los archivos al área de staging|
-|git status | Para ver sí se han hecho cambios, pero no se han agregado, ahí saldrá |
-|git commit -m | se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
+|git status | lo usamos para saber si tenemos un archivo añadido o borrado en nuestro proyecto, para saber en la rama en la que estamos y si tenemos commits. |
+|git rm “nombre del archivo”   | lo usamos para borrar un archivo que hayamos añadido|
+|git rm “nombre del archivo” --cached | para eliminarlo por completo de nuestra rama usamos|
+|git commit -m  ""| se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
 |git push | envía los cambios al repositorio remoto |
-|git pull | Agrega los cambios del commit más nuevo al repositorio local
-|git rm “nombre del archivo”   | lo usamos para borrar un archivo que hayamos añadido, para eliminarlo por completo de nuestra rama usamos  git rm “nombre del archivo”  --cached
+|git pull | Agrega los cambios del commit más nuevo al repositorio local|
 |git config | ver la configuración de git|
-|git config  --list| ver la configuración actual de git|
-|git config  --list --show-origin| ver donde esta guardada la configuracion|
-|git --global user.name "Tu Nombre" |Configura tu nombre de usuario|
+|git config --list| ver la configuración actual de git|
+|git config --list --show-origin| ver donde esta guardada la configuracion|
+|git config --global user.name "Tu Nombre" |Configura tu nombre de usuario|
 |git config --global user.email "tu@email.com" |Configurar tu email|
-|git log |Muestra todala historia|
+|git log |Muestra toda la historia|
 |git log “nombre del archivo” | Muestra el historial de ese archivo|
 |git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo)|
 |git show “nombre del archivo” | Muestra todos los cambios del archivo|
-
 
