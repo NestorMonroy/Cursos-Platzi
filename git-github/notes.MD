@@ -29,32 +29,35 @@ Git solo funciona con texto plano
 
 |Comando| Resumen                  |
 |-------------|--------------------------|
-|git init     |inicializa el repositorio de git |
 |git add       | Agrega todos los cambios en todos los archivos al área de staging|
-|git status | lo usamos para saber si tenemos un archivo añadido o borrado en nuestro proyecto, para saber en la rama en la que estamos y si tenemos commits. |
-|git rm “nombre del archivo”   | lo usamos para borrar un archivo que hayamos añadido|
-|git rm “nombre del archivo” --cached | para eliminarlo por completo de nuestra rama usamos|
+|git checkout "numero de commit" "nombre del archivo" | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta
+                                                        para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
+|git checkout master |vuelve la rama al commit de master |
+|git clone url_del_servidor_remoto| Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git|
 |git commit -m  ""| se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
-|git push | envía los cambios al repositorio remoto |
-|git pull | Agrega los cambios del commit más nuevo al repositorio local|
 |git config | ver la configuración de git|
 |git config --list| ver la configuración actual de git|
 |git config --list --show-origin| ver donde esta guardada la configuracion|
 |git config --global user.name "Tu Nombre" |Configura tu nombre de usuario|
 |git config --global user.email "tu@email.com" |Configurar tu email|
+|git diff | Para ver los cambios entre tu entorno de trabajo y tu área de ensayo (staging)|
+|git diff | Git diff [referencia del commit escogido]: Al solo poner un solo parámetro (commit), comparara la versión inicial con la actual|
+|git fetch| Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local|
+|git init     |inicializa el repositorio de git |
 |git log |Muestra toda la historia|
 |git log --stat | Cambios especificos a los archivos, apartir del commit|
 |git log “nombre del archivo” | Muestra el historial de ese archivo|
-|git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo)|
-|git show “nombre del archivo” | Muestra todos los cambios del archivo|
-|git diff | Para ver los cambios entre tu entorno de trabajo y tu área de ensayo (staging)|
-|git diff | Git diff [referencia del commit escogido]: Al solo poner un solo parámetro (commit), comparara la versión inicial con la actual|
-|git checkout "numero de commit" "nombre del archivo" | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta
-para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
-|git checkout master |vuelve la rama al commit de master |
-|git merge |combina dos versiones|
+|git merge |combina dos versiones, También usamos el comando git merge con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo|
+|git push | envía los cambios al repositorio remoto |
+|git pull | Agrega los cambios del commit más nuevo al repositorio local Básicamente, git fetch y git merge al mismo tiempo|
 |git reset "numero de commit" --hard| devuelve el projecto y elimina TODO lo realizado posteriormente a la version a la que estamos volviendo |
 |git reset "numero de commit" -- soft| elimina los archivos del commit pero mantiene los archivos que tenemos en staging|
+|git rm “nombre del archivo”   | lo usamos para borrar un archivo que hayamos añadido|
+|git rm “nombre del archivo” --cached | para eliminarlo por completo de nuestra rama usamos|
+|git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo)|
+|git show “nombre del archivo” | Muestra todos los cambios del archivo|
+|git status | lo usamos para saber si tenemos un archivo añadido o borrado en nuestro proyecto, para saber en la rama en la que estamos y si tenemos commits. |
+
 
 staging es el estado temporal donde agregas estados antes del repositorio (memoria ram)
 
