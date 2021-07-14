@@ -43,13 +43,15 @@ Git solo funciona con texto plano
 |git config --global user.name "Tu Nombre" |Configura tu nombre de usuario|
 |git config --global user.email "tu@email.com" |Configurar tu email|
 |git log |Muestra toda la historia|
+|git log --stat | Cambios especificos a los archivos, apartir del commit|
 |git log “nombre del archivo” | Muestra el historial de ese archivo|
 |git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo)|
 |git show “nombre del archivo” | Muestra todos los cambios del archivo|
 |git diff | Para ver los cambios entre tu entorno de trabajo y tu área de ensayo (staging)|
 |git diff | Git diff [referencia del commit escogido]: Al solo poner un solo parámetro (commit), comparara la versión inicial con la actual|
-|git checkout | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta
+|git checkout "numero de commit" "nombre del archivo" | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta
 para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
+|git checkout master |vuelve la rama al commit de master |
 |git merge |combina dos versiones|
 |git reset "numero de commit" --hard| devuelve el projecto y elimina TODO lo realizado posteriormente a la version a la que estamos volviendo |
 |git reset "numero de commit" -- soft| elimina los archivos del commit pero mantiene los archivos que tenemos en staging|
