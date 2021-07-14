@@ -69,7 +69,7 @@ git log --pretty=format:"%cn hizo un commit %h el dia %cd"|Muestra mensajes pers
 |git reset "numero de commit" -- soft| elimina los archivos del commit pero mantiene los archivos que tenemos en staging|
 |git rm “nombre del archivo”   | lo usamos para borrar un archivo que hayamos añadido|
 |git rm “nombre del archivo” --cached | para eliminarlo por completo de nuestra rama usamos|
-|git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo)|
+|git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo) muestra el HEAD|
 |git show “nombre del archivo” | Muestra todos los cambios del archivo|
 |git status | lo usamos para saber si tenemos un archivo añadido o borrado en nuestro proyecto, para saber en la rama en la que estamos y si tenemos commits. |
 
