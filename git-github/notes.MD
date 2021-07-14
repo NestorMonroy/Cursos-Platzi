@@ -51,7 +51,8 @@ Git solo funciona con texto plano
 |git checkout | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta
 para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
 |git merge |combina dos versiones|
-
+|git reset "numero de commit" --hard| devuelve el projecto y elimina TODO lo realizado posteriormente a la version a la que estamos volviendo |
+|git reset "numero de commit" -- soft| elimina los archivos del commit pero mantiene los archivos que tenemos en staging|
 
 staging es el estado temporal donde agregas estados antes del repositorio (memoria ram)
 
