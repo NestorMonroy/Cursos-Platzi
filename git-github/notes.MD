@@ -48,5 +48,29 @@ Git solo funciona con texto plano
 |git show “nombre del archivo” | Muestra todos los cambios del archivo|
 |git diff | Para ver los cambios entre tu entorno de trabajo y tu área de ensayo (staging)|
 |git diff | Git diff [referencia del commit escogido]: Al solo poner un solo parámetro (commit), comparara la versión inicial con la actual|
+|git checkout | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta
+para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
+|git merge |combina dos versiones|
 
 
+staging es el estado temporal donde agregas estados antes del repositorio (memoria ram)
+
+### El flujo de Gitflow es así:
+
+* En la rama master tendremos solo lo que se ha liberado.
+
+* Se crea la rama develop, es la rama en la que estamos trabajando (lo que vamos a liberar).
+
+* Liberar a producción con tu equipo de trabajo se crea una release desde develop.
+
+* No se pasa directo de develop a master, Git Flow crea la nueva rama de release.
+
+* Por cada petición o tarea se genera una rama llamada feature a partir de develop.
+
+* Por ejemplo una pantalla nueva, se crea y está completa el feature de pantalla se cierra y se afusiona con develop.
+
+* Cuando tienes la rama release terminada, fusionas con develop y master.
+
+*Si hay problema en master se crea hotfix que son los cambios sobre algo que está en producción.
+
+* Se crea una nueva rama se trabaja y se reintegra. Una vez que hotfix se completa, se fusiona a ambos develop y master.
