@@ -69,6 +69,7 @@ git log --pretty=format:"%cn hizo un commit %h el dia %cd"|Muestra mensajes pers
 |git log -S “Por contenido”|Buscar los commits con el contenido dentro del archivo.|
 |git log > log.txt|guardar los logs en un archivo txt|
 |git shortlog|Indica que commits ha realizado un usuario, mostrando el usuario y el titulo de sus commits|
+|git merge|[combinar lo del repositorio remoto con mi directorio de trabajo] [combinar ramas]|
 |git push | envía los cambios al repositorio remoto |
 |git pull | Agrega los cambios del commit más nuevo al repositorio local Básicamente, git fetch y git merge al mismo tiempo|
 |git reset "numero de commit" --hard| devuelve el projecto y elimina TODO lo realizado posteriormente a la version a la que estamos volviendo |
@@ -152,3 +153,27 @@ Conclusión: Lo mejor que puedes hacer para salvar tu puesto y evitar un incendi
 Las ramas son la forma de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.
 
 La cabecera o HEAD representan la rama y el commit de esa rama donde estamos trabajando. Por defecto, esta cabecera aparecerá en el último commit de nuestra rama principal. Pero podemos cambiarlo al crear una rama (git branch rama, git checkout -b rama) o movernos en el tiempo a cualquier otro commit de cualquier otra rama con los comandos (git reset id-commit, git checkout rama-o-id-commit).
+
+
+
+### Fusión de ramas con Git merge
+
+El comando git merge nos permite crear un nuevo commit con la combinación de dos ramas (la rama donde nos encontramos cuando ejecutamos el comando y la rama que indiquemos después del comando).
+un merge es un commit--
+
+```py
+# Crear un nuevo commit en la rama master combinando
+# los cambios de la rama cabecera:
+git checkout master
+git merge cabecera
+```
+```py
+# Crear un nuevo commit en la rama cabecera combinando
+# los cambios de cualquier otra rama:
+git checkout cabecera
+git merge cualquier-otra-rama
+```
+
+Asombroso, ¿verdad? Es como si Git tuviera super poderes para saber qué cambios queremos conservar de una rama y qué otros de la otra. El problema es que no siempre puede adivinar, sobretodo en algunos casos donde dos ramas tienen actualizaciones diferentes en ciertas líneas en los archivos. Esto lo conocemos como un conflicto y aprenderemos a solucionarlos en la siguiente clase.
+
+Recuerda que al ejecutar el comando git checkout para cambiar de rama o commit puedes perder el trabajo que no hayas guardado. Guarda tus cambios antes de hacer git checkout.
