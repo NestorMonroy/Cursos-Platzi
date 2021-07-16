@@ -37,7 +37,7 @@ Git solo funciona con texto plano
 |git branch -m "nombre_rama" "nuevo_nombre_rama"|Permite renombrar el nombre de la rama|
 |git checkout "numero de commit" "nombre del archivo" | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
 |git checkout nombre_rama|permite moverse entre ramas|
-|git checkout -b nombre_rama||
+|git checkout -b nombre_rama|Crea una nueva rama nombre_rama y se posiciona en ella.|
 |git checkout master |vuelve la rama al commit de master |
 |git clone url_del_servidor_remoto| Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git|
 |git commit -am | Agrega los archivos a git repository desde el working directory, solo funciona si a los archivos se les a hecho git add previamente|
