@@ -25,16 +25,22 @@ Git solo funciona con texto plano
 |comando -- help| obtener informacion sobre un comando en especifico|
 
 
+
 ### Comandos git
 
 |Comando| Resumen                  |
 |-------------|--------------------------|
 |git add       | Agrega todos los cambios en todos los archivos al área de staging|
-|git checkout "numero de commit" "nombre del archivo" | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta
-                                                        para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
+|git branch "nombre_rama"| Crear una nueva rama|
+|git branch -l| Lista todas las ramas existentes|
+|git branch -d "nombre_rama" |Elimina la rama con -D se fuerza el borrado|
+|git branch -m "nombre_rama" "nuevo_nombre_rama"|Permite renombrar el nombre de la rama|
+|git checkout "numero de commit" "nombre del archivo" | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
+|git checkout nombre_rama|permite moverse entre ramas|
+|git checkout -b nombre_rama||
 |git checkout master |vuelve la rama al commit de master |
 |git clone url_del_servidor_remoto| Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git|
-|git commit -am | automaticanmente hace el commit, con los cambios|
+|git commit -am | Agrega los archivos a git repository desde el working directory, solo funciona si a los archivos se les a hecho git add previamente|
 |git commit -m  ""| se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
 |git config | ver la configuración de git|
 |git config --list| ver la configuración actual de git|
