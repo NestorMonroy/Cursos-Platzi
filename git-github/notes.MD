@@ -295,3 +295,8 @@ Ahora podemos actualizar la URL que guardamos en nuestro repositorio remoto, sol
 ```
 git remote set-url origin url-ssh-del-repositorio-en-github
 ```
+posterior de la configuracion con shh, devemos de obtener los archivos del repositorio remoto
+
+```
+git pull origin main
+```
