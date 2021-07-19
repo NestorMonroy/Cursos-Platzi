@@ -216,6 +216,10 @@ git remote add origin URL
 git remote
 git remote -v
 
+# Updates were rejected because the remote constains work that you do not have locally
+
+git pull origin master
+
 # Tercero: Traer la versión del repositorio remoto y
 # hacer merge para crear un commit con los archivos
 # de ambas partes. Podemos usar git fetch y git merge
@@ -225,5 +229,69 @@ git pull origin master --allow-unrelated-histories
 # Por último, ahora sí podemos hacer git push para guardar
 # los cambios de nuestro repositorio local en GitHub:
 git push origin master
+
 ```
 
+### Cómo funcionan las llaves públicas y privadas
+
+Las llaves públicas y privadas nos ayudan a cifrar y descifrar nuestros archivos de forma que los podamos compartir sin correr el riesgo de que sean interceptados por personas con malas intenciones.
+
+La forma de hacerlo es la siguiente:
+
+Ambas personas deben crear su llave pública y privada.
+Ambas personas pueden compartir su llave pública a las otras partes (recuerda que esta llave es pública, no hay problema si la “interceptan”).
+La persona que quiere compartir un mensaje puede usar la llave pública de la otra persona para cifrar los archivos y asegurarse que solo puedan ser descifrados con la llave privada de la persona con la que queremos compartir el mensaje.
+El mensaje está cifrado y puede ser enviado a la otra persona sin problemas en caso de que los archivos sean interceptados.
+La persona a la que enviamos el mensaje cifrado puede usar su llave privada para descifrar el mensaje y ver los archivos.
+Puedes compartir tu llave pública pero nunca tu llave privada.
+
+
+### Configura tus llaves SSH en local
+
+Primer paso: Generar tus llaves SSH. Recuerda que es muy buena idea proteger tu llave privada con una contraseña.
+
+```
+ssh-keygen -t rsa -b 4096 -C "tu@email.com"
+```
+
+Segundo paso: Terminar de configurar nuestro sistema.
+
+En Windows y Linux:
+
+```
+# Encender el "servidor" de llaves SSH de tu computadora:
+eval $(ssh-agent -s)
+
+# Añadir tu llave SSH a este "servidor":
+ssh-add ruta-donde-guardaste-tu-llave-privada(~/.ssh/id_rsa)
+En Mac:
+
+# Encender el "servidor" de llaves SSH de tu computadora:
+eval "$(ssh-agent -s)"
+
+# Si usas una versión de OSX superior a Mac Sierra (v10.12)
+# debes crear o modificar un archivo "config" en la carpeta
+# de tu usuario con el siguiente contenido (ten cuidado con
+# las mayúsculas):
+Host *
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ruta-donde-guardaste-tu-llave-privada
+
+# Añadir tu llave SSH al "servidor" de llaves SSH de tu
+# computadora (en caso de error puedes ejecutar este
+# mismo comando pero sin el argumento -K):
+ssh-add -K ruta-donde-guardaste-tu-llave-privada(~/.ssh/id_rsa)
+```
+
+### Conexión a GitHub con SSH
+
+Luego de crear nuestras llaves SSH podemos entregarle la llave pública a GitHub para comunicarnos de forma segura y sin necesidad de escribir nuestro usuario y contraseña todo el tiempo.
+
+Para esto debes entrar a la Configuración de Llaves SSH en GitHub, crear una nueva llave con el nombre que le quieras dar y el contenido de la llave pública de tu computadora.
+
+Ahora podemos actualizar la URL que guardamos en nuestro repositorio remoto, solo que, en vez de guardar la URL con HTTPS, vamos a usar la URL con SSH:
+
+```
+git remote set-url origin url-ssh-del-repositorio-en-github
+```
