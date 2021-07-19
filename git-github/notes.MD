@@ -25,19 +25,19 @@ Git solo funciona con texto plano
 
 ### Comandos git
 
-| Comando                                              | Resumen                                                                                                                                                                                                                               |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| git add                                              | Agrega todos los cambios en todos los archivos al área de staging                                                                                                                                                                     |
-| git branch "nombre_rama"                             | Crear una nueva rama                                                                                                                                                                                                                  |
-| git branch -l                                        | Lista todas las ramas existentes                                                                                                                                                                                                      |
-| git branch -d "nombre_rama"                          | Elimina la rama con -D se fuerza el borrado                                                                                                                                                                                           |
-| git branch -m "nombre_rama" "nuevo_nombre_rama"      | Permite renombrar el nombre de la rama                                                                                                                                                                                                |
+| Comando| Resumen|
+|----------------------------|-------------------- |
+| git add| Agrega todos los cambios en todos los archivos al área de staging|
+| git branch "nombre_rama"| Crear una nueva rama|
+| git branch -l| Lista todas las ramas existentes|
+| git branch -d "nombre_rama"| Elimina la rama con -D se fuerza el borrado|
+| git branch -m "nombre_rama" "nuevo_nombre_rama" | Permite renombrar el nombre de la rama|
 | git checkout "numero de commit" "nombre del archivo" | me permite devolver en el tiempo un archivo a una version anterior sin borrar la actual o simplemente toda la carpeta para que me muestre la version anterior en un archivo en especifico debo indicar al final el nombre del archivo |
-| git checkout nombre_rama                             | permite moverse entre ramas                                                                                                                                                                                                           |
-| git checkout -b nombre_rama                          | Crea una nueva rama nombre_rama y se posiciona en ella.                                                                                                                                                                               |
-| git checkout master                                  | vuelve la rama al commit de master                                                                                                                                                                                                    |
-| git clone url_del_servidor_remoto                    | Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git                                                                                                        |
-| git commit -am                                       | Agrega los archivos a git repository desde el working directory, solo funciona si a los archivos se les a hecho git add previamente                                                                                                   |
+| git checkout nombre_rama | permite moverse entre ramas  |
+| git checkout -b nombre_rama | Crea una nueva rama nombre_rama y se posiciona en ella.|
+| git checkout master | vuelve la rama al commit de master|
+| git clone url_del_servidor_remoto| Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git|
+| git commit -am | Agrega los archivos a git repository desde el working directory, solo funciona si a los archivos se les a hecho git add previamente |
 | git commit -m ""| se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
 | git config| ver la configuración de git|
 | git config --list| ver la configuración actual de git|
@@ -79,10 +79,11 @@ Git solo funciona con texto plano
 |git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo) muestra el HEAD|
 |git show “nombre del archivo” | Muestra todos los cambios del archivo|
 |git status | lo usamos para saber si tenemos un archivo añadido o borrado en nuestro proyecto, para saber en la rama en la que estamos y si tenemos commits. |
-|git tag -a nombre-del-tag id-del-commit|Crear un nuevo tag y asignarlo a un commit|
+|git tag -a nombre-del-tag -m "Mensage del tag" id-del-commit|Crear un nuevo tag y asignarlo a un commit|
 |git tag -d nombre-del-tag|Borrar un tag en el repositorio local|
 |git tag o git show-ref --tags|Listar los tags de nuestro repositorio local|
-|git tag -d nombre-del-tag y git push origin :refs/tags/nombre-del-tag|Borrar un tag del repositorio remoto|
+|git tag -d nombre-del-tag | Borrar un tag del repositorio remoto|
+|git push origin :refs/tags/nombre-del-tag|Borrar un tag del repositorio remoto|
 
 
 staging es el estado temporal donde agregas estados antes del repositorio (memoria ram)
@@ -320,3 +321,12 @@ Comandos para trabajar con etiquetas:
 * Listar los tags de nuestro repositorio local: git tag o git show-ref --tags.
 * Publicar un tag en el repositorio remoto: git push origin --tags.
 * Borrar un tag del repositorio remoto: git tag -d nombre-del-tag y git push origin :refs/tags/nombre-del-tag.
+
+
+### Manejo de ramas en GitHub
+
+Puedes trabajar con ramas que nunca envías a GitHub, así como pueden haber ramas importantes en GitHub que nunca usas en el repositorio local. Lo importante es que aprendas a manejarlas para trabajar profesionalmente.
+
+Crear una rama en el repositorio local: git branch nombre-de-la-rama o git checkout -b nombre-de-la-rama.
+Publicar una rama local al repositorio remoto: git push origin nombre-de-la-rama.
+Recuerda que podemos ver gráficamente nuestro entorno y flujo de trabajo local con Git usando el comando gitk.
