@@ -331,4 +331,4 @@ Puedes trabajar con ramas que nunca envías a GitHub, así como pueden haber ram
 
 Crear una rama en el repositorio local: git branch nombre-de-la-rama o git checkout -b nombre-de-la-rama.
 Publicar una rama local al repositorio remoto: git push origin nombre-de-la-rama.
-Recuerda que podemos ver gráficamente nuestro entorno y flujo de trabajo local con Git usando el comando gitk.
+Recuerda que podemos ver gráficamente nuestro entorno y flujo de trabajo local con Git usando el comando .
