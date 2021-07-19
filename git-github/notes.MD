@@ -38,26 +38,27 @@ Git solo funciona con texto plano
 | git checkout master                                  | vuelve la rama al commit de master                                                                                                                                                                                                    |
 | git clone url_del_servidor_remoto                    | Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git                                                                                                        |
 | git commit -am                                       | Agrega los archivos a git repository desde el working directory, solo funciona si a los archivos se les a hecho git add previamente                                                                                                   |
-| git commit -m ""                                     | se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje                                                                                                        |
-| git config                                           | ver la configuración de git                                                                                                                                                                                                           |
-| git config --list                                    | ver la configuración actual de git                                                                                                                                                                                                    |
-| git config --list --show-origin                      | ver donde esta guardada la configuracion                                                                                                                                                                                              |
-| git config --global user.name "Tu Nombre"            | Configura tu nombre de usuario                                                                                                                                                                                                        |
-| git config --global user.email "tu@email.com"        | Configurar tu email                                                                                                                                                                                                                   |
-| git diff                                             | Para ver los cambios entre tu entorno de trabajo y tu área de ensayo (staging)                                                                                                                                                        |
-| git diff                                             | Git diff [referencia del commit escogido]: Al solo poner un solo parámetro (commit), comparara la versión inicial con la actual                                                                                                       |
-| git fetch                                            | Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local                                                                                                                                    |
-| git init                                             | inicializa el repositorio de git                                                                                                                                                                                                      |
-| git log                                              | Muestra toda la historia                                                                                                                                                                                                              |
-| git log “nombre del archivo”                         | Muestra el historial de ese archivo                                                                                                                                                                                                   |
-| git log --stat                                       | Cambios especificos a los archivos, apartir del commit                                                                                                                                                                                |
-| git log --oneline                                    | Te muestra el id commit y el título del commit                                                                                                                                                                                        |
-| git log --decorate                                   | Te muestra donde se encuentra el head point en el log.                                                                                                                                                                                |
-| git log --stat                                       | Explica el número de líneas que se cambiaron brevemente                                                                                                                                                                               |
-| git log -p                                           | Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido                                                                                                                                               |
-
-|git log --graph --oneline --decorate y
-git log --pretty=format:"%cn hizo un commit %h el dia %cd"|Muestra mensajes personalizados de los commits.|
+| git commit -m ""| se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
+| git config| ver la configuración de git|
+| git config --list| ver la configuración actual de git|
+| git config --list --show-origin | ver donde esta guardada la configuracion|
+| git config --global user.name "Tu Nombre" | Configura tu nombre de usuario|
+| git config --global user.email "tu@email.com" | Configurar tu email|
+| git diff | Para ver los cambios entre tu entorno de trabajo y tu área de ensayo (staging)|
+| git diff| Git diff [referencia del commit escogido]: Al solo poner un solo parámetro (commit), comparara la versión inicial con la actual|
+| git fetch | Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local|
+| git init| inicializa el repositorio de git |
+| git log| Muestra toda la historia|
+|git log --all| muestra toda la historia |
+| git log “nombre del archivo”| Muestra el historial de ese archivo|
+| git log --stat| Cambios especificos a los archivos, apartir del commit|
+| git log --oneline| Te muestra el id commit y el título del commit|
+| git log --decorate| Te muestra donde se encuentra el head point en el log.|
+| git log --stat| Explica el número de líneas que se cambiaron brevemente|
+| git log -p| Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido|
+|git log --graph |Muestra como han funcionado las ramas|
+|git log --graph --oneline --decorate|Muestra la historia decorada|
+|git log --pretty=format:"%cn hizo un commit %h el dia %cd"|Muestra mensajes personalizados de los commits.|
 |git log -3|Limitamos el número de commits.|
 |git log --after=“2018-1-2” , git log --after=“today” y git log --after=“2018-1-2” --before=“today”|Commits para localizar por fechas.|
 |git log --author=“Name Author”|Commits realizados por autor que cumplan exactamente con el nombre.|
@@ -69,6 +70,7 @@ git log --pretty=format:"%cn hizo un commit %h el dia %cd"|Muestra mensajes pers
 |git shortlog|Indica que commits ha realizado un usuario, mostrando el usuario y el titulo de sus commits|
 |git merge|[combinar lo del repositorio remoto con mi directorio de trabajo] [combinar ramas]|
 |git push | envía los cambios al repositorio remoto |
+|git push origin --tags|Publicar un tag en el repositorio remoto|
 |git pull | Agrega los cambios del commit más nuevo al repositorio local Básicamente, git fetch y git merge al mismo tiempo|
 |git reset "numero de commit" --hard| devuelve el projecto y elimina TODO lo realizado posteriormente a la version a la que estamos volviendo |
 |git reset "numero de commit" -- soft| elimina los archivos del commit pero mantiene los archivos que tenemos en staging|
@@ -77,6 +79,11 @@ git log --pretty=format:"%cn hizo un commit %h el dia %cd"|Muestra mensajes pers
 |git show | Muestra el ultimo commit de la rama todos los cambios históricos hechos y sus detalles (qué cambió, cuándo y quién los hizo) muestra el HEAD|
 |git show “nombre del archivo” | Muestra todos los cambios del archivo|
 |git status | lo usamos para saber si tenemos un archivo añadido o borrado en nuestro proyecto, para saber en la rama en la que estamos y si tenemos commits. |
+|git tag -a nombre-del-tag id-del-commit|Crear un nuevo tag y asignarlo a un commit|
+|git tag -d nombre-del-tag|Borrar un tag en el repositorio local|
+|git tag o git show-ref --tags|Listar los tags de nuestro repositorio local|
+|git tag -d nombre-del-tag y git push origin :refs/tags/nombre-del-tag|Borrar un tag del repositorio remoto|
+
 
 staging es el estado temporal donde agregas estados antes del repositorio (memoria ram)
 
@@ -300,3 +307,16 @@ posterior de la configuracion con shh, devemos de obtener los archivos del repos
 ```
 git pull origin main
 ```
+
+
+### Tags y versiones en Git y GitHub
+
+Los tags o etiquetas nos permiten asignar versiones a los commits con cambios más importantes o significativos de nuestro proyecto.
+
+Comandos para trabajar con etiquetas:
+
+* Crear un nuevo tag y asignarlo a un commit: git tag -a nombre-del-tag id-del-commit.
+* Borrar un tag en el repositorio local: git tag -d nombre-del-tag.
+* Listar los tags de nuestro repositorio local: git tag o git show-ref --tags.
+* Publicar un tag en el repositorio remoto: git push origin --tags.
+* Borrar un tag del repositorio remoto: git tag -d nombre-del-tag y git push origin :refs/tags/nombre-del-tag.
