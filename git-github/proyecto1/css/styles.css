@@ -36,35 +36,10 @@ body {
   margin: 0 auto;
 }
 
-<<<<<<< HEAD
-#container h1
-{
-    font-size: 20px;
-}
-<<<<<<< HEAD
-=======
 #container h1 {
   font-size: 20px;
 }
->>>>>>> main
 #post {
   background: white;
   padding: 1em;
 }
-<<<<<<< HEAD
-
-#footer {
-  background: #777;
-  color: white;
-  text-align: center;
-  padding: 0.5em;
-}
-=======
-#post
-{
-    background: white;
-    padding: 1em;
-}
->>>>>>> 4ec827f0010304f26c872a7331de6f3b313e6f92
-=======
->>>>>>> main
