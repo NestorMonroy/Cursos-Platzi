@@ -646,4 +646,22 @@ Para buscar utilizamos el comando git grep color y nos buscará en todo el proye
 * Con git grep -c color nos saldrá un output el cual nos dirá cuántas veces se repite esa palabra y en qué archivo.
 * Si queremos buscar cuántas veces utilizamos un atributo de HTML lo hacemos con git grep -c "<p>".
 
-** Si queremos saber la historia de los commit git log -S "cabecera"
+* Si queremos saber la historia de los commit git log -S "cabecera"
+
+### comandos y recursos colaborativos en Git y GitHub
+
+| Comando| Resumen|
+------------- | -------------
+|git shortlog -sn|muestra cuantos commit han hecho cada miembros del equipo.|
+|git shortlog -sn --all|muestra cuantos commit han hecho cada miembros del equipo hasta los que han sido eliminado|
+|git shortlog -sn --all --no-merge|muestra cuantos commit han hecho cada miembros quitando los eliminados sin los merges|
+|git blame ARCHIVO|muestra quien hizo cada cosa linea por linea|
+|git blame -c ARCHIVO|muestra quien hizo cada cosa linea por linea, identado|
+|git COMANDO --help |muestra como funciona el comando.|
+|git blame ARCHIVO -linea_inicial,linea_final| muestra quien hizo cada cosa linea por linea indicándole desde que linea ver ejemplo -L35,50|
+|git branch -r |se muestran todas las ramas remotas|
+|git branch -a|se muestran todas las ramas tanto locales como remotas|
+
+
+Para crear un alias se crea en la configuracion global de git
+*  git config --global alias.nombre_comando "git shortlog -sn --all --no-merge"
