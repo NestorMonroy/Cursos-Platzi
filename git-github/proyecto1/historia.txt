@@ -10,9 +10,4 @@ Agregamos un nuevo parrafo, Esto es una nueva linea
 accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet
 accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet
 
-Experimento 2
-
-Experimento 1
-
-Historia 1
-Historia 2 
+Main 1
