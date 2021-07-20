@@ -50,3 +50,28 @@ Install IntelliJ IDEA
 snap find "intellij"
 
 sudo snap install intellij-idea-ultimate --classic
+
+
+Los archivos de Java usan la extensión .java. Por lo tanto, para crear nuestro primer “Hola, mundo” podemos hacerlo desde un archivo HolaMundo.java.
+
+El método main es el punto de entrada de una aplicación en diferentes lenguajes como Java, Kotlin y C++. Sin este método nuestra aplicación no se ejecutará y mostrará un error.
+
+En Java definimos este método de la siguiente manera:
+```java
+public static void main (String[] args) {
+  // acciones
+}
+
+```
+Por lo tanto, este será el código de nuestro HolaMundo.java y podremos ejecutarlo con Click derecho > Run 'HolaMundo.main()':
+
+```java
+public class HolaMundo {
+  public static void main (String[] args) {
+    System.out.println("Hola, mundo!");
+  }
+}
+```
+Recuerda que nuestro IDE nos proporciona algunos atajos. Por ejemplo, con solo escribir la palabra sout podremos autocompletar la sentencia System.out.println();.
+
+¡No olvides dejar todas tus dudas y comentarios en la sección de discusiones! Así podemos ayudarte a resolver todos tus inconvenientes.
