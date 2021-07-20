@@ -9,19 +9,19 @@ Git solo funciona con texto plano
 | Comando| Resumen|
 ------------- | -------------
 | pwd | nos muestra el path o ruta de la carpeta en donde nos encontramos ubicados|
-| cd | permite acceder (entrar) a una carpeta en un nivel o varios niveles                                                                                    |
-| cd ..                      | me permite salir de una carpeta en un nivel o varios niveles OJO los dos puntos deben ser separados por un espacio del comando cd                      |
-| ls                         | me muestra los archivos que contiene una carpeta, puede ser la ubicación actual o una ruta especifica, no muestra los archivos ocultos                 |
-| ls -a                      | me muestra los archivos que contiene una carpeta, puede ser la ubicación actual o una ruta especifica, incluyendo los archivos ocultos                 |
-| ls -l                      | lista los archivos que contiene una carpeta con sus atributos, puede ser la ubicación actual o una ruta especifica, no muestra los archivos ocultos    |
-| ls -la                     | me lista los archivos que contiene una carpeta con sus atributos, puede ser la ubicación actual o una ruta especifica, incluyendo los archivos ocultos |
-| clear                      | limpiar la consola o terminal, o un shorcut crtl + L                                                                                                   |
-| mkdir <nombre carpeta>     | nos permite crear una carpeta                                                                                                                          |
-| touch <nombre del archivo> | nos permite crear un archivo                                                                                                                           |
-| cat <nombre del archivo>   | me permite visualizar el contenido del un archivo y lo muestra en el terminal                                                                          |
-| history                    | nos muestra un historial de los comandos que hemos utilizado                                                                                           |
-| rm <nombre del archivo>    | me permite borrar un archivo                                                                                                                           |
-| comando -- help            | obtener informacion sobre un comando en especifico                                                                                                     |
+| cd | permite acceder (entrar) a una carpeta en un nivel o varios niveles |
+| cd ..| me permite salir de una carpeta en un nivel o varios niveles OJO los dos puntos deben ser separados por un espacio del comando cd|
+| ls| me muestra los archivos que contiene una carpeta, puede ser la ubicación actual o una ruta especifica, no muestra los archivos ocultos|
+| ls -a| me muestra los archivos que contiene una carpeta, puede ser la ubicación actual o una ruta especifica, incluyendo los archivos ocultos|
+| ls -l| lista los archivos que contiene una carpeta con sus atributos, puede ser la ubicación actual o una ruta especifica, no muestra los archivos ocultos|
+| ls -la| me lista los archivos que contiene una carpeta con sus atributos, puede ser la ubicación actual o una ruta especifica, incluyendo los archivos ocultos |
+| clear| limpiar la consola o terminal, o un shorcut crtl + L|
+| mkdir <nombre carpeta> | nos permite crear una carpeta |
+| touch <nombre del archivo> | nos permite crear un archivo|
+| cat <nombre del archivo>   | me permite visualizar el contenido del un archivo y lo muestra en el terminal |
+| history | nos muestra un historial de los comandos que hemos utilizado |
+| rm <nombre del archivo>    | me permite borrar un archivo  |
+| comando -- help | obtener informacion sobre un comando en especifico   |
 
 ### Comandos git
 
@@ -36,7 +36,9 @@ Git solo funciona con texto plano
 | git checkout nombre_rama | permite moverse entre ramas  |
 | git checkout -b nombre_rama | Crea una nueva rama nombre_rama y se posiciona en ella.|
 | git checkout master | vuelve la rama al commit de master|
+|git cherry-pick IDCommit|cuando necesitamos en master un cambio de una rama aun no terminada, obtenemos el IDCommit del elemento que deseamos|
 | git clone url_del_servidor_remoto| Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git|
+|git commit --amend| los cambios que hicimos nos los agregará al commit anterior.|
 | git commit -am | Agrega los archivos a git repository desde el working directory, solo funciona si a los archivos se les a hecho git add previamente |
 | git commit -m ""| se usa para añadir un commit a nuestra rama, también podemos ponerle un -m seguidamente ponemos entre comillas nuestro mensaje |
 | git config| ver la configuración de git|
@@ -587,3 +589,8 @@ No se borran las carpetas, solo borra las cosas que puede indexar
 Existe un mundo alternativo en el cual vamos avanzando en una rama pero necesitamos en master uno de esos avances de la rama, para eso utilizamos el comando git cherry-pick IDCommit.
 
 cherry-pick es una mala práctica porque significa que estamos reconstruyendo la historia, usa cherry-pick con sabiduría. Si no sabes lo que estás haciendo ten mucho cuidado.
+
+
+### Reconstruir commits en Git con amend
+
+A veces hacemos un commit, pero resulta que no queríamos mandarlo porque faltaba algo más. Utilizamos git commit --amend, amend en inglés es remendar y lo que hará es que los cambios que hicimos nos los agregará al commit anterior.
