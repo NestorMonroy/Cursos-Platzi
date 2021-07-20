@@ -571,3 +571,19 @@ Consideraciones:
 El cambio más reciente (al crear un stash) SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
 Al crear un stash tomará los archivos que han sido modificados y eliminados. Para que tome un archivo creado es necesario agregarlo al Staging Area con git add [nombre_archivo] con la intención de que git tenga un seguimiento de ese archivo, o también utilizando el comando git stash -u (que guardará en el stash los archivos que no estén en el staging).
 Al aplicar un stash este no se elimina, es buena práctica eliminarlo.
+
+
+### Git Clean: limpiar tu proyecto de archivos no deseados
+
+A veces creamos archivos cuando estamos realizando nuestro proyecto que realmente no forman parte de nuestro directorio de trabajo, que no se deberían agregar y lo sabemos.
+
+Para saber qué archivos vamos a borrar tecleamos git clean --dry-run
+Para borrar todos los archivos listados (que no son carpetas) tecleamos git clean -f
+
+No se borran las carpetas, solo borra las cosas que puede indexar
+
+### Git cherry-pick: traer commits viejos al head de un branch
+
+Existe un mundo alternativo en el cual vamos avanzando en una rama pero necesitamos en master uno de esos avances de la rama, para eso utilizamos el comando git cherry-pick IDCommit.
+
+cherry-pick es una mala práctica porque significa que estamos reconstruyendo la historia, usa cherry-pick con sabiduría. Si no sabes lo que estás haciendo ten mucho cuidado.
