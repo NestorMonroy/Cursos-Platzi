@@ -402,3 +402,10 @@ git pull upstream master
 git pull upstream master
 git push origin master
 ```
+
+### Ignorar archivos en el repositorio con .gitignore
+
+No todos los archivos que agregas a un proyecto deberían ir a un repositorio, por ejemplo cuando tienes un archivo donde están tus contraseñas que comúnmente tienen la extensión .env o cuando te estás conectando a una base de datos; son archivos que nadie debe ver.
+
+git pull
+git push
