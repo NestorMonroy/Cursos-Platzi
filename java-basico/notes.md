@@ -78,3 +78,62 @@ public class HolaMundo {
 Recuerda que nuestro IDE nos proporciona algunos atajos. Por ejemplo, con solo escribir la palabra sout podremos autocompletar la sentencia System.out.println();.
 
 ¡No olvides dejar todas tus dudas y comentarios en la sección de discusiones! Así podemos ayudarte a resolver todos tus inconvenientes.
+
+
+### Etapas de la programación en Java
+
+* Escribir nuestros archivos .java.
+* Compilar, cargar y verificar nuestros archivos con javac (los IDEs nos permiten compilar con solo presionar un botón).
+* Al compilar obtenemos archivos .class con código que nuestras computadoras pueden entender (Byte Code).
+* La JVM (Java Virtual Machine) se encarga de ejecutar el código de forma que funcione en cualquier dispositivo o sistema operativo.
+Java es un lenguaje compilado e interpretado al mismo tiempo.
+
+
+### La JShell de Java
+
+Sabías que Java tiene una herramienta interactiva en dónde puedes ir probando segmentos de código en vez de realizar todo el proceso de creación de un programa en Java. Escribir, compilar y correr.
+
+Su nombre es jshell y está disponible desde la versión 9 de Java.
+
+Abre tu consola de comandos o terminal, corre el siguiente comando:
+
+```
+$ java -version
+```
+
+Cambia la versión de Java desde tu consola de comandos o terminal y compártenos en la sección de discusiones los comandos que ejecutaste.
+
+Asegurate de tener definida una versión superior a la 8.
+Ahora desde tu terminal escribe el siguiente comando para abrir nuestra jshell
+
+```
+$ jshell
+
+```
+
+### Variables en Java
+
+Una variable es un espacio de memoria (RAM) que contiene un dato de tipo numérico, booleano, de texto u otros tipos de datos un poco más complejos.
+
+Las variables en Java se componen de un nombre único y un valor que puede cambiar a lo largo de la ejecución del programa. Al declarar las variables debemos definir el tipo de dato que vamos a usar y un punto y coma al final:
+
+```java
+// Variables.java
+
+public class Variables {
+  public static void main(String[] args) {
+    // Declarar la variable speed de tipo int (números enteros)
+    int spped;
+
+    // Actualizar el contenido de la variable speed:
+    spped = 10; // si ya habías declarado la variable
+
+    // Declarar una variable y asignarle un valor al mismo tiempo:
+    int salary = 1000;
+
+    // Crear una variable de tipo String:
+    String eployeeName = "Nestor Monroy";
+  }
+}
+
+```
