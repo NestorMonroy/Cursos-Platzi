@@ -136,4 +136,86 @@ public class Variables {
   }
 }
 
+public class UpdatingVariables {
+    public static void main(String[] args) {
+        int salary = 1000;
+        //Salario total
+        //bono $200
+        salary = salary + 200;
+        System.out.println(salary);
+
+        //pension $50 pesos
+        salary = salary - 50; // operaciones matematicas para alterar sus datos
+        System.out.println(salary);
+
+        //2 horas extra $30
+        //Comida: $45
+
+        salary = salary + (30*2) - 45;
+        System.out.println(salary);
+        
+        //Actualizando cadenas de texto
+        String employeeName  = "Nestor Monroy";
+        employeeName = employeeName + " Valero"; //concatenar un valor +
+        System.out.println(employeeName);
+
+        employeeName = "David " + employeeName;
+        System.out.println("Tu nombre es " + employeeName);
+    }
+}
+
+
 ```
+
+
+
+### Convención de Nombres en Java
+
+Una convención de nombres es un patrón que deben seguir los nombres de las variables para que el código esté organizado, entendible y sin repetidos.
+
+* Java es sensible a mayúsculas y minúsculas, este punto es clave al seguir una convención.
+* Las variables siempre deben comenzar con un simbolo de letra, $ o _.
+* No puedes usar el simbolo - en ninguna parte de la variable.
+
+Las variables constantes son variables cuyo valor nunca va a cambiar, por lo que se deben escribir completamente en mayúsculas y usando el caracter _.
+
+```java
+
+public class NamingJava {
+    public static void main(String[] args) {
+        int celphone = 33333;
+        int celPhone = 777;
+        System.out.println(celphone);
+        System.out.println(celPhone);
+
+        String $countryName = "Mexico";
+        String _backgroundColor = "Blue";
+
+        String currency$ = "MXN";
+        String background_color = "PINK";
+
+        //Las constantes son Mayusculas
+        int POSITION = -5;
+        int MAX_WIDTH= 9999;
+        int MIN_WIDTH = 1;
+
+    }
+}
+
+```
+
+
+### Técnica de Naming: Camel Case
+
+Camel Case es una convención muy popular para nombrar nuestras variables. Podemos usarlo en modo Upper Camel Case o Lower Camel Case, la diferencia es si comenzamos el nombre de la variable con mayúscula o minúscula.
+
+```java
+// Upper Camel Case:
+class SoyUnaClase {};
+
+// Lower Camel Case
+int soyUnNumeroInt = 10;
+
+```
+
+Debemos usar Upper Camel Case en los nombres de las clases y archivos. Y Lower Camel Case en los nombres de las variables o métodos.
