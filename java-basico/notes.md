@@ -595,3 +595,30 @@ switch (edad) {
 ```
 
 Recuerda que esta nueva sintaxis está deshabilitada por defecto, debemos hacer algunas configuraciones en nuestro IDE para que podamos utilizarla.
+
+
+### ¿Para qué sirven las funciones?
+
+Las funciones nos ayudan a ejecutar código que dependiendo de las opciones que le enviemos, transformará y devolverá un cierto resultado. Gracias a las funciones podemos organizar, modularizar, reutilizar y evitar repetidos en nuestro código.
+
+Todas nuestras funciones deben tener un nombre. Opcionalmente, pueden recibir argumentos y devolver un resultado. También debemos especificar el tipo de dato de nuestros argumentos y el resultado final de nuestra función.
+
+Por ejemplo:
+
+```java
+public int suma(int a, int b) {
+  return a + b;
+}
+```
+
+Si nuestra función NO devuelve ningún tipo de dato podemos usar la palabra reservada void.
+
+Para utilizar nuestras funciones solo debemos asignar el resultado de la función y sus parámetros a una variable con el mismo tipo de dato de la función:
+
+```java
+int c = suma(5, 7);
+```
+Funciones: nos ayudan a organizar, modularizar y evitar el código repetido.
+• Return: palabra clave cuando una función tiene un valor de regreso.
+• Void: palabra clave cuando una función no tiene un valor de regreso.
+
