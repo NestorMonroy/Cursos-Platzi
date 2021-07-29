@@ -272,3 +272,36 @@ var totalSalary = salary - pension; // DOUBLE
 ```
 
 Recuerda que esto solo funciona con versiones superiores a Java 10.
+
+### Operadores de Asignación, Incremento y Decremento
+
+Operadores de asignación:
+
+* +=: a += b es equivalente a a = a + b.
+* -=: a -= b es equivalente a a = a - b.
+* *=: a *= b es equivalente a a = a * b.
+* /=: a /= b es equivalente a a = a / b.
+* %=: a %= b es equivalente a a = a % b. -> Residuo de una division
+
+Operadores de incremento:
+
+* ++: i++ es equivalente a i = i + 1.
+* --: i-- es equivalente a i = i - 1.
+
+Podemos usar estos operadores de forma prefija (++i) o postfija (i++). La diferencia está en qué operación se ejecuta primero:
+
+```java
+// Incremento postfijo:
+int vidas = 5;
+int regalo = 100 + vidas++;
+
+System.out.println("Regalo: " + regalo + ", vidas: " + vidas);
+// Regalo: 105, vidas: 6
+
+// Incremento prefijo:
+int vidas = 5;
+int regalo = 100 + ++vidas;
+
+System.out.println("Regalo: " + regalo + ", vidas: " + vidas);
+// Regalo: 106, vidas: 6
+```
