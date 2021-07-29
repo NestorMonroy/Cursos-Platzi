@@ -456,3 +456,53 @@ En el siguiente ejemplo vamos a guardar algunas instrucciones dentro del condici
     System.out.println("Archivo enviado");
   }
 ```
+
+### Alcance de las variables y Sentencia ELSE 
+
+Mientras más crecen nuestros programas, más lógica, complejidad y niveles añadimos. Estos niveles son el alcance que tienen nuestras variables, es decir, los lugares dónde pueden ejecutarse o no.
+
+Estos niveles (en parte) son representados por las llaves ({ ... }) que envuelven nuestro código. Por lo tanto, entre más llaves envuelvan nuestro código, estaremos más niveles dentro y el alcance de las variables que definimos será un poco más limitado.
+
+Solo podemos usar una variable si la definimos antes, en el mismo nivel o alguno anterior. Pero si declaramos una variable en un nivel posterior al resto de nuestro código, no podremos modificarla a menos que el código esté en su mismo nivel.
+
+Por ejemplo:
+
+```java
+// Primer nivel:
+boolean condicion = true;
+int numero1 = 1;
+
+// Segundo nivel:
+if (condicion) {
+  // podemos modificar variables del primer nivel,
+  // incluso desde el segundo nivel:
+  numero1++;
+
+  // También podemos crear y modificar 
+  // nuevas variables en este nivel:
+  int numero2 = 10;
+  numero2++;
+}
+
+// Si volvemos al primer nivel, podemos seguir usando
+// y modificando las primeras variables:
+numero1--;
+
+// Pero si salimos del segundo nivel no podemos volver a acceder
+// a las variables que creamos allí:
+System.out.println(numero2); // ERROR!
+```
+
+La sentencia ELSE es todo lo contrario a la sentencia IF: en vez de ejecutar una parte del código si la condición es verdadera, solo lo hará si la condición NO se cumple:
+
+```java
+boolean isBluetoothEnabled = false;
+int filesSended = 3;
+
+if (isBluetoothEnabled) {
+  fileSended++;
+  System.out.println("Archivo enviado");
+} else {
+  System.out.println("El Bluetooth no está activado");
+}
+```
