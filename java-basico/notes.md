@@ -429,3 +429,30 @@ En la terminal
 java -jar HolaMundo.jar 
 
 
+### Sentencia if
+
+Los condicionales son la forma en que las computadoras toman decisiones, evaluaran si la condición para ejecutar una parte del código se cumple. Si el resultado de la operación es verdadero ejecutarán esta parte del código, en caso de que no, seguirán con las siguientes instrucciones.
+
+1 true
+0 false
+
+La forma de programar condicionales es usando la sentencia IF (hay más, pero las veremos más adelante) de la siguiente manera:
+
+```java
+if (condición) {
+  // instrucciones
+}
+
+
+```
+En el siguiente ejemplo vamos a guardar algunas instrucciones dentro del condicional IF, Java solo ejecutará esta parte del código si se cumple la condición, en este caso, que la variable isBluetoothEnabled sea igual a true:
+
+```java
+  boolean isBluetoothEnabled = true; // también podría ser false
+  int filesSended = 3;
+
+  if (isBluetoothEnabled) {
+    fileSended++;
+    System.out.println("Archivo enviado");
+  }
+```
