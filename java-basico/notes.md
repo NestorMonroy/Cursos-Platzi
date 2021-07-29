@@ -255,3 +255,20 @@ double nD = 123.456123456;
 // Float
 float nF = 123.456F;
 ```
+
+
+### Tipos de datos char y boolean
+
+* char: Ocupa 2 bytes y solo puede almacenar 1 dígito, debemos usar comillas simples en vez de comillas dobles.
+* boolean: Son un tipo de dato lógico, solo aceptan los valores true y false. También ocupa 2 bytes y almacena únicamente 1 dígito.
+
+Seguro te diste cuenta que siempre debemos escribir el tipo de dato de nuestras variables antes de definir su nombre y valor. Pero esto cambia a partir de Java 10: solo debemos escribir la palabra reservada var y Java definirá el tipo de dato de nuestras variables automáticamente:
+
+```java
+var salary = 1000; // INT
+var pension = salary * 0.03; // DOUBLE
+var totalSalary = salary - pension; // DOUBLE
+
+```
+
+Recuerda que esto solo funciona con versiones superiores a Java 10.
