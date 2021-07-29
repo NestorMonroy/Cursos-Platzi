@@ -415,3 +415,17 @@ short -> byte
 char <-> byte
 char <-> short
 int -> char
+
+
+Archivos .JAR
+
+Los archivos JAR (Java Archive) son archivos de Java con el código compilado de los archivos .class y comprimido con el formato ZIP para que más adelante sean interpretados y ejecutados por la máquina virtual de Java (JVM).
+
+Para generar estos archivos podemos entrar a File > Project Structure > Artifacts y seleccionar la opción de JAR > From modules with dependencies. Luego de esto podemos compilar nuestro proyecto desde Build > Build Artifacts > Build y podremos nuestros archivos ejecutables en la carpeta out/artifacts/.
+
+Ejercutar el archivo .JAR
+
+En la terminal
+java -jar HolaMundo.jar 
+
+
