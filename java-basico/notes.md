@@ -560,3 +560,38 @@ if (noHayInternet) {
   System.out.println("¡Tienes suficiente Internet!");
 }
 ```
+
+### Sentencia Switch
+
+La sentencia Switch nos ayuda a tomar decisiones con base en una o más condiciones, pero funciona un poco diferente:
+
+Switch hasta Java 11:
+
+```java
+switch (profe) {
+  case "Anahí":
+    System.out.println("¡Profesora de Java!");
+    break;
+  case "Oscar":
+    System.out.println("¡Profesor de React.js!");
+    break;
+  case "JuanDC":
+    System.out.println("Oye niño, ¿qué haces aquí?");
+    break;
+  default:
+    System.out.println("¡Un nuevo profe!");
+    break;
+}
+```
+
+Switch desde Java 12:
+
+```java
+switch (edad) {
+  case 1 -> System.out.println("¡Tienes 1 año!");
+  case 20 -> System.out.println("Tienes 20 años!");
+  default -> System.out.println("Tu edad no es 1 ni 20");
+}
+```
+
+Recuerda que esta nueva sintaxis está deshabilitada por defecto, debemos hacer algunas configuraciones en nuestro IDE para que podamos utilizarla.
