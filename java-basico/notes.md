@@ -305,3 +305,28 @@ int regalo = 100 + ++vidas;
 System.out.println("Regalo: " + regalo + ", vidas: " + vidas);
 // Regalo: 106, vidas: 6
 ```
+
+
+### Operaciones matemáticas
+
+Math es una clase de Java que nos ayuda a ejecutar diferentes operaciones matemáticas:
+
+Math.PI // 3.141592653589793
+Math.E // 2.718281828459045
+
+Math.ceil(2.1) // 3.0 (redondear hacia arriba)
+Math.floar(2.1) // 2.0 (redondear hacia abajo)
+
+Math.pow(2, 3) // 8.0 (número elevado a una potencia)
+Math.sqrt(3) // 1.73... (raíz cuadrada)
+
+Math.max(2, 3) // 3.0 (el número más grande)
+
+// Área de un círculo (PI * r^2):
+Math.PI * Math.pow(r, 2)
+
+// Área de una esfera (4 * PI * r^2):
+4 * Math.PI * Math.pow(r, 2)
+
+// Volumen de una esfera ( (4/3) * PI * r^3):
+(4/3) * Math.PI * Math.pow(r, 3)
