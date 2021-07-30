@@ -177,3 +177,9 @@ public class Principal {
   }
 }
 ```
+
+### Creando elementos estáticos
+
+En muchos casos nuestro código necesita ejecutar métodos que no necesariamente deben pertenecer a un objeto o instancia en concreto, ya que pueden ser muy generales (así como Math.Random) o los valores que almacenamos deben ser los mismos, sin importar si los consumimos desde una o más clases.
+
+En todos estos casos vale la pena usar variables y métodos estáticos

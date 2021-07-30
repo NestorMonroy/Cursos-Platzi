@@ -1,12 +1,11 @@
 public class Doctor {
-    int id;
-    static int globalID = 0;
+
+    static int globalID = 0; // Autoincrement
     String name;
     String speciality;
 
     Doctor(){
         System.out.println("Construyendo el objecto doctor");
-        id=globalID;
         globalID++;
     }
 
@@ -19,7 +18,7 @@ public class Doctor {
         System.out.println(name);
     }
 
-    public int getId(){
-        return id;
-    };
+    public void showId(){
+        System.out.println("ID doctor: "+ globalID);
+    }
 }

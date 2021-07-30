@@ -844,3 +844,139 @@ for (TipoDato elemento : coleccion) {
   // Instrucciones
 }
 ```
+
+### 
+¿Cuál es el resultado del siguiente programa? int i=1, j=2, k=3, m=2; System.out.println ((j >= i) || (k == m));
+R= true
+
+¿Qué imprime el siguiente código fuente? int x = 1; while (x <= 10) System.out.println(++x);
+R= Los valores del 2 al 11
+
+
+Windows tiene su propia extensión de archivos ejecutables, los .exe, ¿cuál es el que usa Java?
+R=.jar
+
+
+Si tienes un sistema que correrá en un microcontrolador con memoria limitada y debes guardar una variable de edad. ¿Qué tipo de dato usarías?
+R= byte
+
+
+¿Por qué cuando tengo este código se imprime el texto Hello World! que está dentro del método main? class Foo { public static void main(String[] args){ System.out.println("Hello World!"); } }
+R= Porque el método main es punto de entrada de una aplicación java
+
+Debes desarrollar un programa para una empresa en la que planean integrar nuevos módulos en el futuro, ya que se contempla que estarán en constante crecimiento. ¿Cuál es la mejor característica de Java que hace esto posible?
+R= Java un Lenguaje Orientado a Objetos
+
+Los arreglos son objetos
+R= Verdadero
+
+Este elemento le da a Java la portabilidad con otros Sistemas Operativos.
+R= La Java Virtual Machine: la máquina virtual Java que traduce el bytecode para que se ejecute en la plataforma donde está implementada
+
+Las funciones nos ayudan a modularizar el código
+R= Verdadero
+
+Si se desarrolla un videojuego estilo Mario Bros donde tuviera que ir ganando monedas que valen 2 puntos, ¿cuál sería la mejor instrucción para llevar el conteo acumulado de monedas en código java?
+R= x += 2;
+
+Cada lenguaje de programación define su código fuente en archivos con extensiones especiales. Por ejemplo: Python y .py, JavaScript y .js o Go .go. ¿Cuál es la extensión para Java?
+R= .java
+
+
+¿Cuál es el resultado del siguiente código? byte i = 1; byte j = 1; byte k = i+j;
+R= Error: cannot convert from int to byte
+
+La convención de nombres para las clases es Lower Camel Case
+R= Falso
+
+Hablando del alcance de Variables, si una variable es declarada dentro de un método, ¿esta puede ser accedida desde otro método?
+R= No, su alcance es limitado al método
+
+
+Si declaramos un arreglo de la siguiente manera: String arreglo[] = new String[10]; ¿Cuál es la forma correcta de asignar el valor ‘hola’ en la primera posición del arreglo?
+R= arreglo[0] = "hola";
+
+¿Cuándo entrará el programa en el siguiente bucle?
+while ((x<y) && (a>b)) { 
+    ... 
+}
+
+R= Si X es menor que Y y si A es mayor que B
+
+¿Cuál de las siguientes es la palabra reservada para indicar que debo devolver un valor en una función?
+R= return
+
+La sentencia break rompe un ciclo y sale de él.
+R= Verdadero
+
+La sentencia continue no rompe el ciclo, solo omite el resto del código.
+R= Verdadero
+
+La sentencia return rompe el flujo de un método y sirve para devolver un valor.
+R= Verdadero
+
+¿Java es un lenguaje de alto nivel?
+R= Verdadero
+
+¿Qué es WORA?
+R= Write Once, Run Anywhere.
+
+¿Cómo nos afecta que Oracle haya adquirido Sun microsystems?
+R=  Java tendrá muy buen mantenimiento, pero también algunos cambios con los que no todos estamos de acuerdo. (por ejemplo, las licencias).
+
+¿Qué es JDK?
+R= Java Development Kit: El kit de desarrollo de Java.
+
+
+¿Qué es OpenJDK?
+R= Una versión gratis y open source para usar Java SE Platform Edition.
+
+
+¿Qué convención de nombres sigue la siguiente variable? java int soyUnaVariable = 10;
+R=  Lower Camel Case
+
+¿Qué convención de nombres sigue la siguiente clase? java public class HelloWorld { // ... }
+R= Upper Camel Case
+
+¿Cuál es el resultado de la siguiente expresión? int i = 7; char c = ‘w’; System.out.println((i >= 6) && (c == ‘w’));
+R= true
+
+¿Cómo se llama el código que produce Java después de la compilación para que la máquina virtual genere el lenguaje máquina de cada Sistema Operativo?
+R= Bytecode
+
+¿Cuál es la mejor práctica para facilitar la comprensión de mis proyectos de Java. Por ejemplo, al pasar a otro equipo de trabajo, cuando un nuevo desarrollador se integra o, simplemente, terminamos el proyecto y hacemos la entrega del código?
+R= Tener documentación lista en HTML usando Javadocs 
+
+¿En qué formato se generan los java docs? 
+R= Html
+
+La sentencia if es un condicional que le da al programa dos opciones o caminos a recorrer
+R= Verdadero
+
+Según la convención de nombres de Java para constantes, ¿cuál de las siguientes opciones debes usar?
+R= Mayúsculas separadas por guión bajo
+
+
+¿Por qué usamos Java Docs?
+R=Nos ayuda a documentar nuestro código para comprender su utilidad con descripción y/o argumentos de entrada y salida.
+
+
+¿Cómo se indica un comentario para documentación JavaDocs?
+R= /**Un Comentario*/ 
+
+¿Para qué sirve Java SE?
+R= Para construir aplicaciones de escritorio o consola (terminal).
+
+¿Para qué sirve Java EE?
+R= Para que las empresas trabajen aplicaciones web de última generación.
+
+¿Qué significa LTS?
+R= Long Term Support.
+
+
+Este elemento le da a Java la portabilidad con otros Sistemas Operativos. 
+R= La Java Virtual Machine: la máquina virtual Java que traduce el bytecode para que se ejecute en la plataforma donde está implementada 
+
+
+¿Cuál es la diferencia entre usar una sentencia if y switch?
+R=Que en if podemos evaluar sentencias lógicas y en switch solo se evalúa un valor y sus diferentes resultados

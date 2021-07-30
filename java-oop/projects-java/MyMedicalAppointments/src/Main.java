@@ -1,15 +1,22 @@
+import static ui.UIMenu.*;
+
 public class Main {
     public static void main(String[] args) {
                            // Metodo Constructor
-        Doctor myDoctor = new Doctor("Ejemplo 1");
+        Doctor myDoctor = new Doctor();
         myDoctor.name = "Nestor Monroy";
         myDoctor.showName();
-        Doctor d1 = new Doctor();
-        Doctor d2 = new Doctor();
-        Doctor d3 = new Doctor();
-        System.out.println(d1.getId() + "," + d2.getId() + "," + d3.getId() );
+        myDoctor.showId();
+        System.out.println(Doctor.globalID);
 
+        //Doctor.globalID++;
 
+        Doctor myDoctorNess = new Doctor();
+        myDoctor.showId();
+        System.out.println(Doctor.globalID);
+
+        showMenu();
 
     }
+
 }
