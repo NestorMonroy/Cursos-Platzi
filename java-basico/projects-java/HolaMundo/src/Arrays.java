@@ -80,7 +80,7 @@ public class Arrays {
         }
         
         */
-        //Return numero de id 
+        //Return numero de id
         for (String[] pair:cities) {
             for (String name: pair){
                 System.out.println(name);

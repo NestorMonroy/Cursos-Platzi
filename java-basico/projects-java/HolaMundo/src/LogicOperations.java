@@ -13,6 +13,8 @@ public class LogicOperations {
         System.out.println("a es mayor o igual a b -> " + (a >= b));
         System.out.println("a es menor o igual a b -> " + (a <= b));
 
+        int i=1, j=2, k=3, m=2; System.out.println ((j >= i) || (k == m));
+
         if (a==b){
             System.out.println("a es igual a b ");
         }else if((a != b) && (a > b)){

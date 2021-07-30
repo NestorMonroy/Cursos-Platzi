@@ -10,6 +10,12 @@ public class IncrementDecrement {
         lives++; // Incremento   //4
         System.out.println(lives);
 
+        int x = 1; while (x <= 10) System.out.println(++x);
+
+        System.out.println();
+        System.out.println();
+
+
         //Gana un regalo por ganar una vida
 //        int gift = 100 + lives++; // potsfijo
 //        System.out.println(gift);
