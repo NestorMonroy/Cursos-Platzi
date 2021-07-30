@@ -131,3 +131,30 @@ myDoctor.name = "Anahí Salgado";
 myDoctor.showName();
 
 ```
+
+### Método constructor
+
+
+El Método Constructor es el primer método que se ejecuta por defecto cuando creamos una clase, nos permite crear nuevas instancias de una clase. Lo invocamos con la palabra reservada new seguida del nombre con el que inicializamos la clase y paréntesis.
+
+```java
+// nombreDeLaInstancia = new MétodoConstructor();
+myDoctor = new Doctor();
+```
+
+El compilador de Java crea un método constructor en caso de que no definamos uno, pero de todas formas es muy buena idea programarlo nosotros, ya que nos permite definir y/o configurar el comportamiento de nuestros objetos usando argumentos.
+
+```java
+public class Doctor {
+  // Atributos...
+
+  // Método Constructor:
+  Doctor(/* parámetros */) {
+    // Instrucciones que se ejecutan al crear/instanciar
+    // un nuevo objeto con la clase Doctor...
+  }
+}
+
+```
+El método constructor no debe regresar ningún valor (no necesitamos un return). Más adelante estudiaremos un poco más a fondo cómo funcionan la sobrecarga de métodos y sobrecarga de constructores.
+
