@@ -76,3 +76,58 @@ La Modularidad en Programación Orientada a Objetos nos ayuda a:
 * Resolución rápida de problemas.
 
 <img with="20%" src="./images/modular_001.png" />
+
+### Creando nuestra primera Clase
+
+
+Nuestro proyecto en este curso es construir un sistema que nos permita listar y agendar nuestras citas médicas, por lo que debemos crear algunas clases para cada integrante del sistema: doctores, pacientes, entre otras.
+
+Así vamos a crear nuestra primer clase con sus métodos y atributos:
+
+```java
+// Clases:
+public class Doctor {
+  // Atributos:
+  int id;
+  String name;
+  String speciality;
+
+  // Comportamientos (métodos):
+  public void showName() {
+    // Instrucciones...
+  }
+}
+```
+
+Declarar un Objeto:
+
+```java
+// Tipo de Objeto ---- Nombre del Objeto
+Doctor myDoctor;
+
+// Otro objeto del mismo tipo Doctor:
+Doctor anotherDoctor;
+```
+
+Instanciar un Objeto:
+
+```java
+// Nombre del Objeto ---- Clase base para crear algún tipo de objetos
+myDoctor = new Doctor();
+
+// Otro objeto
+anotherDoctor = new Doctor();
+
+Declarar e instanciar un objeto en la misma línea:
+
+// Declarar el objeto ---- Instanciar el objeto
+Doctor myDoctor = new Doctor();
+
+Utilizar el objeto:
+
+// Declarar el objeto ---- Instanciar el objeto
+Doctor myDoctor = new Doctor();
+myDoctor.name = "Anahí Salgado";
+myDoctor.showName();
+
+```
