@@ -13,8 +13,9 @@ public class Funciones {
         //Volumen de una esfera
         //(4/3)*PI* r3
         System.out.println(spheraVolume(y));
+        con
 
-        //Persos a dolores
+        //Pesos a dolores
         System.out.println("PESOS A DOLARES " + converToDolar(1000, "COP"));
     }
 
@@ -30,6 +31,14 @@ public class Funciones {
         return  (4/3) * Math.PI * Math.pow(r,3);
     }
 
+    /**
+     * Descripcion: Funcion que especificando su moneda convierte a dolores
+     *
+     * @param quantity Cantidad de dinero
+     * @param currency Tipo de moneda: Solo acepta MXN o Cop
+     * @return quantity Devuelve la cantidad en dolares
+     *
+     * */
     public static  double converToDolar(double quantity, String currency){
         switch (currency){
             case "MXN":

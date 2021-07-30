@@ -622,3 +622,40 @@ Funciones: nos ayudan a organizar, modularizar y evitar el código repetido.
 • Return: palabra clave cuando una función tiene un valor de regreso.
 • Void: palabra clave cuando una función no tiene un valor de regreso.
 
+### Java Docs
+
+Los Java Docs son una herramienta usada por muchas otras herramientas y aplicaciones porque nos ayuda a documentar todo nuestro código usando comentarios. Además, nos permite visualizar la documentación en formato HTML.
+
+https://developer.android.com/reference/kotlin/android/support/v4/media/MediaBrowserCompat?hl=en
+
+
+```java
+// Comentarios de una sola línea 
+ 
+/* Comentario 
+* en múltiples 
+* líneas */ 
+ 
+/** 
+* Comentario para Java Docs 
+* */ 
+
+```
+
+### Javadoc en funciones
+
+Vamos a documentar la función convertToDolar. Recuerda que esta función devuelve un número double y recibe dos argumentos: quantity (de tipo double) y currency (de tipo String):
+
+```java
+/**
+ * Descripción general de nuestra función.
+ * 
+ * @param quantity Descripción del parámetro quanity.
+ * @param currency Descripción del parámetro currency (MXN o COP).
+ * @return Descripción del valor que devolvemos en esta función.
+ * */
+```
+
+Para que el IDE muestre la descripción y documentación de las funciones debemos entrar a IntelliJ IDEA > Preferences > Editor > General > Code Complettion y habilitar la opción de Show the documentarion popup.
+
+¡No olvides documentar todas las funciones que has escrito hasta ahora!
