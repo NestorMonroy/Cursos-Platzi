@@ -5,22 +5,27 @@ import static ui.UIMenu.*;
 public class Main {
     public static void main(String[] args) {
         //showMenu();
-        Doctor myDoctor = new Doctor("Nestor Monroy", "Cardiología");
-        myDoctor.addAvailableAppointment(new Date(), "4pm");
-        myDoctor.addAvailableAppointment(new Date(), "10am");
-        myDoctor.addAvailableAppointment(new Date(), "1pm");
+//        Doctor myDoctor = new Doctor("Nestor Monroy", "Cardiología");
+//        myDoctor.addAvailableAppointment(new Date(), "4pm");
+//        myDoctor.addAvailableAppointment(new Date(), "10am");
+//        myDoctor.addAvailableAppointment(new Date(), "1pm");
 
         //System.out.println(myDoctor.getAvailableAppointments()); // Regresa el objecto
 
 //        for (Doctor.AvailableAppointment aA:myDoctor.getAvailableAppointments()) {
 //            System.out.println(aA.getDate() + " " + aA.getTime());
 //        }
+        Patient patien = new Patient("Joel", "joel@abc.com");
+        System.out.println(patien);
+//        System.out.println(patien.getName());
+//
+//        //patien.
+//
+//        System.out.println();
+//        System.out.println();
 
-        System.out.println();
-        System.out.println();
-
-
-        System.out.println(Doctor.Day.MONDAY.getSpanish());
+//
+//        System.out.println(Doctor.Day.MONDAY.getSpanish());
 
 //        int i = 0;
 //        int b = 2;

@@ -15,7 +15,7 @@ public class Patient extends User {
         this.weight = weight;
     }
 
-    //54.5 kg. String // Cuando se pone Tipo de dato, se deve utilizar retun
+    // 54.5 kg. String // Cuando se pone Tipo de dato, se deve utilizar retun
     public String getWeight() {
         return this.weight + "Mts.";
     }
@@ -26,6 +26,19 @@ public class Patient extends User {
 
     public String getHeight() {
         return height + "Kg.";
+    }
+
+    public String getBlood() {
+        return blood;
+    }
+
+    public void setBlood(String blood) {
+        this.blood = blood;
+    }
+
+    @Override
+    public  String toString(){
+        return super.toString() + "\n Age: " + getBirthday()+"\n Weigth: " + getWeight()+ "\n Height: " + getHeight() + "\n Blood: " + getBlood();
     }
 
     /*
@@ -66,21 +79,7 @@ public class Patient extends User {
         }
     }
 
-    public String getBirthday() {
-        return birthday;
-    }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getBlood() {
-        return blood;
-    }
-
-    public void setBlood(String blood) {
-        this.blood = blood;
-    }
 
 
     public String getName(){
