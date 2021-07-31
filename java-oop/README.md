@@ -240,4 +240,4 @@ La memoria Stack es mucho más rápida y nos permite almacenar nuestra informaci
 
 Los objetos también usan la memoria Stack, pero no para guardar su información, sino para guardar las coordenadas a la verdadera ubicación del objeto en la memoria Heap, una memoria que nos permite guardar grandes cantidades de información, pero con un poco menos de velocidad.
 
-Asigna
+Asignar ibjetos 
