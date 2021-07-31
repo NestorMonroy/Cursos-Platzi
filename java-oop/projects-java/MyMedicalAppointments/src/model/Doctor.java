@@ -1,9 +1,10 @@
+package model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor extends User {
+public class Doctor extends User implements ISchedulable{
 
-    Doctor(String name, String email){
+    public Doctor(String name, String email){
         super(name, email);
         System.out.println("Construyendo el objecto doctor");
 
@@ -23,6 +24,11 @@ public class Doctor extends User {
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
+    }
+
+    @Override
+    public void schedule(Date date, String time) {
+
     }
 
     public  enum Day{
@@ -82,6 +88,11 @@ public class Doctor extends User {
         return availableAppointments;
     }
 
+    @Override
+    public String toString(){
+        return super.toString() + "\nSpeciality:" +speciality + "\nAppointments: "+availableAppointments.toString();
+    }
+
     public static class AvailableAppointment{
         private int id_availableAppointment;
         private Date date;
@@ -99,6 +110,11 @@ public class Doctor extends User {
 
         public void setId_availableAppointment(int id_availableAppointment) {
             this.id_availableAppointment = id_availableAppointment;
+        }
+
+        @Override
+        public  String toString(){
+         return "Available appointmets: \nDate: "+date+"\nTime: "+ time;
         }
 
         /*

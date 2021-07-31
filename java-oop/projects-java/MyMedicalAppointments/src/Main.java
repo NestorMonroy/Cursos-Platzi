@@ -1,20 +1,25 @@
-import java.util.Date;
 
-import static ui.UIMenu.*;
+import model.Doctor;
+import model.Patient;
+
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
         //showMenu();
-//        Doctor myDoctor = new Doctor("Nestor Monroy", "Cardiología");
-//        myDoctor.addAvailableAppointment(new Date(), "4pm");
-//        myDoctor.addAvailableAppointment(new Date(), "10am");
-//        myDoctor.addAvailableAppointment(new Date(), "1pm");
+        Doctor myDoctor = new Doctor("Nestor Monroy", "nestor@abc.com");
+        myDoctor.addAvailableAppointment(new Date(), "4pm");
+        myDoctor.addAvailableAppointment(new Date(), "10am");
+        myDoctor.addAvailableAppointment(new Date(), "1pm");
 
         //System.out.println(myDoctor.getAvailableAppointments()); // Regresa el objecto
+        System.out.println(myDoctor); // Regresa el objecto
 
 //        for (Doctor.AvailableAppointment aA:myDoctor.getAvailableAppointments()) {
 //            System.out.println(aA.getDate() + " " + aA.getTime());
 //        }
+        System.out.println();
+        System.out.println();
         Patient patien = new Patient("Joel", "joel@abc.com");
         System.out.println(patien);
 //        System.out.println(patien.getName());

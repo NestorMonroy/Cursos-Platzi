@@ -436,3 +436,36 @@ Recuerda que no podemos sobrescribir los métodos marcados como final o static.
 final CONSTANTE, CLASE
 static global
 
+### Interfaces
+
+Las Interfaces son un tipo de referencia similar a una clase con solo constantes y definiciones de métodos, son de gran ayuda para definir los comportamientos que son redundantes y queremos reutilizar un más de una clase, incluso cuando tenemos muchas clases y no todas pertenecen a la misma “familia”.
+
+Las interfaces establecen la forma de las clases que la implementan, así como sus nombres de métodos, listas de argumentos y listas de retorno, pero NO sus bloques de código, eso es responsabilidad de cada clase.
+
+https://www.lucidchart.com/pages/
+
+<img with="20%" src="./images/diagrama_1_1png" />
+
+### Creando una interfaz para definir si una fecha es agendable
+
+Composición de Interfaces en Clases: abstraer todos los métodos/comportamientos de una clase para modularizarlos (comprimirlos, encapsularlos) en una interfaz y reutilizar su código en diferentes clases.
+
+Las interfaces se crean utilizando la palabra reservada interface y se implementan en nuestras clases con implements.
+
+Recuerda que podemos heredar (implementar) más de una interfaz, pero no podemos hacerlo de las clases padres o superclases.
+
+```java
+public interface ISchedulabe {
+  void schedule(Date date, String Time);
+}
+
+public class AppointmentDoctor implements ISchedulable {
+  @Override
+  public void schedule(Date date, String Time) {
+    // ...
+  }
+}
+
+```
+
+<img with="20%" src="./images/Appointments_ULM-jpg" />

@@ -1,10 +1,12 @@
+package model;
+
 public class Patient extends User {
 
     private String blood;
     private double weight;
     private double height;
 
-    Patient(String name, String email){
+    public Patient(String name, String email){
         //super objecto padre
         super(name, email);
     }
