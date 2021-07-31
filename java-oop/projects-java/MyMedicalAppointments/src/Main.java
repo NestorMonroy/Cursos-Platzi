@@ -3,19 +3,25 @@ import static ui.UIMenu.*;
 public class Main {
     public static void main(String[] args) {
         //showMenu();
-        Doctor myDoctor = new Doctor("Nestor Monroy", "Cardiología");
-        System.out.println(myDoctor.name);
-        System.out.println(myDoctor.speciality);
-
-        int i = 0;
-        int b = 2;
-        b= i;
+//        Doctor myDoctor = new Doctor("Nestor Monroy", "Cardiología");
+//        System.out.println(myDoctor.name);
+//        System.out.println(myDoctor.speciality);
+//
+//        int i = 0;
+//        int b = 2;
+//        b= i;
 
         System.out.println();
         System.out.println();
 
         Patient patien = new Patient("Joel", "joel@abc.com");
-        Patient patien2 = new Patient("Berna", "berna@abc.com");
+        patien.setWeight(50.6);
+        System.out.println(patien.getWeight());
+
+        patien.setPhoneNumber("1");
+        System.out.println(patien.getPhoneNumber());
+
+        //Patient patien2 = new Patient("Berna", "berna@abc.com");
 
 //        System.out.println(patien.name);
 //        System.out.println(patien.email);

@@ -249,3 +249,23 @@ Los Modificadores de Acceso nos ayudan a limitar desde dónde podemos leer o mod
 Encapsulamiento: Modificadores de acceso
 
 <img with="20%" src="./images/encap_001.png" />
+
+### Getters y Setters
+
+Los Getters y Setters nos permiten leer y escribir (respectivamente) los valores de nuestras variables privadas desde fuera de la clase donde fueron creadas. Con los Getters obtenemos los datos de las variables y con los Setters asignamos o cambiamos su valor.
+
+También puedes usar los atajos de tu IDE favorito para generar los métodos getters y setters de todas o algunas de tus variables.
+
+```java
+public class Patient {
+  private String name;
+
+  public String getName() {
+    return "Patient name is " + this.name;
+  }
+
+  public void setName(String newName) {
+    this.name = newName;
+  }
+}
+```
