@@ -29,3 +29,72 @@ El código puede ejecutarse en cualquier navegador o plataforma que soporte java
 
 
 npm install typescript --save-dev
+
+
+### Tipado en TypeScript
+
+Explicito: 
+-----------
+Define una sintaxis para la creación de variables con tipo de dato
+nomVariable : Tipo de dato
+Inferido: TypeScript tiene la habilidad de deducir el tipo en funcion de un valor.
+
+#Tipo de datos primitivos
+--------
+Number > Boolean > String > Array
+Tuple > Enum > Any > Void
+Null > Undefined > Never >Object
+
+Tipos de datos
+
+Dentro de los tipos explícitos que maneja TypeScript, tenemos:
+
+Number. Este tipo de dato incluye valores numéricos, hexadecimales, binarios y octales.
+```ts
+
+// Explícito
+let phone: number
+phone = 3315015804
+let hex: number = 0xf00d
+let binary: number = 0b1010
+let octal: number = 0o744
+// Implícito
+let phoneNumber = 3315015804
+
+```
+
+Boolean. Es el tipo de dato más simple en TypeScript ya que solo acepta dos tipos de valores que son true o false.
+
+```ts
+// Explícito
+let isTrue: boolean = true
+
+// Implícito
+let isFalse = false
+
+```   
+String. Es el tipo de dato para trabanar con datos textuales o cadenas, para definir este tipo de dato se puede usar comilla dobles "" o simples ''.
+
+```ts
+// Explícito
+let userName: string = 'Alejandra'
+
+// Implícito
+let lastName = 'Camacho'
+
+```    
+
+Dentro del tipo de dato string también podemos crear templates de la 
+siguiente forma:
+
+```ts
+// Template string
+// Uso de back-tick ``
+let userInfo: string = `
+  User info:
+  firstName: ${firstName}
+  lastName: ${lastName}
+  phone: ${phone}
+  isValid: ${isTrue}
+`
+```
