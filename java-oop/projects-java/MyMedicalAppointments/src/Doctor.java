@@ -4,10 +4,14 @@ public class Doctor {
     String name;
     String speciality;
 
-    Doctor(){
+    Doctor(String name, String speciality){
         System.out.println("Construyendo el objecto doctor");
+        System.out.println("El nombre del Doctor asignado es: "+ name);
         globalID++;
+        this.name = name;
+        this.speciality = speciality;
     }
+
 
     Doctor(String name){
         System.out.println("El nombre del Doctor asignado es: " + name);

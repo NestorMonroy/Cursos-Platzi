@@ -183,3 +183,49 @@ public class Principal {
 En muchos casos nuestro código necesita ejecutar métodos que no necesariamente deben pertenecer a un objeto o instancia en concreto, ya que pueden ser muy generales (así como Math.Random) o los valores que almacenamos deben ser los mismos, sin importar si los consumimos desde una o más clases.
 
 En todos estos casos vale la pena usar variables y métodos estáticos
+
+### Sobrecarga de métodos y constructores
+
+A veces necesitamos que dos o más métodos de una misma clase tengan el mismo nombre, pero con diferentes argumentos o distintos tipos de argumentos/valores de retorno.
+
+Afortunadamente, Java nos permite ejecutar código y métodos diferentes dependiendo de los argumentos que reciba nuestra clase.
+
+```java
+public class Calculadora {
+  // Los dos parámetros y el valor de retorno son de tipo int
+  public int suma(int a, int b) {
+    return a + b;
+  }
+
+  // Los dos parámetros y el valor de retorno son de tipo float
+  public float suma(float a, float b) {
+    return a + b;
+  }
+
+  // Un parámetro es de tipo int, mientras que el otro parámetro
+  // y el valor de retorno son de tipo float
+  public float suma(int a, float b) {
+    return a + b;
+  }
+}
+```
+ 
+El uso más común de la sobrecarga de métodos es la sobrecarga de constructores para instanciar objetos de formas distintas dependiendo de la cantidad de argumentos que enviamos.
+
+```java
+public class Doctor {
+  static int id = 0;
+  String name;
+  String speciality;
+
+  public Doctor() {
+    this.name = "Nombre por defecto";
+    this.speciality = "Especialidad por defecto";
+  }
+
+  public Doctor(String name, String speciality) {
+    this.name = name;
+    this.speciality = speciality;
+  }
+}
+```
