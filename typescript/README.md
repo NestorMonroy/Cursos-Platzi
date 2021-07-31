@@ -98,3 +98,12 @@ let userInfo: string = `
   isValid: ${isTrue}
 `
 ```
+
+### Tipo Any
+
+* Usado para capturar valores dinámicos
+* Los valores pueden cambiar de tipo en el tiempo:
+    * APIs externas
+    * Librerías de terceros
+    
+Any no es recomendado. Solamente debería usarse cuando no sabemos qué tipo de dato almacenará nuestra variable.
