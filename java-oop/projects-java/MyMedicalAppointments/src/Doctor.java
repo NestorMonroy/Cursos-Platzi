@@ -8,6 +8,33 @@ public class Doctor {
     private String email;
     private String speciality;
 
+    public  enum Day{
+        SUNDAY("Domingo", "Dimache"),
+        MONDAY("Lunes", "Lundi"),
+        TUESDAY("Martes", "Mardi"),
+        WEDNESDAY("Miercoles", "Mercredi"),
+        THURSDAY("Jueves", "Jeudi"),
+        FRIDAY("Viernes", "Vendredi"),
+        SATURDAY("Sabado", "Samedi");
+
+        private String spanish;
+        private String french;
+
+        private Day(String s, String f){
+            spanish = s;
+            french = f;
+        }
+
+        public String getSpanish() {
+            return spanish;
+        }
+
+        public String getFrench() {
+            return french;
+        }
+    }
+
+
     Doctor(String name, String speciality){
         System.out.println("Construyendo el objecto doctor");
         System.out.println("El nombre del Doctor asignado es: "+ name);

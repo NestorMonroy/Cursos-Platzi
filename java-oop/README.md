@@ -285,3 +285,85 @@ Las Clases Anidadas o Clases Helper son clases dentro de otras clases que agrupa
 Podemos encontrar clases estáticas anidadas, clases internas que son locales a un método o clases internas anónimas. Las clases anidadas pueden llamar a cualquier tipo de elemento o método de nuestras clases.
 
 Las Clases Estáticas no necesitan ser instanciadas para poder ser llamadas y ejecutadas, aunque debes recordar que solo permiten llamar a los métodos estáticos de sus clases padre.
+
+### Clases Internas y Locales a un método
+
+<img with="20%" src="./images/clases_int.png" />
+<img with="20%" src="./images/clases_local_001.png" />
+
+Las clases estaticas anidades son mas eficientes
+
+### Enumerations
+
+Los enumerations son tipos de datos muy especiales pues este, es el único en su tipo que sirve para declarar una colección de constantes, al ser así estaremos obligados a escribirlos con mayúsculas.
+
+Usaremos enum cada vez que necesitemos representar un conjunto fijo de constantes. Por ejemplo los días de la semana.
+
+Así podemos declarar un enumeration usando la palabra reservada enum.
+
+```java
+public enum Day {
+	SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
+	THURSDAY, FRIDAY, SATURDAY
+}
+```
+Puedo crear referencias de enumerations de la siguiente forma:
+
+```java
+Day day;
+switch (day) {
+	case MONDAY:
+		System.out.println(“Mondays are good.”);
+		break;
+	case FRIDAY:
+		System.out.println(“Fridays are nice”);
+		break;
+	case SATURDAY: case: SUNDAY:
+		System.out.println(“Weekends are the best”);
+		break;
+	default:
+		System.out.println(“Midweek are so-so”);
+		break;
+
+}
+
+```
+Y puedo llamar un valor del enumeration así:
+
+```java
+Day.MONDAY;
+Day.FRIDAY;
+Day.SATURDAY
+```
+Los enumerations pueden tener atributos, métodos y constructores, como se muestra:
+
+```java
+public enum Day {
+  MONDAY("Lunes");
+  TUESDAY("Jueves");
+  FRIDAY("Viernes");
+  SATURDAY("Sábado");
+  SUNDAY("Domingo");
+
+  private String spanish;
+  private Day(String s) {
+    spanish = s;
+  }
+
+  private String getSpanish() {
+    return spanish;
+  }
+}
+```
+
+Y para utilizarlo lo podemos hacer así:
+
+```java
+System.out.println(Day.MONDAY);
+
+Imprimirá: MONDAY
+
+System.out.println(Day.MONDAY.getSpanish());
+
+Imprimirá: Lunes
+```

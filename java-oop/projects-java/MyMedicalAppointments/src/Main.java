@@ -16,7 +16,12 @@ public class Main {
             System.out.println(aA.getDate() + " " + aA.getTime());
         }
 
-        
+        System.out.println();
+        System.out.println();
+
+
+        System.out.println(Doctor.Day.MONDAY.getSpanish());
+
 //        int i = 0;
 //        int b = 2;
 //        b= i;
