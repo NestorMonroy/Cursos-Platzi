@@ -1,12 +1,29 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User {
 
-    static int globalID = 0; // Autoincrement
-    private String name;
-    private String email;
+    Doctor(String name, String email){
+        super(name, email);
+        System.out.println("Construyendo el objecto doctor");
+
+        /*
+        Se mueven a herencia
+        System.out.println("El nombre del Doctor asignado es: "+ name);
+        this.name = name;
+        this.speciality = speciality;
+         */
+    }
+
     private String speciality;
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 
     public  enum Day{
         SUNDAY("Domingo", "Dimache"),
@@ -35,14 +52,8 @@ public class Doctor {
     }
 
 
-    Doctor(String name, String speciality){
-        System.out.println("Construyendo el objecto doctor");
-        System.out.println("El nombre del Doctor asignado es: "+ name);
-        globalID++;
-        this.name = name;
-        this.speciality = speciality;
-    }
-
+    /*
+    Se mueven a herencia
 
     Doctor(String name){
         System.out.println("El nombre del Doctor asignado es: " + name);
@@ -52,10 +63,11 @@ public class Doctor {
     public void showName(){
         System.out.println(name);
     }
-
     public void showId(){
         System.out.println("ID doctor: "+ globalID);
     }
+
+     */
 
     //Solo la clase de doctor puede generar citas
     //Metodo que agrega citas
@@ -89,6 +101,8 @@ public class Doctor {
             this.id_availableAppointment = id_availableAppointment;
         }
 
+        /*
+        Se mueven a herencia
         public Date getDate() {
             return date;
         }
@@ -104,5 +118,6 @@ public class Doctor {
         public void setTime(String time) {
             this.time = time;
         }
+         */
     }
 }

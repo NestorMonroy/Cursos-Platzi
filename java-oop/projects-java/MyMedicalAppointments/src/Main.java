@@ -12,9 +12,9 @@ public class Main {
 
         //System.out.println(myDoctor.getAvailableAppointments()); // Regresa el objecto
 
-        for (Doctor.AvailableAppointment aA:myDoctor.getAvailableAppointments()) {
-            System.out.println(aA.getDate() + " " + aA.getTime());
-        }
+//        for (Doctor.AvailableAppointment aA:myDoctor.getAvailableAppointments()) {
+//            System.out.println(aA.getDate() + " " + aA.getTime());
+//        }
 
         System.out.println();
         System.out.println();

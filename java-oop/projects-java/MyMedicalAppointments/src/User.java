@@ -1,41 +1,30 @@
-public class Patient extends User {
+public class User {
+    int globalID;
+    private String name;
+    private String email;
+    private String address;
+    private String phoneNumber;
+    private String birthday;
 
-    private String blood;
-    private double weight;
-    private double height;
-
-    Patient(String name, String email){
-        //super objecto padre
-        super(name, email);
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
     }
 
-
-    //54.5
-    public void setWeight(double weight){
-        this.weight = weight;
-    }
-
-    //54.5 kg. String // Cuando se pone Tipo de dato, se deve utilizar retun
-    public String getWeight() {
-        return this.weight + "Mts.";
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public String getHeight() {
-        return height + "Kg.";
-    }
-
-    /*
-    Se mueven a herencia
     public int getGlobalID() {
         return globalID;
     }
 
     public void setGlobalID(int globalID) {
         this.globalID = globalID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -73,23 +62,4 @@ public class Patient extends User {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-
-    public String getBlood() {
-        return blood;
-    }
-
-    public void setBlood(String blood) {
-        this.blood = blood;
-    }
-
-
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-
-     */
 }
