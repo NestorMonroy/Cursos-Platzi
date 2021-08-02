@@ -182,3 +182,21 @@ Definimos arreglo de tuplas
 let usersInfo = [number,string][] = [];
 //usamos push para agregar users a usersInfo
 ```
+
+
+#### Enum
+
+Permiten definir un conjunto de constantes con nombre.
+Tienen la ventaja de adaptarse al contexto de la aplicacion.
+
+```js
+// crear
+enum PhotoOrientation {
+	Landscape,
+	Portrait,
+	Square,
+	Panorama
+}
+// utilizar
+const landscape: PhotoOrientation = PhotoOrientation.Landscape
+```
