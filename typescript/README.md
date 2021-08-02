@@ -265,3 +265,16 @@ console.log('small Picture: ', smallPicture)
 console.log('medium Picture: ', mediumPicture)
 console.log('big Picture: ', bigPicture)
 ```
+
+### Aserciones de tipo
+
+Mecanismo de conversión de tipos de datos. Se parece al casting de tipos en otros lenguajes de programación.
+Usa dos sintaxis.
+
+```ts
+//Angle Bracket: <Type>
+let username : any;
+username = (<string>'ejemplo1').toUpperCase();
+///as: variable as type
+username = (username as string).toLowerCase()
+```
