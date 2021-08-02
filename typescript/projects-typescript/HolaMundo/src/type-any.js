@@ -1,23 +1,16 @@
 //Tipo explicito; 
 //Solo cuando no conozca el tipo de valor valor dinamico
-
-let idUser: any;
+var idUser;
 idUser = 1; // number
 idUser = "1"; //string
-console.log('idUser', idUser)
-
+console.log('idUser', idUser);
 //Tipo inferido
-let otherId;
+var otherId;
 otherId = 1;
-otherId = "1"
+otherId = "1";
 otherId = true;
 console.log('otherIde', otherId);
-
-let suprise: any = 'Hello typescript'
+var suprise = 'Hello typescript';
 //suprise.sayHello();// error
-const res =suprise.substring(6);
-
+var res = suprise.substring(6);
 console.log('res', res);
-
-
-

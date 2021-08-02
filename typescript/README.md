@@ -107,3 +107,10 @@ let userInfo: string = `
     * Librerías de terceros
     
 Any no es recomendado. Solamente debería usarse cuando no sabemos qué tipo de dato almacenará nuestra variable.
+
+
+### Void y never
+
+Tipo Void: Representa la ausencia de tipo. usado en funciones que no retornan nada.
+
+Tipo Never: Representa funciones que lanzan excepciones o nunca retornan un valor.
