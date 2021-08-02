@@ -131,3 +131,15 @@ Solo permite asignar null y undefined a una variable de tipo any o a sus respect
 Ayua a evitar errores comunes en programación de apps en el ámbito JavaScript
 
 Generará un reporte de los errores que encuentre, hacemos tsc nombreDelArchivo.ts --strictNullChecks
+
+
+### Object vs object
+
+* Object: instancia de la clase Object en JavaScript
+* object: tipo para valores no primitivos
+
+Con este tipo no se puede acceder a las propiedades del objecto
+
+Esto es lo que dice la documentacion de typescript: Generally, you won’t need to use this. En pocas palabras, ignoren el tipo object.
+
+Tengo entendido que {}, es decir, Object, es mejor que object.
