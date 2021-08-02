@@ -421,3 +421,19 @@ user.username = 'paparazzi'
 console.table({user})
 
 ```
+
+
+### Extendiendo Interfaces.
+
+Las interfaces pueden extenderse unas de otras. Esto permite copiar los miembros ya definidos en una interfaz a otra, ganando flexibilidad y reusabilidad de componentes.
+Utilizamos la palabra reservada extends para utilizar herencia.
+
+```ts
+interface Person {
+name:string;
+lastname:string;
+}
+interface Student extends Person {
+person:Person
+}
+```
