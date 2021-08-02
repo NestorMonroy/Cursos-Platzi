@@ -321,3 +321,46 @@ null y undefined son subtipos de void. A su vez, null y undefined son subtipos d
 * any
 * void
 * object
+
+### Interfaces
+
+Las interfaces en TS constituyen una forma poderosa de definir “contratos” tanto para tu proyecto, como para el código externo del mismo.
+
+Documentación oficial sobre interfaces en TS
+
+https://www.typescriptlang.org/docs/handbook/2/objects.html#interfaces-vs-intersections
+
+```ts
+//* Función para mostrar una fotografía
+export {}
+
+enum PhotoOrientation{
+  Landscape,
+  Portrait,
+  Square,
+  Panorama
+}
+
+interface Picture {
+  title: string,
+  date: string,
+  orientation: PhotoOrientation
+}
+
+function showPicture(picture: Picture) {
+  console.table({picture}) //* Imprime una tabla con los datos del objeto, se ve muy profesional
+}
+
+let myPic = {
+  title: 'Test title',
+  date: '2020-03',
+  orientation: PhotoOrientation.Landscape
+}
+
+showPicture(myPic)
+showPicture({
+  title: 'Another title',
+  date: '2021-06',
+  orientation: PhotoOrientation.Portrait
+})
+```
