@@ -158,3 +158,27 @@ const pictureTitles: Array<string> = ['Favorite Sunset', 'Vacation Time', 'Lands
 
 ```
 
+### Tupla
+
+Permite expresar un arreglo con un numero fijo de elementos. Los tipos de datos son conocidos.
+Asi se crean las tuplas. diferente tipos de datos
+
+```js
+let userInfo = [number,string];
+userInfo = [1,'danijazzero'];
+
+```
+Se accede con indices.
+
+```js
+userInfo[0]; // esto es 1
+userInfo[1]; // esto es 'danijazzero'
+
+```
+
+Definimos arreglo de tuplas
+
+```js
+let usersInfo = [number,string][] = [];
+//usamos push para agregar users a usersInfo
+```
