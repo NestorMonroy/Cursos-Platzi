@@ -114,3 +114,20 @@ Any no es recomendado. Solamente debería usarse cuando no sabemos qué tipo de 
 Tipo Void: Representa la ausencia de tipo. usado en funciones que no retornan nada.
 
 Tipo Never: Representa funciones que lanzan excepciones o nunca retornan un valor.
+
+### null y undefined
+
+En TypeScript, ambos “valores” tienen sus respectivos tipos:
+
+* null
+* undefined
+
+Null y Undefined se pueden asumir como subtipos de los otros tipos dedatos.
+Significa que se pueden asignar null y undefied a una variable de tipostring, por ejemplo.
+
+### Opción --strictNullChecks
+
+Solo permite asignar null y undefined a una variable de tipo any o a sus respectivos
+Ayua a evitar errores comunes en programación de apps en el ámbito JavaScript
+
+Generará un reporte de los errores que encuentre, hacemos tsc nombreDelArchivo.ts --strictNullChecks
