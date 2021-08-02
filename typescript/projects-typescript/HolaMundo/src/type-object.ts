@@ -21,4 +21,5 @@ const myObj = {
 const isInstance = myObj instanceof Object; // Clase Object JavaScript
 console.log('isInstance', isInstance);
 
+//console.log('user.username', user.userName); // No se puede acceder al tipo de dato
 console.log('user.username', myObj.userName); // No se puede acceder al tipo de dato
