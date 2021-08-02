@@ -499,3 +499,42 @@ album.addPicture(new3Pic);
 console.log('album -> ', album);
 ```
 
+
+### Clases - miembros públicos: 
+
+Define un modificador de acceso publico por defecto para los miembros de la clase. También es posible marcar un miembro como publico usando la palabra reservada public
+
+### Clases - miembros privados: 
+
+Define una manera propia de declarar o marcar un miembro como privado usando la palabra reservada private
+
+```ts
+class Person{
+	private id:number;
+	private name: string;
+	public constructor(){}
+	public getName(){
+		return this.name
+	}
+}
+```
+Miembros privados ECMAScript: soporta (a partir de la versión 3.8) la nueva sintaxis JavaScript para miembros 
+privados: #atributo. Esta caracteristica puede ofrecer mejores garantias de aislamiento en miembros privados
+
+```ts
+class Person{
+	#id:number;
+	#name: string;
+	public constructor(){}
+	public getName(){
+		return this.#name
+	}
+}
+
+
+```
+
+Para que VSCode no nos tire errores por usar esta sintaxis, instalar JavaScript and TypeScript Nightly
+
+Usar la sintaxis # para miembros privados es mejor porque nos garantiza encapsular nuestros miembros privados. a diferencia de usar private
+
