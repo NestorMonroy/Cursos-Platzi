@@ -278,3 +278,46 @@ username = (<string>'ejemplo1').toUpperCase();
 ///as: variable as type
 username = (username as string).toLowerCase()
 ```
+
+### Funciones en TS
+
+* Los parametros en las funciones son tipados
+* Se pueden definir parametros opcionales
+* Se puede definir que tipo de datos devolvera la funcion
+
+```ts
+type SquareSize = '100x100' | '500x500' | '1000x1000';
+
+// el simbolo ? indica que el parametro es opcional. 
+// Siempre que tengamos un parametros opcional tiene que encontrasrse al final
+// en caso de que no resivamos este parametro opc va a tomar el valor pode default
+function createPicture(title: string, date: string, size?: SquareSize = "100x100"){
+	
+}
+
+// Fat Array Function
+let createPic = (title: string, date: string, size?: SquareSize): object => {
+	return {
+		title,
+		date,
+		size
+	}
+};
+```
+
+### 
+
+Usar never cuando vamos a lanzar excepciones en la función.
+Al momento de usar la función, ponerlo en un try catch.
+
+null y undefined son subtipos de void. A su vez, null y undefined son subtipos de :
+
+* number
+* boolean
+* string
+* array
+* tuple
+* enum
+* any
+* void
+* object
