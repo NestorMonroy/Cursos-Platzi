@@ -143,3 +143,18 @@ Con este tipo no se puede acceder a las propiedades del objecto
 Esto es lo que dice la documentacion de typescript: Generally, you won’t need to use this. En pocas palabras, ignoren el tipo object.
 
 Tengo entendido que {}, es decir, Object, es mejor que object.
+
+### Array
+
+Al igual que en JavaScript, TypeScript permite definir un arreglo para contener un conjunto de valores, 
+para definir los arreglos se pueden usar nos notaciones [] y Array<type>.
+
+```js
+// Corchetes []
+const nickname: string[] = ['Syaan', 'Matt', 'Lou']
+const idNumber: number[] = [1, 2, 3, 4, 5]
+// Array<type>
+const pictureTitles: Array<string> = ['Favorite Sunset', 'Vacation Time', 'Landscape']
+
+```
+
