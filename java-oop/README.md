@@ -477,6 +477,10 @@ Otras interfaces que son muy importantes en Java son los llamados Collections
 
 Los Collections nos van a servir para trabajar con colecciones de datos, específicamente y solamente con objetos, para esto recuerda que tenemos disponibles nuestras clases Wrapper que nos ayudan a convertir datos primitivos a objetos.
 
+Una coleccion es un almacen dinamico, un array es fijo
+Ordernas las objectos
+No permite se guardan datos primitivos, solo los objectos
+
 Los collections se diferencian de los arrays en que su tamaño no es fijo y por el contrario es dinámico.
 
 A continuación te muestro un diagrama de su composición:
@@ -497,6 +501,7 @@ La interface List tiene éstas características:
 * Puede almacenar objetos repetidos.
 * Los objetos se almacenan en orden secuencial.
 * Tenemos acceso al índice.
+List es mas eficiente que set
 
 Si seguimos analizando las familias tenemos que de Set se desprenden:
 -------------------
@@ -586,3 +591,12 @@ while(it.hasNext()){
 
 ```
 https://docs.oracle.com/javase/tutorial/collections/interfaces/deque.html
+
+<img with="20%" src="./images/1.jpg" />
+<img with="20%" src="./images/2.jpg" />
+<img with="20%" src="./images/3.jpg" />
+<img with="20%" src="./images/4.jpg" />
+<img with="20%" src="./images/5.jpg" />
+<img with="20%" src="./images/6.jpg" />
+<img with="20%" src="./images/7.jpg" />
+<img with="20%" src="./images/8.jpg" />

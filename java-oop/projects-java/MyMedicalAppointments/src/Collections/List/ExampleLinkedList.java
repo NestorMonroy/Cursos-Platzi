@@ -1,10 +1,11 @@
-package Collections;
+package Collections.List;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class ExampleLinkedList {
     public static void main(String[] args) {
+        //Agregar elementos es mas eficiente LinkedList
         LinkedList<String> personas = new LinkedList<String>();
         personas.add("Luis0");
         personas.add("Luis1");

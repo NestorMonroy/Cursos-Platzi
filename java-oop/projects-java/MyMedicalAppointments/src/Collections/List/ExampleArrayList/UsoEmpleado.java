@@ -1,4 +1,4 @@
-package Collections.ExampleArrayList;
+package Collections.List.ExampleArrayList;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,10 +17,10 @@ public class UsoEmpleado {
         //
         ArrayList<Empleado> listaEmpleados = new ArrayList<Empleado>();
         //listaEmpleados.ensureCapacity(11);	// Le indico inicialmente la capacidad, si la supero no pasa nada
-        listaEmpleados.add(new Empleado("Ana", 45, 2500));
-        listaEmpleados.add(new Empleado("Antonio", 55, 2600));
-        listaEmpleados.add(new Empleado("Maria", 25, 2000));
-        listaEmpleados.add(new Empleado("Jose", 22, 2000));
+        listaEmpleados.add(new Empleado(1,"Ana", 45, 2500));
+        listaEmpleados.add(new Empleado(2, "Antonio", 55, 2600));
+        listaEmpleados.add(new Empleado(3, "Maria", 25, 2000));
+        listaEmpleados.add(new Empleado(4,"Jose", 22, 2000));
 //        listaEmpleados.add(new Empleado("Ana", 45, 2500));
 //        listaEmpleados.add(new Empleado("Antonio", 55, 2600));
 //        listaEmpleados.add(new Empleado("Maria", 25, 2000));
