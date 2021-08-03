@@ -600,3 +600,28 @@ https://docs.oracle.com/javase/tutorial/collections/interfaces/deque.html
 <img with="20%" src="./images/6.jpg" />
 <img with="20%" src="./images/7.jpg" />
 <img with="20%" src="./images/8.jpg" />
+
+
+
+### Clases Abstractas
+
+A veces NO necesitamos implementar todos los métodos de una clase heredada o interfaz. No siempre necesitamos crear instancias o implementar todos los métodos heredados de una clase padre, así como tampoco podremos necesitamos algún método de nuestras interfaces, pero estas nos obligan a escribir el código de todos los métodos que definimos genéricamente.
+
+Afortunadamente, las Clases Abstractas resuelven todos estos problemas. Son una combinación entre interfaces y herencia donde no implementaremos todos los métodos ni tampoco crearemos instancias.
+
+```java
+public abstract class Figura {
+  // ...
+}
+
+class Triangulo extends Figura {
+  // ...
+}
+```
+
+
+Interface: te obliga a implementar todos los métodos.
+
+Herencia: A veces no necesitamos crear instancias de una clase padre, porque es muy genérica.
+
+Clases Abstractas: Combinación entre Interface y Herencia , no implementa todos los métodos, por su composición no es necesario instanciarlo, no se pueden crear objetos instancias de una clase abstracta.
