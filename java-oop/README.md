@@ -638,3 +638,23 @@ class Triangulo extends Figura {
 ```
 
 Recuerda los métodos abstractos solo se pueden implementar en clases abstractas. Y las clases abstractas no necesitan ser instanciadas para ser implementadas.
+
+
+### Clases Anónimas
+
+Las Clases Anónimas son una forma de instanciar clases abstractas sin necesidad de usar sus clases hijas. Pero este tipo de instanciación tiene algunas restricciones: el ciclo de vida de estas instancias NO es duradero, no las tendremos disponibles durante toda la ejecución del programa. clase temporal
+
+```java
+// Clase Abstracta:
+public abstract class Figura {
+  abstract void dibujar();
+}
+
+// Clase Anónima:
+User user = new User() {
+  @Override
+  public void showDataUser() {
+    // Instrucciones...
+  }
+};
+```
