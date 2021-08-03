@@ -647,3 +647,54 @@ class Album{
   console.log(album);
 
 ```
+
+
+### Herencia de clases y miembros protegidos
+
+Typescript soporta este patrón común en el mundo de la POO
+Implementa la habilidad de extender codigo de clases existentes a través de la herencia.
+Utilizamos la palabra extends para heredar
+Se heredan solo los atributos public o protected
+tenemos acceso al constructor de la clase padre super()
+
+```ts
+class Person {
+	protected id:number;
+	protected name:string;
+	constructor(id:number, name:string){
+	
+	}
+}
+class Student extends Person {
+	private active:boolean
+	constructor(id:number, name:string, active:boolean){
+		super(id,name)
+		this.active = active
+	}
+}
+
+```
+Clases abstractas: Las clases abstractas son la base de donde otras clases podrian derivarse. A diferencia de una interfaz, una clase abstracta puede implementar funciones para sus instancias.
+La palabra reservada es abstract
+
+abstract class myClass{}
+
+Recordar que las clases abstractas no se pueden instanciar
+Propiedades estaticas y de solo lectura
+Las clases por lo general definen atributos y métodos aplicables a las instancias de las mismas. A través de la palabra reservada **static ** se puede definir un miembro visible a nivel de clase
+Al igual que las interfaces, podemos usar la palabra reservada readonly para marcar el miembro de una clase como solo lectura
+
+```ts
+class Person {
+	static personQuantity: number = 0
+	protected readonly id: number
+}
+```
+
+a las propiedades static se las accede a través de la clase
+
+```ts
+console.log(Person.personQuantity)
+
+```
+a las propiedades readonly no se las puede modificar
