@@ -698,3 +698,13 @@ console.log(Person.personQuantity)
 
 ```
 a las propiedades readonly no se las puede modificar
+
+
+### Módulos en TypeScript: 
+
+Los módulos en typescript proveen un mecanismo para una mejor organización del código y promueven su reutilización
+A partir de ECMAScript 2015 los módulos son parte nativa del lenguaje Javascript
+
+Importando y exportando modulos: Generalmente se define un modulo con la idea de agrupar codigo relacionado. Podemos tomar criterios en torno a la funcionalidad, features, utilitarios, modelos, etc.
+
+Los miembros de modulo interactúan con el uso de las palabras reservadas import y export

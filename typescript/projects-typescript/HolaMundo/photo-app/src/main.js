@@ -1,0 +1,15 @@
+"use strict";
+exports.__esModule = true;
+var photo_app_1 = require("./photo-app");
+var user = new photo_app_1.User(1, 'loco00', 'Nestor', true);
+//console.log(user);
+console.log('----');
+var album = new photo_app_1.Album(10, 'Pictures');
+console.log('----');
+//console.log(album);
+var picture = new photo_app_1.Picture(1, 'TypeScript Course', '2030-03', photo_app_1.PhotoOrientation.Portrait);
+console.log(picture);
+console.log('----');
+user.addAlbum(album);
+album.addPicture(picture);
+console.log('user', user);
