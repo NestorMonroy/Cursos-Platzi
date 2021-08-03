@@ -719,3 +719,23 @@ Utilizamos archivos separados y la utilizacion de import, export para lograr un 
 Para observar una carpeta entera usamos:
 
 tsc --project myFolder --watch
+
+### Resolviendo Modulos: 
+
+Typescript resuelve la ubicacion de modulos observando referencias relativas y no relativas.
+Posteriormente intenta localizar el modulo usando una estrategia de resolucion de modulos.
+
+```
+tsc --moduleResolution node
+tsc --moduleResolution classic
+```
+diferencias
+node: Modulos CommonJs o UMD, mas opciones de configuración
+classic: Modulos AMD, System, ES2015, poco configurable
+
+en tsconfig.json
+
+```json
+"moduleResolution": "node|classic"
+"traceResolution":true
+```
