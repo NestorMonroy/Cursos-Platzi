@@ -708,3 +708,14 @@ A partir de ECMAScript 2015 los módulos son parte nativa del lenguaje Javascrip
 Importando y exportando modulos: Generalmente se define un modulo con la idea de agrupar codigo relacionado. Podemos tomar criterios en torno a la funcionalidad, features, utilitarios, modelos, etc.
 
 Los miembros de modulo interactúan con el uso de las palabras reservadas import y export
+
+
+### Principio de responsabilidad unica. 
+Idealmente un archivo deberia tener un proposito o responsabilidad unica: definir una clase, una interfaz, un enumerado, etc.
+Esto mejora la legibilidad de codigo, facilita la lectura, testing y favorece su mantenimiento.
+
+Utilizamos archivos separados y la utilizacion de import, export para lograr un poco mas de mantenibiilidad. Podemos usar tambien carpetas para separar nuestros archivos.
+
+Para observar una carpeta entera usamos:
+
+tsc --project myFolder --watch
