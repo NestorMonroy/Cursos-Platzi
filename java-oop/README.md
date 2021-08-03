@@ -658,3 +658,71 @@ User user = new User() {
   }
 };
 ```
+
+### Diferencias entre las interfaces y las clases abstractas
+
+Las interfaces tiene modificadores de acceso (default y private), esto significa que es posible añadir comportamiento a métodos de una interfaz. Entonces una interfaz ahora tendrá métodos con implementación y otros sin ella, igual que una clase abstracta.
+
+Una clase abstracta solo se utilizará para definir subclases, es decir, esta siempre debe ser heredada para poder reutilizar y sobrescribir sus métodos de su clase padre. De estas no se puede crear instancias, por lo que la herencia de métodos se hará de forma lineal, desde una clase padre hasta una clase hijo.
+
+
+Una clase abstracta sólo servirá para redefinir nuevas clases sin la necesidad de crear nuevos objetos.
+Nombres comunes de las clases, que son objectos Film, Movie, Series
+Film, Publication, Figure
+
+Las interfaces tiene métodos que pueden implementarse en diferentes familias de clases, la implementación de los métodos dejará de ser lineal.
+
+Las interfaces se utilizan cuando se tienen métodos que se pueden implementar en muchas familias, es decir, la relación va mas allá de la relación entre dos clases.
+
+Otra diferencia está en cómo se nombran. Para la Clase Abstracta pensaremos más en objetos y en las interfaces en las acciones que pueden tener en común muchos objetos.
+Nombres comunes de las interfaces, que son acciones
+Publication, Book, Magazine, 
+Dwawable, Runnable, Callable, Visualizable
+
+Una buena práctica es que el diseño de las aplicaciones siempre esté orientado a interfaces y no a la implementación, para esto:
+
+* Crea buenas abstracciones
+* Intenta encontrar el comportamiento común
+* Enfócate en la declaración de métodos
+
+
+### Interfaces en Java 8 y 9
+
+Las Interfaces nos permiten usar métodos abstractos y campos constantes para implementar herencia/polimorfismo de forma muy similar a las clases abstractas.
+
+A partir de Java 8 podemos tener implementación en métodos para heredar y reutilizar diferentes comportamientos. No todos los métodos de nuestras interfaces deben ser abstractos, ahora podemos usar el modificador de acceso default y desde Java 9 también private.
+
+Recuerda que el nivel de acceso de default y private son los mismos que estudiamos en clases anteriores.
+
+
+* Java 8
+Ya no todos los métodos tiene que ser abstractos pues se cuenta con un nuevo modificador de acceso para los métodos, default. Esto permite que los métodos dentro de una interfaz puedan tener implementación, y a su vez dicha implementación se puede reutilizar en cualquier Clase sin importar a que familia pertenezca. Este modificador default en las interfaces tiene las mismas reglas y restricciones que en en caso de los métodos convencionales, es decir puede ser accedido a nivel de la Clase y por Clases/Interfaces que estén dentro de otro paquete.
+
+* Java 9
+
+Se puede añadir el modificador de acceso private a los métodos de una Interfaz. Este modificador tiene las mismas restricciones que en el caso de los métodos convencionales, es decir, sólo puede ser accedido a nivel de la Clase. También permite hacer una implementación en el método de una Interfaz.
+
+
+```java
+public interface MyInterface {
+  // Métodos default: nos permite heredar la definición
+  // de la función y también su implementación...
+  default void defaultMethod() {
+    privateMethod("Hello from the default method!");
+  }
+
+  // Métodos private: nos permiten definir comportamiento,
+  // pero solo se puede usar desde otras clases de esta
+  // interfaz, no se hereda a la clase hija....
+  private void privateMethod(final String message) {
+    System.out.println(message);
+  }
+
+  // Métodos abstractos: recuerda que todos los métodos
+  // son abstractos por defecto...
+  void normalMethod();
+}
+```
+
+<img with="20%" src="./images/inter_01_00.png" />
+
