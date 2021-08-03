@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
         //showMenu();
         Doctor myDoctor = new Doctor("Nestor Monroy", "nestor@abc.com");
-        myDoctor.addAvailableAppointment(new Date(), "4pm");
-        myDoctor.addAvailableAppointment(new Date(), "10am");
-        myDoctor.addAvailableAppointment(new Date(), "1pm");
+//        myDoctor.addAvailableAppointment(new Date(), "4pm");
+//        myDoctor.addAvailableAppointment(new Date(), "10am");
+//        myDoctor.addAvailableAppointment(new Date(), "1pm");
 
         //System.out.println(myDoctor.getAvailableAppointments()); // Regresa el objecto
         System.out.println(myDoctor); // Regresa el objecto

@@ -726,3 +726,51 @@ public interface MyInterface {
 
 <img with="20%" src="./images/inter_01_00.png" />
 
+
+### Herencia en interfaces
+
+Las interfaces pueden heredar de otras interfaces utilizando la palabra clave extends, el concepto de herencia se aplicará como naturalmente se practica en clases, es decir, la interfaz heredará y adquirirá los métodos de la interfaz padre.
+
+Una cosa interesante que sucede en caso de herencia con interfaces es que, aquí sí es permitido la herencia múltiple como ves a continuación:
+
+```java
+public interface IReadable {
+	public void read();
+}
+
+
+public interface Visualizable extends IReadable, Serializable {
+	public void setViewed();
+	public Boolean isViewed();
+	public String timeViewed();
+}
+```
+
+Además siguiendo las implementaciones de métodos default y private de las versiones Java 8 y 9 respectivamente podemos sobreescribir métodos y añadirles comportamiento, si es el caso.
+
+```java
+public interface Visualizable extends IReadable, Serializable {
+	public void setViewed();
+	public Boolean isViewed();
+	public String timeViewed();
+	
+@Override
+	default void read() {
+	// TODO Auto-generated method stub
+}
+}
+```
+
+### Definiendo las citas disponibles
+
+Algunas veces necesitamos trabajar las fechas como tipo de dato Date y otras veces como String. Para resolver esto podemos usar SimpleDateFormat.
+
+```java
+SimpleDateFormat format = new SimpleDateFormat(pattern: "dd/MM/yyyy");
+
+// Transformar fechas de formato String a Date:
+this.date = format.parse(dateAsString);
+
+// Transformar fechas de formato Date a String:
+this.date = format.format(dateAsDate);
+```

@@ -1,4 +1,6 @@
 package model;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -75,10 +77,12 @@ public class Doctor extends User {
 
      */
 
+    //Todos los cambios se realizan aqui, ejemplo parsear variables
     //Solo la clase de doctor puede generar citas
     //Metodo que agrega citas
+    //Se cambia la transforcion del dato en el metodo
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
-    public void addAvailableAppointment(Date date, String time){
+    public void addAvailableAppointment(String date, String time){
         //availableAppointments.add(new AvailableAppointment(date,time));
         availableAppointments.add(new Doctor.AvailableAppointment(date, time));
     };
@@ -104,10 +108,16 @@ public class Doctor extends User {
         private int id_availableAppointment;
         private Date date;
         private String time;
+        //Formato estandar del programa -- parsear datos (format)
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy"); // se da formato al string
 
-
-        public AvailableAppointment(Date date, String time){
-            this.date = date;
+        public AvailableAppointment(String date, String time){
+            //Caso de las excepcion
+            try {
+                this.date = format.parse(date); //Recibe un string y lo transforma a date
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             this.time = time;
         }
 
@@ -124,10 +134,14 @@ public class Doctor extends User {
          return "Available appointmets: \nDate: "+date+"\nTime: "+ time;
         }
 
-        /*
-        Se mueven a herencia
+
         public Date getDate() {
             return date;
+        }
+
+        //Recibe un string regresa format DATE
+        public String getDate(String DATE){
+            return format.format(DATE);
         }
 
         public void setDate(Date date) {
@@ -141,6 +155,6 @@ public class Doctor extends User {
         public void setTime(String time) {
             this.time = time;
         }
-         */
+
     }
 }
