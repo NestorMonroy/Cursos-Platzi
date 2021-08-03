@@ -739,3 +739,15 @@ en tsconfig.json
 "moduleResolution": "node|classic"
 "traceResolution":true
 ```
+
+### Webpack
+
+Es un empaquetador de módulos para aplicaciones web. se añade el package.json con: npm init -y
+Js super optimizado para la producción.
+
+npm i -D typescript webpack webpack-cli 
+
+// Para conectar webpack con TS
+npm i -D ts-loader
+
+
