@@ -1,4 +1,4 @@
-package ExampleArrayList;
+package Collections.ExampleArrayList;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -78,25 +78,3 @@ public class UsoEmpleado {
 
 }
 
-class Empleado {
-
-    public Empleado(String nombre, int edad, double salario) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.salario = salario;
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    public String dameDatos() {
-        return "El empleado se llama " + nombre + ". Tiene " + edad +
-                " años y un salario de " + salario;
-    }
-
-    private String nombre;
-    private int edad;
-    private double salario;
-
-}

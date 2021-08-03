@@ -488,18 +488,18 @@ Como podemos observar el elemento más alto es la interfaz Collection, para lo c
 
 La interface Set tendrá las siguientes características:
 
-Almacena objetos únicos, no repetidos.
-La mayoría de las veces los objetos se almacenarán en desorden.
-No tenemos índice.
+* Almacena objetos únicos, no repetidos.
+* La mayoría de las veces los objetos se almacenarán en desorden.
+* No tenemos índice.
 
 La interface List tiene éstas características:
 
-Puede almacenar objetos repetidos.
-Los objetos se almacenan en orden secuencial.
-Tenemos acceso al índice.
+* Puede almacenar objetos repetidos.
+* Los objetos se almacenan en orden secuencial.
+* Tenemos acceso al índice.
 
 Si seguimos analizando las familias tenemos que de Set se desprenden:
----------------
+-------------------
 
 Clase HashSet
 Interfaz SortedSet y de ella la clase TreeSet.
@@ -529,6 +529,7 @@ SortedMap ➡️ TreeMap
 
 <img with="20%" src="./images/coleccion_003.png" />
 
+---------------------
 La interfaz Map no hereda de la interfaz Collection porque representa una estructura de datos de Mapeo y no de colección simple de objetos. Esta estructura es más compleja, pues cada elemento deberá venir en pareja con otro dato que funcionará como la llave del elemento.
 
 Map
@@ -538,9 +539,11 @@ Donde V es el value o valor
 
 Podemos declarar un map de la siguiente forma:
 
+```java
 Map<Integer, String> map = new HashMap<Integer, String>();
 Map<Integer, String> treeMap = new TreeMap<Integer, String>();
 Map<Integer, String> linkedHashMap = new LinkedHashMap<Integer, String>();
+```
 
 Como observas solo se puede construir el objeto con tres elementos que implementan de ella: HashMap, TreeMap y LinkedHashMap dejando fuera HashTable y SortedMap. SortedMap estará fuera pues es una interfaz y HashTable ha quedado deprecada pues tiene métodos redundantes en otras clases. Mira la funcionalidad de cada uno.
 
@@ -553,24 +556,27 @@ TreeMap: El Mapa lo ordena de forma “natural”. Por ejemplo, si la clave son 
 Para iterar alguno de estos será necesario utilizar la interface Iterator y para recorrerlo lo haremos un bucle while así como se muestra:
 Para HashMap
 
+```java
 // Imprimimos el Map con un Iterador
 Iterator it = map.keySet().iterator();
 while(it.hasNext()){
   Integer key = it.next();
   System.out.println("Clave: " + key + " -> Valor: " + map.get(key));
 }
-
+```
 Para LinkedHashMap
 
+```java
 // Imprimimos el Map con un Iterador
 Iterator it = linkedHashMap.keySet().iterator();
 while(it.hasNext()){
   Integer key = it.next();
   System.out.println("Clave: " + key + " -> Valor: " + linkedHashMap.get(key));
 }
-
+```
 Para TreeMap
 
+```java
 // Imprimimos el Map con un Iterador
 Iterator it = treeMap.keySet().iterator();
 while(it.hasNext()){
@@ -578,5 +584,5 @@ while(it.hasNext()){
   System.out.println("Clave: " + key + " -> Valor: " + treeMap.get(key));
 }
 
-
+```
 https://docs.oracle.com/javase/tutorial/collections/interfaces/deque.html
