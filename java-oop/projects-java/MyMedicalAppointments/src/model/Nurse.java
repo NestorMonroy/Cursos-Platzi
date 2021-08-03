@@ -9,6 +9,15 @@ public class Nurse extends User {
 
     }
 
+    @Override
+    public void showDataUser() {
+        System.out.println("Hospital: CruzVerde");
+        System.out.println("Hospital: otro");
+        System.out.println("Hospital: CruzVerde");
+
+
+    }
+
     public String getSpeciality() {
         return speciality;
     }

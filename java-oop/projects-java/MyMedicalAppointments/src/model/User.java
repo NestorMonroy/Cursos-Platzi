@@ -70,5 +70,6 @@ public abstract class User {
         return "User "+ name + ", Email: "+ email + ", Address: " + address+ ". Phone: "+ phoneNumber;
 //
     }
-
+    //Defenimos el metodo
+    public abstract void showDataUser();
 }

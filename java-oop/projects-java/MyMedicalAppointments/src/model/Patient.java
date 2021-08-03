@@ -43,6 +43,12 @@ public class Patient extends User {
         return super.toString() + "\n Age: " + getBirthday()+"\n Weigth: " + getWeight()+ "\n Height: " + getHeight() + "\n Blood: " + getBlood();
     }
 
+    @Override
+    public void showDataUser() {
+        System.out.println("Paciente");
+        System.out.println("Historial completo desde nacimiento");
+    }
+
     /*
     Se mueven a herencia
     public int getGlobalID() {

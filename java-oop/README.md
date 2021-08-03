@@ -6,29 +6,27 @@ La Programación Orientada a Objetos (POO) nos ayuda a analizar y entender todos
 
 Este paradigma se compone de 4 elementos (que analizaremos a fondo más adelante):
 
-* Clases
-* Propiedades
-* Métodos
-* Objetos
+- Clases
+- Propiedades
+- Métodos
+- Objetos
 
 Además, se basa en los siguientes 4 pilares:
 
-* Encapsulamiento
-* Abstracción
-* Herencia
-* Polimorfismo
-
+- Encapsulamiento
+- Abstracción
+- Herencia
+- Polimorfismo
 
 ### ¿Qué es un Objeto?
 
 Los Objetos son todas las cosas físicas o conceptuales que tienen propiedades y comportamientos. Por ejemplo: usuario, sesión, auto, etc.
 
-Las Propiedades o atributos son las características de nuestros objetos. Estos atributos siempre serán sustantivos y pueden tener diferentes valores que harán referencia a nombres, tamaños, formas y estados. 
+Las Propiedades o atributos son las características de nuestros objetos. Estos atributos siempre serán sustantivos y pueden tener diferentes valores que harán referencia a nombres, tamaños, formas y estados.
 
 Por ejemplo: el color del auto es verde o rojo (color es el atributo, verde y rojo son posibles valores para este atributo).
 
 Los Comportamientos o métodos serán todas las operaciones de nuestros objetos que solemos llamar usando verbos o sustantivos y verbos. Por ejemplo: los métodos del objeto sesión pueden ser login(), logout(), makeReport(), etc.
-
 
 ### Abstracción: ¿Qué es una Clase?
 
@@ -48,20 +46,20 @@ Operaciones: Walk()
 <img with="20%" src="./images/uml_001.png" />
 <img with="20%" src="./images/uml_002.png" />
 
-* Atributos: Los atributos o características de una Clase pueden ser de tres tipos, definen la visibilidad:
-* Public (+): Indica que el atributo será visible tanto dentro como fuera de la clase, es decir, es accesible desde todos lados.
-* Private(-): Indica que el atributo sólo será accesible desde dentro de la clase (sólo sus métodos lo pueden acceder).
-*  Protected (#): Indica que el atributo no será accesible desde fuera de la clase, pero si podrá ser accedido por métodos de la clase además de las subclases que se deriven (herencia).
-*  Sin modificador de acceso ( ): Indica que el atributo será accesible desde cualquier clase que se encuentre en el mismo paquete de la clase que contiene al atributo sin modificador de acceso.
-Métodos:
-Los métodos u operaciones de una clase son la forma en cómo ésta interactúa con su entorno, éstos pueden tener las características:
-*  Public (+): Indica que el método será visible tanto dentro como fuera de la clase, es decir, es accesible desde todos lados.
-*  Private (-): Indica que el método sólo será accesible desde dentro de la clase (sólo otros métodos de la clase lo pueden acceder).
-*  Protected (#): Indica que el método no será accesible desde fuera de la clase, pero si podrá ser accedido por métodos de la clase además de métodos de las subclases que se deriven (herencia).
-*  Sin modificador de acceso ( ): Indica que el método será
-accesible desde cualquier clase que se encuentre en el mismo
-paquete de la clase que contiene al método sin modificador de
-acceso.
+- Atributos: Los atributos o características de una Clase pueden ser de tres tipos, definen la visibilidad:
+- Public (+): Indica que el atributo será visible tanto dentro como fuera de la clase, es decir, es accesible desde todos lados.
+- Private(-): Indica que el atributo sólo será accesible desde dentro de la clase (sólo sus métodos lo pueden acceder).
+- Protected (#): Indica que el atributo no será accesible desde fuera de la clase, pero si podrá ser accedido por métodos de la clase además de las subclases que se deriven (herencia).
+- Sin modificador de acceso ( ): Indica que el atributo será accesible desde cualquier clase que se encuentre en el mismo paquete de la clase que contiene al atributo sin modificador de acceso.
+  Métodos:
+  Los métodos u operaciones de una clase son la forma en cómo ésta interactúa con su entorno, éstos pueden tener las características:
+- Public (+): Indica que el método será visible tanto dentro como fuera de la clase, es decir, es accesible desde todos lados.
+- Private (-): Indica que el método sólo será accesible desde dentro de la clase (sólo otros métodos de la clase lo pueden acceder).
+- Protected (#): Indica que el método no será accesible desde fuera de la clase, pero si podrá ser accedido por métodos de la clase además de métodos de las subclases que se deriven (herencia).
+- Sin modificador de acceso ( ): Indica que el método será
+  accesible desde cualquier clase que se encuentre en el mismo
+  paquete de la clase que contiene al método sin modificador de
+  acceso.
 
 ### Modularidad
 
@@ -69,16 +67,15 @@ La Modularidad consiste en dividir nuestro programa en diferentes módulos de fo
 
 La Modularidad en Programación Orientada a Objetos nos ayuda a:
 
-* Reutilizar código.
-* Evitar colapsos.
-* Que nuestro código sea mantenible.
-* Mejorar la legibilidad.
-* Resolución rápida de problemas.
+- Reutilizar código.
+- Evitar colapsos.
+- Que nuestro código sea mantenible.
+- Mejorar la legibilidad.
+- Resolución rápida de problemas.
 
 <img with="20%" src="./images/modular_001.png" />
 
 ### Creando nuestra primera Clase
-
 
 Nuestro proyecto en este curso es construir un sistema que nos permita listar y agendar nuestras citas médicas, por lo que debemos crear algunas clases para cada integrante del sistema: doctores, pacientes, entre otras.
 
@@ -134,7 +131,6 @@ myDoctor.showName();
 
 ### Método constructor
 
-
 El Método Constructor es el primer método que se ejecuta por defecto cuando creamos una clase, nos permite crear nuevas instancias de una clase. Lo invocamos con la palabra reservada new seguida del nombre con el que inicializamos la clase y paréntesis.
 
 ```java
@@ -156,6 +152,7 @@ public class Doctor {
 }
 
 ```
+
 El método constructor no debe regresar ningún valor (no necesitamos un return). Más adelante estudiaremos un poco más a fondo cómo funcionan la sobrecarga de métodos y sobrecarga de constructores.
 
 ### Static: Variables y Métodos Estáticos
@@ -209,7 +206,7 @@ public class Calculadora {
   }
 }
 ```
- 
+
 El uso más común de la sobrecarga de métodos es la sobrecarga de constructores para instanciar objetos de formas distintas dependiendo de la cantidad de argumentos que enviamos.
 
 ```java
@@ -240,7 +237,7 @@ La memoria Stack es mucho más rápida y nos permite almacenar nuestra informaci
 
 Los objetos también usan la memoria Stack, pero no para guardar su información, sino para guardar las coordenadas a la verdadera ubicación del objeto en la memoria Heap, una memoria que nos permite guardar grandes cantidades de información, pero con un poco menos de velocidad.
 
-Asignar objetos 
+Asignar objetos
 
 ### Encapsulamiento: Modificadores de acceso
 
@@ -307,6 +304,7 @@ public enum Day {
 	THURSDAY, FRIDAY, SATURDAY
 }
 ```
+
 Puedo crear referencias de enumerations de la siguiente forma:
 
 ```java
@@ -328,6 +326,7 @@ switch (day) {
 }
 
 ```
+
 Y puedo llamar un valor del enumeration así:
 
 ```java
@@ -335,6 +334,7 @@ Day.MONDAY;
 Day.FRIDAY;
 Day.SATURDAY
 ```
+
 Los enumerations pueden tener atributos, métodos y constructores, como se muestra:
 
 ```java
@@ -419,9 +419,7 @@ public class Doctor extends User {
 }
 ```
 
-
 <img with="20%" src="./images/super_this_001.png" />
-
 
 ### Polimorfismo: Sobreescritura de Métodos
 
@@ -470,7 +468,6 @@ public class AppointmentDoctor implements ISchedulable {
 
 <img with="20%" src="./images/Appointments_ULM-jpg" />
 
-
 ### Collections
 
 Otras interfaces que son muy importantes en Java son los llamados Collections
@@ -487,35 +484,31 @@ A continuación te muestro un diagrama de su composición:
 
 <img with="20%" src="./images/coleccion_001.png" />
 
-
 Como podemos observar el elemento más alto es la interfaz Collection, para lo cual, partiendo de su naturalidad de interface, entendemos que tiene una serie de métodos “básicos” dónde su comportamiento será definido a medida que se vaya implementando en más elementos. De ella se desprenden principalmente las interfaces Set y List.
 
 La interface Set tendrá las siguientes características:
 
-* Almacena objetos únicos, no repetidos.
-* La mayoría de las veces los objetos se almacenarán en desorden.
-* No tenemos índice.
+- Almacena objetos únicos, no repetidos.
+- La mayoría de las veces los objetos se almacenarán en desorden.
+- No tenemos índice.
 
 La interface List tiene éstas características:
 
-* Puede almacenar objetos repetidos.
-* Los objetos se almacenan en orden secuencial.
-* Tenemos acceso al índice.
-List es mas eficiente que set
+- Puede almacenar objetos repetidos.
+- Los objetos se almacenan en orden secuencial.
+- Tenemos acceso al índice.
+  List es mas eficiente que set
 
-Si seguimos analizando las familias tenemos que de Set se desprenden:
--------------------
+## Si seguimos analizando las familias tenemos que de Set se desprenden:
 
 Clase HashSet
 Interfaz SortedSet y de ella la clase TreeSet.
 
 HashSet los elementos se guardan en desorden y gracias al mecanismo llamado hashing (obtiene un identificador del objeto) permite almacenar objetos únicos.
 
-TreeSet almacena objetos únicos, y gracias a su estructura de árbol el *acceso es sumamente rápido.
+TreeSet almacena objetos únicos, y gracias a su estructura de árbol el \*acceso es sumamente rápido.
 
-
-Ahora si analizamos la familia List, de ella se desprenden:
--------------
+## Ahora si analizamos la familia List, de ella se desprenden:
 
 Clase ArrayList puede tener duplicados, no está sincronizada por lo tanto es más rápida
 Clase Vector es sincronizada, los datos están más seguros pero es más lento.
@@ -534,7 +527,8 @@ SortedMap ➡️ TreeMap
 
 <img with="20%" src="./images/coleccion_003.png" />
 
----------------------
+---
+
 La interfaz Map no hereda de la interfaz Collection porque representa una estructura de datos de Mapeo y no de colección simple de objetos. Esta estructura es más compleja, pues cada elemento deberá venir en pareja con otro dato que funcionará como la llave del elemento.
 
 Map
@@ -569,6 +563,7 @@ while(it.hasNext()){
   System.out.println("Clave: " + key + " -> Valor: " + map.get(key));
 }
 ```
+
 Para LinkedHashMap
 
 ```java
@@ -579,6 +574,7 @@ while(it.hasNext()){
   System.out.println("Clave: " + key + " -> Valor: " + linkedHashMap.get(key));
 }
 ```
+
 Para TreeMap
 
 ```java
@@ -590,6 +586,7 @@ while(it.hasNext()){
 }
 
 ```
+
 https://docs.oracle.com/javase/tutorial/collections/interfaces/deque.html
 
 <img with="20%" src="./images/1.jpg" />
@@ -600,8 +597,6 @@ https://docs.oracle.com/javase/tutorial/collections/interfaces/deque.html
 <img with="20%" src="./images/6.jpg" />
 <img with="20%" src="./images/7.jpg" />
 <img with="20%" src="./images/8.jpg" />
-
-
 
 ### Clases Abstractas
 
@@ -619,9 +614,27 @@ class Triangulo extends Figura {
 }
 ```
 
-
 Interface: te obliga a implementar todos los métodos.
 
 Herencia: A veces no necesitamos crear instancias de una clase padre, porque es muy genérica.
 
 Clases Abstractas: Combinación entre Interface y Herencia , no implementa todos los métodos, por su composición no es necesario instanciarlo, no se pueden crear objetos instancias de una clase abstracta.
+
+### Miembros abstractos
+
+Los Métodos Abstractos son los métodos que debemos implementar obligatoriamente cada vez que usemos nuestras clases abstractas, mientras que los métodos que no sean abstractos van a ser opcionales.
+
+```java
+public abstract class Figura {
+  abstract void dibujar(); // obligatorio
+  void dibujar3D(); // no es obligatorio
+}
+
+class Triangulo extends Figura {
+  void dibujar() {
+    // Instrucciones para dibujar el triángulo...
+  }
+}
+```
+
+Recuerda los métodos abstractos solo se pueden implementar en clases abstractas. Y las clases abstractas no necesitan ser instanciadas para ser implementadas.

@@ -2,7 +2,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor extends User implements ISchedulable{
+public class Doctor extends User {
 
     public Doctor(String name, String email){
         super(name, email);
@@ -26,10 +26,10 @@ public class Doctor extends User implements ISchedulable{
         this.speciality = speciality;
     }
 
-    @Override
-    public void schedule(Date date, String time) {
-
-    }
+//    @Override
+//    public void schedule(Date date, String time) {
+//
+//    }
 
     public  enum Day{
         SUNDAY("Domingo", "Dimache"),
@@ -91,6 +91,13 @@ public class Doctor extends User implements ISchedulable{
     @Override
     public String toString(){
         return super.toString() + "\nSpeciality:" +speciality + "\nAppointments: "+availableAppointments.toString();
+    }
+
+    @Override
+    public void showDataUser() {
+        System.out.println("Hospital: Cruz Roja");
+        System.out.println("Depatamento: Cancerologia");
+
     }
 
     public static class AvailableAppointment{

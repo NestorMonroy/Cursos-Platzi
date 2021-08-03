@@ -84,7 +84,14 @@ public class Main {
 //        System.out.println(patien2.getName());
 
         User user = new Doctor("Nestor", "abc.com");
+
+        user.showDataUser();
         System.out.println(user);
+        User patient = new Patient("NestorPatient", "abc.com");
+        System.out.println("----");
+        System.out.println(patient);
+        
+
     }
 
 }
