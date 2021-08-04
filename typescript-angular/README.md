@@ -36,3 +36,10 @@ Una clase está integrada por propiedades y funciones, estas pueden ser privadas
 A la variable que le asignamos el valor de un objeto debemos indicarle que su tipo de dato es igual a la clase.
 
 Una característica de la programación orientada a objetos es que podemos crear clases padre que hereden sus propiedades y funciones a una clase hijo, esto es la herencia y dentro de TypeScript se representa con la palabra extends.
+
+
+### Interfaces
+
+Una interfaz es un tipo abstracto que sirve como contrato para la estructura de un objeto y al igual que las clases puede ser utilizada como un tipo de dato. Para declarar una interfaz en TypeScript utilizamos la palabra clave interface.
+
+Dentro de las interfaces en TypeScript podemos manejar propiedades opcionales añadiendo el signo de pregunta ‘?’ al final del nombre de la propiedad.
