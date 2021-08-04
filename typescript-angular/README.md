@@ -27,3 +27,12 @@ Si le asignamos el tipo de dato any a una variable, esta variable va a poder alm
 Dentro de TypeScript contamos con la palabra reservada type que nos va a ser de utilidad cuando hagamos nuestros propios tipos de datos.
 
 
+### Clases
+
+Dentro de TypeScript podemos realizar programación orientada a objetos y como su nombre lo dice vamos a programar objetos, pero para generar dichos objetos primero debemos crear su plantilla base que recibe el nombre de clase.
+
+Una clase está integrada por propiedades y funciones, estas pueden ser privadas, públicas o protected.
+
+A la variable que le asignamos el valor de un objeto debemos indicarle que su tipo de dato es igual a la clase.
+
+Una característica de la programación orientada a objetos es que podemos crear clases padre que hereden sus propiedades y funciones a una clase hijo, esto es la herencia y dentro de TypeScript se representa con la palabra extends.
