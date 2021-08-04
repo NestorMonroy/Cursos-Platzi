@@ -257,3 +257,23 @@ const interfacerMix: InterfacerMix = {
     prop3:"Hello"
 }
 ```
+
+### Function type
+
+Un function type representa la estructura que tendrá la función a la cual se aplica el tipo y únicamente funciona para tipos de funciones.
+
+```ts
+
+type CallBackError = Error | null;
+type CallBack = (error: CallBackError, response: Object) => void;
+type SendRequest = (cb: CallBack) => void;
+
+
+// el resultado es void porque no tiene return
+const sendRequest: SendRequest = (cb: any): void => {
+  if (cb) {
+    cb(null, { message: "Todo salio OK." })
+  }
+
+}
+```
