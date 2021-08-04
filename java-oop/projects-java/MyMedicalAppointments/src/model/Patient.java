@@ -1,10 +1,37 @@
 package model;
 
+import java.util.Date;
+import java.util.ArrayList;
+
 public class Patient extends User {
 
     private String blood;
     private double weight;
     private double height;
+
+    private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
+
+    public ArrayList<AppointmentDoctor> getAppointmentDoctors() {
+        return appointmentDoctors;
+    }
+
+    public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
+        // para que salga el this, se necesita un constructor **
+        AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
+        //Se agrega la fecha con ISchedulable
+        appointmentDoctor.schedule(date,time);
+        appointmentDoctors.add(appointmentDoctor);
+    }
+
+    public ArrayList<AppointmentDoctor> getAppointmentNurse() {
+        return appointmentNurse;
+    }
+
+    public void setAppointmentNurse(ArrayList<AppointmentDoctor> appointmentNurse) {
+        this.appointmentNurse = appointmentNurse;
+    }
+
+    private ArrayList<AppointmentDoctor> appointmentNurse = new ArrayList<>();
 
     public Patient(String name, String email){
         //super objecto padre

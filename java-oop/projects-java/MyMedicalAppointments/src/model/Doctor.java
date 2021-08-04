@@ -105,7 +105,7 @@ public class Doctor extends User {
     }
 
     public static class AvailableAppointment{
-        private int id_availableAppointment;
+        private int id;
         private Date date;
         private String time;
         //Formato estandar del programa -- parsear datos (format)
@@ -121,33 +121,22 @@ public class Doctor extends User {
             this.time = time;
         }
 
-        public int getId_availableAppointment() {
-            return id_availableAppointment;
+        public int getId() {
+            return id;
         }
 
-        public void setId_availableAppointment(int id_availableAppointment) {
-            this.id_availableAppointment = id_availableAppointment;
-        }
-
-        @Override
-        public  String toString(){
-         return "Available appointmets: \nDate: "+date+"\nTime: "+ time;
+        public void setId(int id) {
+            this.id = id;
         }
 
         public Date getDate(String DATE) {
             return date;
         }
 
-        //Recibe un string regresa format DATE
-        /*
-        public String getDate(String DATE){
-            return format.format(DATE);
-        }
-
-         */
-        public String getDate(){
+        public String getDate() {
             return format.format(date);
         }
+
 
         public void setDate(Date date) {
             this.date = date;
@@ -159,6 +148,12 @@ public class Doctor extends User {
 
         public void setTime(String time) {
             this.time = time;
+        }
+
+
+        @Override
+        public  String toString(){
+            return "Available appointmets: \nDate: "+date+"\nTime: "+ time;
         }
 
     }

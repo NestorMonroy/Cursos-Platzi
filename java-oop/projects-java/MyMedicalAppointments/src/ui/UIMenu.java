@@ -33,6 +33,7 @@ public class UIMenu {
                     authUser(1);
                     break;
                 case 2:
+                    System.out.println("Patient");
                     response = 0;
                     authUser(2);
                     //showPatientMenu();
@@ -64,7 +65,7 @@ public class UIMenu {
 
         boolean emailCorrect = false;
         do {
-            System.out.println("Insert yourt email: [a@a.com]");
+            System.out.println("Insert your email: [a@a.com]");
             Scanner sc = new Scanner(System.in);
             String email = sc.nextLine();
             if (userType == 1){
@@ -84,6 +85,7 @@ public class UIMenu {
                         emailCorrect = true;
                         patientLogged = p;
                         //showPatientMenu
+                        UIPatientMenu.showPatientMenu();
                     }
                 }
             }

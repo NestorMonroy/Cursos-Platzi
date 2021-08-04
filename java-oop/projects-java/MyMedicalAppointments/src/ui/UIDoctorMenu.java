@@ -27,7 +27,7 @@ public class UIDoctorMenu {
                     break;
                 case 2:
                     break;
-                case 3:
+                case 0:
                     UIMenu.showMenu();
             }
         }while (response != 0);

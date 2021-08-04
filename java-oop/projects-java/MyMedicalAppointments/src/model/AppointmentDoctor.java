@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class AppointmentDoctor {
+public class AppointmentDoctor implements ISchedulable {
     private int id;
     private Patient patiente;
     private Doctor doctor;
@@ -15,6 +15,11 @@ public class AppointmentDoctor {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public AppointmentDoctor(Patient patiente, Doctor doctor) {
+        this.patiente = patiente;
+        this.doctor = doctor;
     }
 
     public Patient getPatiente() {
@@ -42,10 +47,16 @@ public class AppointmentDoctor {
     }
 
     public String getTime() {
-        return time;
+        return time + "hrs.";
     }
 
     public void setTime(String time) {
+        this.time = time;
+    }
+
+    @Override
+    public void schedule(Date date, String time) {
+        this.date = date;
         this.time = time;
     }
 }
