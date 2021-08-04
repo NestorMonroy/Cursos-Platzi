@@ -680,7 +680,9 @@ La palabra reservada es abstract
 abstract class myClass{}
 
 Recordar que las clases abstractas no se pueden instanciar
+
 Propiedades estaticas y de solo lectura
+
 Las clases por lo general definen atributos y métodos aplicables a las instancias de las mismas. A través de la palabra reservada **static ** se puede definir un miembro visible a nivel de clase
 Al igual que las interfaces, podemos usar la palabra reservada readonly para marcar el miembro de una clase como solo lectura
 
@@ -751,3 +753,98 @@ npm i -D typescript webpack webpack-cli
 npm i -D ts-loader
 
 
+
+
+-------------------
+
+¿Qué es el lenguaje de programación TypeScript?
+R= Es un lenguaje de programación tipado y de alto nivel.
+
+¿Para qué se usa el compilador de TypeScript?
+R= Para compilar el código TypeScript que se traduce en JavaScript.
+
+¿Cuál es el parámetro del compilador que permite especificar un proyecto TypeScript?
+R= --project
+
+¿De qué forma se determina el tipado en TypeScript?
+R= Tipado explícito y tipado inferido
+
+¿Qué tipo de valores podemos definir con el tipo number en TypeScript?
+R= octales, hexadecimales, binarios y decimales
+
+¿Cuál es la síntaxis para el uso de cadenas multilínea en TypeScript?
+R=` Edad: ${edad} Curso: ${curso} `
+
+¿En qué caso se debe usar el tipo any?
+R= Cuando los valores pueden cambiar en tiempo de ejecución.
+
+¿En qué casos se usa el tipo never?
+R= Cuando se lanza una excepción o cuando nunca se retorna un valor.
+
+¿Cómo se define un arreglo en TypeScript?
+R= Usando la notación de corchetes [] y vía la clase Array​​<tipo​>
+
+Una vez creado un arreglo, se pueden agregar valores de tipos distintos
+R= Falso
+
+¿Cuántos valores se pueden definir en una tupla?
+R= Un número fijo de valores con tipos de datos conocidos.
+
+¿Para qué nos sirven los enumerados en TypeScript?
+R= Para definir un conjunto de constantes con nombre, de acuerdo al contexto de la aplicación.
+
+¿Cúando se usa el símbolo ‘|’ (pipe) entre tipos?
+R= Para definir una variable que soporte múltiples tipos de datos.
+
+En TypeScript, se pueden usar cadenas con valor como tipos de datos.
+R= Verdadero
+
+¿Qué ocurre cuando se aplican las aserciones de tipo en TypeScript?
+R= Se aplica una conversión de tipo de dato.
+
+¿Dónde podemos usar tipos de datos en Funciones?
+R= En los parámetros y en el tipo de retorno
+
+Elije la síntaxis correcta para definir una propiedad opcional en TypeScript
+R= propiedad?:string
+
+Podemos definir propiedades de sólo lectura en interfaces usando la palabra reservada ‘readonly’
+R= Verdadero
+
+¿Para qué definimos el método constructor de clase?
+R= Para poder crear instancias de la clase.
+
+¿Cuál es el modificador de acceso por defecto en una clase?
+R= public
+
+¿Con TypeScript es posible hacer uso de la nueva síntaxis de JavaScript para miembros privados?
+R= Verdadero
+
+Con TypeScript no es posible hacer Programación Orientada a Objetos.
+R= FALSO
+
+Los módulos en TypeScript corresponden con los módulos nativos en JavaScript.
+R= Verdadero
+
+¿Cuál es el parámetro de compilador que permite configurar la estrategia de resolución de módulos?
+R= --moduleResolution
+
+Las estrategias disponibles para la resolución de módulos son ‘classic’ y ‘node’.
+R= Verdadero
+
+¿Cuál es el archivo más importante para la configuración de un proyecto TypeScript?
+R= tsconfig.json
+
+¿Cuáles son las palabras reservadas para interactuar con los miembros de un módulo?
+R= import y export
+
+¿Qué se requiere para acceder a un miembro de una superclase?
+R= Que el miembro sea public o protected.
+
+¿Qué significa tener una propiedad estática en una clase?
+R= La propiedad se puede acceder directamente desde la clase.
+
+null y undefined, ¿se pueden asignar en?
+R= MAL Variables de tipo null y undefined respectivamente
+R= MAL Variables de tipo null, undefined y void
+R= MAL Variables de tipo any, void y never

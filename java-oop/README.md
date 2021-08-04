@@ -795,3 +795,55 @@ La forma de implementarlos en Java es usando un Map de tipo TreeMap. Recuerda qu
 Map<Integer, Map<Integer, Doctor>> doctors = new TreeMap<>();
 
 ```
+
+
+
+
+-----------------
+
+¿Para qué sirve el paradigma orientado a objetos?
+R= Nos ayuda a analizar problemas para plasmar su solución en código.
+
+¿Cuál es la palabra clave que define una clase en Java?
+R= class
+
+¿Puedo usar atributos static para no tener que instanciar un objeto y así ahorrar memoria?
+R= Verdadero
+
+¿Cuál es la palabra clave para declarar constantes en Java?
+R= final
+
+¿Cuál es la palabra reservada para referirme a la clase padre?
+R= super
+
+En Java es permitida la herencia múltiple
+R= Falso
+
+¿El nivel de abstracción de una interfaz sobre un programa es?
+R= Abstracción de los comportamientos
+
+¿Cuándo es el momento correcto para crear una clase abstracta?
+R= Cuando no hay necesidad de crear instancias de la clase
+
+¿Por qué es una buena práctica usar modularidad?
+R= Porque así nos aseguramos de que cada clase tenga una sola responsabilidad
+
+
+¿Para qué sirven los métodos getters y setters?
+R= Para Leer/Escribir en las variables miembro de la clase sin alterarlas directamente
+
+Un objeto es lo mismo que una clase
+R= Falso
+
+¿Cuál es la mayor utilidad de los Enumerations?
+R= Definir una colección de constantes
+
+¿Qué tipo de conjunto de elementos pueden almacenar los Collections?
+R= Tipo Objeto
+
+¿Cuál es la palabra clave para aplicar herencia de una interfaz a otra?
+R= extends
+
+
+¿En qué tipo de memoria se almacenan los objetos en Java?
+R= Heap
