@@ -1,11 +1,14 @@
 
 import model.*;
-
+import ui.UIMenu.*;
 import java.util.Date;
+
+import static ui.UIMenu.showMenu;
 
 public class Main {
     public static void main(String[] args) {
-        //showMenu();
+        showMenu();
+        /*
         Doctor myDoctor = new Doctor("Nestor Monroy", "nestor@abc.com");
 //        myDoctor.addAvailableAppointment(new Date(), "4pm");
 //        myDoctor.addAvailableAppointment(new Date(), "10am");
@@ -21,6 +24,8 @@ public class Main {
         System.out.println();
         Patient patien = new Patient("Joel", "joel@abc.com");
         System.out.println(patien);
+
+         */
 //        System.out.println(patien.getName());
 //
 //        //patien.
@@ -80,7 +85,7 @@ public class Main {
 //        patien2.setName("Nuevo 1");
 //        System.out.println(patien.getName());
 //        System.out.println(patien2.getName());
-
+/*
         User user = new Doctor("Nestor", "abc.com");
 
         user.showDataUser();
@@ -109,10 +114,11 @@ public class Main {
             }
         };
 
+ */
 //        ISchedulable iSchedulable1 = new AppointmentDoctor(1,"");
 //        iSchedulable1.schedule();
 
 
-    }
+   }
 
 }

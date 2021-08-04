@@ -8,7 +8,7 @@ public class Doctor extends User {
 
     public Doctor(String name, String email){
         super(name, email);
-        System.out.println("Construyendo el objecto doctor");
+        //System.out.println("Construyendo el objecto doctor");
 
         /*
         Se mueven a herencia
@@ -18,15 +18,15 @@ public class Doctor extends User {
          */
     }
 
-    private String speciality;
-
-    public String getSpeciality() {
-        return speciality;
-    }
-
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
-    }
+//    private String speciality;
+//
+//    public String getSpeciality() {
+//        return speciality;
+//    }
+//
+//    public void setSpeciality(String speciality) {
+//        this.speciality = speciality;
+//    }
 
 //    @Override
 //    public void schedule(Date date, String time) {
@@ -92,10 +92,10 @@ public class Doctor extends User {
         return availableAppointments;
     }
 
-    @Override
-    public String toString(){
-        return super.toString() + "\nSpeciality:" +speciality + "\nAppointments: "+availableAppointments.toString();
-    }
+//    @Override
+//    public String toString(){
+//        return super.toString() + "\nSpeciality:" +speciality + "\nAppointments: "+availableAppointments.toString();
+//    }
 
     @Override
     public void showDataUser() {
@@ -133,7 +133,6 @@ public class Doctor extends User {
         public  String toString(){
          return "Available appointmets: \nDate: "+date+"\nTime: "+ time;
         }
-
 
         public Date getDate() {
             return date;
