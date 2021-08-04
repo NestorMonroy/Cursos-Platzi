@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Doctor extends User {
+    //Todos los cambios se realizan aqui, ejemplo parsear variables
+    //Solo la clase de doctor puede generar citas
+    //Metodo que agrega citas
+    //Se cambia la transforcion del dato en el metodo Este es el array de fechas disponibles
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     public Doctor(String name, String email){
         super(name, email);
@@ -77,11 +82,6 @@ public class Doctor extends User {
 
      */
 
-    //Todos los cambios se realizan aqui, ejemplo parsear variables
-    //Solo la clase de doctor puede generar citas
-    //Metodo que agrega citas
-    //Se cambia la transforcion del dato en el metodo
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment(String date, String time){
         //availableAppointments.add(new AvailableAppointment(date,time));
         availableAppointments.add(new Doctor.AvailableAppointment(date, time));
@@ -134,13 +134,19 @@ public class Doctor extends User {
          return "Available appointmets: \nDate: "+date+"\nTime: "+ time;
         }
 
-        public Date getDate() {
+        public Date getDate(String DATE) {
             return date;
         }
 
         //Recibe un string regresa format DATE
+        /*
         public String getDate(String DATE){
             return format.format(DATE);
+        }
+
+         */
+        public String getDate(){
+            return format.format(date);
         }
 
         public void setDate(Date date) {

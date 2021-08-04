@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class UIDoctorMenu {
 
-
+    //Array para extraer las citas
     public static ArrayList<Doctor> doctorsAvailableAppointments = new ArrayList<>();
 
     public static void showDoctorMenu(){
