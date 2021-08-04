@@ -97,7 +97,7 @@ public class UIPatientMenu {
     private static void showPatientMyApointsments(){
         int response = 0;
         do{
-            System.out.println("::My Apointments");
+            System.out.println(":: My Apointments");
             if(UIMenu.patientLogged.getAppointmentDoctors().size() == 0){
                 System.out.println("Dont have't appoitments");
             }
