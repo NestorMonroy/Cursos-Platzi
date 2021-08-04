@@ -205,5 +205,52 @@ persona = alumno; //Toda persona es un alumno
 Habrá ocasiones en las que necesitemos asignar variables con más de un tipo, para evitar el uso de any debemos usar union types. Utilizando el signo ‘|’ podemos indicarle a TypeScript que utilice uno u otro tipo de dato, por ejemplo:
 
 ```ts
-type SumaParameter = string | number;
+type SumaParameter = string | number; //Se puede utilizar interfaces
+type SumaReturnType = number | string;
+
+
+function suma(num1: SumaParameter, num2: SumaParameter): SumaReturnType {
+    return String(num1) + num2 //Se transforma el 2do a String 
+};
+
+
+interface Interface1 {
+    prop1: number;
+}
+
+interface Interface2 {
+    prop2: number;
+}
+
+type InterfaceMix = Interface1 | Interface2
+
+const interfaceMix: InterfaceMix = {
+    prop1: 2,
+    //prop2: 9
+    // prop3: 5 error 
+}
+```
+
+### Intersection types
+
+Mientras que el union type nos es útil para variables con más de un tipo de dato, intersection types nos permite combinar varios tipos de dato utilizando el signo ‘&’.
+
+```ts
+interface Interface1 {
+    prop1: number;
+}
+
+interface Interface2 {
+    prop2: number;
+    prop3: string
+}
+
+
+type InterfacerMix = Interface1 & Interface2
+
+const interfacerMix: InterfacerMix = {
+    prop1:2,
+    prop2: 5,
+    prop3:"Hello"
+}
 ```
