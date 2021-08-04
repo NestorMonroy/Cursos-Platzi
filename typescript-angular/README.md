@@ -277,3 +277,35 @@ const sendRequest: SendRequest = (cb: any): void => {
 
 }
 ```
+
+### Decorators: aplicación en métodos
+
+Los decorators son muy utilizados en Angular, estos son una declaración que tiene TypeScript para poder extender la funcionalidad de distintos elementos ya sea una clase, un parámetro, una propiedad o una función.
+
+En una función decorator, el parámetro target hace referencia al objeto que posee el decorador y el parámetro propertyKey, o key, hace referencia al elemento que extendemos.
+
+```ts
+
+///target => elemento que contenga
+function log(target, key){
+  console.log(key + "Se ha llamado")
+}
+
+class Persona {
+  private name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  @log
+  sayMyName() {
+    return console.log(this.name);
+  }
+}
+
+
+const persona: Persona = new Persona("Nestor");
+persona.sayMyName(); //Nestor //sayMyName se ha llamado se imprimen las dos cosas
+
+```
