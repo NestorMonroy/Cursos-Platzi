@@ -372,3 +372,65 @@ Install a specific version:
 ```
 sudo n [version.number]
 ```
+
+npm i -s firebase angularfire2
+
+change configuration in 
+
+environment.ts
+```ts
+
+export const environment = {
+  production: false,
+  // Your web app's Firebase configuration
+
+  firebase: {
+
+    apiKey: "example1",
+    authDomain: "example1",
+    databaseURL: "example1",
+    projectId: "example1",
+    storageBucket: "example1",
+    messagingSenderId: "example1",
+    appId: ""
+
+  }
+};
+
+```
+
+### Diferencias entre Angular, React, Vue
+
+Cuando vamos iniciando en el mundo del front-end o simplemente estamos creando un nuevo proyecto nos encontraremos con una importante pregunta:
+¿Qué framework debo utilizar?
+
+Lo primero que te llega a la mente va a ser los tres frameworks más populares:
+Angular
+
+Si tienes un proyecto complejo y robusto Angular es tu mejor opción ya que al estar pensado en trabajar con TypeScript ofrece una gran robustez, estructura y control.
+
+Angular CLI es el CLI más completo para trabajar.
+
+Desventajas:
+
+* Al ser un framework tan robusto su curva de aprendizaje es muy elevada y compleja.
+* Tendremos código repetitivo que genera archivos muy grandes.
+
+React
+
+Ventajas:
+
+* Creado por Facebook, ofrece una gran flexibilidad para trabajar basado en componentes.
+* Cuenta con una gran comunidad, por lo tanto muchos problemas con los que te encuentres ya habrán sido resueltos por alguien.
+
+Desventajas:
+
+* Hay muchas formas de resolver un mismo problema, por lo tanto hay miles de librerías y tal vez pocas sean la solución correcta.
+
+Vue
+
+* También está basado en componentes, cuenta con una gran usabilidad y una curva de aprendizaje muy fácil.
+
+* Su mayor desventaja es que al ser muy nuevo, su comunidad es muy nueva y es probable que los problemas con los que te encuentres tendrás que crear tu propia solución.
+
+Ningún framework es mejor que el otro, cada uno cumple una funcionalidad distinta y cuenta con sus propias ventajas y desventajas.
