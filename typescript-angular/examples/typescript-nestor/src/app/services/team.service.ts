@@ -36,7 +36,11 @@ export class TeamService {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   deleteTeam(id: string) {
+=======
+  delerteTeam(id: string) {
+>>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
 =======
   delerteTeam(id: string) {
 >>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
@@ -51,8 +55,12 @@ export class TeamService {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
 =======
 }
 >>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
