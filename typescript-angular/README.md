@@ -309,3 +309,66 @@ const persona: Persona = new Persona("Nestor");
 persona.sayMyName(); //Nestor //sayMyName se ha llamado se imprimen las dos cosas
 
 ```
+
+### ¿Qué es Angular?
+
+Desarrollado por Google, Angular es más que un framework, es una plataforma que nos da la posibilidad de desarrollar aplicaciones web como aplicaciones mobile. Además, es un framework de estructura que nos va a brindar funcionalidades para extender el template de nuestra aplicación.
+
+Algunas ventajas que trae Angular son:
+
+* Rapidez.
+* Mayor estructura y control del proyecto.
+* SPA
+* Gran comunidad que ayuda con cualquier problema.-
+
+### Angular CLI y Visual Studio Code
+
+Angular CLI es la interfaz de línea de comandos de Angular con la cual desde una terminal puedes crear aplicaciones, generar componentes, montar un servidor local para tu aplicación y testear tu proyecto.
+
+Para este curso y para trabajar con TypeScript o Angular, es muy recomendado utilizar el editor de código Visual Studio Code.
+
+https://angular.io/cli
+
+
+### Creando nuestro proyecto con Angular CLI
+
+Para preparar nuestro entorno de trabajo lo primero que debemos hacer es instalar Node.js. Una vez tenemos instalado Node en nuestro computador, debemos instalar el CLI de Angular mediante el comando:
+
+```
+npm install -g @angular/cli
+
+```
+Ya que tenemos listo el CLI, creamos nuestro proyecto con el siguiente comando y contestando las preguntas de configuración que nos haga:
+
+```
+ng new typescript-platzi
+```
+
+Update Node moodules
+
+First, clear the npm cache:
+```
+npm cache clean -f
+```
+
+Install n, Node’s version manager:
+```
+npm install -g n
+```
+
+With the n module installed, you can use it to:
+Install the latest stable version: 
+```
+sudo n stable
+
+```
+Install the latest release:
+```
+sudo n latest
+
+```
+
+Install a specific version: 
+```
+sudo n [version.number]
+```
