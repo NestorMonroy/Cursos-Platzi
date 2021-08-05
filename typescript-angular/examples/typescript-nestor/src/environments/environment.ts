@@ -3,7 +3,21 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // Your web app's Firebase configuration
+
+  firebase: {
+
+    apiKey: "AIzaSyDorocdJrfY3pfZ7NWPQzzUMDgXCK4fLgM",
+    authDomain: "typescript-nestor.firebaseapp.com",
+    databaseURL: "https://typescript-nestor-default-rtdb.firebaseio.com",
+    projectId: "typescript-nestor",
+    storageBucket: "typescript-nestor.appspot.com",
+    messagingSenderId: "494639891002",
+    appId: "1:494639891002:web:b99c71fedc98f1ed3aab03"
+
+  }
+
 };
 
 /*
