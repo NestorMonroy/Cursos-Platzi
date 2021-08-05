@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayerService } from './services/player.service';
+import { TeamService } from './services/team.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { PlayerService } from './services/player.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [PlayerService],
+  providers: [PlayerService, TeamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
