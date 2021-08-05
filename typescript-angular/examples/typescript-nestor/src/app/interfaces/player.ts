@@ -1,7 +1,7 @@
 export interface Player {
-  $key?: string;
-  name: string;
-  lastName: string;
+  $key?: String;
+  name: String;
+  lastName: String;
   position: SquadNumber;
   weigth: number;
   height: number;
