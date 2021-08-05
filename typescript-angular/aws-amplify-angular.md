@@ -6,14 +6,13 @@ ng g c auth
 ng g c profile
 
 ---
-add amplify and aws-appsync libraries, firstly 
+add amplify and aws-appsync libraries,  
 install the amplify cli global and configure it with your AWS account
 
 npm i -g @aws-amplify/cli
 amplify configure
 
-npm i --save aws-amplify
-npm i --save aws-amplify-angular
+npm i -D aws-amplify-angular @aws-amplify/ui-angular
 
 polyfills.ts
 
