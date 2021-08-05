@@ -29,7 +29,7 @@ export class PlayerService {
     return this.playersDb.push(player)
   }
 
-  delertePlayer(id: String) {
+  delertePlayer(id: string) {
     this.db.list('/players').remove(id);
   }
 

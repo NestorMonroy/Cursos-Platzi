@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+//import firebase from 'firebase';
+//import { getApp } from "firebase/app";
+import { AngularFireModule } from 'angularfire2';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Team } from '../interfaces/team';
@@ -10,7 +13,9 @@ export const TeamTableHeaders = ['name', 'country','players'];
   providedIn: 'root'
 })
 export class TeamService {
+
   private teamsDb: AngularFireList<Team>;
+
   constructor(private db:AngularFireDatabase) {
     this.teamsDb = this.db.list('/teams', ref => ref.orderByChild('name'));
   }
@@ -30,7 +35,7 @@ export class TeamService {
     return this.teamsDb.push(team)
   }
 
-  delerteTeam(id: String) {
+  delerteTeam(id: string) {
     this.db.list('/teams').remove(id);
   }
 
@@ -39,5 +44,6 @@ export class TeamService {
     delete (newTeamData.$key);
     this.db.list('/teams').update($key, newTeamData);
   }
+
 
 }
