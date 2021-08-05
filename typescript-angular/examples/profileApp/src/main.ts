@@ -5,9 +5,9 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import Amplify from 'aws-amplify';
-import amplify from './aws-exports';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
 
-Amplify.configure(amplify);
 
 if (environment.production) {
   enableProdMode();
