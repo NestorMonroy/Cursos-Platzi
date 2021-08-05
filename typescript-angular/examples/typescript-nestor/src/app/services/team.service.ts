@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-//import firebase from 'firebase';
-//import { getApp } from "firebase/app";
 import { AngularFireModule } from 'angularfire2';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -17,9 +15,11 @@ export class TeamService {
   private teamsDb: AngularFireList<Team>;
 
   constructor(private db:AngularFireDatabase) {
+    //Popular **
     this.teamsDb = this.db.list('/teams', ref => ref.orderByChild('name'));
   }
 
+  //Funcion que retorna un Observable
   getTeams(): Observable<Team[]> {
     return this.teamsDb.snapshotChanges().pipe(
       map(changes => {

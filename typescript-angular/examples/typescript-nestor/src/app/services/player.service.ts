@@ -11,15 +11,18 @@ export class PlayerService {
   private playersDb: AngularFireList<Player>;
 
   constructor(private db: AngularFireDatabase) {
-    this.playersDb = this.db.list('/players', ref => ref.orderByChild('name'))
+    //Acedemos a la base de datos de firebase // 
+    this.playersDb = this.db.list('/players', ref => ref.orderByChild('name'));
   }
 
+  //Regresa un Observable 
   getPlayers(): Observable<Player[]> {
+    //Obtenemos la informacion, con la key representativa dentro de firebase snapshotChanges()
     return this.playersDb.snapshotChanges().pipe(
       map(changes => {
         return changes.map(c => ({
           $key: c.key,
-          ...c.payload.val()
+          ...c.payload.val() //Se agrega la informacion adicional del objecto
         } as Player));
       })
     );
@@ -29,27 +32,16 @@ export class PlayerService {
     return this.playersDb.push(player)
   }
 
-  delertePlayer(id: string) {
+  deletePlayer(id: string) {
     this.db.list('/players').remove(id);
   }
 
   editPlayer(newPlayerData: any) {
     const $key = newPlayerData.$key;
+    //Eliminamos la key
     delete (newPlayerData.$key);
+    //Actualizar la informacion
     this.db.list('/players').update($key, newPlayerData);
   }
 
 }
-
-
-  // getPlayers(): Observable<Player[]> {
-  //   return this.playersDb.snapshotChanges().pipe(
-  //     map(changes => {
-  //       return changes.map(c => ({
-  //         $key: c.key,
-  //         //...c.payload.val()
-  //       }));
-  //     })
-  //   );
-  // }
-
