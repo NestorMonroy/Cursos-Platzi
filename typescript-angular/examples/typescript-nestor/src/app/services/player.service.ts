@@ -16,14 +16,11 @@ export class PlayerService {
   }
 
   //Regresa un Observable 
-<<<<<<< HEAD
   // getPlayers(): Observable<Player[]> {
   //   //Obtenemos la informacion, con la key representativa dentro de firebase snapshotChanges()
   //   this.playersDb = this.db.list('/players', ref => ref.orderByChild('name'))
   // }
 
-=======
->>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
   getPlayers(): Observable<Player[]> {
     //Obtenemos la informacion, con la key representativa dentro de firebase snapshotChanges()
     return this.playersDb.snapshotChanges().pipe(
@@ -31,10 +28,7 @@ export class PlayerService {
         return changes.map(c => ({
           $key: c.key,
           ...c.payload.val() //Se agrega la informacion adicional del objecto
-<<<<<<< HEAD
     
-=======
->>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
         } as Player));
       })
     );
@@ -45,11 +39,8 @@ export class PlayerService {
   }
 
   deletePlayer(id: string) {
-<<<<<<< HEAD
     this.db.list('/teams').remove(id);
-=======
     this.db.list('/players').remove(id);
->>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
   }
 
   editPlayer(newPlayerData: any) {
@@ -60,24 +51,8 @@ export class PlayerService {
     this.db.list('/players').update($key, newPlayerData);
   }
 
-<<<<<<< HEAD
     
 }
 
 
 
-
-  // getPlayers(): Observable<Player[]> {
-  //   return this.playersDb.snapshotChanges().pipe(
-  //     map(changes => {
-  //       return changes.map(c => ({
-  //         $key: c.key,
-  //         //...c.payload.val()
-  //       }));
-  //     })
-  //   );
-  // }
-
-=======
-}
->>>>>>> fd28d0ba3138a65154e5511e20aec28b409542dd
