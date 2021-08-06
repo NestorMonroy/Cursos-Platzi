@@ -16,16 +16,19 @@ declare type CategoryType = keyof typeof Country;
 
 export class PlayerDialogComponent implements OnInit {
   private team!: Team;
+
   public countries = Object.keys(Country).map((key) => ({
     label: key,
     key: Country[key as CategoryType],
   }));
+
   public squadNumber = Object.keys(SquadNumber)
     .slice(Object.keys(SquadNumber).length / 2)
     .map((key: any) => ({
       label: key,
       key: SquadNumber[key],
     }));
+
   constructor(
     private playerService: PlayerService,
     private teamService: TeamService
@@ -40,6 +43,22 @@ export class PlayerDialogComponent implements OnInit {
           this.team = teams[0];
         }
       });
+  }
+
+  private newPlayer(playerFormValue: Player) {
+    const key = this.playerService.addPlayer(playerFormValue).key;
+    const playerFormValueKey = {
+      ...playerFormValue,
+      key
+    }
+    const formattedTeam = {
+      ... this.team,
+      players: [
+        ...(this.team ? this.team.players : []),
+        playerFormValueKey
+      ]
+    }
+    this.teamService.addTeam(formattedTeam)
   }
 
 }
