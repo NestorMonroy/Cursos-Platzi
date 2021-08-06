@@ -3,7 +3,7 @@ import { TeamService, TeamTableHeaders } from '../services/team.service';
 import { Observable } from 'rxjs';
 import { Team } from '../interfaces/team';
 import { take } from 'rxjs/operators';
-import { Countries } from '../interfaces/player';
+import { Country } from '../interfaces/player';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class TeamTableComponent implements OnInit {
         if (teams.length === 0) {
           const team: Team = {
             name: 'Nestor Team',
-            country: Countries.Afghanistan,
+            country: Country.Afghanistan,
             players: [],
           };
           this.teamService.addTeam(team)

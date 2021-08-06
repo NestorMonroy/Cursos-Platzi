@@ -3,28 +3,27 @@ export interface Player {
   name: string;
   lastName: string;
   position: SquadNumber;
-  weigth: number;
+  weight: number;
   height: number;
-  nationality: Countries;
-  leftFooted: boolean
+  nationality: Country;
+  leftFooted: boolean;
 }
-
 
 export enum SquadNumber {
   goalKeeper = 1,
-  rigthBack = 4,
+  rightBack = 4,
   sweeper = 2,
   stopper = 6,
   leftBack = 3,
-  rigthMidfielder = 8,
-  centralDefensiveMiFielder = 5,
+  rightMidFielder = 8,
+  centerDefensiveMidFielder = 5,
   leftMidFielder = 10,
-  rigthWinger = 7,
-  centreForward = 9,
+  rightWinger = 7,
+  centerForward = 9,
   leftWinger = 11
 }
 
-export enum Countries {
+export enum Country {
   Afghanistan = 'AF',
   AlandIslands = 'AX',
   Albania = 'AL',
