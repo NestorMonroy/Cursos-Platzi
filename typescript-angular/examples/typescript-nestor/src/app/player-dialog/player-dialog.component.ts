@@ -61,4 +61,13 @@ export class PlayerDialogComponent implements OnInit {
     this.teamService.addTeam(formattedTeam)
   }
 
+  onSubmit(playerForm: NgForm) {
+    const playerFormValue = { ...playerForm.value };
+    if (playerForm.valid) {
+      playerFormValue.leftFooted = playerFormValue.leftFooted === '' ? false : playerFormValue.leftFooted;
+    }
+    this.newPlayer(playerFormValue);
+    window.location.replace('#');
+  }
+  
 }

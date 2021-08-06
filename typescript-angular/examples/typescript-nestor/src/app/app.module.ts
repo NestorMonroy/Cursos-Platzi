@@ -11,6 +11,7 @@ import { TeamService } from './services/team.service';
 import { TeamTableComponent } from './team-table/team-table.component';
 import { PlayerTableComponent } from './player-table/player-table.component';
 import { PlayerDialogComponent } from './player-dialog/player-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PlayerDialogComponent } from './player-dialog/player-dialog.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //AngularFireModule.initializeApp(environment.firebase),
+    FormsModule, // Creacion de formularios con angular
+  
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
