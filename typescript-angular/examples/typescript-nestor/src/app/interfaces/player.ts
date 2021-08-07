@@ -6,8 +6,10 @@ export interface Player {
   weight: number;
   height: number;
   nationality: Country;
-  leftFooted: boolean;
+  leftFooted?: boolean;
 }
+
+
 
 export enum SquadNumber {
   goalKeeper = 1,

@@ -1,6 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
 body {
-  background: -webkit-linear-gradient(left, #c425c4, #097462);
-  background: linear-gradient(to right, #b4c425, #2556dd);
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
 }
 section {
   margin: 50px;
@@ -55,7 +57,7 @@ td {
 
 .modal-window {
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgb(190, 27, 27);
   top: 0;
   right: 0;
   bottom: 0;

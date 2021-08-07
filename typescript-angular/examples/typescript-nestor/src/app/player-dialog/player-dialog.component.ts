@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { take } from 'rxjs/operators';
+import { take} from 'rxjs/operators';
 import { Country, Player, SquadNumber } from '../interfaces/player';
 import { Team } from '../interfaces/team';
 import { PlayerService } from '../services/player.service';
@@ -16,7 +16,7 @@ declare type CategoryType = keyof typeof Country;
 
 export class PlayerDialogComponent implements OnInit {
   private team!: Team;
-
+  public player!: Player;
   public countries = Object.keys(Country).map((key) => ({
     label: key,
     key: Country[key as CategoryType],

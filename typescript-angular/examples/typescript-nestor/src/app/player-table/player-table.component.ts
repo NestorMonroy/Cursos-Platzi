@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
 import { Player } from '../interfaces/player';
 import { PlayerService } from '../services/player.service';
 import { TeamService } from '../services/team.service';
@@ -12,7 +11,7 @@ import { TeamService } from '../services/team.service';
 })
 export class PlayerTableComponent implements OnInit {
   public players$!: Observable<Player[]>
-  //public selectedPlayer: Player;
+  public selectedPlayer!: Player | null;
   public showModal = false;
 
   constructor(
@@ -20,18 +19,15 @@ export class PlayerTableComponent implements OnInit {
     private teamService: TeamService,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.players$ = this.playerService.getPlayers();
   }
 
   newPlayer() {
     this.showModal = true;
-    //this.selectedPlayer = [];
+    this.selectedPlayer = null;
     setTimeout(() => {
       window.location.replace('#open-modal');
     }, 0);
   }
-
-
-
 }
