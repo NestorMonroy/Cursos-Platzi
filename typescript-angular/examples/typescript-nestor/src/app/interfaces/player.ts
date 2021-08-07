@@ -1,4 +1,5 @@
 export interface Player {
+  key: string | undefined;
   $key?: string;
   name: string;
   lastName: string;

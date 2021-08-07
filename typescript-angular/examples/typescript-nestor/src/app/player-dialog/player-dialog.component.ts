@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { take} from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { Country, Player, SquadNumber } from '../interfaces/player';
 import { Team } from '../interfaces/team';
 import { PlayerService } from '../services/player.service';
@@ -15,8 +15,10 @@ declare type CategoryType = keyof typeof Country;
 })
 
 export class PlayerDialogComponent implements OnInit {
+  @Input() player!: Player;
+  @Output() closeDialog: EventEmitter<boolean> = new EventEmitter();
+
   private team!: Team;
-  public player!: Player;
   public countries = Object.keys(Country).map((key) => ({
     label: key,
     key: Country[key as CategoryType],
@@ -50,15 +52,24 @@ export class PlayerDialogComponent implements OnInit {
     const playerFormValueKey = {
       ...playerFormValue,
       key
-    }
+    };
     const formattedTeam = {
-      ... this.team,
+      ...this.team,
       players: [
-        ...(this.team ? this.team.players : []),
+        ...(this.team.players ? this.team.players : []), 
         playerFormValueKey
       ]
-    }
-    this.teamService.addTeam(formattedTeam)
+    };
+    this.teamService.editTeam(formattedTeam);
+  }
+
+  
+  private editPlayer(playerFormValue: NgForm) {
+    const playerFormValueWithKey = { ...playerFormValue, $key: this.player.$key };
+    const playerFormValueWithFormattedKey = { ...playerFormValue, key: this.player.$key };
+    delete playerFormValueWithFormattedKey.key;
+
+
   }
 
   onSubmit(playerForm: NgForm) {
@@ -69,5 +80,9 @@ export class PlayerDialogComponent implements OnInit {
     this.newPlayer(playerFormValue);
     window.location.replace('#');
   }
-  
+
+  onClose() {
+    this.closeDialog.emit(true);
+  }
+
 }
