@@ -1,15 +1,14 @@
 export interface Player {
-  key: string | undefined;
-  $key?: string;
+  $key?: string | undefined
+  //$key?: string;
   name: string;
   lastName: string;
   position: SquadNumber;
   weight: number;
   height: number;
   nationality: Country;
-  leftFooted?: boolean;
+  leftFooted: boolean;
 }
-
 
 
 export enum SquadNumber {
