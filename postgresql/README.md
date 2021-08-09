@@ -315,3 +315,39 @@ ALTER TABLE public.viaje
 -- Para borrar una llave foranea por si tienes algun error
 ALTER TABLE public.viaje DROP CONSTRAINT viaje_trayecto_fkey;
 ```
+
+### Inserción y consulta de datos
+
+```sql
+-- Agregando datos a la tabla estacion
+INSERT INTO public.estacion (nombre, direccion)
+VALUES ('Estacion Centro', 'St 1#12');
+
+-- comprobamos los datos de la tabla estacion
+SELECT * FROM public.estacion;
+
+-- Agregando datos a la tabla tren
+INSERT INTO public.tren (capacidad, modelo)
+VALUES (100, 'Modelo 1');
+
+-- comprobamos los datos de la tabla tren
+SELECT * FROM public.tren;
+
+-- Para eliminar y despues agregar la columna de nombre a la tabla trayecto
+ALTER TABLE public.trayecto DROP COLUMN nombre;
+ALTER TABLE public.trayecto ADD nombre character varying(100);
+
+-- Agregando datos a la tabla trayecto
+INSERT INTO public.trayecto (id_estacion, id_tren, nombre)
+VALUES (1, 1, 'Ruta 1');
+
+-- Comprobamos los datos de la tabla trayecto
+SELECT * FROM public.trayecto;
+
+-- Eliminar una tubla de la tabla tren con el id = 1, como esta en cascada se elimino la tuplas que tenian ese id_tren
+DELETE FROM public.tren WHERE id = 1;
+
+-- Cambiar la tupla que tenda el id = de la tabla tren
+UPDATE public.tren SET id = 1 WHERE id = 2;
+```
+

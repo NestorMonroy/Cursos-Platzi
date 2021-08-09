@@ -15,3 +15,10 @@ ALTER TABLE public.trayecto
     ON UPDATE CASCADE
     ON DELETE CASCADE
     NOT VALID;
+
+
+ALTER TABLE public.trayecto
+    ADD COLUMN nombre character varying;
+
+ALTER TABLE public.trayecto
+    ALTER COLUMN nombre TYPE character varying(100) COLLATE pg_catalog."default";
