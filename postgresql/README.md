@@ -211,3 +211,12 @@ Es la tabla que contiene la información de las personas que viajan en nuestro s
 
 Viaje
 Relaciona Trayecto con Pasajero ilustrando la dinámica entre los viajes que realizan las personas, los cuales parten de una estación y se hacen usando un tren.
+
+
+### Particiones
+
+Las particiones consisten en: 
+1.Separación Física esto es guardar varias partes de la misma tabla en diferentes espacios de disco e incluso en otros discos; 
+2.Conservar la Estructura Lógica esto es que se puede hacer el el SELECT de la misma forma como se hacía anteriormente.
+
+
