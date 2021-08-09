@@ -357,6 +357,7 @@ UPDATE public.tren SET id = 1 WHERE id = 2;
 
 
 ### Inserción masiva de datos
+
 https://mockaroo.com/
 
 Los que quieren limpiar las tablas:
@@ -371,5 +372,74 @@ TRUNCATE viaje  CASCADE;
 Comenzar el serial desde cero
 ```sql
 TRUNCATE TABLE tren, trayecto, viaje, estacion, pasajero RESTART IDENTITY;
+```
+
+### Cruzar tablas: SQL JOIN
+
+
+<img width="70%"  src="./images/sqljoin.jpeg"  />
+
+```sql
+--------------------------RESUMEN----------------------------------------
+/* Inner join: solo nos trae los datos que coinciden en ambas tablas. */
+select * from route r
+inner join train tr
+on tr.train_id = r.train_id;
+
+/* Este es un full outer join: trae todos los datos de ambas tablas. Coincidan o no. */
+select * 
+from route r
+full outer join train tr
+on tr.train_id = r.train_id;
+
+
+/*Este full outer join ahora solo nos trae los datos que no coinciden de la tabla A 
+ con la la tabla B, tambien nos trae los datos de la tabla B que no coiniden con la
+ tabla A. (es como el opuesto del inner join, porque en lugar de traernos los que 
+ coinciden en ambas tablas, nos trae solo los que no coinciden en ambas tablas.)*/
+select * 
+from route r
+full outer join train tr
+on tr.train_id = r.train_id
+where r.train_id is null
+or tr.train_id is null;
+
+
+/* left join: nos trae todos los datos de la tabla A(izquierda) y solo los datos de la
+ tabla B que coincidan en la tabla A. */
+select * from route r
+left join train tr
+on tr.train_id = r.train_id;
+
+/* left outer join: nos devuelve todos los datos de la tabla A que no coincide con la
+tabla B. */
+select * from route r
+left join train tr
+on tr.train_id = r.train_id
+where tr.train_id is null;
+
+/*right join: nos devuelve todos los datos de la tabla B, y solo los datos de la tabla
+A que coincidan con la tabla B*/
+select * from route r
+right join train tr
+on tr.train_id = r.train_id;
+
+/* right outer join: nos trae todos los datos de la tabla B que no coinciden con
+la tabla A*/
+
+select * from route r
+right join train tr
+on tr.train_id = r.train_id
+where r.train_id is null;
+
+/*NOTA: Cuando usamos left join (Tabla A a la tabla B) estamos usando la tabla A, es
+decir traemos todos los datos de la tabla A y solo los datos de la tabla B que coinciden
+con la tabla A. si queremos usar un left outer join la llave primaria null que debemos
+especificar es la de la tabla B.
+WHERE b.pkey us null;
+lo mismo pasa cuando usamos un right outer join
+como usamos la tabla B y solo los que coinciden con la tabla A entonces la llave null
+que usamos es de la tabla A.
+WHERE a.pkey us null;								*/
 ```
 
