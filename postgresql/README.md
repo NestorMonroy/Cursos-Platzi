@@ -132,6 +132,10 @@ INSERT INTO tabla(columna) VALUES('dato');
 SELECT * FROM tabla;
 UPDATE tabla SET cammpo = dato WHERE condicion;
 DELETE FROM tabla WHERE condicion;
+
+select current_date;
+select current_time;
+
 ```
 
 ### Tipos de datos relevantes en PostgreSQL 
@@ -349,5 +353,23 @@ DELETE FROM public.tren WHERE id = 1;
 
 -- Cambiar la tupla que tenda el id = de la tabla tren
 UPDATE public.tren SET id = 1 WHERE id = 2;
+```
+
+
+### Inserción masiva de datos
+https://mockaroo.com/
+
+Los que quieren limpiar las tablas:
+```sql
+TRUNCATE estacion  CASCADE;
+TRUNCATE tren  CASCADE;
+TRUNCATE trayecto  CASCADE;
+TRUNCATE pasajero  CASCADE;
+TRUNCATE viaje  CASCADE;
+```
+
+Comenzar el serial desde cero
+```sql
+TRUNCATE TABLE tren, trayecto, viaje, estacion, pasajero RESTART IDENTITY;
 ```
 
