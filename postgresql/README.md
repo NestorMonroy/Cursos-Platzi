@@ -479,3 +479,37 @@ WHERE nombre ILIKE 'o%';
 SELECT * FROM public.tren
 WHERE modelo IS NULL;
 ```
+
+### Funciones Especiales avanzadas en PosgreSQL
+
+• COALESCE: compara dos valores y retorna el que es nulo
+• NULLIF: Retorna null si son iguales
+• GREATEST: Compara un arreglo y retorna el mayor
+• LEAST: Compara un arreglo de valores y retorna el menor
+• BLOQUES ANONIMOS: Ingresa condicionales dentro de una consulta de BD
+
+```sql
+
+SELECT id, COALESCE(nombre, 'No aplica') nombre, direccion_residencia FROM pasajero WHERE id = 1;
+
+SELECT id, nombre, direccion_residencia, fecha_nacimiento, 
+CASE WHEN fecha_nacimiento > '2015-01-01' THEN 
+'Nino' 
+ELSE 
+'Mayor' 
+END
+FROM pasajero;
+
+
+SELECT id, nombre, fecha_nacimiento,
+	CASE
+	WHEN nombre ILIKE 'a%' THEN 'Comienza con A' 
+	WHEN nombre ILIKE 'e%' THEN 'Comienza con E'
+	WHEN nombre ILIKE 'i%' THEN 'Comienza con I'
+	WHEN ( current_date - fecha_nacimiento) > 6570 Then 'Es mayor de 18 años'
+	ELSE 'Su nombre no inicia con A, E o I y ademas es un niño'
+	END
+FROM pasajero ORDER BY fecha_nacimiento;
+
+
+```
