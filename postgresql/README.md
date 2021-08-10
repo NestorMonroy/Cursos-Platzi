@@ -801,3 +801,18 @@ VALUES(101,'Estación Transacción 2',' 1');
 COMMIT;
 
 ```
+
+### Otras Extensiones para Postgres
+https://www.postgresql.org/docs/11/contrib.html
+
+
+```sql
+CREATE EXTENSION fuzzystrmatch;
+--Cantidad de letras que cambian 
+SELECT levenshtein ('nestor', 'nextor');
+--Algoritmos de Matching-Learning- / aproximacion de palabras 0 - 4  donde 4 es muy similar
+SELECT difference  ('nestor', 'nextor');
+
+SELECT difference  ('beard', 'bird');
+
+```

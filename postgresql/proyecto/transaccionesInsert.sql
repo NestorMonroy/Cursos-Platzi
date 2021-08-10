@@ -13,4 +13,3 @@ select * from estacion order by id desc;
 select * from tren order by id desc;
 
 COMMIT;
-
