@@ -760,3 +760,44 @@ dblink('dbname=transporte
 AS remote_passenger(id INTEGER, name CHARACTER VARYING, address CHARACTER VARYING, birthdate DATE)
 USING(id);
 ```
+
+### Transacciones
+25.Transacciones
+Las transacciones, tienen la capacidad para empaquetar varios pasos en una sola operación “todo o nada”.y si ocurre alguna falla que impida que se complete la transacción, entonces ninguno de los pasos se ejecuta y no se afecta la base de datos en absoluto.
+
+SQL Transacción - Estructura
+La transacciones tienen la siguiente estructura postgres. Postgres en las operaciones normales usa de manera implícita el rollback el rollback.
+```
+BEGIN;
+<Intrucciones>
+COMMIT|ROLLBACK
+```
+SQL Transacción - Ejemplo en PgAdmin
+
+* Desactivamos en la equina superior de pg-admin el auto commit
+* Iniciamos la transacción
+```sql
+BEGIN;
+INSERT INTO  public.estacion(nombre,direccion)
+VALUES('Estación Transacción',' 1');
+ 
+INSERT INTO  public.tren(modelo,capacidad)
+VALUES('Modelo Transacción','2');
+ 
+COMMIT;
+```
+SQL Transacción - Ejemplo de un rollback implícito
+Como se puede visualizar en el ejemplo existe una inserción correcta en la tabla tren pero en la tabla estación sé está haciendo un insert a un id que existe realmente.
+```sql
+BEGIN;
+ 
+ 
+INSERT INTO  public.tren(modelo,capacidad)
+VALUES('Modelo Transacción 2','2');
+ 
+INSERT INTO  public.estacion(id,nombre,direccion)
+VALUES(101,'Estación Transacción 2',' 1');
+ 
+COMMIT;
+
+```
