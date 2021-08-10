@@ -7,8 +7,8 @@ SELECT difference  ('nestor', 'nextor');
 
 SELECT difference  ('beard', 'bird');
 
-CREATE EXTENSION pgcrypto;
 
-SELECT crypt('123456789', 'md5');
 -- Esta función nos permite encriptar un password
--- segun la forma de encriptación
+-- segun la forma de encriptación 
+CREATE EXTENSION pgcrypto;
+SELECT crypt('123456789', 'md5');

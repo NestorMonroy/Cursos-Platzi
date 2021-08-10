@@ -816,3 +816,21 @@ SELECT difference  ('nestor', 'nextor');
 SELECT difference  ('beard', 'bird');
 
 ```
+
+
+### Backups y Restauración
+
+pg_dump: genera todos los archivos de configuración para hacer una copia de nuestra BD.
+
+
+Custom, Esta opción única de postgres y solo se puede restaurar por pgAdmin. Tar, Es un archivo comprimido que contiene la estructura de la base de datos. Plain, simplemente es un archivo.sql. Directory tiene solo la estructura sin comprimir de la base de datos.
+
+Compression ratio: es el número de veces que algoritmo de compresión se ejecuta para reducir el tamaño del archivo
+
+Encoding: hace referencia al tipo de codificación de los carácteres
+
+```sql
+pg_dump --file "/home/copia" --host "127.0.0.1" --port "5432" --username "postgres" --no-password --verbose --format=c --blobs "transporte"
+
+pg_restore --host "127.0.0.1" --port "5432" --username "postgres" --no-password --dbname "nueva" --verbose "/home/copia"
+```
