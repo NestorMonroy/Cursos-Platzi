@@ -536,3 +536,98 @@ Al probarla en este momento nos lanza un error, ¿por qué? porque no tiene dato
     SELECT * FROM <nombre_vista_mview>;
 
 ```
+
+### PL/SQL
+
+Las funciones y los Stored procedure son un pilar dentro de las bases de datos con ayuda de los lenguajes procedurales como PLPGSQL y PL/SQL (En el caso de Oracle). Gran parte de la lógica de negocios puede ser abstraída directamente en la base de datos con ayuda de dicho lenguaje permitiendo liberar al backend de parte de este procesamiento
+
+
+
+    PL Procedural language, también conocido como procedimientos almacenados, estas nos ayuda a desarrollar código directamente en el motor de bases de datos.
+
+    Estructura de un Pl es: Declaración + uso de variable+ código +fin + retorno de valores o no retorna valores.UN bloque de código se ejecuta con la palabra DO $$ BEGIN --insert código here END $$
+
+    RAISE NOTICE ‘message’, esta sentencia es para enviar un mensaje en el log de postgres
+
+    Retornar una tabla
+    Retornar una tabla.
+
+DO$$ -Declaración de un bloque de código SQL
+Estructura
+
+DO $BODY$ 
+    BEGIN 
+        --insert código here 
+    END 
+$BODY$
+
+Ejemplo de declaración de bloques de código con plpgsql
+```sql
+DO $$ 
+    DECLARE
+        rec record;
+        contador integer :=0;
+    BEGIN 
+        --recorre  tabla pasajero y lo guarda en la variable rec
+        FOR rec IN SELECT * FROM pasajero LOOP 
+            RAISE NOTICE 'id: %     ,Nombre: %      ',
+                        rec.id,rec.nombre;
+            contador := contador + 1;
+        END LOOP;
+        RAISE NOTICE 'cantidad de registros:    %', contador;
+    END 
+$$
+
+CREATE FUNTION - Declaración de una función SQL
+
+CREATE FUNCTION  consulta_usuarios() 
+    RETURNS void
+    LANGUAGE 'plpgsql';
+AS $BODY$ 
+    DECLARE
+        rec record;
+        contador integer :=0;
+    BEGIN 
+        --recorre  tabla pasajero y lo guarda en la variable rec
+        FOR rec IN SELECT * FROM pasajero LOOP 
+            RAISE NOTICE 'id: %     ,Nombre: %      ',
+                        rec.id,rec.nombre;
+            contador := contador + 1;
+        END LOOP;
+        RAISE NOTICE 'cantidad de registros:    %', contador;
+    END 
+$BODY$
+```
+OTRO Ejemplo:
+Retornar una tabla con plpgsql ¡¡¡¡importante!!! es importante cual select uses para llamar la función. la función funciona de la siguiente manera en el parámetro sí se introduce NULL retorna toda la lista, si se introduce id retornará esa tupla
+
+```sql
+--FUNCION QUE RETORNA UNA TABLA
+--Mostrar tabla con plpgsql
+--https://stackoverflow.com/questions/18084936/pl-pgsql-functions-how-to-return-a-normal-table-with-multiple-columns-using-an
+DROP FUNCTION consulta_t_pasajero(p_pasajero_id integer);
+
+CREATE OR REPLACE FUNCTION consulta_t_pasajero(p_pasajero_id integer) 
+RETURNS TABLE(id integer, nombre character varying, direccion_residencia character varying, fecha_nacimiento date) 
+LANGUAGE plpgsql
+AS $BODY$
+    BEGIN
+		IF p_pasajero_id IS NULL THEN 
+		 RETURN QUERY 
+			SELECT pasajero.id, pasajero.nombre, pasajero.direccion_residencia, pasajero.fecha_nacimiento
+			FROM public.pasajero;
+		END IF;
+		RETURN QUERY 
+			SELECT pasajero.id, pasajero.nombre, pasajero.direccion_residencia, pasajero.fecha_nacimiento
+			FROM public.pasajero
+			WHERE pasajero.id = p_pasajero_id;
+    END;
+$BODY$
+
+--Retorno en forma de fila
+SELECT consulta_t_pasajero(NULL); 
+SELECT consulta_t_pasajero(50);
+--Retorno en forma de tabla
+SELECT * FROM consulta_t_pasajero(NULL);
+SELECT * FROM consulta_t_pasajero(50);
+```
