@@ -834,3 +834,110 @@ pg_dump --file "/home/copia" --host "127.0.0.1" --port "5432" --username "postgr
 
 pg_restore --host "127.0.0.1" --port "5432" --username "postgres" --no-password --dbname "nueva" --verbose "/home/copia"
 ```
+
+
+### Mantenimiento
+
+Postgres maneja una serie de funciones que trabajan en segundo plano mientras que trabajamos directamente en la base de datos, y esto es a lo que le llamamos mantenimiento.
+
+El nombre más común de esto es Vaccum, ya que esto quita todas las filas y columnas e items del disco duro que no están funcionando, ya que postgres al percatarse de esto, las marca como “para borrar después”.
+Tiene 2 niveles de limpieza.
+Liviano, se ejecuta todo el tiempo en la DB en segundo plano.
+Full o completo, que es capaz de bloquear las tablas para hacer la limpieza y luego la desbloquea.
+Full es importante porque puede que una tabla tenga problemas de indexación y se demore mucho en hacer las consultas.
+Hacer mantenimiento en DB no es lo mismo que hacerlo directamente en las tablas.
+Para ejecutar el mantenimiento se da clic derecho sobre la DB o la tabla, y luego a la opción “Maintenance”.
+En tablas, aparecen 3 opciones
+full: Revisa toda la información de la tabla, si hay información que no es aplicable limpiará/eliminará la fila con la información del índice y demás. Activar o desactivar full puede tumbar totalmente la DB.
+freeze: durante el proceso se va a congelar. Ningún usuario va a tener acceso a esta tabla hasta que no termine el proceso de limpieza.
+analyze: El más suave, el programa ejecutará una revisión y mostrará qué tan bien o mal está la tabla.
+Es importante siempre hacer el mantenimiento en el horario en donde menos es utilizada la DB, ¿por qué? porque si hay menos tráfico los usuarios no van a sentir tanto la ausencia del servicio. Igualmente, en la medida de las posibilidades se puede usar una DB de respaldo para que el servicio no se vea ofuscado durante el mantenimiento, luego, una vez hecho el mantenimiento se puede actualizar la DB con los datos generados en la DB de respaldo.
+
+
+
+
+* Vacuum: La más importante, con tres opciones, Vacuum, Freeze y Analyze.
+* Full: la tabla quedará limpia en su totalidad
+* Freeze: durante el proceso la tabla se congela y no permite modificaciones hasta que no termina la limpieza
+* Analyze: solo revisa la tabla
+* Analyze: No hace cambios en la tabla. Solo hace una revisión y la muestra.
+* Reindex: Aplica para tablas con numerosos registros con indices, como por ejemplo las llaves primarias.
+* Cluster: Especificamos al motor de base de datos que reorganice la información en el disco.
+
+### Introducción a Réplicas
+
+Son mecánismos que permiten evitar problemas de entrada y salida en los SO.
+“Existen 2 tipos de personas, los que ya usan réplicas y los que las van a usar…” 
+
+- Piensa siempre en modo réplica.
+
+A medida que la DB crece encontraremos limitaciones físicas y de electrónica, si la DB aumenta tanto su tamaño, las limitaciones serán de procesamiento, RAM, almacenamiento.
+
+Hemos visto que las consultas en local son muy rápidas, sin embargo, cuando la aplicación ha sido desplegada pueden ocurrir multiples peticiones de lectura y escritura. Todos los motores de DB pueden hacer una ejecución a la vez, por lo que recibir tantas peticiones de consulta al mismo tiempo puede hacer que regresar una consulta se demore demasiado y eso puede ser catastrófico, pero las réplicas son la solución a este tipo de problemas.
+¿Cuál es la estrategia? Tener una base de datos principal donde se realizan todas las modificaciones, y una base de datos secundaria dónde se realiza las lecturas. Separar las tareas es altamente beneficioso en cuanto al rendimiento de la aplicación, así, cuando se modifica una DB automáticamente se lleva el cambio a la DB de lectura. Todo lo que hay que hacer es configurar 2 servidores de postgres, uno como maestro y otro como esclavo. Se debe modificar la aplicación para que todas las modificaciones se hagan sobre el maestro y la lectura sobre la replica, o la DB en caliente. Es imposible realizar cambios en la DB de réplica.
+
+
+### Implementación de Réplicas en Postgres
+
+Las replicas consisten en tener multiples servidores de Postgresql con un minimo de un Master y una Replica
+
+para lograrlo se deben realizar hacer cambios en las configuraciones de la base de datos Master
+
+en postgresql.conf
+```conf
+# los archivos de bitacora se comporten como hot standby
+# es decir mantiene los archivos hasta que las replicas los utilizen
+wal_level = hot_standby
+
+# Este valor corresponde a la cantidad de replicas que vamos a tener
+max_wal_senders = 2
+
+# Como trataremos los archivos de bitacora, los archivaremos para que los puedan leer lar replicas
+archive_mode = on
+
+# Se especifica un comando de linux para copiar los archivos y dejarlos en una carpeta temporal 
+
+archive_command = 'cp %p /tmp/%f'
+# tambien en el archivo pg_hba.conf en la base de datos Master se debe agregar la ip de la base de datos para replicacion
+
+local   all         all                               md5
+host    all         all         127.0.0.1/32          ident
+host    all         all         ::1/128               ident
+host    all         all         0.0.0.0/0             md5
+host    replication all         xxxxxxxxxx/32         trust -- La direccion de la replica 
+
+```
+Reiniciar el servicio -- 
+
+Ahora para la base de datos de Replica nos conectamos por SSH
+
+
+```
+# Detenemos el servicio
+--sudo service postgresql stop
+
+# Borramos los datos locales
+
+rm -rf /var/lib/pgsql/data/*
+
+# Traemos todos los datos de master y los traemos a replica
+# $host_de_master_db -> ip de master 
+# $puerto_de_la_master_db -> puerto de master
+
+pg_basebackup -U $user_de_master -R -D /var/lib/pgsql/data/ --host=$host_de_master_db --port=$puerto_de_la_master_db
+
+# Modificamos el archivo postgresql.conf de replica
+
+# esto define postgres como una base de datos de replica
+hot_standby = on
+
+#Ahora que los cambios estan hechos reiniciamos el servicio
+sudo service postgresql start
+
+```
+
+A partir de ahora las configuraciones se han guardado y ya funcionan en modo de master y replica
+
+incluso la contraseña del servicio replica ahora sera la misma del servicio master
+
+a partir de ahora todos los cambios hechos en master se recrean en replica, y cualquier cambio hecho en replica no se ejecutara ya que estara en modo de solo lectura.
