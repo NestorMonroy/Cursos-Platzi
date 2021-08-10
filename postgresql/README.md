@@ -443,3 +443,39 @@ que usamos es de la tabla A.
 WHERE a.pkey us null;								*/
 ```
 
+
+###  Funciones especiales
+
+* ON CONFLICT DO => Solucionar problemas para insercion de datos ,  permite insertar si lo que queremos hacer es una actualización sobre el mismo dato. 
+* RETURNING => Nos permite devolver todos los cambios que hemos hecho sobre la base de datos *(deshacer los cambios)
+* LIKE / ILIKE  => Búsquedas al estilo de expresiones regulares, 
+* IS / IS NOT => Nos permite comparar dos tipo de datos que no sean estandar como numerico * objecto => null o no lo es
+
+```sql
+-- Insercion de un dato que ya existe, no pasa nada
+INSERT INTO public.estacion(id, nombre, direccion)
+VALUES (1, 'Nombre', 'Dire')
+ON CONFLICT DO NOTHING;
+
+-- Insercion de un dato que ya existe, te cambia los campos de nombre y direccion
+INSERT INTO public.estacion(id, nombre, direccion)
+VALUES (1, 'Nombre', 'Dire')
+ON CONFLICT (id) DO UPDATE SET nombre = 'Nombre', direccion = 'Dire';
+
+-- Insertara una tupla y mostrara la tupla
+INSERT INTO public.estacion(nombre, direccion)
+VALUES ('RETU', 'RETDIRE')
+RETURNING *;
+
+-- %: Uno o cualquier valor
+-- _: Un valor
+SELECT nombre FROM public.pasajero
+WHERE nombre LIKE 'o%';
+-- buscamos sin importar mayusculas o minusculas
+SELECT nombre FROM public.pasajero
+WHERE nombre ILIKE 'o%';
+
+-- si una estacion o tren tiene un valor nulo
+SELECT * FROM public.tren
+WHERE modelo IS NULL;
+```
