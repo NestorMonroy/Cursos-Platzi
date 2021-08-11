@@ -4,7 +4,7 @@
 <div *ngIf="title == 'nestor'">
   esto es un div
 </div>
-<button (click)="addItem()" >Add item</button>
+<button (click)="addItem()">Add item</button>
 
 <ul>
   <li *ngIf="items.length === 0 ">La lista esta vacia</li>
@@ -13,3 +13,11 @@
     <button (click)="deleteItem(i)">delete</button>
   </li>
 </ul>
+
+<!-- <div *ngFor="let item of objecto" ></div> Error ya que es un objecto-->
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img [src]="product.image" alt="">
+  {{ product.price }}
+</div>

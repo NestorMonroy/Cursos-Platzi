@@ -130,3 +130,47 @@ export class AppComponent {
 ```
 Generar acciones
 Va dentro de parentesis y tiene un método(que se declara como función en app.components.ts).
+
+
+### Uso de ngFor para recorrer objetos
+
+Directiva [*ngFor]
+
+Esta directiva permite generar iteraciones de elementos HTML. Posee partes obligatorias y opcionales.
+Las partes obligatorias son:
+
+* Declaración de la variable que contiene el valor de la iteración.
+* Utilizar la palabra of.
+* Variable a iterar.
+
+Las partes opcionales son:
+
+* Indice de la iteración.
+* Imprimir la variable que contiene el valor de la iteración con data binding.
+
+Sintaxis de la directiva *ngFor:
+
+→ [ file.component.html ]
+```html
+<ul class="list-group">
+		<!-- elemento que se quiere repetir -->
+    <li *ngFor="let personaje of personajes; let i = index" class="list-group-item">
+        {{ i + 1 }}. {{ personaje }}
+    </li>
+</ul>
+
+```
+→ [ file.component.ts ]
+```ts
+export class exampleComponent {
+		personajes: string[] = ["Spiderman", "Venom", "Dr. Octopus"];
+}
+
+```
+Cuando se tenga un objecto dentro del componente
+
+```
+objecto = {};
+```
+Esto no es iterable y sale error con ngFor
+<!-- <div *ngFor="let item of objecto" ></div> Error ya que es un objecto-->
