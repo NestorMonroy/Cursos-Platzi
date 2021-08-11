@@ -43,3 +43,25 @@ En un h1 seria asi:
 
 ```
 
+### Data binding
+
+Enlace de datos desde el componente hasta el tamplate. Los cambios que haga en la templete por input se almacenan en el componente.
+
+app.module.ts
+```ts
+import { FormsModule }from '@angular/forms';
+
+@NgModule({
+  imports: [
+    FormsModule
+  ],
+})
+
+```
+
+
+```html
+<input [(ngModel)]="title"> 
+  {{title}}
+```
+
