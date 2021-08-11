@@ -1,0 +1,6 @@
+<h1>Hola soy componente</h1>
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img [src]="product.image" alt="">
+  <strong>{{ product.price }}</strong> 
+</div>

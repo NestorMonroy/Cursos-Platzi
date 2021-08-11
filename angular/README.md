@@ -200,3 +200,61 @@ export class NgSwitchComponent implements OnInit {
 }
 
 ```
+
+### ¿Qué son los componentes y decoradores?
+
+Componentes
+
+Un componente en Angular es una combinación de un archivo HTML con un TS y algunas veces SCSS para crear un elemento con características propias tanto de comportamiento como de apariencia que se puede mostrar en un navegador.
+Básicamente los componentes son clases normales con un decorador específico.
+
+Creación de un componente con la línea de comandos:
+```
+$ ng generate component folder{path}/component{nombre}
+
+```
+Se puede abreviar el comando de esta manera:
+```
+$ ng g c components/footer
+
+```
+El comando utilizado de esta manera genera cuatro archivos que son:
+
+*name.component.sass → archivo para trabajar los estilos específicos del componente.
+* name.component.html → archivo que contendré el template del componente.
+* name.component.spec.ts → archivo para pruebas (no es abarcado en esta sección).
+* name.component.ts → archivo de TypeScript que maneja la lógica del componente.
+
+Creación de un componente de forma manual:
+
+* Se crea el template, que sería un archivo HTML → example.component.html
+
+* Se crea el archivo de lógica, que sería el archivo TS → example.component.ts
+```ts
+    import { Component } from '@angular/core'
+
+    @Component({
+    		// Nombre de la etiqueta que llamará al componente
+        selector:'app-header',
+    		// Template HTML, se mostrará cuándo la etiqueta sea llamada
+        templateUrl: './header.component.html'
+    })
+
+    export class ExampleComponent { ... }
+
+```
+* Se exporta el componente al archivo app.module.ts y se añade a las declaraciones.
+```ts
+import { ExampleComponent } from './components/example/example.component'
+
+@NgModule({
+    declarations: [
+        ...
+        ExampleComponent
+        ...
+    ]
+    ...
+})
+export class AppModule { }
+
+```
