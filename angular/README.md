@@ -258,3 +258,55 @@ import { ExampleComponent } from './components/example/example.component'
 export class AppModule { }
 
 ```
+
+### Uso de Inputs y Outputs
+
+Comunicación entre componentes
+
+Los componentes pueden establecer comunicación entre ellos, de padre a hijo o viceversa.
+@Input - De un componente padre a un hijo
+
+Se puede enviar información de un componente padre a un componente hijo haciendo uso del @Input que es un decorador. Esto se realiza al invocar la etiqueta del componente hijo en el componente padre de la siguiente manera:
+```html
+<app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"></app-heroe-tarjeta>
+
+```    
+* “heroe” es el valor que está presente en el componente actual, en este caso es el index de la directiva *ngFor.
+* [heroe] esstos valores provienen del componente hijo, son declarados en el archivo [TS] con el decorador input como se muestra en el siguiente fragmento de código.
+
+```ts
+import { Input } from '@angular/core';
+..
+export class HeroeTarjetaComponent implements OnInit {
+    @Input() heroe:any = {};
+    @Input() index:number;
+    ..
+}
+```
+@Output - Un evento de un componente hijo a un padre
+
+Se puede enviar también un evento desde el hijo al padre haciendo uso del @Output que es un decorador. Esto se realiza declarando el output acompañado de un EventEmitter en el componente hijo.
+```ts
+import { Output, EventEmitter } from '@angular/core';
+..
+export class HeroeTarjetaComponent implements OnInit {
+    ..
+    // Se declara la variable y se la declara de tipo EventEmitter
+    @Output() heroeSeleccionado:EventEmitter<number>;
+    constructor() {
+        // Se inicializa la variable en el constructor
+        this.heroeSeleccionado = new EventEmitter();
+    }
+    // Función que se desea enviar al padre
+    verHeroe() {
+        this.heroeSeleccionado.emit( this.index );
+    }
+}
+
+```
+Mientras tanto, el componente padre se pone a “escuchar” el evento en cuestión en la etiqueta del componente hijo.
+
+```html
+<!-- heroeSeleccionado es el evento declarado en el hijo y se le envía la función deseada con el parámetro $event -->
+<app-heroe-tarjeta (heroeSeleccionado)="verHeroe( $event )"></app-heroe-tarjeta>
+```
