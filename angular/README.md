@@ -174,3 +174,29 @@ objecto = {};
 ```
 Esto no es iterable y sale error con ngFor
 <!-- <div *ngFor="let item of objecto" ></div> Error ya que es un objecto-->
+
+
+### ngSwitch
+
+El funcionamiento de esta directiva es exactamente igual que el de un switch de programación, donde el resultante de una expresión definirá cuál es el elemento del DOM (el tag) que se mostrará. Para ello se utilizan los atributos ngSwitch igualado a una variable definida en código (la cual será la que cambie su valor) y los atributos *ngSwitchCase igualados a los posibles valores que puede tomar la variable. Cuándo la variable tome el valor de uno de los *ngSwitchCase se mostrará el tag asignado. También se puede incluir un tag con el atributo *ngDefaultSwitch para que se muestre siempre y cuando el valor de la variable no está contemplado en ninguno de los casos.
+Sintaxis de la directiva *ngSwitch:
+
+→ [ file.component.html ]
+```html
+<span [ngSwitch]="alerta">
+		<p *ngSwitchCase="'success'">success</p>
+    <p *ngSwitchCase="'info'">info</p>
+    <p *ngSwitchCase="'warning'">warning</p>
+    <p *ngSwitchDefault>Danger</p>
+</span>
+
+```
+→ [ file.component.ts ]
+
+```ts
+export class NgSwitchComponent implements OnInit {
+    alerta: string = 'info';
+    ...
+}
+
+```
