@@ -43,9 +43,9 @@ En un h1 seria asi:
 
 ```
 
-### Data binding
+### Data binding (ngModel)
 
-Enlace de datos desde el componente hasta el tamplate. Los cambios que haga en la templete por input se almacenan en el componente.
+Enlace de datos desde el componente hasta el template. Los cambios que haga en la template por input se almacenan en el componente.
 
 app.module.ts
 ```ts
@@ -65,3 +65,30 @@ import { FormsModule }from '@angular/forms';
   {{title}}
 ```
 
+### ngIf
+Muestra el titulo solo si tiene contenido
+
+```HTML
+    <div  *ngIf="title !== '' " > 
+       <span>{{ title }} app is running!</span>
+    </div>
+```
+Por ejemplo, siendo un if normalito de javascript, las validaciones se pueden hacer directamente con booleanos y también cuando alguna variable tiene el valor undefined.
+
+```html
+<div *ngIf="true">
+  Esto es un div true
+</div>
+<!--Esto no se ve-->
+<div *ngIf="!true">
+  Esto es un div !true
+</div>
+
+<div *ngIf="undefined">
+  Esto es un div undefined
+</div>
+<!--y esto tampoco se ve-->
+<div *ngIf="!undefined">
+  Esto es un div !undefined
+</div>
+```
