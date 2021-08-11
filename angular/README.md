@@ -405,3 +405,26 @@ También se pueden crear pipes personalizados, esto se puede hacer de forma manu
 $ ng generate pipe folder{path}/pipe{nombre}
 $ ng g p pipes/domseguro
 ```
+
+
+### Construyendo una directiva propia
+```
+ng g d directives/highlight/highlight
+
+```
+
+
+Para crear una directiva
+ng generate directive <name>
+ng g directive <name>
+
+Las directivas tienen un selector que es como su identificador el cual se debe colocar en las etiquetas como atributos.
+Ejemplo:
+selector = ‘[appTabRequired]’
+
+En el constructor tendremos que hacer la inyeccion de dependencia ElementRef
+```
+constructor( element: ElementRef) {
+   element.nativeElement.style.color = 'red';
+}
+```
