@@ -26,3 +26,20 @@ Iniciar el servidor en local.
 
 Alistar una app a producción.
 -$ ng build --prod 
+
+
+### String interpolation
+
+String Interpolation sirve para renderizar variables {{ variableName }} que contiene TS que se ejecuta por angular y la salida se inserta en el HTML .
+Entonces, si colocamos {{ 1 + 1 }} la plantilla, el número 2 se insertaría en el HTML .
+
+En un h1 seria asi:
+```html
+<h1>{{ title }}</h1> <!-- Renderiza el título exportado en el archiv ts -->
+<p>
+  Las suma de 2 + 2 = {{ 2 + 2 }} <!-- 4 -->
+</p>
+
+
+```
+
