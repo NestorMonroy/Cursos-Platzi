@@ -92,3 +92,41 @@ Por ejemplo, siendo un if normalito de javascript, las validaciones se pueden ha
   Esto es un div !undefined
 </div>
 ```
+
+### ngFor
+
+Iteración de array. Se puede iterar por el índice
+.componet.html
+```ts
+export class AppComponent {
+
+  items = ['nestor', 'joel', 'example0']
+ 
+  addItem() {
+    this.items.push('Nuevo item')
+  }
+
+  deleteItem(index: number){
+    this.items.splice(index, 1);
+  }
+}
+
+
+```
+
+
+
+```html
+<button (click)="addItem()" >Add item</button>
+
+<ul>
+  <li *ngIf="items.length === 0 ">La lista esta vacia</li>
+  <li *ngFor="let name of items; index as i">
+    {{name}} - {{i}}
+    <button (click)="deleteItem(i)">delete</button>
+  </li>
+</ul>
+
+```
+Generar acciones
+Va dentro de parentesis y tiene un método(que se declara como función en app.components.ts).
