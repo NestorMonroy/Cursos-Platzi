@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'store-nestor';
   items = ['nestor', 'joel', 'example0']
   objecto = {}; //No es iterable
+  power = 10;
   products: Product[] = [
     {
       id: '1',
@@ -68,7 +69,7 @@ export class AppComponent {
   clickProduct(id:number) {
     console.log('product');
     console.log(id);
-    
+
   };
 
 }

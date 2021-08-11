@@ -360,3 +360,48 @@ ng lint
 
 Es una herramienta que ayuda a mejorar la escritura de código con buenas prácticas.
 
+
+### Usando los pipes de Angular
+
+https://angular.io/api/common/DatePipe
+
+Pipes
+
+
+Los pipes son una herramienta de Angular que nos permite transformar visualmente la información, por ejemplo, cambiar un texto a mayúsculas o minúsculas, o darle formato de fecha y hora.
+Angular trae una serie de pipes por defecto pero también nos permite construir nuestros propios pipes.
+Las sintaxis propia de los pipes es: {{ variable | pipe-name }}.
+
+Para el pipe de fecha, los datos nos los entrega en el formato inglés de fecha, para cambiarlo a español se deben realizar las siguientes modificaciones el el archivo app.module.ts.
+
+→ [ app.module.ts ]
+```ts
+import { LOCALE_ID } from '@angular/core';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs);
+
+@NgModule({
+    declarations: [ .. ],
+    imports: [ .. ],
+    providers: [
+        { provide: LOCALE_ID, useValue: 'es' }
+    ],
+    bootstrap: [ .. ]
+
+})
+export class AppModule { }
+```
+También se pueden crear pipes personalizados, esto se puede hacer de forma manual o también haciendo uso del Angular-CLI.
+
+```
+$ ng generate pipe folder{path}/pipe{nombre}
+$ ng g p pipes/domseguro
+```
+
+También se pueden crear pipes personalizados, esto se puede hacer de forma manual o también haciendo uso del Angular-CLI.
+
+```
+$ ng generate pipe folder{path}/pipe{nombre}
+$ ng g p pipes/domseguro
+```

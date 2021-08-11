@@ -20,6 +20,8 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
   //@Output() productClicked: EventEmitter<any>;
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
+  today = new Date();
+
   constructor() {
     console.log('1.Constructor');
   }

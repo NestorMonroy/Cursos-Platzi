@@ -1,5 +1,7 @@
 <input [(ngModel)]="title">
 {{title}}
+<input [(ngModel)]="power">
+{{power | exponential}}
 <app-product></app-product>
 
 <!-- <div *ngIf="title == 'nestor'">
@@ -40,9 +42,9 @@
 <!-- <div *ngFor="let item of objecto" ></div> Error ya que es un objecto-->
 
 <div class="product-grid" >
-  <app-product 
-    *ngFor="let product of products" 
-    (productClicked)="clickProduct($event)" 
+  <app-product
+    *ngFor="let product of products"
+    (productClicked)="clickProduct($event)"
     [product]="product"
   ></app-product>
 </div>
