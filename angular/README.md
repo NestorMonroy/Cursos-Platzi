@@ -329,3 +329,34 @@ Los lifecycle hooks disponibles en Angular son:
 * ngAfterViewInit(): Se llama una única vez, tras inicializar las vistas y sub-vistas del componente.
 * ngAfterViewChecked(): Se llama después de comprobar los cambios de las vistas y sub-vistas del componente. Se ejecuta también durante el ciclo de detección de cambios, después de ngAfterContentChecked().
 * ngOnDestroy(): Se llama solo una vez, justo antes de que Angular destruya el componente, y sirve para prevenir memory leaks, eliminando por ejemplo suscripciones a Observables e event handlers.
+
+
+### Uso de ng generate y ng lint
+```
+ng lint
+```
+Revisa el código del proyecto para ver si se están cumpliendo las reglas definidas en el archivo tslint.json
+```
+ng lint --format json
+```
+Nos permite visualizar el resultado de la revisión con un formato json.
+```
+ng lint --fix
+```
+Corrige automáticamente, dentro de lo posible, los errores encontrados.
+
+Generate
+
+Genera automáticamente el componente en una carpeta con el mismo nombre que se le dio. Ademas lo importa automáticamente en al app.module.ts
+
+Ejemplo:
+```
+ ng g c cart
+#g = generate
+#c = component
+
+```    
+ng lint
+
+Es una herramienta que ayuda a mejorar la escritura de código con buenas prácticas.
+
