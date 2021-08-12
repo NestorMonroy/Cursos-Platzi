@@ -428,3 +428,122 @@ constructor( element: ElementRef) {
    element.nativeElement.style.color = 'red';
 }
 ```
+
+
+### RUTAS EN ANGULAR
+
+En el archivo app-routing-module.ts se encuentra un objeto Route el cual sirve para incrustar las rutas del proyecto.
+
+La sintaxis dentro del router ```(app-routing-module.ts)```:
+```
+import { componentName } from './url/to/componentName.component';
+
+const routes: Routes = [
+  {
+    path = ‘routeName’,
+    component = componentName
+  },
+]
+  
+```
+Donde:
+
+* path = ruta relativa al home (’/’) de nuestra app
+* component = componente importado desde componentName.component.ts
+
+La forma de implementar el router en un template.html es con el componente router-outlet:
+```
+<!-- app.component.html -->
+
+<router-outlet></router-outlet>
+```
+
+Donde el router-outlet se reemplazará por el contenido del componente según la URL en la que estés
+Páginas no encontradas (not-found)
+
+Para definir una página no encontrada podemos utilizar la ruta '**' que simboliza cualquier ruta diferente a las anteriormente definidas, el componente también deberá de ser el objeto del componente importado.
+```
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
+```
+
+Nota: El orden de las rutas es importante, si algo matchea una ruta, no se segirá a la siguiente, por lo que el not-found, debería de ser la última ruta, siempre
+
+Redirecciones
+
+Para las redirecciones tenemos que usar las propiedades redirectTo:'route' y pathMatch:'full'
+
+```
+  {
+    path: 'from',
+    redirectTo: 'to',
+    pathMatch: 'full'
+  },
+```
+Donde:
+* path: Página actual
+* redirectTo: página a la que se redireccionará
+* pathMatch: tipo de match, en el caso de ‘full’ será con una relación exacta
+
+Redirecciones sin recargar routerLink
+
+Para poder movernos entre rutas sin recargar nuestra página (tipo single page application) debemos agregar a nuestras anclas ‘<a>’ la directiva routerLink envés del atributo href para que Angular determine que no haga una recarga de la página.
+```html
+<div>
+     <a routerLink="/home">Home</a> <!-- Antes <a href="/home">Home</a> -->
+</div>
+```
+Ancla activa routerLinkActive
+
+Puedes definir una clase para cuando una ruta matchee completamente al agregar la directiva routerLinkActive, misma que agregará una clase al elemento que contenga un routerLink, de esta manera en los estilos podrás acceder al elemento seleccionado.
+.
+La recomendación es llamar “active” al routerLinkActive (routerLinkActive="active">), de esta manera podrás acceder desde el css mediante la clase .active
+
+html
+```html
+<nav>
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+</nav>
+
+scss
+```scss
+nav a {
+  padding: 5px;
+  text-decoration: none;
+  &.active {
+    background-color: papayawhip;
+  }
+}
+
+```
+Así se vería un app-routing.module.ts completo:
+
+```ts
+... // importaciones
+const routes: Routes = [
+  {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
