@@ -756,3 +756,23 @@ const routes: Routes = [
     }
   ];
 ```
+
+### Lazy Loading
+Ésta técnica se encarga de fragmentar el archivo generado main.js para que cargue más rápido la aplicación, basada en la técnica “divide y vencerás”, cargando siempre el código JavaScript necesario para que la vista funcione de manera adecuada.
+
+Con ésto claro, un pre-requisito fundamental es modularizar la aplicación. Un módulo encapsula varios elementos de la aplicación (components, directivas, servicios, etc)
+
+Modularizando home:
+
+```
+Crear archivo home/home.module.ts
+
+ng g module components/home
+
+Crear carpeta home/components
+Copiar y pegar los componentes que el módulo home va a utilizar
+Eliminar el componente del array de declarations de otros módulos e importarlo al módulo creado
+Crear el routing para el módulo Home. En angular cada módulo debe tener un routing
+cd src/app/components/home
+ng g module home-routing --flat --module=home
+```

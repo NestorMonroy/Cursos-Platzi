@@ -21,11 +21,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit = () => {
     this.mySwiper = new Swiper('.swiper-container')
-         navigation: {
-
-           // nextEl: ".swiper-button-next",
-           // prevEl: ".swiper-button-prev"
-        }
+        //  navigation: {
+        //
+        //    // nextEl: ".swiper-button-next",
+        //    // prevEl: ".swiper-button-prev"
+        // }
   };
 
 

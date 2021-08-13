@@ -1,0 +1,24 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let img of images">
+      <img [src]="img" alt="imagen del banner" class="img-thumbnail">
+    </div>
+    <div class="swiper-button-prev"><i class="fas fa-angle-left swiper-portfolio-icon"></i></div>
+    <div class="swiper-button-next"><i class="fas fa-angle-right swiper-portfolio-icon"></i></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!--<swiper-->
+<!--  [slidesPerView]="1"-->
+<!--  [spaceBetween]="50"-->
+<!--  (swiper)="onSwiper($event)"-->
+<!--  (slideChange)="onSlideChange()"-->
+<!--  [navigation]="true"-->
+<!--  [pagination]="{ clickable: true }"-->
+<!--  [scrollbar]="{ draggable: true }"-->
+<!--&gt;-->
+<!--  <ng-template swiperSlide *ngFor="let img of images">-->
+<!--    <img [src]="img" alt="imagenes del banner">-->
+<!--  </ng-template>-->
+<!--</swiper>-->
