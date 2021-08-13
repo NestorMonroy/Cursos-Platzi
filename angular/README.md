@@ -776,3 +776,13 @@ Crear el routing para el módulo Home. En angular cada módulo debe tener un rou
 cd src/app/components/home
 ng g module home-routing --flat --module=home
 ```
+
+## Guardianes
+
+
+Si quieren saber mas de guardianes visiten https://codingpotions.com/angular-seguridad 
+
+CanActivate : Mira si el usuario puede acceder a una página determinada.
+CanActivateChild :  Mira si el usuario puede acceder a las páginas hijas de una determinada ruta.
+CanLoad :Sirve para evitar que la aplicación cargue los módulos perezosamente si el usuario no está autorizado a hacerlo.
+
