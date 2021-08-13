@@ -16,6 +16,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarruselComponent } from './carrusel/carrusel.component';
 import {SwiperModule} from "swiper/angular";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {SwiperModule} from "swiper/angular";
     DemoComponent,
     HeaderComponent,
     FooterComponent,
-    CarruselComponent
+    CarruselComponent,
+    PageNotFoundComponent,
+    ProductDetailComponent
   ],
     imports: [
         BrowserModule,

@@ -547,3 +547,157 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 ```
+
+## routerLink
+
+En Angular existe una directiva llamada routerLink, con ella se evita que se recargue la pagina cada vez que navegamos entre las rutas, manteniendo nuestro proyecto como una ‘Single Page Application’. La forma de aplicarlo es cambiar las referencias href en html por routerLink.
+
+
+```
+Inicial:
+<div>
+    <a href="/home">Home</a>
+</div>
+
+routerLink
+
+<div>
+    <a routerLink="/home">Home</a>
+</div>
+
+routerLinkActive
+```
+Esta directiva le asigna una clase determinada a la etiqueta html si y solo si esta parado en la ruta definida con routerLink, por lo general esta es “active”. Con esto podemos asignar estilos para esta clase en particular.
+
+html
+```html
+<nav>
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+</nav>
+
+```
+```css
+
+nav > a {
+    padding: 5px;
+    text-decoration: none;
+}
+
+nav > a.active {
+    background-color: blue;
+}
+
+```
+
+En este ejemplo las etiquetas ‘nav > a’ aplican un estilo en particular, pero cuando tienen asignado la clase ‘active’ se les aplica un decorador adicional.
+
+
+Servicios
+Los servicios proveen datos esencialmente. La forma de crear un servicio es en la terminal con los comandos ‘ng g s nombreServicio’.
+Por lo general tenemos 2 métodos esenciales en los servicios, uno para obtener todos los objetos guardados en una variable, y otro para obtener 1 objeto especifico.
+```ts
+export class someService {
+
+  store = [
+    {
+      id: '1',
+      title: 'title',
+      price: 10,
+    },
+    {
+      id: '2',
+      title: 'title',
+      price: 20,
+    }
+  ];
+
+  constructor() { }
+
+  getAllStored() {
+    return this.store;
+  }
+
+  getStored(id: string) {
+    return this.store.find(item => id === item.id);
+  }
+}
+/*
+    El método getAllStored() devuelve todos los objetos almacenados en la variable.
+
+    El método getStored() devuelve 1 objeto especifico almacenado en la variable, en este caso se utiliza la variable id para buscar este objeto.
+  *
+```
+
+Componente para objetos
+A veces es necesario crear componentes para desplegar la información de un solo objeto que provee un servicio. Para eso creamos un componente en la terminal con el comando ‘ng g c nombreComponente’
+
+Luego de esto debemos asignarle una ruta en el archivo de routing, pero en esta ocasión tendrá un parámetro dinámico que se enviará.
+```ts
+const routes: Routes = [
+    {
+      path: 'home',
+      component: HomeComponent
+    },
+    {
+      path: 'product',
+      component: ProductComponent
+    }
+    {
+      path: 'product/:id',
+      component: ProductDetailComponent
+    }
+
+];
+```
+En el componente creado debemos realizar 2 importaciones de dependencias, estos son ‘ActivatedRoute’ y ‘Params’ de ‘@angular/router’. Nota: no olvidar que las inyecciones de dependencia deben ingresarse como parámetro en el constructor.
+```ts
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+
+@Component({
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.scss']
+})
+export class ProductDetailComponent implements OnInit {
+
+  constructor(
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {};
+
+}
+```
+Desde el ngOnInit() es la forma adecuada de recibir el parámetro definido anteriormente en la ruta, y se suscribe a el por si existen cambios, esto para ejecutar los cambios en la pagina por si cambia la ruta. La variable definida en la suscripción es de tipo Params que fue importado anteriormente.
+```ts
+ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      const id = params.id;
+      console.log(id);
+    });
+  }
+```
+En el método anterior capturamos el valor de id en params. Es importante aclarar que params es un json.
+
+Ahora para consultar los objetos de un servicio debemos importar el servicio en sí. Con ello tendremos acceso a sus datos y métodos. Los servicios son inyecciones de dependencia, por lo que hay que ingresarlos en el constructor.
+```ts
+import { ProductsService } from './../products.service';
+
+constructor(
+        private route: ActivatedRoute,
+        private productsService: ProductsService
+) { }
+```
+El servicio importado en este caso tiene un método que devuelve un objeto especifico en formato json que se busca a través de su id, por ello se solicita una variable de entrada que se utiliza para buscar dicho objeto. En el siguiente caso se guarda el objeto en una variable y se imprime por consola.
+```ts
+ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      const id = params.id;
+      const product = this.productsService.getProduct(id);
+      console.log(product);
+    });
+  }
+```
