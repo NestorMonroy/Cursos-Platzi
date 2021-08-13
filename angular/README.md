@@ -701,3 +701,58 @@ ngOnInit() {
     });
   }
 ```
+
+### Vistas Anidadas
+
+A veces existen componentes que se utilizan en varios otros componentes, para esto existe la técnica de vistas anidadas, la cual consiste en crear un componente que albergue los elementos que se repiten y los otros componentes que los utilizan serán rutas hijas del componente creado anteriormente.
+
+Primero creamos el componente que almacena los elementos con el comando ‘ng g c nombreComponente’
+
+Luego en los archivos del componente se almacenan los elementos que se utilizaran repetitivamente en otros componentes. En el archivo html se utiliza la etiqueta router-oulet para renderizar los componentes que se quieren cargar, y los elementos repetitivos se especifican.
+```html
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+```
+En el archivo routing se incorpora el componente creado anteriormente en la variable de routes, pero esta vez todos los componentes que se basen en este deberán estar anidadas. Para anidarlos el objeto del componente creado tendrá que tener una nueva característica ‘children’, el cual tendrá los ‘path’ y ‘component’ de las rutas que se basen en la anterior.
+```ts
+const routes: Routes = [
+    {
+      path: '',
+      component: LayoutComponent,
+      children: [
+        {
+          path: '',
+          redirectTo: '/home',
+          pathMatch: 'full',
+        },
+        {
+          path: 'home',
+          component: HomeComponent
+        },
+        {
+          path: 'products',
+          component: ProductsComponent
+        },
+        {
+          path: 'products/:id',
+          component: ProductDetailComponent
+        },
+        {
+          path: 'contact',
+          component: ContactComponent
+        },
+      ]
+    },
+    {
+      path: 'demo',
+      component: DemoComponent
+    },
+    {
+      path: '**',
+      component: PageNotFoundComponent
+    }
+  ];
+```
