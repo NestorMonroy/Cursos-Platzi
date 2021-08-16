@@ -6,15 +6,17 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-gap: 50px 20px;
 }
 
 
-// @media (min-width:576px){
-//   .product-grid {
-//     display: grid;
-//     grid-template-columns: repeat(4, 1fr);
-//   }
-// }
+ //@media (min-width:576px){
+ //  .product-grid {
+ //    display: grid;
+ //    grid-template-columns: repeat(4, 1fr);
+ //  }
+ //}
+
 
 @media only screen and (min-width: 575px) {
   .product-grid {
@@ -24,7 +26,16 @@
     box-sizing: border-box;
     grid-gap: 10px;
   }
+  .container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
 }
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
