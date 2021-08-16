@@ -786,3 +786,18 @@ CanActivate : Mira si el usuario puede acceder a una página determinada.
 CanActivateChild :  Mira si el usuario puede acceder a las páginas hijas de una determinada ruta.
 CanLoad :Sirve para evitar que la aplicación cargue los módulos perezosamente si el usuario no está autorizado a hacerlo.
 
+### Creando vistas con Angular schematic
+
+Schematics es una forma de crear archivos o reglas desde el CLI (command line interfaces), material ya tiene incluídos algunos schematics muy útiles para poder crear componentes de uso regular.
+
+Para poder crear un schematic tienes que tener instalado 'angular/cdk', mismo que viene por defecto al instalar Angular desde el CLI, pero que se tiene que instalar si no llegasen a funcionar los comandos.
+
+Los schematics generan código, así que busca en la documentación que quieres crear y pégalo en la línea de comandos, por ejemplo:
+
+ng generate @angular/material:dashboard admin/components/dashboard
+
+ng generate @angular/material:table admin/components/list-products
+
+ng generate @angular/material:navigation admin/components/nav
+
+ng generate @angular/material:address-form admin/components/product-form
