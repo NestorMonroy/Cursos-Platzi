@@ -9,9 +9,12 @@
   <br>
   <strong>{{ product.price | currency }}</strong>
   <br>
+  <button mat-stroked-button mat-button color="warn" class= "button-product" (click) = "addCart()">Agregar al carrito</button>
 </div>
 <div class="product__footer">
-  <button class= "button-product" (click) = "addCart()">Agregar al carrito</button>
+
+
+
   <a [routerLink]="['/products', product.id]">Ver detalle</a>
 </div>
 
