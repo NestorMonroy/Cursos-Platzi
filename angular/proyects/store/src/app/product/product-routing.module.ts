@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import {NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
@@ -21,7 +21,11 @@ const router: Routes = [
   ],
   exports:[
     RouterModule
-  ]
+  ],
+  // schemas: [
+  //   CUSTOM_ELEMENTS_SCHEMA,
+  //   NO_ERRORS_SCHEMA
+  // ]
 })
 
 export  class ProductRoutingModule {}
