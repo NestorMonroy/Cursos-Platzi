@@ -33,4 +33,20 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
+  createProduct(){
+    const newProduct : Product ={
+      id: '159',
+      title: 'Nuevo desde angular Nestor',
+      image: 'assets/images/banner-1.jpg',
+      price: 3000,
+      description: 'Nuevo producto'
+    }
+    this.productsService.createProduct(newProduct)
+      .subscribe(product => {
+        //this.product = product;
+        console.log(product)
+      })
+  }
+
+
 }
