@@ -801,3 +801,74 @@ ng generate @angular/material:table admin/components/list-products
 ng generate @angular/material:navigation admin/components/nav
 
 ng generate @angular/material:address-form admin/components/product-form
+
+
+### HtttpClient
+
+La mayoría de las aplicaciones front-end se comunican con los servicios de back-end a través del protocolo HTTP. Los navegadores modernos admiten dos API diferentes para realizar solicitudes HTTP: la interfaz XMLHttpRequest y la API fetch(), pero Angular implementa su propia interfaz basada en XMLHttpRequest para facilitar el fetching de datos, api expuesta por los navegadores.
+
+
+HttpClient viene desde @angular/common/http y ofrece una interfaz API HTTP de cliente simplificada para aplicaciones Angular.
+
+
+
+Los beneficios adicionales de HttpClient incluyen:
+
+* Suite de pruebas simplificadas
+* Requests y responses tipados
+* Intercepción de requests y responses
+* Observables
+* Manejo de errores optimizado (mediante streams)
+
+
+Para trabajar con HttpClient tenemos que crear un objeto de tipo HttpClient:
+```ts
+import { HttpClient } from '@angular/common/http';
+export class ProductsService {
+  constructor( private http: HttpClient ) {}
+}
+```
+HttpClient provee métodos http basados en los verbos de protocolos http, por lo tanto podemos facilitar una capa de servicios que implemente los métodos específicos de cada acción http:
+```ts
+export class ProductsService {
+  ...
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.url_api}/products`);
+  }
+  ...
+}
+```
+
+Algunos de los métodos que podríamos utilizar son:
+
+* http.get
+* http.post
+* http.put
+* http.patch
+* http.put
+
+
+Por lo tanto así se vería una capa de servicios en Angular basados en HttpClient
+```ts
+@Injectable({ providedIn: 'root' })
+export class ProductsService {
+
+  constructor( private http: HttpClient ) {}
+  
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.url_api}/products`);
+  }
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${environment.url_api}/products/${id}`);
+  }
+  createProduct(product: Product): any {
+    return this.http.post(`${environment.url_api}/products`, product);
+  }
+  updateProduct(id: string, changes: Partial<Product>): any {
+    return this.http.put(`${environment.url_api}/products/${id}`, changes);
+  }
+  deleteProduct(id: string): any {
+    return this.http.delete(`${environment.url_api}/products/${id}`);
+  }
+}
+```
