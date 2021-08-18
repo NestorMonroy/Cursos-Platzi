@@ -13,14 +13,22 @@ export class ProductsComponent {
   products: Product[];
   constructor(private productsService: ProductsService) { }
 
-// eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-ngOnInit() {
-    this.products = this.productsService.getAllProducts();
-    console.log(this.products)
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+  ngOnInit() {
+    this.fetchProducts();
   }
+// eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+
 
   clickProduct(id: number) {
     console.log('Producto: ' + id);
   }
 
+  fetchProducts() {
+    this.productsService.getAllProducts()
+      .subscribe(products => {
+        //console.log([products])
+        this.products = products;
+      });
+  }
 }
