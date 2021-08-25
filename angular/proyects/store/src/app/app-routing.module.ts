@@ -1,11 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import {HomeComponent} from './home/components/home/home.component';
-import {ProductsComponent} from './product/components/products/products.component';
-import {ContactComponent} from './contact/module/contact/contact.component';
-import {DemoComponent} from './demo/demo.component';
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
-import {ProductDetailComponent} from "./product/components/product-detail/product-detail.component";
 import {LayoutComponent} from "./layout/layout.component";
 
 import {AdminGuard} from './admin.guard';
@@ -22,32 +16,33 @@ const routes: Routes = [
       },
       {
         path:'home',
-        loadChildren: () => import('./home/home.module').then(h => h.HomeModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'products',
-        loadChildren: () => import('./product/product.module').then(p => p.ProductModule)
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
       },
       {
         path:'contact',
-        //canActivate: [AdminGuard],
-        loadChildren: () => import('./contact/contact.module').then(c => c.ContactModule)
+        canActivate: [AdminGuard],
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
 
       },
       {
         path:'demo',
-        component: DemoComponent
-      },
-      {
-        path:'admin',
-        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-      },
-      {
-        path:'**',
-        component: PageNotFoundComponent
+        loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
+
       }
     ]
   },
+  {
+    path:'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path:'**',
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
 ];
 
 @NgModule({
