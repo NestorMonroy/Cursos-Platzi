@@ -1,17 +1,81 @@
-.sidenav-container {
-  height: 100%;
-}
 
-.sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
+.example-container {
+  position: absolute;
   top: 0;
-  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-sidenav-dashboard{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  //background: rgba(6, 79, 107, 0.821);
+  background: rgba(6, 79, 107);
+
+  .example-toolbar-dashboard {
+    //background: inherit;
+    background: rgba(3, 35, 47);
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: max-content auto max-content;
+    grid-template-areas: "logo toggler";
+    column-gap: 10px;
+
+    .mat-primary {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.logo {
+  //background: green;
+  grid-area: logo;
+  justify-items: start;
+  color: white;
+  //width: 60px;
+}
+
+.toggler {
+  //background: lightskyblue;
+  grid-area: toggler;
+  justify-content: center;
+  justify-items: stretch;
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+  line-height: 10px;
+  color: white;
+}
+
+
+.example-header {
+
+  background-color: cadetblue;
+}
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
 }
