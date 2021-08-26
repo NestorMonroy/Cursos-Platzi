@@ -9,6 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatMenuModule} from "@angular/material/menu";
+
 @NgModule({
   declarations: [],
   imports: [
@@ -19,7 +24,11 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule,
   ],
   exports:[
     MatButtonModule,
@@ -28,7 +37,11 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule,
   ]
 })
 export class MaterialModule { }
