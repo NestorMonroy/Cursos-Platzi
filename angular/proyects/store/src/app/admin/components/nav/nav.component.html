@@ -2,7 +2,7 @@
   class="example-container" (backdropClick)="close('backdrop')" >
   <mat-sidenav class="example-sidenav-dashboard"  #sidenav (keydown.escape)="close('escape')" disableClose>
     <mat-toolbar class="example-toolbar-dashboard ">
-      <div class="logo">Store</div>
+      <a class="logo">Store</a>
       <button mat-icon-button class="toggler" mat-button (click)="close('toggle button')">
         <mat-icon>close</mat-icon>
       </button>
@@ -20,7 +20,7 @@
       <button mat-icon-button>
         <mat-icon (click)="sidenav.open()" >menu</mat-icon>
       </button>
-      <span>store</span>
+      <a routerLink="/">store</a>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
