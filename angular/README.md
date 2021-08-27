@@ -962,3 +962,7 @@ export class Component implements OnInit {
 {{ emailField.valid }} <!-- Imprime true o false si el input es válido -->
 
 ```
+
+RxJS Operators 
+
+https://rxjs-dev.firebaseapp.com/guide/operators
