@@ -17,7 +17,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
-
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
@@ -38,6 +38,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatSortModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    MatStepperModule,
   ],
   exports:[
     MatButtonModule,
@@ -55,6 +56,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatSortModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    MatStepperModule,
   ]
 })
 export class MaterialModule { }
