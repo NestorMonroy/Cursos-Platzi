@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {LayoutModule} from '@angular/cdk/layout';
 
-import {MatButtonModule} from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';MatToolbarModule
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
@@ -39,6 +40,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
+    LayoutModule,
   ],
   exports:[
     MatButtonModule,
@@ -57,6 +59,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
+    LayoutModule,
   ]
 })
 export class MaterialModule { }
