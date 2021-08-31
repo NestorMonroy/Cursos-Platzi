@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/auth/login']);
         });
     }
+    console.log(this.form.value)
   }
 
 
