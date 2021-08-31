@@ -14,6 +14,7 @@ import {LayoutComponent} from './layout/layout.component';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import {environment} from "../environments/environment";
 
@@ -33,7 +34,8 @@ import {environment} from "../environments/environment";
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
