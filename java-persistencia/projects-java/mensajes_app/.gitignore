@@ -2,3 +2,5 @@
 # IDEs and editors
 /.idea*
 /.idea/
+
+/target
