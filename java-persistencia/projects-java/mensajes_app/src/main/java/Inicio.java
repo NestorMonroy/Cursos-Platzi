@@ -35,11 +35,6 @@ public class Inicio {
         } while (opcion != 5);
 
 
-//        Conexion conexion = new Conexion();
-//        try (Connection cnx = conexion.get_connection()) {
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
+
     }
 }
