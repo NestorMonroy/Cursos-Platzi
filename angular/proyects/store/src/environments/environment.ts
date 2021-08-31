@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   url_api: 'https://platzi-store.herokuapp.com',
   firebase: {
-    apiKey: "AIzaSyBjTroGmKRV5KHBkt-FIzH2nNz07xzg_Ho",
-    authDomain: "store-9a703.firebaseapp.com",
-    projectId: "store-9a703",
-    storageBucket: "store-9a703.appspot.com",
-    messagingSenderId: "893113261177",
-    appId: "1:893113261177:web:58c972a844b569f14f88a8"
+    apiKey: "x",
+    authDomain: "x",
+    projectId: "x",
+    storageBucket: "x",
+    messagingSenderId: 0,
+    appId: "x"
   }
 };
 
