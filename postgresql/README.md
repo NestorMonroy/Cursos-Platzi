@@ -823,7 +823,8 @@ SELECT difference  ('beard', 'bird');
 pg_dump: genera todos los archivos de configuración para hacer una copia de nuestra BD.
 
 
-Custom, Esta opción única de postgres y solo se puede restaurar por pgAdmin. Tar, Es un archivo comprimido que contiene la estructura de la base de datos. Plain, simplemente es un archivo.sql. Directory tiene solo la estructura sin comprimir de la base de datos.
+Custom, Esta opción única de postgres y solo se puede restaurar por pgAdmin. 
+Tar, Es un archivo comprimido que contiene la estructura de la base de datos. Plain, simplemente es un archivo.sql. Directory tiene solo la estructura sin comprimir de la base de datos.
 
 Compression ratio: es el número de veces que algoritmo de compresión se ejecuta para reducir el tamaño del archivo
 
@@ -941,3 +942,99 @@ A partir de ahora las configuraciones se han guardado y ya funcionan en modo de 
 incluso la contraseña del servicio replica ahora sera la misma del servicio master
 
 a partir de ahora todos los cambios hechos en master se recrean en replica, y cualquier cambio hecho en replica no se ejecutara ya que estara en modo de solo lectura.
+
+--------------------
+¿Cuál de los siguientes tipos de datos permite texto?
+R= Character Varying
+
+Es importante crear ROLES y dejar de usar el predeterminado de Postgres porque:
+R= Permite crear una estructura de permisos a la medida.
+
+Con PgAdmin sólo puedes modificar la estructura de base de datos de manera visual, no hay editor de código.
+R= Falso
+
+La principal limitación de rendimiento que tenemos en bases de datos es:
+R= Los IOPS
+
+¿Cuál es el comando que nos muestra la lista de todos los comandos tipo backslash disponibles en la consola?
+R= \?
+
+La principal diferencia entre Vistas y Vistas Materializadas es:
+R= Las Vistas no almacena los datos en disco. Las Vistas Materializadas sí.
+
+¿Qué es Postgresql?
+R= Un motor de base de datos.
+
+Podemos usar DBLINK en medio de una consulta
+R= Verdadero
+
+La creación de llaves primarias y llaves foráneas en una tabla sólo se puede hacer con el comando CREATE TABLE.
+R= Falso
+
+¿Es posible actualizar la información en una réplica?
+R= Falso
+
+La relación entre objetos tangibles normalmente se traduce en:
+R= Una tabla relacional.
+
+¿Cuáles son los 3 archivos principales de configuración de PostgreSQL?
+R= postgresql.conf, pg_hba.conf y pg_ident.conf.
+
+Para alivianar los IOPS de la base de datos podemos:
+R= Todas son correctas.
+
+Dos comandos de cierre para una transacción son:
+R= COMMIT y ROLLBACK
+
+El tipo de dato SERIAL sirve para:
+R= Crear valores consecutivos para una columna.
+
+¿Cuál comando nos sirve para activar la medición de tiempo de las consultas en la consola?
+R= \timing
+
+La única forma de insertar datos en una tabla usando un generador de datos aleatoreos es:
+R= No existe una única forma.
+
+¿Los TRIGGERS pueden ser usados para ignorar inserts?
+R= Sí. Se usa con BEFORE y RETURN NULL.
+
+Las extensiones nos permiten:
+R= Extender la funcionalidad de PostgreSQL.
+
+Vacuum Full es peligroso porque:
+R= Bloquea las tablas durante el proceso.
+
+ON CONFLICT DO nos permite:
+R = Decidir qué hacer en caso de conflicto al insertar valores en una tabla.
+
+En la teoría de conjuntos, el INNER JOIN corresponde a:
+R = Intersección
+
+Un forma de representar relaciones entre tablas es por medio de:
+R = Llaves foráneas.
+
+¿En qué consiste la creación de particiones de una tabla en Postgresql?
+R = Dividir lo que es lógicamente una tabla grande en piezas físicas más pequeñas.
+
+¿Cuál versión de PostgreSQL es recomentable instalar?
+R = Revisar la fecha y no descargar la última versión si es muy reciente.
+
+¿Cuáles dos acciones podemos capturar de una tabla maestra usando llaves foráneas?
+R = Al borrar y actualizar.
+
+¿En una PL/PgSQL se puede ejecutar código tanto SQL cómo no SQL?
+R = Sí. Siempre y cuando el lenguaje indicado sea plpgsql.
+
+¿Es posible usar bloques condicionales de tipo IF en una consulta de PostgreSQL?
+R =Sí. Usando CASE WHEN.
+-------
+
+Las replicas funcionan usando:
+R MAL= Copias de seguridad.
+R MAL = Roles de replicación.
+R MAL = DBLINK
+
+¿Qué formato debes usar si queremos ver la consulta equivalente a nuestra base de datos al momento de hacer Backup?
+R MAL= Custom
+R MAL = Tar
+R MAL = DBLINK

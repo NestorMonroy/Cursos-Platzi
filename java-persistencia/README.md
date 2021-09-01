@@ -88,3 +88,96 @@ public class Inicio {
 
 
 
+--------------
+
+¿Para qué sirve el método POST?
+R= Para enviar información.
+
+¿Qué tipo de respuesta ofrece la API de Twitter?
+R= Una respuesta en formato JSON.
+
+¿Cuáles son los tipos de persistencias para datos informáticos?
+R= En Archivos y Bases de datos.
+
+¿Para qué sirve el método DELETE?
+R= Para eliminar información.
+
+¿Cuál es la jerarquia en una base de datos relacional?
+R= Base de datos > Tabla > Columna.
+
+¿Qué debe tener una llave primaria para que no se envíe en la inserción de datos?
+R= Autoincrement
+
+¿Qué ocurre si no aplicamos un WHERE en un DELETE?
+R= Borraremos todos los registros de una tabla.
+
+¿Cómo se puede autenticar un usuario en una API?
+R= Mediante un token.
+
+¿Cuál es el comando SQL para actualizar datos?
+R= update
+
+¿Cuál de las siguientes es una base de datos relacional?
+R= PostgreSQL
+
+¿Qué significa DDL?
+R= Lenguaje de definición de datos.
+
+¿Cuál de los siguientes es un conector válido de Java con una base de datos MySQL?
+R= jdbc
+
+¿Qué IDEs podemos usar para desarrollar en Java?
+R= Cualquiera que tenga soporte para Java.
+
+¿Cuál es el comando SQL para eliminar datos?
+R= delete
+
+¿Cuál de los siguientes métodos HTTP permite traer datos?
+R= get
+
+¿Cuál es el comando SQL para insertar datos?
+R= insert into
+
+¿Cuál de las siguientes es una base de datos NoSQL?
+R= MongoDB
+
+¿Cuál es el método HTTP más usado en las APIs públicas?
+R= GET
+
+¿Qué métodos HTTP permiten actualizar datos?
+R= PUT y Patch
+
+¿Qué significa MER?
+R= Modelo entidad relación.
+
+¿Cuál es el formato estándar para las APIs Rest?
+R= JSON
+
+¿Qué es Maven?
+R= Un asistente para tareas de compilación y generación de proyectos en Java.
+
+¿Para qué sirve la clausula WHERE?
+R= Para filtrar los datos de acuerdo a una condición.
+
+¿En qué sistemas operativos podemos instalar mysql-server?
+R= Windows, Linux y Mac.
+
+¿Cuál es el comando SQL para leer datos?
+R= select
+
+¿Qué significa API?
+R= Application Programming Interface.
+
+¿Cuál de los siguientes NO es un método HTTP?
+R= Insert
+
+
+---
+¿Cuál es la principal diferencia entre bases de datos relacionales y no relacionales?
+R MAL= La relacional es más rápida para búsqueda de datos.
+
+¿Cuáles son las operaciones básicas para trabajar con una entidad, tabla o grupo de datos?
+R MAL= Crear, Editar, Eliminar y Actualizar.
+
+¿Cómo sabe la base de datos que debe actualizar un registro y no varios?
+R MAL= por la cantidad de columnas

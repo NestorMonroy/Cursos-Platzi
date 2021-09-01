@@ -966,3 +966,102 @@ export class Component implements OnInit {
 RxJS Operators 
 
 https://rxjs-dev.firebaseapp.com/guide/operators
+
+-----------------
+
+Según el siguiente bloque de código en un template de Angular:
+<h1>{{ 1 + ‘1’ }}</h1>
+¿Cuál es el resultado correcto?
+R= Un elemento H1 con el valor 11
+
+¿Cuál es la forma correcta de obtener el índice iterador en un ngFor en un template de Angular?
+R= <element *ngFor="let item of items; index as i"></element>
+
+Para crear una barra de navegación tipo side con Angular Material ¿Cuál es el comando para generarlo?
+R= ng generate @angular/material:nav <component-name>
+
+¿Cuál es la forma de enlazar un template al componente por medio del decorador?
+R= @Component({ selector:'app-footer', templateUrl:'./footer.component.html', })
+
+¿Cuál es la forma correcta de declarar un condicional en un template Angular?
+R= <element *ngIf="conditional"></element>
+
+¿Cúal es el comando para hacer un deploy a Firebase Hosting?
+R= firebase deploy
+
+¿Cuál es la manera correcta de tipar una solicitud GET?
+R= this.http.get<type>('url')
+
+Si quiero que un input[text] sea requerido y además tenga mínimo 10 caracteres, ¿cuál sería el array correcto?
+R= [Validators.required, Validators.minLength(10)]
+
+
+¿Qué método se usa en los Guards para permtir la entrada a una ruta?
+R= canActivate
+
+¿En qué orden correcto en que se ejecutan estos métodos según el ciclo de vida de un componente?
+R= 1.constructor 2.ngOnInit 3.ngOnDestroy
+
+¿Cuál tipo de Typescript me permite definir solo la parte de un modelo?
+R= const product: Partial<product>;
+
+¿Cuál es la directiva para mostrar activo un link de acuerdo a la ruta?
+R= <a routerlinkactive="active">My Link</a>
+
+¿Cuál es la directiva para manejar un caso por defecto en un ngSwtich?
+R= *ngSwitchDefault
+
+¿Cuál es la ruta por defecto para controlar cuando una url no hace match?
+R= { path: '**', component: PageNotFoundComponent }
+
+¿Cuál de estos pipes cumple con la función de mostrar un string al revés? ejemplo: {{ 'hola' | reverse }} // aloh
+R= transform(value: string): string { return value.split('').reverse().join(''); }
+
+¿Cuál es el módulo que de debe importar en app.module para habilitar el uso de HttpClient?
+R= HttpClientModule
+
+¿Cuál es la forma correcta de instalar Angular CLI?
+R= npm i -g @angular/cli
+
+¿Cuál es la forma correcta del uso de async?
+R= {{ element$ | async }}
+
+¿Cuál es la forma correcta de crear un Observable para manejar valores y comunicarlos a través de un servicio?
+R= new BehaviorSubject<product[]>([]);</product[]>
+
+¿Cuál es la forma correcta de obtener los parámetros de una ruta?
+R= this.route.params.subscribe((params: Params) => { console.log(params); });
+
+¿Con qué comando puedes crear un nuevo proyecto en Angular?
+R= ng new nameProject
+
+
+¿Cuál es la forma correcta de generar una compilacion a producción para un ambiente el ambiente stag?
+R= ng build --prod -c=stag
+
+
+¿Cuál de las siguientes afirmaciones explican LazyLoading?
+R= Fragmenta la aplicación en módulos para luego hacer la carga de cada uno.
+
+¿Con cuál comando del Angular CLI puedo generar un componente?
+R= ng g c my-component
+
+¿Si quieres instalar una lib que tenga CSS dónde debes agregar sus archivos de estilos?
+R = En el archivo angular.json en el array de styles
+
+¿Cuál es la función de los inputs en los componentes?
+R = Su función es enviar datos desde un componente padre a un componente hijo.
+
+¿Cuál es la forma de leer los cambios de un FormControl?
+R = field.valueChanges.subscribe()
+
+
+¿Cuál es el comando para instalar y configurar de forma automatica Angular Material en una aplicación Angular?
+R = ng add @angular/material
+
+¿Cuál es la forma de pasar valores ya definidos a un FormGroup?
+R= form.patchValue(values)
+
+Si pongo un servicio en un SharedModule, ¿cuál es la consecuencia?
+R =  Por cada módulo que importe el SharedModule sea crea una unica instancia para el modulo que lo importo 
+-------------
