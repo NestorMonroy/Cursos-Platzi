@@ -84,7 +84,7 @@ public class RecursosService {
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont( Font.createFont(
                     Font.TRUETYPE_FONT,
-                    new File("assets/fonts/LUZRO.ttf")
+                    new File("assets/fonts/LUZRO.TTF")
             ));
             ge.registerFont( Font.createFont(
                     Font.TRUETYPE_FONT,
