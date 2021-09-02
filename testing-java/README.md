@@ -23,3 +23,8 @@ Funcionales: prueban una funcionalidad de nuestro proyecto, pueden involucrarse 
 Inicio a fin: prueba todo un proceso del proyecto.
 Estrés: útil para probar si nuestra aplicación puede soportar grandes cantidades de procesos y peticiones a la vez.
 
+
+
+### Creación de test unitario: lanzar una excepción para alertar sobre un error
+
+Vamos a utilizar una excepción con la función throw new RuntimeException("Error") en lugar de la función System.out.println("Error") para identificar más fácil los errores. Ahora, los mensajes tendrán un color diferente y pueden mostrarnos un poco más de información sobre los errores: ubicación, el resultado esperado, mensajes personalizados, entre otros.
