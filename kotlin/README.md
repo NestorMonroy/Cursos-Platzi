@@ -243,3 +243,107 @@ Empiza la semana
 A descansar
 */
 ```
+
+### Null-Safety en Kotlin
+
+
+Por defecto, todas las variables en Kotlin son non-nullable. De este modo, si intentamos asignar un valor null a cualquier variable, el compilador lanzará un error:
+
+```java
+var saludoNullable: String? = "Hola"
+saludoNullable = null // Compila
+```
+Si queremos permitir que una variable pueda ser null, tendremos que definirla añadiendo ? a su tipo de datos.
+
+## nullables
+
+cuando declaras las variables de manera normal, estas no pueden ser inicializadas como null pero s agregamos un **? despues del tipo de dato nos permitira agregar un null**
+
+este tipo de datos es para evitar el null pointer exeption 
+
+si necesitamos obtener la longitud de nuestra variable con ? nos marcara un error pero podemos evitarlo usando un unsafe !!
+
+```java
+var myVar : String? = null
+//unsafe operator
+println(myVar!!.length)
+```
+
+## Null-Safety
+
+Una variable es nula, cuando no se le ha asignado un valor 
+
+Sir Tony Hoare, creo la referencia null o null pointer en 1965
+
+Se recomienda evitar usar null, pues este nos puede causar errores al correr la app
+
+### Nulable
+
+Un tipo de dato nullable es una variable que puede contener un null, la forma en que se declaran es la siguiente:
+
+```java
+var segundoNombre? = "Maribel"
+```
+
+### Safe calls
+
+es una herramienta que nos proporciona Kotlin, que nos hayuda a ejecutar cierto codigo cuando la variable no es nula, y lo realizamo de la sigueinte manera:
+
+```java
+println(segundoNombre?.length())
+```
+
+### Double bang !!
+
+el operador !! le dice al compilador que estas 100% seguro de que en ese punto la variable no es null.
+
+Se recomienda usarlo poco, por que puede ser considerado mala practica y ademas puede que la variable si llegue null 
+
+### Elvis operation
+
+Elvis operation ?: nos regresa un valor por defecto cuando una variable  es null y de esa forma evitamos ciertos errores
+
+```java
+fun main() {
+    //cone el signo ? indicamos que la variable puede ser null
+    var nombre : String? =  null;
+
+    val caracterNumber :Int = nombre?.length ?: 0
+    println(caracterNumber)
+
+}
+```
+
+Ojo!
+
+* Tu no puedes tener un catch o finally sin un try
+* Tu no puedes poner codigo entre el try y el catch, o el catch y el finally.
+
+por ejemplo:
+
+```java
+try { callRiskyCode( ) }
+x = 7
+catch(e: Bad Exception) {}
+```
+
+* Un try puede estar seguido de un catch o un finally
+* Un try puede tener multiples catch blocks.
+
+Esta explicacion esta en el libro Head First Kotlin en la pagina 244. Un gran libro en ingles que recomiendo mucho!
+
+
+### 0El Elvis operator ?: 
+
+Es una versión segura de una expresión if. Devuelve el valor a su izquierda si no es nulo. De lo contrario, devuelve el valor a su derecha… por ejemplo:
+
+```java
+w?.play ?: -1
+
+```
+
+El Elvis operator primero verifica el valor a su izquierda, en este caso w?.play y si ese valor no es null, el Elvis operator lo retorna. En el caso de que el valor de la izquierda sea null, el Elvis operator retornara el valor de la derecha, en este caso -1
+
+es como decir "si w no es nulo y su propiedad de play no es nula, devuelve el valor de la propiedad de play, de lo contrario, devuelve -1
+
+Pueden encontrar mas información sobre este tema en el libro que les recomende anteriormente Head First Kotlin!
