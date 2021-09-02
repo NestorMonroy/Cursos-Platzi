@@ -507,3 +507,139 @@ fun main(args: Array<String>) {
     println(valorDelSet)
 }
 ```
+
+### ¿Qué son las funciones?
+
+Las funciones se declaran usando la palabra clave fun, seguida del nombre del método, los paréntesis donde declararemos los valores de entrada y unas llaves que limitan la función.
+
+```java
+fun main(args: Array<String>) {
+    showMyName()
+    showMyLastName()
+    showMyAge()
+}
+fun showMyName(){
+    println("Me llamo Aris")
+}
+fun showMyLastName(){
+    println("Mi Apellido es Guimerá")
+}
+fun showMyAge(){
+    println("Tengo 24 años")
+}
+```
+Si os fijáis en el código anterior, tenemos 4 métodos. 3 de ellos están destinados para una sola función (mostrar nombre, edad y apellidos) pero no se ejecutarán a no ser que sean llamados. Por ello el cuarto método que es el que se ejecutar el código, los llamará en el orden que le pongamos. Dándonos un resultado así.
+
+Funciones con parámetros de entrada
+Ahora vamos a ver las funciones con parámetros de entrada, que son iguales, pero al llamarlas habrá que mandarle las variables que necesite.
+
+```java
+fun main(args: Array<String>) {
+    showMyInformation("Aris", "Guimerá", 24)
+}
+fun showMyInformation(name: String, lastName: String, age: Int){
+    println("Me llamo $name $lastName y tengo $age años.")
+}
+```
+Como se puede observar, tiene tres parámetros de entrada, la forma de declararlos es muy fácil el nombre de la variable, seguida de dos puntos y el tipo de variable, aquí si es obligatorio definir el tipo.
+
+Obviamente al llamar al método podemos pasarle variables recuperadas de otros métodos y demás.
+
+Funciones con parámetros de salida
+Nos queda por ver como una función puede devolver un resultado o lo que haga nuestro método. La única limitación es que solo se puede devolver un parámetro, aunque para eso tenemos los métodos (ya lo veremos más tarde).
+
+```java
+fun main(args: Array<String>) {
+    var result = add(5, 10)
+    println(result)
+}
+fun add(firsNumber: Int, secondNumber: Int) : Int{
+    return firsNumber + secondNumber
+}
+
+```
+
+Como el ejemplo anterior añadimos los parámetros de entrada pero esta vez, al cerrar los paréntesis pondremos el tipo de variable que debe devolver nuestra función. Luego la función hará todo lo que tenga que hacer y cuando tenga el resultado, lo devolveremos con la palabra clave return.
+
+Si el método es muy fácil, podemos evitar las llaves y simplificar la función un poco más.
+
+```java
+fun add(firsNumber: Int, secondNumber: Int) : Int = firsNumber + secondNumber
+```
+
+### Funciones de extensión en Kotlin
+
+Las funciones de extensión (o extension functions en inglés) son funciones que, como su propio nombre indica, nos ayudan a extender la funcionalidad de clases sin necesidad de tocar su código. Ahora vamos a ver cómo se definen estas funciones, y algunos ejemplos que a mí personalmente me resultan muy útiles.
+
+¿Cómo se define una función de extensión?
+Tan solo hay que escribir una función como lo harías normalmente, y ponerle delante el nombre de la clase separado por un punto.
+
+Ejemplo muy sencillo: queremos hacer que una vista tenga la función visible(), que la hace visible. Escribiríamos algo como esto:
+
+```java
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
+//El this  lo he puesto para que veas que podemos usar las funciones y propiedades de esa clase como si estuviéramos dentro de  la propia clase, pero lo puedes omitir:
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+```
+Algunos ejemplos interesantes
+Hay un par de ejemplos que me gusta poner, porque resumen muy bien la potencialidad de esto.
+
+El primero es cuando estás inflando una vista dentro de un adapter. Normalmente utilizarías algo así:
+
+```java
+override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val v = LayoutInflater.from(parent.context).inflate(R.layout.view_item, parent, false)
+    return ViewHolder(v)
+}
+```
+La línea que infla la vista y usa el parent es demasiado compleja, y el 99% de las veces suele ser igual en cualquier adapter. ¿Por qué no hacer que los ViewGroup  puedan inflar vistas?
+
+```java
+fun ViewGroup.inflate(layoutRes: Int): View {
+    return LayoutInflater.from(context).inflate(layoutRes, this, false)
+}
+
+//Ahora ya puedes utilizarlo en el código de arriba:
+
+override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val v = parent.inflate(R.layout.view_item)
+    return ViewHolder(v)
+}
+```
+Un ejemplo muy parecido se puede hacer con las imágenes. Si utilizas por ejemplo la librería de Picasso, necesitas andar haciendo el típico ritual:
+
+Picasso.with(imageView.context).load(url).into(imageView)
+
+¿Qué te parecería poder decirle a ImageView que cargue una url directamente?
+
+```java
+fun ImageView.loadUrl(url: String) {
+    Picasso.with(context).load(url).into(this)
+}
+
+imageView.loadUrl(url)
+```
+
+Propiedades de extensión
+
+Igual que puedes hacer funciones de extensión, lo mismo puedes hacer con properties. Lo único que no podrán guardar un estado propio, sino valerse de las funciones ya existentes para modificar el estado:
+
+```java
+val ViewGroup.children: List get() = (0..childCount -1).map { getChildAt(it) }
+//  Esta property recupera los hijos de un ViewGroup
+// Ahora podrías iterar sobre ellos directamente:
+parent.children.forEach { it.visible() }
+```
+
+Nota: it es una palabra reservada que se utiliza para acceder al valor de entrada de la función, cuando solo hay uno. Como ya hemos visto en otros artículos, se pueden nombrar esos valores de entrada, y asignar más cuando hay más de uno.
+
+Conclusión
+Con las funciones y las propiedades de extensión puedes extender cualquier librería a la que no tengas acceso y luego utilizar esas funciones y propiedades como si fueran propias de la clase. Lo único que verás es un import extra en el archivo en el que se use.
+
+Si de verdad vas en serio con Kotlin y, como yo, piensas que es el lenguaje del futuro en Android, te recomiendo que le eches un vistazo al training gratuito, donde te contaré todo lo que necesitas para aprender a crear tus Apps Android en Kotlin desde cero.
