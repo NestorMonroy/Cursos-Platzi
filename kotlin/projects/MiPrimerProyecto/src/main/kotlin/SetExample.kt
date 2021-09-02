@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun setExample(args: Array<String>) {
     //Set Es similar a una lista, pero sin elementos repetidos
     //Conjunto inmutable
     val vocalesRepidas = setOf("a", "e", "i", "o", "u", "a", "e", "i", "o", "u")
@@ -14,6 +14,6 @@ fun main(args: Array<String>) {
     numerosFavoritos.remove(1)
     println(numerosFavoritos)
 
-    val valorDelSet = numerosFavoritos.firstOrNull{ num -> num > 2}
+    val valorDelSet = numerosFavoritos.firstOrNull { num -> num > 2 }
     println(valorDelSet)
 }
