@@ -347,3 +347,51 @@ El Elvis operator primero verifica el valor a su izquierda, en este caso w?.play
 es como decir "si w no es nulo y su propiedad de play no es nula, devuelve el valor de la propiedad de play, de lo contrario, devuelve -1
 
 Pueden encontrar mas información sobre este tema en el libro que les recomende anteriormente Head First Kotlin!
+
+### Listas
+
+
+* Las listas son inmutables, si queremos agregar, remover o usar funciones mas avanzadas necesitaremos una mutableList.
+* Podemos tener valores duplicados en una lista
+* Podemos recorrer todos los elementos de una lista
+* La principal diferencia entre una lista y un array es que la lista no puede actualizar ninguna de las referencias que almacena
+
+
+```java
+fun main(args: Array<String>) {
+
+    // Lista inmutable
+    val listaDeNombre = listOf("Nestor", "Joel", "Camila")
+    println(listaDeNombre)
+
+    // Lista mutable
+    val listaVacia = mutableListOf<String>()
+    println(listaVacia)
+    listaVacia.add("Nestor") //.add agregar un valor a la lista
+    println(listaVacia)
+
+    val valorUsandoGet = listaVacia.get(0) //.get Obtener el valor de la lista
+    println(valorUsandoGet)
+
+    val valorUsandoOperador = listaVacia[0]
+    println(valorUsandoOperador)
+
+
+    val primerValor: String? = listaDeNombre.firstOrNull() // .first Obtener el  primer valor de una lista
+    println(primerValor)
+
+    listaVacia.removeAt(0) // removeAt Eliminar elementos de la una lista
+    println(listaVacia)
+
+    listaVacia.add("Joel")
+    listaVacia.removeIf() {caracteres -> caracteres.length > 3} // removeIf Solo cuando la condicion sea valida
+    println(listaVacia)
+
+    val myArray = arrayOf(1,2,3,4,5)
+    println("Mi array $myArray")
+    println("Array como lista ${myArray.toList()}")
+    
+    // Para performance utilizar siempre arrays ** de lo contraria utilizar listas
+}
+
+```
