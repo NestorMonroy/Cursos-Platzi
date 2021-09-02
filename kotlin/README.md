@@ -1130,3 +1130,66 @@ val checkBox = CheckBox(requireContext()).apply {
 }
 ```
 Habrán propiedades cuyo mutador set() sea privado y no puedas acceder con el acceso de punto, por lo que debes usar directamente los métodos de asignación como setPadding().
+
+### Also
+
+DATO IMPORTANTE SOBRE SCOPE FUNCTIONS
+
+apply y also devuelve el objeto contexto directamente.
+let, run, y with retorna el último valor de la lambda.
+
+Si quieren leer más sobre las scope functions, está la documentación de Kotlin: https://kotlinlang.org/docs/scope-functions.html
+
+Por ejemplo, dice que usemos also cuando no queramos sobreescribir la referencia de this de un contexto exterior (el de la clase por ejemplo).
+
+La función also es otra función de alcance, cuyo objetivo es permitirte añadir acciones adicionales sobre un objeto, a través de una lambda regular como parámetro.
+
+Su uso se traduce a «y también hacer lo siguiente con el objeto».
+```java
+recibidor.also{
+     accionesAdicionales(it)
+}
+
+//La declaración de su firma es la siguiente:
+inline fun <T> T.also(block: (T) -> Unit): T
+```
+
+Al igual que apply, also retorna al objeto recibidor T como resultado y es una función de extensión. Salvo que block es un tipo función regular y usaremos la refenrecia it para T.
+
+Ejemplo Con La Función also
+Para ejemplificar el uso de la función also{} podemos tomar como base el ejemplo que vimos en el tutorial de apply, donde inicializábamos un par de zapatos y luego obteníamos su detalle para imprimirlo.
+
+```java
+data class Shoe(
+    var size: Int = 38,
+    var color: String = "Negro",
+    var stock: Int = 10
+)
+
+fun main() {
+    val newShoe = Shoe()
+
+    val shoeDetail = newShoe.apply {
+        size = 42
+        color = "Rojo"
+        stock = 25
+    }.toString()
+
+    print(shoeDetail)
+}
+```
+En este caso podemos añadir la ejecución de print() como parte de la cadena de inicialización con la función also.
+```java
+fun main() {
+    val newShoe = Shoe().apply {
+        size = 42
+        color = "Rojo"
+        stock = 25
+    }.also {
+        print(it)
+    }
+}
+```
+Debido a que apply retorna la nueva instancia del zapato, es posible encadenar la llamada de also, por lo que la variable newShoe recibe el contenido final y de paso se imprime el mensaje pasando al indicador it.
+
+Todo en una misma cadena de bloques asociados a un contexto que mejora la legibilidad de nuestro código.
