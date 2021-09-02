@@ -28,3 +28,36 @@ Estrés: útil para probar si nuestra aplicación puede soportar grandes cantida
 ### Creación de test unitario: lanzar una excepción para alertar sobre un error
 
 Vamos a utilizar una excepción con la función throw new RuntimeException("Error") en lugar de la función System.out.println("Error") para identificar más fácil los errores. Ahora, los mensajes tendrán un color diferente y pueden mostrarnos un poco más de información sobre los errores: ubicación, el resultado esperado, mensajes personalizados, entre otros.
+
+
+### Test unitario
+
+```java
+
+
+public class StringUtil {
+    public static String repeat(String str, int times) {
+        String result = "";
+
+        for (int i = 0; i < times; i++) {
+            result += str;
+        }
+        return result;
+
+    }
+}
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class StringUtilTest {
+
+    @Test
+    public void testRepeat() {
+
+        Assert.assertEquals("holaholahola", StringUtil.repeat("hola", 2));
+        Assert.assertEquals("hola", StringUtil.repeat("hola", 1));
+
+
+}
+```

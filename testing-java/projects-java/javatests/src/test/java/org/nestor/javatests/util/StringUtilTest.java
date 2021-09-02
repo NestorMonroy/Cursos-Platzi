@@ -1,11 +1,19 @@
 package org.nestor.javatests.util;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 public class StringUtilTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void testRepeat() {
         //System.out.println(result);
-        assertEquals(StringUtil.repeat("hola", 3), "holaholahola");
-        assertEquals(StringUtil.repeat("hola", 1), "hola");
+
+        Assert.assertEquals("holaholahola", StringUtil.repeat("hola", 2));
+        Assert.assertEquals("hola", StringUtil.repeat("hola", 1));
+
+        //Assert.assertEquals(StringUtil.repeat("hola", 1), "hola");
+        //assertEquals(StringUtil.repeat("hola", 1), "hola");
 
 //        if (!result.equals("holahoAlahola")) {
 //            throw new RuntimeException("ERROR");
@@ -27,10 +35,10 @@ public class StringUtilTest {
 
     }
 
-    private static void assertEquals(String actual, String expected) {
-        if (!actual.equals(expected)) {
-            throw new RuntimeException(actual + "is not equal to expected: " + expected);
-        }
-    }
+//    private static void assertEquals(String actual, String expected) {
+//        if (!actual.equals(expected)) {
+//            throw new RuntimeException(actual + "is not equal to expected: " + expected);
+//        }
+//    }
 
 }
