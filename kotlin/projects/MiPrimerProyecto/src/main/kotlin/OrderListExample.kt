@@ -1,4 +1,4 @@
-fun OrderExample(args: Array<String>) {
+fun OrderListExample(args: Array<String>) {
     val numerosDeLoteria = listOf(11, 15, 30, 66, 5)
 
     //Ordenar ascendentemente con sorted

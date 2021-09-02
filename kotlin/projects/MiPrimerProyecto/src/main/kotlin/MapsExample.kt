@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun MapsExamples(args: Array<String>) {
     val edadDeSuperHeroes = mapOf(
         "Ironman" to 35,
         "Spiderman" to 21,
