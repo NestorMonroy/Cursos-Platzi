@@ -145,3 +145,71 @@ Con los operadores logicos podremos comparar mas de una condición.
 
 ! operador "no"
 
+### ESTRUCTURA DE CONTROL WHEN
+
+Esta sentencia sirve en los casos que tengamos que comparar nuestra variable con múltiples opciones, ya que con la sentencia IF puede resultar poco optimo. 
+
+SINTAXIS WHEN
+
+* Iniciamos con la palabra reservada WHEN.
+* Entre parentesis () escribimos la variable o constante que queremos evaluar.
+* Posteriormente, vamos abrir y cerrar llaves {}, dentro de estas escribiremos las diferentes condiciones o casos.
+* Cada vez que creamos un condición deberemos escribir un guion y un mayor que (->), luego entre llaves {} colocaremos el bloque de codigo que se va a ejecutar, para ello se escribe println(“el mensaje que va a salir por consola”).
+* Por ultimo, utilizaremos ELSE para definir un bloque de codigo en caso que ninguna de nuestras opciones coincidan con el valor de nuestra variable.
+
+EJEMPLO CON STRING
+
+<EJEMPLO:
+
+```java
+val pais = "Argentina"
+
+when(pais) {
+    "Argentina" -> {
+        println("El idioma de ${pais} es Español");
+    } "Alemania" -> {
+        println("El idioma de ${pais} es Aleman");
+    } "EEUU" -> {
+        println("El idioma de ${pais} es Ingles");
+    } "Brasil" -> {
+        println("El idioma de ${pais} es Portugues");
+    } else -> {
+        println("No conocemos el idioma");
+    }
+} > 
+```
+
+Si tenemos varios casos que coinciden con el mismo valor, lo podremos unir en una única condición colocando una coma(,) al final de cada condición.   
+
+Al trabajar con when y números enteros (Int) podremos usar rangos, para ello debemos:  
+
+* Se utiliza la misma sintaxis.
+* En los casos o condiciones utilizaremos la palabra reservada IN.
+* Seguido del valor inicial.
+* Luego escribir dos puntos (…) y
+* Por ultimo, colocamos el valor en donde se quiere que termine nuestro rango.
+
+EJEMPLO CON NUMEROS ENTEROS
+
+```java
+val edad = 33;
+
+when(edad) {
+    in 0..3 -> {
+        println("Tu edad es ${edad} eres un bebe");
+    } in 4..11 -> {
+        println("Tu edad es ${edad} eres un niño");
+    } in 12..18 -> {
+        println("Tu edad es ${edad} eres un adolecente");
+    } in 19..59 -> {
+        println("Tu edad es ${edad} eres un adulto");
+    } in 60..99 -> {
+        println("Tu edad es ${edad} eres un adulto mayor");
+    } else -> {
+        println("😲");
+    }
+}> 
+```
+
+
+
