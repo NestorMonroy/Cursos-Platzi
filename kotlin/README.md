@@ -935,4 +935,97 @@ fun main(parametro: Array<String>) {
 }
 ```
 
-### Let
+### La Función let { }
+
+La función let es una función que crea un alcance temporal para un objeto en el interior de un bloque de código.
+
+Esto quiere decir, que puedes referirte al objeto sin usar su nombre debido a que es el parámetro de la función lambda pasada a let.
+
+inline fun <T, R> T.let(block: (T) -> R): R
+
+Lenguaje del código: HTML, XML (xml)
+Como vez en su declaración, let:
+
+* Es una función genérica con argumentos T y R
+* Es una función inline
+* Es una función de extensión del tipo recibidor T
+* Recibe como parámetro un tipo función (T) -> ®
+* Retorna como resultado a R
+* Ya que let ejecuta a block pasando la expresión this del objeto recibidor, es como si crearas un espacio de escritura para tus sentencias asociadas al objeto.
+
+```java
+val resultado = objeto.let{
+    /* sentencias y retorno de valor */
+}
+```
+
+Lenguaje del código: Kotlin (kotlin)
+
+Ejemplo: Función let Para Mapear
+
+```java
+// Supongamos que tenemos una clase para las facturas junto a otra que representa las líneas que están en ella:
+
+class InvoiceLine(val unitCost: Double)
+class Invoice(val customer: String, val lines: List<InvoiceLine>)
+
+// Lenguaje del código: Kotlin (kotlin)
+// Ahora deseamos leer una factura y formatear las propiedades de la misma para mostrarlas en pantalla.
+
+fun main() {
+    val invoice = Invoice(
+        "Fabricia",
+        listOf(
+            InvoiceLine(5.0),
+            InvoiceLine(4.0),
+            InvoiceLine(6.0)
+        )
+    )
+
+    val invoiceDetail = invoice.let {
+        val total = it.lines.sumOf { line -> line.unitCost }
+        "La factura de ${it.customer} tiene un total de $total"
+    }
+
+    println(invoiceDetail)
+}
+
+```
+Salida:
+
+La factura de Fabricia tiene un total de 15.0
+
+Como puedes notar, al invocar a invoice.let{}, el parámetro del lambda será invoice, por lo que podemos usar a it como referencia.
+
+Con esta forma podemos obtener el total de la factura a través de it.lines.sumOf{} y construir un String resultante con it.customer.
+
+El objetivo es crear un contexto que te permita mejorar la legibilidad del propósito de tu código.
+
+Ejemplo: Función let Y Tipos Anulables
+
+La función let también es de utilidad para ejecutar sentencias sobre tipos anulables en conjunto con el operador de acceso seguro(.?).
+
+Si el objeto recibidor no es null, entonces las sentencias del lambda que pasaste como bloque de código son ejecutadas, de lo contrario no habrá acción.
+
+Por ejemplo, ¿que pasaría si la factura leída fuese nula e intentaras imprimir su detalle?:
+
+```java
+fun main() {
+    val invoice: Invoice? = null
+
+    val invoiceDetail = invoice?.let {
+        val total = it.lines.sumOf { line -> line.unitCost }
+        "La factura de ${it.customer} tiene un total de $total"
+    }
+
+    println(invoiceDetail)
+}
+
+//Resultado: null
+```
+
+Lenguaje del código: JavaScript (javascript)
+La función let tratará a invoice como si fuese no aceptara nulos en todo el alcance del lambda, de esta forma te evitas la comprobación de nulidad en cada línea del bloque de código.
+
+Y si es null, entonces el parámetro block de let() no será ejecutado.
+
