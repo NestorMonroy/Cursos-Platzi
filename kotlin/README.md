@@ -694,3 +694,38 @@ printDetails(phone = "123 123", name="Juan" )
 Esto es util cuando tengo funciones con múltiples parámetros. Usar el nombre de los parámetros permite ser más expresivo con nuestro código.
 
 No es recomendable tener funciones con cinto o seis parámetros, para esto es recomendable tener un objeto que agrupe este conjunto de parámetros, pero en caso de que tengamos este tipo de funciones. El uso de los nombres es muy útil.
+
+
+### Lambdas
+
+Las funciones lambda (“lambdas”) son una forma sencilla de crear funciones ad-hoc (para un fin determinado). Las lambdas se pueden denotar de forma muy concisa en muchos casos gracias a la inferencia de tipos y la variable it implícita.
+
+
+Ejemplos de declaración de Lambdas:
+
+```java
+//Una lambda con tipos explícitos en todas partes. La lambda es la parte entre llaves, que se asigna a una variable de tipo (String) -> String (un tipo de función)
+val upperCase1: (String) ->String={str: String -> str.uppercase()}
+
+//Inferencia de tipo dentro de lambda: el tipo del parámetro lambda se infiere del tipo de variable a la que está asignado.
+val upperCase2: (String) -> String = {str -> str.uppercase()}
+
+//Inferencia de tipo fuera de lambda: el tipo de variable se infiere del tipo del parámetro lambda y el valor de retorno.
+val upperCase3 = {str: String -> str.uppercase()}
+
+//No puede hacer ambas cosas a la vez, el compilador no tiene la posibilidad de inferir el tipo de esa manera.
+//val upperCase4: {str -> str.uppercase()}
+
+
+//Para lambdas con un solo parámetro, no tiene que nombrarlo explícitamente. En su lugar, puede utilizar la variable it implícita. Esto es especialmente útil cuando se puede inferir el tipo (que suele ser el caso).
+val upperCase5: (String) -> String = {it.uppercase()}
+
+//Si su lambda consta de una única llamada de función, puede usar punteros de función (: :).
+val upperCase6: (String) -> String = String::uppercase
+println(upperCase1("hello"))
+println(upperCase2("hello"))
+println(upperCase3("hello"))
+println(upperCase5("hello"))
+println(upperCase6("hello"))
+
+```
