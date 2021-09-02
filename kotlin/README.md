@@ -1029,3 +1029,33 @@ La función let tratará a invoice como si fuese no aceptara nulos en todo el al
 
 Y si es null, entonces el parámetro block de let() no será ejecutado.
 
+
+### With
+
+“La función with nos ayuda a acceder directamente a las propiedades de la variable o a la misma variable utilizando this”
+
+```java
+fun main(args: Array<String>) {
+	val colores = listOf("Azul", "Amarillo", "Rojo")
+
+	// Tenemoes accedo directo al scope de colores con with, así ya no necesitamos escribir el nombre de la variable
+	with(colores){
+		println("Nuestros colores son $this")
+		println("Esta lista tiene una cantidad de colores de $size")
+	}
+}
+```
+
+### Run
+
+```java
+fun main(args: Array<String>){
+    val moviles = mutableListOf("Samsung A50","Samsung A51","Samsung A52")
+            .run{
+                removeIf{ movil->movil.contains("A50") }
+                this
+            }
+    println(moviles)
+}
+
+```
