@@ -1,12 +1,12 @@
-fun LamdasExample(args: Array<String>) {
+fun LambdasExample(args: Array<String>) {
     val myLambda: (String) -> Int = {
         //it.length
             valor ->
         valor.length
     }
     println(myLambda)
-    val lamdbaEjecutada: Int = myLambda("Hola Nestor")
-    println(lamdbaEjecutada)
+    val lambdaEjecutada: Int = myLambda("Hola Nestor")
+    println(lambdaEjecutada)
 
     val saludos = listOf("Hello", "Hola", "Ciao")
 
