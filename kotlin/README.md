@@ -211,5 +211,35 @@ when(edad) {
 }> 
 ```
 
+### Bucles: While y Do While
 
+Con while podemos hacer que se ejecute un bloque de código determinado hasta que se cumpla una condición.
 
+Cuando usamos este tipo de bucles hay que tener cuidado para evitar producir bucles infinitos no deseados, para lo que necesitamos que dentro del bucle se actualice el valor que usemos en la condición de salida bajo alguna circunstancia.
+
+En el siguiente ejemplo se ejecuta el bucle mientras (while) el día sea menor que 6 y cuando deja de cumplirse termina.
+
+```java
+var dia= 1
+println("Empiza la semana")
+while(dia < 6) {
+    if  (dia == 1) {
+        println("$dia dia trabajando")
+    } else {
+        println("$dia dias trabajando")
+    }
+
+    dia++ // Actualizamos la condicion
+}
+println("A descansar")
+
+/* Resultado:
+Empiza la semana
+1 dia trabajando
+2 dias trabajando
+3 dias trabajando
+4 dias trabajando
+5 dias trabajando
+A descansar
+*/
+```
