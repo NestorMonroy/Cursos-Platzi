@@ -60,3 +60,88 @@ fun main(args: Array<String>) {
     println("pi"+PI)
 
 ```
+
+### Modificadores y tipos de datos en Kotlin
+
+¿Qué es un dato primitivo
+Tipos de datos originales de un lenguaje de programación. En Kotlin lo son los enteros, booleanos y cadenas de texto
+
+¿Qué es un objeto
+Es una combinación de variables, funciones y otros objetos.
+En Kotlin todo es un objeto, se convierten los datos primitivos a un objeto para obtener algunas ventajas como:
+
+Crear funciones especificas para el objeto que ayuden a no reescribir el código
+
+Sobrescribir operadores como la suma o multiplicación
+
+-Enteros
+-Cadenas de texto
+-Booleanos
+
+Comparten en común que son primitivos ya que vienen directamente con el lenguaje, con ellos se pueden crear objetos.
+
+### Operaciones con los tipos de datos en Kotlin
+
+En Kotlin las operaciones son traducidas a funciones interiormente por el compilador. La operación val tercerValor = primerValor + segundoValor es lo mismo que decir tercerValor = primerValor.plus(segundoValor).
+
+En la siguiente tabla te voy a dejar las operaciones que vas a poder realizar con los distintos tipos de datos y si te encuentras con alguno que no permita realizar esa operación puedes crearla por tu cuenta. Recuerda que Kotlin te permite extender el lenguaje para aprovechar estas funcionalidades.
+
+Operaciones más utilizadas
+
+|Expresión |	Función 	|Operator Fun|
+|----------|------------|--------------|
+|a + b 	| c = a + b |	public operator fun plus(other: Int): Int|
+|a - b 	|c = a - b 	|public operator fun minus(other: Int): Int|
+|a * b 	|c = a * b 	|public operator fun times(other: Int): Int|
+|a / b 	|a = a / b 	|public operator fun div(other: Int): Int|
+|a % b 	|c = a % b 	|public operator fun rem(other: Int): Int|
+|a++ 	  |c = a++ 	  |public operator fun inc(): Int|
+|a– 	  |c = a– 	  |public operator fun dec(): Int|
+|a > b 	|c = a > b 	|public override operator fun compareTo(other: Int): Int|
+|a < b 	|c = a < b 	|public override operator fun compareTo(other: Int): Int|
+|a >= b  |c = a >= b |public override operator fun compareTo(other: Int)|: Int|
+|a <= b |c = a <= b |public override operator fun compareTo(other: Int)|: Int|
+|a != b |c = a != b 	|public open operator fun equals(other: Any?): |Boolean|
+
+Dependiendo del tipo de dato que tengas podrás utilizar todos o solamente algunas de estas operaciones, por ejemplo si tienes una variable del tipo de dato String no vas a poder dividirla, a menos que tú crees esa función. Sin embargo, sí vas a poder sumar dos variables del tipo de dato String para obtener el valor de dicha suma.
+
+Con esto espero que hayas obtenido una idea sobre cómo funcionan las operaciones, queda de parte de ti si prefieres utilizar la versión larga del operator fun o el operador directamente.
+
+Ten en cuenta que si las operator fun se inventaron para que puedas reducir tu código a operaciones con símbolos ¿por algo será, no?
+
+
+### Paradigmas de la programación:
+
+Son formas de escribir código.
+
+* Paradigma Imperativo: Se basa en modificar variables de estado que se encuentran dentro del programa y así hacer que el código realice las tareas que quieres.
+
+* Paradigma declarativo: programacion funcional Nos ayuda a entender que es lo que tiene que hacer un programa, como hace las cosas el programa.
+
+
+
+### CONDICIONAL IF
+
+Es un mecanismo que nos proporciona el lenguaje para evaluar condiciones que son true o false y así decidir que bloque de codigo se va a ejecutar.  
+
+Para evaluar las condiciones con la sentencia if debemos aprender el concepto de operador condicional, este operador nos van a servir para evaluar condiciones, los operadores condicional son:  
+
+```
+> mayor que.
+< menor que.
+>= mayor o igual que.
+<= menor o igual que
+== igualdad.
+!= desigualdad.  
+
+```
+OPERADORES LOGICOS
+
+Con los operadores logicos podremos comparar mas de una condición.  
+
+&& operador "y": con este operador todas las condiciones tienen que ser verdaderas para que se cumpla la sentencia if.  
+
+|| operador "o": basta que se cumpla una de las condiciones para que se cumpla la sentencia if.  
+
+! operador "no"
+
