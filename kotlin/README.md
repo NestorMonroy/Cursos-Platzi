@@ -643,3 +643,54 @@ Conclusión
 Con las funciones y las propiedades de extensión puedes extender cualquier librería a la que no tengas acceso y luego utilizar esas funciones y propiedades como si fueran propias de la clase. Lo único que verás es un import extra en el archivo en el que se use.
 
 Si de verdad vas en serio con Kotlin y, como yo, piensas que es el lenguaje del futuro en Android, te recomiendo que le eches un vistazo al training gratuito, donde te contaré todo lo que necesitas para aprender a crear tus Apps Android en Kotlin desde cero.
+
+### Parámetros por defecto
+
+Una de las características de Kotlin es la posibilidad de trabajar con funciones con parámetros con valores por defecto. Tomemos como ejemplo la función sum que tiene dos parámetros y le agregamos un parámetro más:
+```java
+fun sum(x:Int, y:Int, z:Int): Int{
+   return x + y + z
+}
+
+//Se podría asignar un valor a una de las variables:
+
+fun sum(x:Int, y:Int, z:Int = 0): Int{
+   return x + y + z
+}
+
+//Luego la función sum, podría llamarse de las siguientes maneras:
+
+sum(3, 2, 1)
+sum(2, 4)
+
+```
+En ambos casos funciona en forma adecuada. Esto tiene una ventaja pues permite crear funciones con parámetros por defecto, con lo cual evita realizar sobre carga de funciones. En lenguajes como Java no hay parámetros por defecto, con lo cual muchas veces se tiene que sobre cargar los métodos.
+
+Parámetros con nombres
+Que sucede si queremos imprimir determinados parámetros que no sean contiguos, por ejemplo, el primero y el tercero.
+
+```java
+//Generamos una nueva función:
+
+fun printDetails(name:String,email:String = "", phone:String){
+ println("name: $name - email: $email - phone: $phone")
+}
+
+//Si hacemos email con un valor por defecto:
+
+printDetails("Juan", "123 123")
+```
+Esta función nos genera erro, pues el tercer valor phone, no tiene asignado un valor por defecto y es requerido. Por otro lado, por la forma de la variable, el valor indicado corresponde a phone, más el método no sabe como distinguir que es el tercer parámetro. Esto se soluciona utilizando el valor de los parámetros:
+
+```java
+printDetails("Juan", phone="123 123")
+
+//Al tener el nombre de los parámetros, se pueden ingresar los parámetros en un orden indistinto:
+
+printDetails(name="Juan", phone = "123 123")
+printDetails(phone = "123 123", name="Juan" )
+
+```
+Esto es util cuando tengo funciones con múltiples parámetros. Usar el nombre de los parámetros permite ser más expresivo con nuestro código.
+
+No es recomendable tener funciones con cinto o seis parámetros, para esto es recomendable tener un objeto que agrupe este conjunto de parámetros, pero en caso de que tengamos este tipo de funciones. El uso de los nombres es muy útil.
