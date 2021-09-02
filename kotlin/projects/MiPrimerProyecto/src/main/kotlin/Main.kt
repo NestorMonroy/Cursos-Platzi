@@ -67,6 +67,7 @@ fun showAnswers() {
 
 }
 
+
 fun mostrarRespuestasPorTipo(tipoDeRespuesta: String = "TODOS") {
     when (tipoDeRespuesta) {
         "TODOS" -> answers.keys.forEach { respuesta -> println(respuesta) }
