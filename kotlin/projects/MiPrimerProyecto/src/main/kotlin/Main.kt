@@ -86,3 +86,6 @@ fun exit() {
 fun showError() {
     println("Esto es un Error")
 }
+
+
+fun miFuncion(nombre: String,  apellido: String) = nombre + apellido
