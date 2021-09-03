@@ -216,3 +216,13 @@ Puedes combinar las reglas del TDD con su ciclo tal como hizo el profesor:
 * Green: Escribirás el mínimo de código de producción que pase el test.
 * Refactor: sólo cuando los tests estén pasando.
 
+
+###  Organización de una aplicación
+
+Por lo general una aplicación se divide en:
+
+* Interfaz: Se encarga de la comunicación con el exterior o un usuario.
+* Negocio: Es la lógica de nuestra aplicación.
+* Datos: Se encarga de guardar los datos de nuestra aplicación.
+
+Cada capa se puede comunicar con otra, pero no conoce los detalles de implementación.
