@@ -21,19 +21,21 @@ public class MovieRepositoryIntegrationTest {
     @Test
     public void load_all_movies() throws SQLException {
         DataSource dataSource =
-                new DriverManagerDataSource("jdbc:h2:mem:test; MODE=MYSQL", "sa", "sa"); //Base de datos en memoria
+                new DriverManagerDataSource("jdbc:h2:mem:test;MODE=MYSQL", "sa", "sa");
 
-        ScriptUtils.executeSqlScript(dataSource.getConnection(), new ClassPathResource("sq-scripts/test-data.sql")); // ejecutar el sql
+        ScriptUtils.executeSqlScript(dataSource.getConnection(), new ClassPathResource("sql-scripts/test-data.sql"));
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         MovieRepositoryJdbc movieRepository = new MovieRepositoryJdbc(jdbcTemplate);
 
         Collection<Movie> movies = movieRepository.findAll();
+
         assertThat(movies, CoreMatchers.is(Arrays.asList(
                 new Movie(1, "Dark Knight", 152, Genre.ACTION),
                 new Movie(2, "Memento", 113, Genre.THRILLER),
                 new Movie(3, "Matrix", 136, Genre.ACTION)
         )));
     }
+
 }
