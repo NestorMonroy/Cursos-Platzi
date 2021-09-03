@@ -5,7 +5,7 @@ import org.nestor.javatests.movies.model.Movie;
 import java.util.Collection;
 
 public interface MovieRepository {
-    Movie findBy(long id);
+    Movie findById(long id);
     Collection<Movie> findAll();
     void saveOrUpdate(Movie movie);
 }
