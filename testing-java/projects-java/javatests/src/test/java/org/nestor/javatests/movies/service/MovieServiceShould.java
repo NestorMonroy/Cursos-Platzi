@@ -16,9 +16,10 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.*;
 
 public class MovieServiceShould {
+    private MovieService movieService;
 
-    @Test
-    public void return_movies_by_genre() {
+    @Before
+    public void setUp() throws Exception {
         MovieRepository movieRepository = Mockito.mock(MovieRepository.class);
         Mockito.when(movieRepository.findAll()).thenReturn(
                 Arrays.asList(
@@ -26,16 +27,29 @@ public class MovieServiceShould {
                         new Movie(2, "Memento", 113, Genre.THRILLER),
                         new Movie(3, "There's Something About Mary", 119, Genre.COMEDY),
                         new Movie(4, "Super 8", 112, Genre.THRILLER),
-                        new Movie(5, "Scream", 111, Genre.HORROR),
+                        new Movie(5, "Scream", 119, Genre.HORROR),
                         new Movie(6, "Home Alone", 103, Genre.COMEDY),
                         new Movie(7, "Matrix", 136, Genre.ACTION)
                 )
         );
 
-        MovieService movieService = new MovieService(movieRepository);
+        movieService = new MovieService(movieRepository);
+    }
+
+    @Test
+    public void return_movies_by_genre() {
         Collection<Movie> movies = movieService.findMoviesByGenre(Genre.COMEDY);
-        List<Integer> movieIds =  movies.stream().map(Movie::getId).collect(Collectors.toList());
         //List<Integer> movieIds =  movies.stream().map(movie -> movie.getId()).collect(Collectors.toList());
-        assertThat(movieIds, CoreMatchers.is(Arrays.asList(3, 6)));
+        assertThat(getMovieIds(movies), CoreMatchers.is(Arrays.asList(3, 6)));
+    }
+
+    private List<Integer> getMovieIds(Collection<Movie> movies) {
+        return movies.stream().map(Movie::getId).collect(Collectors.toList());
+    }
+
+    @Test
+    public void return_movies_by_length() {
+        Collection<Movie> movies = movieService.findMoviesByLength(119);
+        assertThat(getMovieIds(movies), CoreMatchers.is(Arrays.asList(3,5)));
     }
 }
