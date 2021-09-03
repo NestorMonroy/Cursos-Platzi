@@ -16,7 +16,6 @@ public class PaymentProcessorTest {
 
         assertTrue(paymentProcessor.makePayment(1000));
 
-
     }
 
     @Test
