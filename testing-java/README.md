@@ -151,3 +151,68 @@ Mockito nos va a servir para simular clases mientras probamos, para añadirlo a 
 Para instanciar un mock debemos utilizar la función Mockito.mock() e indicarle como parámetro la clase que va a simular.
 Las funciones assertFalse y assertTrue tal como su nombre lo indican, sirven para comprobar si un valor es igual a false o true respectivamente.
 Archivos de la clase
+
+### Análisis de los tests y mejoras
+
+Nuestros test siguen un mismo proceso:
+
+1 Se preparan los objetos que vamos a probar.
+2 Llamamos al método que estamos probando.
+3 Comprobamos los resultados.
+
+Podemos reducir la cantidad de código moviendo las partes comunes de preparación a una función que se ejecute antes de cada prueba.
+Con @Before le indicamos a JUnit la función que debe ejecutar antes de cada prueba
+
+```java
+
+public class PaymentProcessorTest {
+    private PaymentGateway paymentGateway;
+    private PaymentProcessor paymentProcessor;
+
+    @Before
+    public void setup() {
+        paymentGateway = Mockito.mock(PaymentGateway.class);
+        paymentProcessor = new PaymentProcessor(paymentGateway);
+    }
+
+    @Test
+    public void payment_is_correct() {
+        Mockito.when(paymentGateway.requestPayment(Mockito.any()))
+                .thenReturn(new PaymentResponse(PaymentResponse.PaymentStatus.OK));
+        boolean result = paymentProcessor.makePayment(1000);
+        assertTrue(result);
+    }
+
+    @Test
+    public void payment_is_wrong() {
+        Mockito.when(paymentGateway.requestPayment(Mockito.any()))
+                .thenReturn(new PaymentResponse(PaymentResponse.PaymentStatus.ERROR));
+        boolean result = paymentProcessor.makePayment(1000);
+        assertFalse(result);
+    }
+}
+
+```
+
+
+### TDD: Definición, Beneficios, Ciclos y Reglas
+
+El Test Driven Development (TDD) o desarrollo guiado por test, creado por Kent Beck, consiste en escribir primero los test antes que las clases permitiéndote ver si el diseño de una clase es la adecuada.
+El ciclo del TDD
+
+* Red: escribe un test que falle.
+* Green: escribe el código necesario para que pase el test.
+* Refactor: mejora el código.
+
+Reglas
+
+* Sólo escribirás código de test hasta que falle.
+* Sólo escribirás código de producción para pasar el test.
+* No escribirás más código de producción del necesario.
+
+Puedes combinar las reglas del TDD con su ciclo tal como hizo el profesor:
+
+* Red: Escribirás el mínimo de código test que falle.
+* Green: Escribirás el mínimo de código de producción que pase el test.
+* Refactor: sólo cuando los tests estén pasando.
+
