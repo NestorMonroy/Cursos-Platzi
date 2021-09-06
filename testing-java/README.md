@@ -226,3 +226,18 @@ Por lo general una aplicación se divide en:
 * Datos: Se encarga de guardar los datos de nuestra aplicación.
 
 Cada capa se puede comunicar con otra, pero no conoce los detalles de implementación.
+
+
+### Test a partir de requerimiento
+
+Normalmente, el desarrollo de los proyectos comienza a partir de requerimientos muy bien especificados. Sin embargo, habrá veces donde el programador debe definirlos o acabar de concretarlos. No importa cuál sea el caso, solo podemos empezar a escribir los tests una vez tenemos los requerimientos.
+
+Existen diferentes escenarios:
+
+* Típicos
+* Extremos
+* Incorrectos
+* No previstos
+
+
+### En Java, los tipos primitivos como int, boolean o double no pueden tener valor *null.

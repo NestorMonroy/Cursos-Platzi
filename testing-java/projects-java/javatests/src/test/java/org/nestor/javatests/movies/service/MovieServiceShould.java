@@ -10,9 +10,11 @@ import org.nestor.javatests.movies.model.Movie;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
 
 public class MovieServiceShould {
@@ -29,7 +31,8 @@ public class MovieServiceShould {
                         new Movie(4, "Super 8", 112, Genre.THRILLER, "Director 1"),
                         new Movie(5, "Scream", 119, Genre.HORROR, ""),
                         new Movie(6, "Home Alone", 103, Genre.COMEDY, ""),
-                        new Movie(7, "Matrix", 136, Genre.ACTION, "")
+                        new Movie(7, "Matrix", 136, Genre.ACTION, ""),
+                        new Movie(8, "Superman", 112, Genre.THRILLER, "Ejemplo")
                 )
         );
 
@@ -49,7 +52,36 @@ public class MovieServiceShould {
 
     @Test
     public void return_movies_by_length() {
-        Collection<Movie> movies = movieService.findMoviesByLength(119);
-        assertThat(getMovieIds(movies), CoreMatchers.is(Arrays.asList(3,5)));
+        Collection<Movie> movies = movieService.findMoviesByLength(120);
+        assertThat(getMovieIds(movies), CoreMatchers.is(Arrays.asList(2, 3, 4, 5, 6, 8)));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void find_movies_by_negative_minutes() {
+        Collection<Movie> movies = movieService.findMoviesByLength(-103);
+        assertThat(movies, CoreMatchers.is(Arrays.asList() ) );
+    }
+
+    @Test
+    public void find_movies_by_name_null() {
+        Collection<Movie> movies = movieService.findMoviesByName(null);
+        assertThat(movies, nullValue());
+    }
+
+    @Test
+    public void find_movies_by_genre_and_minutes() {
+        assertThat(getMovieIds(movieService.findMoviesByTemplate(
+                new Movie(null,null, 112, Genre.THRILLER, "")
+        )), CoreMatchers.is(Arrays.asList(4,8)));
+    }
+
+    @Test
+    public void find_movies_by_genre_and_name() {
+        assertThat(
+                getMovieIds(movieService.findMoviesByTemplate(
+                        new Movie(null, "Dark", null, null, ""))),
+                CoreMatchers.is(Collections.singletonList(1)));
+    }
+
+
 }
