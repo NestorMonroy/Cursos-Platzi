@@ -100,4 +100,14 @@ Es una función muy simple (1 línea).
 
 ### Inmutabilidad
 
-La clase inmutable que consideras inmutable creo que no es totalmente, porque si esta bien que haga un copiado de la lista cada vez que se llama el metodo get, cuando el objeto se crea por primera vez el valor de la lista “emails” que envias no le hace ningun copiado, simplemente lo coloca directamente en el atributo emails de la clase, eso hace que el programador a futuro pueda tomar esa lista que le envio al objeto inmutable y modificarla desde afuera, y al modificarla desde afuera, eso modifica el valor de la referencia que tiene en la clase inmutable.
+Inmutabilidad
+
+Un objeto inmutable es aquel cuyo estado no se puede cambiar una vez construído.
+Ventajas :
+* Una vez creado no se puede alterar.
+* Facilidad para crear funciones puras.
+* Facilidad para usar threads/concurrencia.
+Desventajas :
+* Cuando se necesecite alterar un datos, se requiere crear una nueva instancia por cada set modificado.
+* Requiere especial atención al diseño.
+* Los objetos mutables están fuera de nuestro alcance, porque se vuelven inpredecibles.
