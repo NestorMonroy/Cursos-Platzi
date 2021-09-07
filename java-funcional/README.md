@@ -381,3 +381,7 @@ para cualquier caso
 
 
 ### Usando metodos default en nuestras interfaces
+
+Default en una interfaz nos permitirá implementar un método. Es una keyword que permite añadir un comportamiento por defecto a la interfaz.
+
+@FunctionalInterface, esta anotación nos permite contar con método sin definir y también método default.
