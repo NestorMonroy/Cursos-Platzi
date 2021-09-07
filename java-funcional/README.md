@@ -378,3 +378,6 @@ Pero si NO devuelve nada, solo hay que indicar el tipo de entrada vacío.
 Para evitar errores es mejor usar
 ( ) -> { operación }
 para cualquier caso
+
+
+### Usando metodos default en nuestras interfaces
