@@ -37,7 +37,8 @@ public final class ImmutablePerson {
         return lastName;
     }
 
-    //Se debe de realizar esto, volver a llamar para que no sea mutable
+    // con final evitas que el valor mute, el getter de los emails, retorna una nueva copia
+    //Generamos nuevas copias ***Notas
     public final List<String> getEmails() {
         return new LinkedList<>(emails);
     }
