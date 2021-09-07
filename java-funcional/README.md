@@ -111,3 +111,148 @@ Desventajas :
 * Cuando se necesecite alterar un datos, se requiere crear una nueva instancia por cada set modificado.
 * Requiere especial atención al diseño.
 * Los objetos mutables están fuera de nuestro alcance, porque se vuelven inpredecibles.
+
+### Revisando el paquete java.util.function: Function
+
+El tipo de Function en Java es una Interfaz y lo que estamos haciendo son clases anonimas.
+
+La interfaz Predicate te ayuda con las validaciones de objetos complejos, para algunos datos ya definidos en el lenguaje, existen sus equivalentes
+
+```java
+
+
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+public class MathFunctions {
+    public static void main(String[] args) {
+        Function<Integer, Integer> squareFunction = new 
+        
+        Function<Integer, Integer>() {
+            @Override
+            public Integer apply(Integer x) {
+                return x * x;
+            }
+        };
+        System.out.println(squareFunction.apply(5));
+        System.out.println(squareFunction.apply(25));
+        System.out.println(square(5));
+    }
+
+    static int square(int x) {
+        return x * x;
+    }
+}
+```
+
+
+### Revisando el paquete java.util.function: Predicate
+
+Un Predicado es un interface funcional que define una condición que un objeto determinado debe cumplir. 
+
+Con los predicados se pueden generar validaciones rapidas o sobre las mismas funciones que ya tenemos, nos beneficia al momento de estar filtrando elementos o corroborando que algo tenga datos
+
+
+```java
+
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+public class MathFunctions {
+    public static void main(String[] args) {
+        //Definición de funcion mas simple, sin utilizar un operador @Override
+        Function<Integer, Boolean> isOdd = x -> x % 2 == 1;
+
+        //Predicate -> Trabaja sobre un tipo y regresa un bolean
+        Predicate<Integer> isEven = x -> x % 2 == 0;
+        isEven.test(4); //  con .test revisamos el resultado
+
+        Predicate<Student> isApproved = student -> student.getCalificacion() >= 6.0;
+        Student nestor = new Student(5);
+        
+        System.out.println(isApproved.test(nestor));
+
+    }
+
+    static class Student {
+        private double calificacion;
+        Student(double calificacion) {
+            this.calificacion = calificacion;
+        }
+        public double getCalificacion() {
+            return calificacion;
+        }
+    }
+}
+
+```
+
+### Revisando el paquete java.util.function: Consumer y Supplier
+
+* Consumer -> Consumido
+* Supplier -> Proveedor
+
+Consumer es una Interfaz genérica, función que tiene como 1 solo parámetro.
+Tiene como método: accept
+
+Supplier es otra interfaz genérica, función que que encarga de generar datos, proveer datos. 1 solo parámetro.
+
+Tiene como método get.
+
+
+Entonces, puedes ver que un Consumer se encarga de “consumir” los datos que le pases.
+
+```
+Consumer<Student> saveProgressInDataBase = student -> db.updateStudent(student);
+
+Supplier<String> randomPasswordGenerator = () -> complexAlgorithm.generate() ;
+```
+
+Puedes tambien tener en cuenta que el Consumer de alguien que RECIBE datos y el Supplier es alguien que SUMINISTRA datos
+
+### Revisando el paquete java.util.function: Operators y BiFunction
+
+Estas funciones extienden de Function. Quiere decir que tienen el método apply.
+
+UnaryOPerator --> Solo se especifica un solo tipo de dato. Se entiende que tendrá como resultado el mismo tipo.
+
+BinaryOperator --> Solo se especifica un tipo de dato. Se entiende que tendrá 2 parámetros de entrada y el uno de retorno del mismo tipo de dato.
+
+Bifunction --> 2 parámetros de entrada, se tiene que especificar el tipo de dato. Puede tener diferentes tipos de entradas como también diferente tipo de salida.
+
+
+```java
+
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+import java.util.function.UnaryOperator;
+
+public class StringFunctions {
+    public static void main(String[] args) {
+        //UnaryOperator: Function, donde la entrada y la salida son del mismo tipo.
+        UnaryOperator<String> quote = text -> "\"" + text + "\"";
+        UnaryOperator<String> addMark = text -> text + "!";
+
+        System.out.println(quote.apply("Hola nestor")); // "Hola nestor"
+        System.out.println(addMark.apply("Hola")); // Hola!
+        
+        //BinaryOperator: recibe un tipo y los el resultado es del mismo tipo
+
+        BinaryOperator<Integer> multiplicacion = (x, y) -> x * y;
+        System.out.println(multiplicacion.apply(5, 1));
+
+        // BiFunction: Tipo de Function que recibe dos tipos de dato y regresa otro tipo de dato
+
+        //BiFunction<Integer, Integer, Integer> multiplicacion = (x,y) -> x*y;
+
+        BiFunction<String, Integer, String> leftPad =
+                (text, number) -> String.format("%" + number + "s", text);
+
+        System.out.println(leftPad.apply("Nestor", 5));
+
+        List<>
+
+    }
+}
+
+```
