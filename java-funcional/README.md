@@ -543,3 +543,58 @@ La clase Optional es una manera de almacernar un dato, el cual no tenemos certez
 Vale la pena recordar que Opcional se debe usar para información que se retorna, en lugar de información que se recibe (a través de parámetros, por ejemplo). 
 
 Tu codigo debería usar unicamente Optional como resultado de una función, nunca como entrada.
+
+
+### Streams
+
+¿Que son los Streams?
+
+Los Stream se utilizan para procesar colecciones de objetos. Una secuencia es una secuencia de objetos que admite varios métodos que se pueden canalizar para producir el resultado deseado.
+
+Un Stream es auto iterable -> Cuanndo se crea una lista, se puede decir la operacion que se hace a la lista 
+
+Las características de la secuencia de Java son:
+
+* Un flujo no es una estructura de datos, sino que toma información de las colecciones.
+* Los flujos no cambian la estructura de datos original, solo proporcionan el resultado según los métodos canalizados.
+* Cada operación intermedia se ejecuta de forma perezosa y devuelve un flujo como resultado, por lo que se pueden canalizar varias operaciones intermedias. Las operaciones de terminal marcan el final de la secuencia y devuelven el resultado.
+
+
+### Stream listeners
+
+Operaciones intermedias:
+```java
+
+/*map: El método de map se utiliza para devolver una secuencia que consta de los resultados de aplicar la función dada a los elementos de esta secuencia.
+*/
+
+List number = Arrays.asList(2,3,4,5); List square = number.stream().map(x->x*x).collect(Collectors.toList());
+
+/*filter: El metodo filter se utiliza para seleccionar elementos según el predicado pasado como argumento.
+*/
+
+List names = Arrays.asList("Reflection","Collection","Stream"); List result = names.stream().filter(s ->s.startsWith("S")).collect(Collectors.toList());
+
+/* sorted: El método sorted method se utiliza para ordenar la secuencia.*/
+
+List names = Arrays.asList("Reflection","Collection","Stream"); List result = names.stream().sorted().collect(Collectors.toList());
+```
+
+
+Operaciones de la terminal:
+
+```java
+
+/* collect: El método method se utiliza para devolver el resultado de las operaciones intermedias realizadas en la secuencia.*/
+
+List number = Arrays.asList(2,3,4,5,3); Set square = number.stream().map(x->x*x).collect(Collectors.toSet());
+
+// forEach: El método forEach se utiliza para iterar a través de cada elemento de la secuencia.
+
+List number = Arrays.asList(2,3,4,5); number.stream().map(x->x*x).forEach(y->System.out.println(y));
+
+//reduce: El método reduce se utiliza para reducir los elementos de una secuencia a un solo valor. El método reduce toma un BinaryOperator como parámetro.
+
+List number = Arrays.asList(2,3,4,5); int even = number.stream().filter(x->x%2==0).reduce(0,(ans,i)-> ans+i);
+
+```
