@@ -290,3 +290,40 @@ public class AgeUtils {
 
 ```
 
+### Operador de Referencia
+
+Con el operador de referencia vamos a poder llamar métodos de otras clases ya establecidos en la aplicación de una forma más sencilla siempre y cuando cumpla las condiciones donde lo vayamos a utilizar.
+
+```java
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+public class NombresUtils {
+    public static void main(String[] args) {
+        List<String> profesores = getList("Nestor", "Luis", "Joel");
+
+        Consumer<String> printer = text -> System.out.println(text);
+        profesores.forEach(printer);
+
+        System.out.println("*****");
+
+        /*
+        
+        Poder referenciar un método, los métodos también son funciones, estan liagadas a una clase
+        EL metodo debe de cumplir con las mismas caracteriticas que la funcion que deberiamos escribir.
+        Deben de cumplorar con la misma cantidad y tipo de parametros
+        para poder generar el mismo resultado 
+
+        (::)
+        */
+        profesores.forEach(System.out::println);
+
+    }
+    static<T> List<T> getList(T... elements){
+        return Arrays.asList(elements);
+    }
+}
+
+```
