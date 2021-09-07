@@ -524,3 +524,22 @@ public class MatOperations2 {
 
 }
 ```
+
+
+### La clase Optional
+
+Apartir de java 8, se evita existencias con valores inexistentes esdecir NullPointerException 
+
+Apartir de diferentes tipos de instancias, no tengas que preocuparte
+por el valor de retorno.
+
+Diferentes tipos de defaul 
+
+Optional.empty(): Cuando no encontremos casos
+Optional.ofNullable(): Desconocemos el valor de una variable
+
+La clase Optional es una manera de almacernar un dato, el cual no tenemos certeza si esta o no presente.
+
+Vale la pena recordar que Opcional se debe usar para información que se retorna, en lugar de información que se recibe (a través de parámetros, por ejemplo). 
+
+Tu codigo debería usar unicamente Optional como resultado de una función, nunca como entrada.
