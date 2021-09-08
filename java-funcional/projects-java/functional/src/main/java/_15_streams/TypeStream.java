@@ -1,4 +1,4 @@
-package _13_streams;
+package _15_streams;
 
 import java.util.List;
 import java.util.stream.Collectors;

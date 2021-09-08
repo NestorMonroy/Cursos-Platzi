@@ -1,9 +1,8 @@
-package _13_streams;
+package _15_streams;
 
 import _06_reference_operator.NombresUtils;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Streams {
