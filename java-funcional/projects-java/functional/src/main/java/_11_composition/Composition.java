@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -100,5 +101,18 @@ public class Composition {
 
     private static void addIfNotEmpty(List<String> list, String s) {
         if (s != null && s.length() > 0 && s.trim().length() > 0) list.add(s);
+    }
+
+    //TODO: Crear una funcion o grupo de funciones que puedan calcular: x^2 + y^2 + 2xy
+    // usando unicamente los operadores: *, + una vez por funcion.
+    // Es decir, Math.pow no esta permitido. y funciones del estilo: a * b + c no estan permitidas.
+    public static BiFunction<Integer, Integer, Integer> generateEquation() {
+        //Ejemplo:
+        Function<Integer, Integer> toNegative = x -> -x;
+
+        //Y aqui tienes un regalo para este ejercicio (tienes que usar esta funcion en el codigo final):
+        Function<Integer, Integer> multiplyBy2 = x -> x * 2;
+
+        return null;
     }
 }
