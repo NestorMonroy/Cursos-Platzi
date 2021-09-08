@@ -1193,3 +1193,16 @@ Las operaciones intermedias nos permiten tener control sobre los streams y manip
 Recuerda que las operaciones intermedias tienen la funcionalidad de generar nuevos streams que podremos dar como resultado para que otras partes del código los puedan utilizar.
 
 Aunque existen otras operaciones intermedias en diferentes implementaciones de Stream, las que aquí listamos están presentes en la interfaz base, por lo que entender estas operaciones te facilitara la vida en la mayoría de los usos de Stream.
+
+### Collectors
+
+Necesitamos generar un resultado al operar sobre un Stream y como no todos implementan Stream, es decir, un Stream de Java puede que no lo use un cliente en JavaScript o un código en Python o alguna API, entonces debemos hacer que estos datos sean más manejables, convertir el Stream en algo que se pueda operar, no solo en Java, sino desde otros lugares. Vamos a convertir nuestro Stream de enteros a una lista de enteros porque los números los podemos procesar fácilmente.
+
+El resultado del filter lo vamos a convertir a boxed, lo cual representa que nuestro Stream que está trabajando sobre enteros pero de tipo Stream(IntStream) va a convertirse solamente en un Stream de Integer, con boxed hacemos que el Stream trabaje sobre datos específicos, como este caso Integer, no sobre Stream de enteros.
+Con lo anterior, podemos recopilar los datos de un Stream en una estructura de datos, aquí entra en juego el método collect.
+
+Con collect podemos dar una manera de convertir un Stream de datos en una estructura ya física, en una estructura que no tiene operadores, simplemente tiene los datos en concreto, que fueron el resultado de aplicar múltiples operaciones a un Stream.
+
+Tenemos Collectors para convertir a mapa, lista, set.
+
+Con Collectors.toList() usamos el que convierte a lista, en este caso devolverá una lista de Integers
