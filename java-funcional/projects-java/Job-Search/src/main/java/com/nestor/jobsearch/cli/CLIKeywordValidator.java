@@ -8,7 +8,7 @@ import com.beust.jcommander.ParameterException;
  * <p>
  * En nuestro caso la usamos para validar que el skill solicitiado (keyword) sea unicamente letras y numeros.
  */
-public class CLIKeywordValidator extends IParameterValidator {
+public class CLIKeywordValidator implements IParameterValidator {
     @Override
     public void validate(String name, String value) throws ParameterException {
         if(!value.matches("^[a-zA-Z]+[0-9]*$")){
