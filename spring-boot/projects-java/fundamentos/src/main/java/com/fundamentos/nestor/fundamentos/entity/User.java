@@ -18,10 +18,8 @@ public class User {
     @Column(name = "name", length = 50)
     private String name;
 
-    @Column(name = "email", length = 50)
     private String email;
 
-    @Column(name = "birtDate")
     private LocalDate birtDate;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -32,12 +30,10 @@ public class User {
 
     }
 
-    public User(Long id, String name, String email, LocalDate birtDate, List<Post> posts) {
-        this.id = id;
+    public User(String name, String email, LocalDate birtDate) {
         this.name = name;
         this.email = email;
         this.birtDate = birtDate;
-        this.posts = posts;
     }
 
     public Long getId() {

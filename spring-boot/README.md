@@ -227,3 +227,6 @@ Especificacion de Java para acceder, conservar y administrar datos entre objetos
 JPA
 Java Persistence API
 
+### JpaRepository
+
+Registro a nivel de base de datos, metodos para insetar, obtener informacion .
