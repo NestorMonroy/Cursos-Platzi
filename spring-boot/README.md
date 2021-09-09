@@ -237,3 +237,9 @@ Registro a nivel de base de datos, metodos para insetar, obtener informacion .
 * Similar a SQL pero con la particularidad de operar sobre objectos
 
 No se puede hacer insert en JPQL
+
+
+### Que son los Query methods?
+
+Es una definicion de una consulta manualmente como una cadena o derivarla del nombre del metodo.
+
