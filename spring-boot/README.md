@@ -96,3 +96,110 @@ Si nuestra clase o interfaz no tiene una especificación clara como @Service, @R
 
 Por otro lado, no es estrictamente necesario que cumplas con colocar una notación especifica, pero es una buena practica.
 
+-----------------
+Se genera una interaz la cual vamos a implementar
+
+```java
+import java.util.List;
+
+public interface MyOwnOperation {
+    List<Integer> generateRandomElements(int maxElement, int maxLimit);
+}
+```
+
+Se genera la implementacion de la intefaz generada
+
+```java
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+public class MyOwnOperationImplement implements MyOwnOperation{
+    @Override
+    public List<Integer> generateRandomElements(int maxElement, int maxLimit) {
+        return new Random().ints(0, maxElement)
+                .limit(maxLimit)
+                .boxed() //Regresa un intStream
+                .collect(Collectors.toList());
+    }
+}
+
+```
+
+Se genera una nuava intefaz
+
+```java
+
+public interface MyOwnBeanWithDependency {
+    void displayElements();
+}
+
+```
+
+Se genera nuevamente una implementacion
+
+```java
+import java.util.List;
+
+public class MyOwnBeanWithDependencyImplement implements MyOwnBeanWithDependency{
+    private MyOwnOperation myOwnOperation;
+
+    //Constructor
+    public MyOwnBeanWithDependencyImplement(MyOwnOperation myOwnOperation) {
+        this.myOwnOperation = myOwnOperation;
+    }
+
+    @Override
+    public void displayElements() {
+        List<Integer> randomNums = this.myOwnOperation.generateRandomElements(100,10);
+        randomNums.forEach(System.out::println);
+        System.out.println("Hola desde mi implementación de un bean con dependencia usando Streams y Listas");
+    }
+}
+```
+
+
+En el archivo de configuracion de bean se agregan estas nuevas implementaciones
+
+```java
+
+@Bean
+public MyOwnOperation beanOperationMyOwn() {
+    return new MyOwnOperationImplement();
+}
+
+@Bean
+public MyOwnBeanWithDependency beanOperationMyOwnWithDependency(MyOwnOperationmyOwnOperation){
+    return new MyOwnBeanWithDependencyImplement(myOwnOperation);
+}
+
+```
+
+Se realiza la inyecion de dependencias el main o donde lo ejecutaremos
+
+
+```java
+
+@SpringBootApplication
+public class FundamentosApplication implements CommandLineRunner {
+    //Inyección de dependencias con Spring
+    private MyOwnBeanWithDependency myOwnBeanWithDependency;
+
+
+    public FundamentosApplication(MyOwnBeanWithDependency myOwnBeanWithDependency) {
+        this.myOwnBeanWithDependency = myOwnBeanWithDependency;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(FundamentosApplication.class, args);
+    }
+
+    //Método de la interfaz CommandLineRunner
+    @Override
+    public void run(String... args) throws Exception {
+        //Lamamos a la implementación
+
+        myOwnBeanWithDependency.displayElements();
+    }
+}
+```

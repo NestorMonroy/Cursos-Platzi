@@ -2,6 +2,7 @@ package com.fundamentos.nestor.fundamentos;
 
 import com.fundamentos.nestor.fundamentos.bean.MyBean;
 import com.fundamentos.nestor.fundamentos.bean.MyBeanWithDependency;
+import com.fundamentos.nestor.fundamentos.bean.MyOwnBeanWithDependency;
 import com.fundamentos.nestor.fundamentos.component.ComponentDependency;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -15,12 +16,15 @@ public class FundamentosApplication implements CommandLineRunner {
     private MyBean myBean;
     private MyBeanWithDependency myBeanWithDependency;
 
+    private MyOwnBeanWithDependency myOwnBeanWithDependency;
+
     //Creamos el constructor de la clase, al tener una dependencia que está implementando dos clases se utiliza
     // @Qualifier para seleccionar la dependencia que necesitamos  **
-    public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency) {
+    public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency, MyOwnBeanWithDependency myOwnBeanWithDependency) {
         this.componentDependency = componentDependency;
         this.myBean = myBean;
         this.myBeanWithDependency = myBeanWithDependency;
+        this.myOwnBeanWithDependency = myOwnBeanWithDependency;
     }
 
     public static void main(String[] args) {
@@ -34,5 +38,6 @@ public class FundamentosApplication implements CommandLineRunner {
         componentDependency.saludar();
         myBean.print();
         myBeanWithDependency.printWithDependency();
+        myOwnBeanWithDependency.displayElements();
     }
 }
