@@ -230,3 +230,10 @@ Java Persistence API
 ### JpaRepository
 
 Registro a nivel de base de datos, metodos para insetar, obtener informacion .
+
+### Uso de JPQL en anotacion Query
+
+* JPQL es el lenjuaje de consulta definido por JPA
+* Similar a SQL pero con la particularidad de operar sobre objectos
+
+No se puede hacer insert en JPQL
