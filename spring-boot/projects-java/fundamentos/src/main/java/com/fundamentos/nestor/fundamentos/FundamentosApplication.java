@@ -2,6 +2,7 @@ package com.fundamentos.nestor.fundamentos;
 
 import com.fundamentos.nestor.fundamentos.bean.MyBean;
 import com.fundamentos.nestor.fundamentos.bean.MyBeanWithDependency;
+import com.fundamentos.nestor.fundamentos.bean.MyBeanWithProperties;
 import com.fundamentos.nestor.fundamentos.bean.MyOwnBeanWithDependency;
 import com.fundamentos.nestor.fundamentos.component.ComponentDependency;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,16 +16,17 @@ public class FundamentosApplication implements CommandLineRunner {
     private ComponentDependency componentDependency;
     private MyBean myBean;
     private MyBeanWithDependency myBeanWithDependency;
-
     private MyOwnBeanWithDependency myOwnBeanWithDependency;
+    private MyBeanWithProperties myBeanWithProperties;
 
     //Creamos el constructor de la clase, al tener una dependencia que está implementando dos clases se utiliza
     // @Qualifier para seleccionar la dependencia que necesitamos  **
-    public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency, MyOwnBeanWithDependency myOwnBeanWithDependency) {
+    public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency, MyOwnBeanWithDependency myOwnBeanWithDependency, MyBeanWithProperties myBeanWithProperties) {
         this.componentDependency = componentDependency;
         this.myBean = myBean;
         this.myBeanWithDependency = myBeanWithDependency;
         this.myOwnBeanWithDependency = myOwnBeanWithDependency;
+        this.myBeanWithProperties = myBeanWithProperties;
     }
 
     public static void main(String[] args) {
@@ -39,5 +41,6 @@ public class FundamentosApplication implements CommandLineRunner {
         myBean.print();
         myBeanWithDependency.printWithDependency();
         myOwnBeanWithDependency.displayElements();
+        System.out.println(myBeanWithProperties.function());
     }
 }
