@@ -6,6 +6,8 @@ import com.fundamentos.nestor.fundamentos.bean.MyBeanWithProperties;
 import com.fundamentos.nestor.fundamentos.bean.MyOwnBeanWithDependency;
 import com.fundamentos.nestor.fundamentos.component.ComponentDependency;
 import com.fundamentos.nestor.fundamentos.pojo.UserPojo;
+import org.apache.juli.logging.Log;
+import org.apache.juli.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class FundamentosApplication implements CommandLineRunner {
+
+    Log LOGGER = LogFactory.getLog(FundamentosApplication.class);
+
     //Inyección de dependencias con Spring
     private ComponentDependency componentDependency;
     private MyBean myBean;
@@ -45,7 +50,13 @@ public class FundamentosApplication implements CommandLineRunner {
         myBeanWithDependency.printWithDependency();
         myOwnBeanWithDependency.displayElements();
         System.out.println(myBeanWithProperties.function());
-        System.out.println(userPojo.getEmail() + "-" +userPojo.getPassword());
+        System.out.println(userPojo.getEmail() + "-" + userPojo.getPassword());
 
+        try {
+            int value = 10 / 0;
+            LOGGER.debug("Mi valor: " + value);
+        } catch (Exception e) {
+            LOGGER.error("Esto es un error al dividir entre 0 " + e.getMessage());
+        }
     }
 }

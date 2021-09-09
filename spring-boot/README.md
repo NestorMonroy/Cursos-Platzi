@@ -203,3 +203,27 @@ public class FundamentosApplication implements CommandLineRunner {
     }
 }
 ```
+
+
+### Que son los logs
+
+
+Los logs son una herramienta o utilidad que nos permite debugear la informacion
+
+Apache Commos tiene algunos niveles de log
+
+* Error
+* Infor
+* Debug
+* otros
+
+
+### Modelado de entidades con JPA
+
+JPA 
+
+Especificacion de Java para acceder, conservar y administrar datos entre objetos o clases y una base de datos relacional.
+
+JPA
+Java Persistence API
+
