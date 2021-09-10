@@ -246,3 +246,8 @@ Es una definicion de una consulta manualmente como una cadena o derivarla del no
 ### Named parameters
 
 Son parámetros que se envían a nivel de sentencias, estos parámetros serán inicializados dentro los parámetros del método, representándolos por medio de la anotación @Param.
+
+
+### Rollback con la anotación transactional
+
+Al aplicar la anotación @transactional podemos presenciar al conjunto de operaciones ejecutándose de manera total, integral y atómica. Se sigue el acrónimo ACID (Atomicity, Consistency, Isolation and Durability: Atomicidad, Consistencia, Aislamiento y Durabilidad, en español).

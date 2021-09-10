@@ -18,7 +18,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    @Transactional //Permite hacer un Rollback de todas las transaciones de la base de datos.
+    @Transactional //Permite hacer un Rollback de todas las transaciones de la base de datos. Si existe un error hara un rollback del error
     public void saveTransactional(List<User> users){
         users.stream()
                 .peek(user -> LOG.info("Usuario insertado : " + user))
