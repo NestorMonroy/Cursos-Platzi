@@ -76,3 +76,27 @@ application-pdn.properties
 Common Application properties
 
 https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+
+
+### Crear la estructura del proyecto
+
+La estructura del proyecto será de la siguiente manera:
+
+1. DOMINIO:
+
+* DTO y objetos del dominio (Contexto de la aplicación)
+* Servicios: Puente entre los controladores y la capa de persistencia.
+* Especificación de repositorios: Interfaces que determinan las reglas que debe cumplir la persistencia para actuar entre los objetos de dominio y la DB.
+
+2. WEB:
+
+* Controladores de API Rest.
+
+3. PERSISTENCIA:
+
+* Repositorios: Implementan las especificaciones que tiene la capa de DOMINIO.
+* Entities: Mapean y actúan como tablas de la DB.
+
+/market/src/main/java/com/nestor/market
+
+mkdir -p domain/{dto,repository,service} persistance/{entity,crud} web/controller
