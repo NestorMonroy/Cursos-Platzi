@@ -243,3 +243,6 @@ No se puede hacer insert en JPQL
 
 Es una definicion de una consulta manualmente como una cadena o derivarla del nombre del metodo.
 
+### Named parameters
+
+Son parámetros que se envían a nivel de sentencias, estos parámetros serán inicializados dentro los parámetros del método, representándolos por medio de la anotación @Param.
