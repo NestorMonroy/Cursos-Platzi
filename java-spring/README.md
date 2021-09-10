@@ -45,3 +45,34 @@ Utilizar la version estable de spring boot y llenar los metadatos
 * build.gradle: Es donde etsta escrita toda la configuración del proyecto (plugins, version de Java, dependencias, software para pruebas etc.)
 * Carpeta gradle: Archivos necesarios para que gradle funcione
 * @SpringBootApplication: indica la clase que gestiona la aplicación
+
+### Configurar Spring Boot
+
+Propiedades de la aplicación
+
+application.properties, application.yml o línea de comando 
+○ (configurar un nuevo numero de puerto)
+
+Posibilidad de añadir propiedades propias
+```
+server.port=8090
+server.servlet.context-path=/market/api
+localhost:8090/market/api/saludar/hola
+```
+Gestión de perfiles según el tipo de despliegue
+(se puede utilizar para desplegar perfiles para dev y para prod)
+
+* Ser gestionado para varios entornos
+* Es muy importante seguir el patron den nombramiento
+
+application.properties
+	spring.profiles.active=dev
+	server.servlet.context-path=/win-market/api
+application-dev.properties
+	server.port=8090
+application-pdn.properties
+	server.port=80
+
+Common Application properties
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
