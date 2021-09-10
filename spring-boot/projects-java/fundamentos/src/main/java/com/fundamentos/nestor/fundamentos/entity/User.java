@@ -1,5 +1,6 @@
 package com.fundamentos.nestor.fundamentos.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -8,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id_user", nullable = false, unique = true)
+    @Column(name = "id_user", nullable = false, unique = true)
     private Long id;
 
     @Column(name = "name", length = 50)
@@ -24,7 +25,8 @@ public class User {
     private LocalDate birthDate;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference
+    //@JsonManagedReference // error “Unsupported Media Type”
+    @JsonIgnore
     private List<Post> posts = new ArrayList<>();
 
     public User() {
@@ -35,6 +37,10 @@ public class User {
         this.name = name;
         this.email = email;
         this.birthDate = birthDate;
+    }
+
+    public User(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
