@@ -8,13 +8,13 @@ import com.fundamentos.nestor.fundamentos.component.ComponentDependency;
 import com.fundamentos.nestor.fundamentos.entity.User;
 import com.fundamentos.nestor.fundamentos.pojo.UserPojo;
 import com.fundamentos.nestor.fundamentos.repository.UserRepository;
+import com.fundamentos.nestor.fundamentos.service.UserService;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.domain.Sort;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -33,10 +33,11 @@ public class FundamentosApplication implements CommandLineRunner {
     private MyBeanWithProperties myBeanWithProperties;
     private UserPojo userPojo;
     private UserRepository userRepository;
+    private UserService userService;
 
     //Creamos el constructor de la clase, al tener una dependencia que está implementando dos clases se utiliza
     // @Qualifier para seleccionar la dependencia que necesitamos**
-    public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency, MyOwnBeanWithDependency myOwnBeanWithDependency, MyBeanWithProperties myBeanWithProperties, UserPojo userPojo, UserRepository userRepository) {
+    public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency, MyOwnBeanWithDependency myOwnBeanWithDependency, MyBeanWithProperties myBeanWithProperties, UserPojo userPojo, UserRepository userRepository, UserService userService) {
         this.componentDependency = componentDependency;
         this.myBean = myBean;
         this.myBeanWithDependency = myBeanWithDependency;
@@ -44,6 +45,7 @@ public class FundamentosApplication implements CommandLineRunner {
         this.myBeanWithProperties = myBeanWithProperties;
         this.userPojo = userPojo;
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     public static void main(String[] args) {
@@ -56,6 +58,20 @@ public class FundamentosApplication implements CommandLineRunner {
         //ejemplosAnteriores();
         saveUserInDataBase();
         getInformationJpqlFromUser();
+        saveWithTransactional();
+    }
+
+    private void saveWithTransactional() {
+        User test1 = new User("test1Transactional1", "test1Transactional1@domain.com", LocalDate.now());
+        User test2 = new User("test2Transactional2", "test2Transactional2@domain.com", LocalDate.now());
+        User test3 = new User("test3Transactional3", "test3Transactional3@domain.com", LocalDate.now());
+        User test4 = new User("test4Transactional4", "test4Transactional4@domain.com", LocalDate.now());
+
+        List<User> users = Arrays.asList(test1, test2, test3, test4);
+
+        userService.saveTransactional(users);
+
+        userService.getAllUsers().stream().forEach(user -> LOGGER.info("Este es el usuario dentro del metodo saveWithTransactional" + user));
     }
 
     private void getInformationJpqlFromUser() {
@@ -111,7 +127,6 @@ public class FundamentosApplication implements CommandLineRunner {
         );
 
     }
-
 
     private void saveUserInDataBase() {
         User user1 = new User("Nestor", "nestor@abc.com", LocalDate.of(1997, 5, 12));
