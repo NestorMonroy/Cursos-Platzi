@@ -191,3 +191,22 @@ Los query method son muy potentes. Además de los explicado, permiten realizar m
 * Comparación entre un conjunto de datos: Si por ejemplo quiero traerme los productos con varias categorías, podría escribir findAllByCategoriasIdIn(List<Integer> categoriaIds); y así trabajar bajo un conjunto de Id de categorías
 
 Existen más funcionalidades ✌🏼. Pueden ver más detalle acá: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+
+
+### Implementar la anotación @Repository
+
+@Repository: le indicamos a la clase que es la encarga de interactuar con la base de datos.
+@Component: le indicamos que es un componente de spring.
+
+El primero es mejor porque indicamos el tipo de componente que es.
+
+### ¿Qué es el patrón Data Mapper y qué resuelve?
+
+DataMappers - Mapeando los datos
+
+Nos permite desacoplar la persistencia de la aplicación. Consiste en convertir o traducir varios objetos que pueden cumplir la misma labor. De esta forma podemos:
+
+* Independizar la base de datos de la API, desacoplanto la capa de persistencia o de negocio.
+* Desacoplarnos de una base de datos puntua, así no tendríamos que refactorizar todo el código si la capa de persistencia cambia.
+* Evitar campos innecesarios en la API.
+* Evitar mezclar idiomas en la aplicación.
