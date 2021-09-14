@@ -232,3 +232,12 @@ Solid
 * Interface segregation
 * Dependency injection
 
+
+### Implementar la anotación @Service
+
+Las implementaciones del método delete son buenos ejemplos de los estilos declarativo e imperativo.
+El primero define el qué va a hacer el código mientras que el segundo define el cómo y por consiguiente se ven más detalles. Cabe aclarar que el estilo declarativo no puede existir sin el estilo imperativo ya que el primero se apoya en el segundo para ocultar las estructuras de control (if, else, switch, etc).
+
+
+### Implementar la anotación @RestController
+
