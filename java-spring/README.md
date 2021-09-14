@@ -210,3 +210,9 @@ Nos permite desacoplar la persistencia de la aplicación. Consiste en convertir 
 * Desacoplarnos de una base de datos puntua, así no tendríamos que refactorizar todo el código si la capa de persistencia cambia.
 * Evitar campos innecesarios en la API.
 * Evitar mezclar idiomas en la aplicación.
+
+### MapStruct
+
+Mapear los entity a las objetos de dominio (Hacer el traductor entre la capa de la persistencia y la capa de dominio=
+
+https://stackoverflow.com/questions/48521903/map-custom-method-mapper-to-mapstruct
