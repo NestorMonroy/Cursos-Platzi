@@ -14,7 +14,7 @@ public interface ProductRepository {
 
     Optional<List<Product>> getScarseProducts(int quantity);
 
-    Optional<List<Product>> getProduct(int productId);
+    Optional<Product> getProduct(int productId);
 
     Product save(Product product);
 
