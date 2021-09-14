@@ -149,3 +149,23 @@ dependencies {
 	}
 }
 ```
+
+
+###
+
+Cuando se tiene una tabla en la que su llave primara es compuesta, se debe hacer una clase aparte que contenga los atributos que conforman la llave
+
+Creando la Clase que tendra nuestra llave compuesta
+Recuerda que debe de contener lo siguiente:
+
+* se le debe agregar la anotacion @Embeddable
+* se debe de hacer un “implements Serializable”
+* debe contener los atributos que conformen la llame compuesta
+* como en la mayoria de entidades debemos crear los getter y setters
+
+
+En la clase principal debemos tener:
+
+* Declarar la variable id como el tipo de la clase que creamos de nuestra llave compuesta que en este caso es : “ComprasProductoPK”
+* Agregarle la etiqueta @EmbeddeId que hace referencia a que es una llave compuesta y que esta dada por otra clase
+* Y nuevamente los Getter y Setters
