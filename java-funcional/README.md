@@ -1212,3 +1212,94 @@ Con Collectors.toList() usamos el que convierte a lista, en este caso devolverá
 * feign-core: Es el responsable de hacer peticiones web.
 * feign-gson: Convierte de json a objetos de java.
 
+
+
+----
+¿Cuál es una caracteristica de las funciones puras?
+R= No generan efectos secundarios.
+
+Un dato inmutable:
+R= Una vez creado no se puede alterar.
+
+Es fácil identificar una función lambda porque:
+R= No tienen un nombre definido.
+
+¿Qué es una función de orden mayor?
+R= Una funcion que recibe o retorna otras funciones como parte de su ejecución.
+
+La interfaz Function recibe dos parámetros que representan:
+R= El tipo de dato de entrada de la función y el tipo del resultado.
+
+Una función también es:
+R= Almacenable en una variable, pues es un tipo.
+
+Una función recursiva es:
+R= Una función que se invoca a sí misma.
+
+¿Qué beneficios tiene ser ciudadano de primera clase?
+R= Que pueden ser almacenados en variables y podemos tomarlos como parámetros o valores de retorno. También la definición bajo demanda.
+
+¿Cómo podemos reducir los efectos secundarios?
+R= Limitando las secciones donde se requieran funciones impuras.
+
+¿Cómo puedo crear mi propio tipo de funcion?
+R= Creando una interfaz de tipo SAM (Single Abstract Method) y anotándola con @FunctionalInterface.
+
+¿A qué otro tipo de función puede invocar una función pura?
+R= Únicamente a otras funciones puras.
+
+¿Cuál opción SÍ es considerada un efecto secundario?
+R= Leer un archivo.
+
+¿Cuál es la principal razon para usar Optional?
+R= Proteger nuestro codigo ante la ausencia de datos.
+
+¿Para qué sirve la composicion de funciones?
+R= Para crear nuevas funciones basadas en la ejecucion de otras funciones.
+
+¿Cuál de los siguientes métodos NO es una función pura?
+R= Map.clear()
+
+Un ejemplo de una función es:
+R= f(x,y) = x * y
+
+Un Predicate es:
+R= Una función que evalua si su parámetro cumple con una condición.
+
+¿Qué es una lambda?
+R= Una función.
+
+La programación funcional es:
+R= Un estilo de programación.
+
+¿Qué representa la inferencia de tipos?
+R= Que el compilador es capaz de determinar el tipo de dato para una función o como resultado.
+
+¿Qué puede hacer una función pura con sus parámetros?
+R= Usarlos para generar un resultado.
+
+Consumer es un tipo de funcion que a) _____, mientras que Supplier b) _____.
+R= a) Recibe un parámetro y genera un resultado vacio. b) No recibe parámetros y genera un dato de un tipo especifico.
+
+¿Qué es una función impura?
+R= Una funcion que altera el estado de la aplicación o genera efectos secundarios.
+Regresar
+
+Una función usualmente:
+R= Recibe cero, uno o más datos y puede devolver un resultado.
+
+Dos ventajas de la programación funcional son:
+R= Facilita la concurrencia y escribir pruebas.
+
+Un Operator es:
+R= Una funcion cuyo parámetro es del mismo tipo que su resultado.
+
+¿Cuál es una ventaja de una función de orden mayor?
+R= Podemos compartir lógica entre funciones.
+
+¿De dónde provienen las funciones lambda?
+R = Lambda Calculus. Un concepto matemático de los años 30.
+
+¿Cuáles son las dos bases de la programación funcional?
+R = Funciones y Datos.
+

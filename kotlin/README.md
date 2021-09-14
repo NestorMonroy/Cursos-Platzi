@@ -1193,3 +1193,95 @@ fun main() {
 Debido a que apply retorna la nueva instancia del zapato, es posible encadenar la llamada de also, por lo que la variable newShoe recibe el contenido final y de paso se imprime el mensaje pasando al indicador it.
 
 Todo en una misma cadena de bloques asociados a un contexto que mejora la legibilidad de nuestro código.
+
+-----
+Las high order functions son llamadas así porque:
+R= Son funciones que reciben como parámetro otras funciones.
+
+En Kotlin un tipo de dato entero se define como:
+R= Int
+
+¿Por qué debo utilizar la función map en lugar de un for normal?
+R= Porque al utilizar la función map evito estar creando una lista mutable y estar agregando elementos a dicha lista.
+
+El tipo de variable val es de lectura y escritura.
+R= Falso
+
+En Kotlin es posible asignar un valor utilizando un if
+R= Verdadero
+
+Las variables de tipo var son de lectura y escritura.
+R= Verdadero
+
+La palabra reservada para crear una función en Kotlin es:
+R= fun
+
+Kotlin solo sirve para crear aplicaciones Android.
+R= Falso
+
+Kotlin es un lenguaje fuertemente tipado.
+R= Verdadero
+
+Al escribir código en Kotlin debes evitar la mutabilidad y utilizar más la inmutabilidad.
+R= Verdadero
+
+La función main es...
+R= El punto de entrada de tu programa.
+
+Las lambdas se pueden crear y pasar como parámetros a otras funciones, pero no se pueden almacenar en variables.
+R= Falso, las lambdas se pueden crear y almacenar en variables así como también se pueden pasar como parámetros a otras funciones.
+
+¿Cuántas ramas puede tener un when?
+R= Dependiendo del tipo de dato que se utilice puede tener desde 2 ramas hasta n cantidad.
+
+¿Cuál es el resultado de la siguiente función? fun miFuncion(val nombre: String, val apellido: String) = nombre + apellido
+R= Si utilizamos los parámetros Andrea Gómez el resultado sería: AndreaGómez
+
+Si quiero filtrar los elementos de una lista por una condición, debo utilizar la función:
+R= filter
+
+Dada la siguiente lista: val lista = listOf(1,2,3,4) si quisiera eliminar el primer elemento de la lista ¿que tendría que hacer?
+R= No podría porque la lista es inmutable.
+
+Los nullables son:
+R= Como toda herramienta, pueden ser buenas o malas dependiendo de su uso.
+
+Cuando quiero iterar sobre una lista para modificar elementos y devolver elementos modificados debe utilizarse la función:
+R= map
+
+Con el when siempre tengo que incluir una rama else.
+R= Sí, es una buena práctica tener un when exhaustivo.
+
+Este operador ?: es llamado el operador:
+R= Elvis
+
+La función apply nos permite:
+R= Realizar modificaciones a una variable y devolver la misma variable con las propiedades modificadas.
+
+Cuando quiero iterar sobre una lista sin necesariamente modificar sus elementos puedo usar la función:
+R= forEach
+
+El operador double bang !! es...
+R= Considerado una mala practica y debemos evitar utilizarlo lo más posible.
+
+Las funciones en Kotlin siempre devuelven un tipo.
+R = Sí, siempre devuelven un valor aunque sea implícito.
+
+El siguiente código miVariableNullable?.let{ it -> it.length } nos ayuda a:
+R = Ejecutar el código dentro de las llaves solamente cuando miVariableNullable no sea nulo.
+
+En Kotlin el operador ternario no existe porque:
+R = Con un If podemos replicar el comportamiento.
+
+Las funciones de extensión nos permiten:
+R= Extender del lenguaje y añadir funcionalidades a objetos, creando un código entendible y conciso.
+
+
+Si tengo un MutableMap con un elemento que tiene como clave "RazaDePerro" y el valor es "Corgi". Al intentar asignar un nuevo elemento con la clave "RazaDePerro" y el valor "Pitbull" ¿Cuál sería el resultado?
+R = El primer valor será sobreescrito por el segundo valor.
+
+Si tenemos: val set = setOf("a","b","c") y ejecutamos la función set.remove(0) ¿Qué ocurrirá?
+R = No ocurre nada porque no se pueden eliminar elementos de un set
+
+¿Cuántos valores puede tener la siguiente variable? val a : Boolean
+R = Tres

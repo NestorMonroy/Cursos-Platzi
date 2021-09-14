@@ -251,3 +251,70 @@ Son parámetros que se envían a nivel de sentencias, estos parámetros serán i
 ### Rollback con la anotación transactional
 
 Al aplicar la anotación @transactional podemos presenciar al conjunto de operaciones ejecutándose de manera total, integral y atómica. Se sigue el acrónimo ACID (Atomicity, Consistency, Isolation and Durability: Atomicidad, Consistencia, Aislamiento y Durabilidad, en español).
+
+---
+¿Qué es JPA?
+R= Es el enfoque estándar de la industria de Java para mapear objetos en bases de datos relacionales.
+
+¿Cuál es el método para registrar una entidad en base de datos con JpaRepository?
+R= save
+
+¿Cuál es la anotación para indicar un archivo properties dentro de nuestro classpath?
+R= PropertySource
+
+¿Para qué sirve la anotación Service?
+R= Se utiliza para representar la capa de servicios o lógica de negocio de nuestra aplicación.
+
+¿Cuál propiedad nos permite cambiar el path del aplicativo?
+R= server.servlet.context-path
+
+¿La autoconfiguración en tiempo de ejecución es invasiva?
+R= Falso
+
+¿Cuál de los siguientes contenedores web de servlet NO permite Spring Boot?
+R= Wildfly
+
+¿Qué hace el siguiente queryMethod "findByEmailOrName"?
+R= Encuentra una entidad a partir del email o el name.
+
+¿Qué es JPQL?
+R= Es un lenguaje de consulta de persistencia de datos.
+
+¿Qué hace la siguiente propiedad? spring.jpa.show-sql=true
+R= Habilita los logs para mostrar los SQL.
+
+¿Qué es Spring Boot?
+R= Es un proyecto basado en Spring cuyo objetivo principal es correr la aplicación.
+
+¿Cuál de estas es una definición correcta de dependencia?
+R= Es una funcionalidad de un programa que a su vez hace parte de otra funcionalidad para lograr un objetivo.
+
+En versiones recientes de Spring Boot ¿es necesario utilizar la anotación autowired?
+R= Falso
+
+¿Cuál es la interfaz que permite implementar el método para hacer paginación en Spring Boot?
+R= PagingAndSortingRepository
+
+¿Para qué sirve la anotación transactional?
+R= Para hacer rollback de los registros en base de datos en caso de que ocurra un error en la implementación.
+
+Es una ventaja del principio de inversión de control:
+R= Facilita el testing por componentes o mocks de dependencias.
+
+Una de estas NO es una ventaja de IoC (inversión de control):
+R = Implementa el patrón de inyección de dependencias.
+
+¿Para qué sirve la anotación @value?
+R = Para representar valores a nivel de properties.
+
+¿Qué es inversión de control?
+R = Es un principio de desarrollo de software que permite transferir el control de objetos de un programa a un contenedor o framework.
+
+¿Qué hace el siguiente código? @Value("${driver}") private String myDriver;
+R= Captura el valor de la propiedad driver y la representa en la variable myDriver.
+
+¿Cuál de estos es un objetivo principal de Spring Boot?
+R = Que al desarrollar no nos centramos en términos de configuración, sino en términos de ejecución.
+
+¿Qué es un bean?
+R= Es un objeto que es administrado, instanciado y ensamblado por el contenedor de Spring.

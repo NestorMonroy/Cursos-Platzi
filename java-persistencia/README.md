@@ -171,13 +171,11 @@ R= Application Programming Interface.
 ¿Cuál de los siguientes NO es un método HTTP?
 R= Insert
 
-
----
 ¿Cuál es la principal diferencia entre bases de datos relacionales y no relacionales?
-R MAL= La relacional es más rápida para búsqueda de datos.
+R = La estructura en la que guardan la información.
 
 ¿Cuáles son las operaciones básicas para trabajar con una entidad, tabla o grupo de datos?
-R MAL= Crear, Editar, Eliminar y Actualizar.
+R = Crear, Listar, Actualizar y Borrar.
 
 ¿Cómo sabe la base de datos que debe actualizar un registro y no varios?
-R MAL= por la cantidad de columnas
+R = por la llave primaria

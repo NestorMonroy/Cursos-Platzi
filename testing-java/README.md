@@ -241,3 +241,67 @@ Existen diferentes escenarios:
 
 
 ### En Java, los tipos primitivos como int, boolean o double no pueden tener valor *null.
+
+La expresión regular [a-z0-9]+ detectaría textos que:
+R= Tienen letras minúsculas o números
+
+En TDD, podemos hacer refactor:
+R= Sólo cuando los tests estén pasando
+
+En un test generalmente comparamos dos valores. ¿Cuáles son?
+R= El valor esperado y el valor real
+
+La expresión movies.stream().filter(condición):
+R= Retorna las películas que cumplen la condición indicada.
+
+Generalmente, los tests tienen estas tres partes, y en este orden:
+R= Preparación de los objetos, llamada al método, comprobación del resultado
+
+El nombre de un test debe indicar lo que estamos probando en ese test:
+R= Verdadero
+
+En TDD, los pasos que seguimos son los siguientes y en este orden:
+R= Escribimos primero un test, y luego la parte de nuestra clase o método que pase ese test.
+
+¿Para qué sirven los métodos query y queryForObject en JdbcTemplate?
+R= query sirve para obtener una colección y queryForObject para obtener un solo objeto
+
+Como programador, si los requerimientos de la aplicación no están claros:
+R= Intentaremos definir mejor los requerimientos, hablando con alguien que pueda aclararlos.
+
+¿Qué elementos prueba un test unitario?
+R= Prueba sólo una clase
+
+Para asegurarnos de que nuestro código funciona, lo mejor es:
+R= Escribir tests automáticos
+
+
+En JUnit podemos comparar valores con la función:
+R= assertEquals
+
+La sentencia “Mockito.when(dice.roll()).thenReturn(2);” hace lo siguiente:
+R= Hace que cuando llamemos a dice.roll() devuelva 2.
+
+En el test unitario de negocio:
+R= Creamos un mock del repositorio para simular la base de datos
+
+Usamos Mockito para simular una pasarela de pago porque:
+R =En el test no queremos usar la pasarela de pago real.
+
+El nombre de cada método de test debe indicar:
+R = El escenario que estamos probando
+
+¿Para qué nos sirve lanzar una excepción cuando un test falla?
+R = Para saber exactamente en qué línea de código está el error.
+
+
+Para probar todo el proceso que se desencadena cuando un usuario hace una compra, debes hacer un test de tipo:
+R= De inicio a fin
+
+¿Cuál de estas afirmaciones es correcta respecto a la organización de una aplicación?
+R = Muchas aplicaciones tienen capa de interfaz, negocio y datos
+
+En un test de integración de base de datos:
+R MAL= Nos conectamos con una base de datos simulada (mock)
+R MAL = Integramos una base de datos real con una simulada
+
