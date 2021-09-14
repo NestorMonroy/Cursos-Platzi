@@ -216,3 +216,19 @@ Nos permite desacoplar la persistencia de la aplicación. Consiste en convertir 
 Mapear los entity a las objetos de dominio (Hacer el traductor entre la capa de la persistencia y la capa de dominio=
 
 https://stackoverflow.com/questions/48521903/map-custom-method-mapper-to-mapstruct
+
+### Inyección de dependencias
+
+Inyección de dependencias: pasar la dependencia a la clase que lo va a utilizar en lugar de crearla internamente dentro esa clase. Esto con el fin de no acoplar la clase a la implementación que esta utilizando.
+Inversión de control: es un framework quien toma control de los objetos. En este caso Spring. El cual se encarga de crear y administrar instancias de objetos que se conocen como builds o componentes.
+Entonces Spring usa la notación @Autowired para la inyección de dependencias.
+
+
+Solid
+
+* Single responsability
+* Open-closed
+* Liskov sustitution
+* Interface segregation
+* Dependency injection
+
