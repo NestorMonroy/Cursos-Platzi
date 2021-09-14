@@ -26,7 +26,7 @@ public class ProductController {
     }
 
     @GetMapping("/category/{categoryId}")
-    public Optional<List<Product>> getByCategory(@PathVariable("categoryId")int categoryId) {
+    public Optional<List<Product>> getByCategory(@PathVariable("categoryId") int categoryId) {
         return productService.getByCategory(categoryId);
     }
 
@@ -39,4 +39,21 @@ public class ProductController {
     public boolean delete(@PathVariable("productId") int productId) {
         return productService.delete(productId);
     }
+
+    @PutMapping("/update/{productId}")
+    public Product update(@RequestBody Product product, @PathVariable("productId") int productId) {
+        return productService.getProduct(productId)
+                .map(product1 -> {
+                    product1.setName(product.getName());
+                    product1.setCategoryId(product.getCategoryId());
+                    product1.setPrice(product.getPrice());
+                    product1.setStock(product.getStock());
+                    product1.setActive(product.isActive());
+                    return productService.save(product1);
+                }).orElseGet(() -> {
+                    product.setProductId(productId);
+                    return productService.save(product);
+                });
+    }
+
 }

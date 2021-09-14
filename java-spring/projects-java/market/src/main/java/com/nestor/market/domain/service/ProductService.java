@@ -37,6 +37,16 @@ public class ProductService {
             return false;
         }
     }
+
+    public void update (int productId , Product product){
+        Product product1 = getProduct(productId).get();
+        product1.setName(product.getName());
+        product1.setCategory(product.getCategory());
+        product1.setActive(product.isActive());
+        product1.setPrice(product.getPrice());
+        product1.setStock(product.getStock());
+        save(product1);
+    }
 //    public boolean delete(int productId) {
 //        return getProduct(productId).map(product -> {
 //            productRepository.delete(productId);
