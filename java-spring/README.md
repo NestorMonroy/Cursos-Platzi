@@ -178,3 +178,16 @@ Tres tipos de repositorios:
 * CrudRepository: realizar el crue
 * PagingAndSortingRepository: incluye lo de Crud repository ademas de paginación y ordenamiento.
 * JPARepository: Ademas de tener CrudRepository y PagingAndSortingRepository nos permite tareas específicas como Flush.
+
+
+### Query Methods
+
+Los query method son muy potentes. Además de los explicado, permiten realizar múltiples operaciones de comparación con:
+
+* Números: mayores, menores, iguales…
+* Textos: contiene cierta porción de texto, empieza o termina con una porción de texto, ignora case sensitive…
+* Fechas: Antes de cierta fecha, después de cierta fecha, entre cierta fecha…
+* Joins entre entidades: Si tenemos una entidad que se relaciona con otra, es posible realizar “joins” con esa relación para tener queries más específicas según nuestra necesidad. Por ejemplo, si tengo una relación de Producto y Categoría y quiero tener todos los productos de cierta categoría podría hacer: findAllByCategoriasId(Integer categoriaId) y así poder llegar a esta relación. Esto puede mezclarse con múltiples relaciones en simultáneo
+* Comparación entre un conjunto de datos: Si por ejemplo quiero traerme los productos con varias categorías, podría escribir findAllByCategoriasIdIn(List<Integer> categoriaIds); y así trabajar bajo un conjunto de Id de categorías
+
+Existen más funcionalidades ✌🏼. Pueden ver más detalle acá: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
