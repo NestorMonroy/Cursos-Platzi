@@ -1,6 +1,7 @@
 package com.nestor.market.persistance.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="categorias")
@@ -12,7 +13,10 @@ public class Categoria {
 
     private String descripcion;
 
-    private String estado;
+    private Boolean estado;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> productos;
 
     public Integer getIdCategoria() {
         return idCategoria;
@@ -30,11 +34,11 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
-    public String getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 }

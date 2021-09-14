@@ -169,3 +169,12 @@ En la clase principal debemos tener:
 * Declarar la variable id como el tipo de la clase que creamos de nuestra llave compuesta que en este caso es : “ComprasProductoPK”
 * Agregarle la etiqueta @EmbeddeId que hace referencia a que es una llave compuesta y que esta dada por otra clase
 * Y nuevamente los Getter y Setters
+
+### Spring Data Repositories
+
+
+Tres tipos de repositorios:
+
+* CrudRepository: realizar el crue
+* PagingAndSortingRepository: incluye lo de Crud repository ademas de paginación y ordenamiento.
+* JPARepository: Ademas de tener CrudRepository y PagingAndSortingRepository nos permite tareas específicas como Flush.
