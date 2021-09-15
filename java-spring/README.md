@@ -605,4 +605,90 @@ public class PurchaseController {
 
 
 
+### Documentar nuestra API con Swagger
 
+https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+
+swagger, se debe tener en cuenta lo siguiente:
+
+En el archivo bundle.gradle se debe añadir las siguientes líneas
+implementation "io.springfox:springfox-boot-starter:3.0.0"
+compile “io.springfox:springfox-swagger-ui:3.0.0”
+
+En la clase SwaggerConfig ya no hace falta añadir la anotación @EnableSwagger2
+La url de acceso a la documentación es: {host}:{puerto} / {contexto} /swagger-ui/index.html
+
+Se instalan las dependencias en  build.gradle
+
+```
+
+dependencies {
+	implementation 'io.springfox:springfox-swagger2:2.9.2' // swagger
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2' // swagger
+}
+```
+
+Se agrega un nuevo paquete dentro de web llamado config, posterios se crea la clase SwaggerConfig.java
+
+```java
+
+package com.nestor.market.web.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.nestor.market.web.controller"))
+                .build();
+    }
+}
+```
+
+http://localhost:8090/market/api/swagger-ui.html
+
+Dentro de los controladores **  se agregan anotaciones
+
+```java
+
+@RestController //Controlador de una API REST
+@RequestMapping("/products")
+public class ProductController {
+
+
+
+    @GetMapping("/all")
+    @ApiOperation("Get all supermarket products")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<List<Product>> getAll() {
+        return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    @ApiOperation("Search a product with an ID")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 404, message = "Product not found"),
+    })
+    public ResponseEntity<Product> getProduct(@ApiParam(value = "The id of the product", required = true, example = "7")
+                                                  @PathVariable("id") int productId) {
+        return productService.getProduct(productId)
+                .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+
+
+}
+```
+
+http://localhost:8090/market/api/swagger-ui.html#/product-controller
