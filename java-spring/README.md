@@ -239,5 +239,193 @@ Las implementaciones del método delete son buenos ejemplos de los estilos decla
 El primero define el qué va a hacer el código mientras que el segundo define el cómo y por consiguiente se ven más detalles. Cabe aclarar que el estilo declarativo no puede existir sin el estilo imperativo ya que el primero se apoya en el segundo para ocultar las estructuras de control (if, else, switch, etc).
 
 
-### Implementar la anotación @RestController
+### 
+#### Paso 1 Crear el dominio de compras
+Dentro de el packete dominio crear
+Purchase.java
 
+```java
+package com.nestor.market.domain;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class Purchase {
+    private int purchaseId;
+    private String clientId;
+    private LocalDateTime date;
+    private String paymentMethod;
+    private String comment;
+    private String state;
+    private List<PurchaseItem> item;
+
+    public int getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(int purchaseId) {
+        this.purchaseId = purchaseId;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public List<PurchaseItem> getItem() {
+        return item;
+    }
+
+    public void setItem(List<PurchaseItem> item) {
+        this.item = item;
+    }
+}
+```
+
+y PurchaseItem.java
+
+```java
+
+public class PurchaseItem {
+    private int productId;
+    private int quantity;
+    private double total;
+    private boolean active;
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+}
+```
+
+#### Paso 2 Mapear el dominio de compras
+
+Dentro del packete persistance.mapper crear
+
+PurchaseItemMapper.java
+```java
+
+import com.nestor.market.domain.PurchaseItem;
+import com.nestor.market.persistance.entity.ComprasProducto;
+import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+
+@Mapper(componentModel = "spring", uses = {ProductMapper.class})
+public interface PurchaseItemMapper {
+    @Mappings({
+            @Mapping(source = "id.idProducto", target = "productId"),
+            @Mapping(source = "cantidad", target = "quantity"),
+            @Mapping(source = "estado", target = "active")
+    })
+    PurchaseItem toPurchaseItem(ComprasProducto producto);
+
+    @InheritInverseConfiguration
+		//Se 
+    @Mappings({
+            @Mapping(target = "compra", ignore = true),
+            @Mapping(target = "producto", ignore = true),
+            @Mapping(target = "id.idCompra", ignore = true)
+    })
+    ComprasProducto toComprasProducto(PurchaseItem item);
+}
+
+```
+
+Generar igual el mapper PurchaseMapper.java
+
+```java
+import com.nestor.market.domain.Purchase;
+import com.nestor.market.persistance.entity.Compra;
+import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
+public interface PurchaseMapper {
+    @Mappings({
+            @Mapping(source = "idCompra", target = "purchaseId"),
+            @Mapping(source = "idCliente", target = "clientId"),
+            @Mapping(source = "fecha", target = "date"),
+            @Mapping(source = "medioPago", target = "paymentMethod"),
+            @Mapping(source = "comentario", target = "comment"),
+            @Mapping(source = "estado", target = "state"),
+            @Mapping(source = "productos", target = "items")
+    })
+    Purchase toPurchase(Compra compra);
+
+    List<Purchase> toPurchases(List<Compra> compras);
+
+
+    @InheritInverseConfiguration
+    @Mapping(target = "cliente", ignore = true)
+    Compra toCompra(Purchase purchase);
+}
+```
