@@ -429,3 +429,100 @@ public interface PurchaseMapper {
     Compra toCompra(Purchase purchase);
 }
 ```
+
+#### Paso 3 Crear el repositorio de compras
+
+Dentro de persistence, agregamos CompraRepository.java
+```java
+package com.nestor.market.persistance;
+
+import com.nestor.market.domain.Purchase;
+import com.nestor.market.domain.repository.PurchaseRepository;
+import com.nestor.market.persistance.crud.CompraCrudRepository;
+import com.nestor.market.persistance.entity.Compra;
+import com.nestor.market.persistance.mapper.PurchaseMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public class CompraRepository implements PurchaseRepository {
+    @Autowired
+    private CompraCrudRepository compraCrudRepository;
+
+    @Autowired
+    private PurchaseMapper mapper;
+
+
+    @Override
+    public List<Purchase> getAll() {
+        return mapper.toPurchases((List<Compra>) compraCrudRepository.findAll());
+    }
+
+    @Override
+    public Optional<List<Purchase>> getByClient(String clientId) {
+        return compraCrudRepository.findByIdCliente(clientId)
+                .map(compras -> mapper.toPurchases(compras));
+    }
+
+    @Override
+    public Purchase save(Purchase purchase) {
+        Compra compra = mapper.toCompra(purchase);
+        compra.getProductos().forEach(producto -> producto.setCompra(compra));
+
+        return mapper.toPurchase(compraCrudRepository.save(compra));
+    }
+}
+
+```
+
+Igual necesitamos una interfaz que este ligada a este repositorio ** Dentro de persistence/crud
+
+creamos CompraCrudRepository.java
+
+```java
+import com.nestor.market.persistance.entity.Compra;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface CompraCrudRepository extends CrudRepository<Compra, Integer> {
+    Optional<List<Compra>> findByIdCliente(String idCliente);
+}
+
+```
+
+Dentro del Entity de compra, 
+
+```java
+
+@Entity
+@Table(name = "compra")
+public class Compra {
+
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL}) //Todos los procesos que se hagan en la base de datos de una compra, se hara en cascada un producto
+    private List<ComprasProducto> productos;
+
+}
+```
+
+Dentro de Entity  ComprasProducto
+
+```java
+
+
+@Entity
+@Table(name = "compras_productos")
+public class ComprasProducto {
+
+
+    @ManyToOne
+    @MapsId("idCompra") // Cuando compras ID se guarde en cascada, se va a saber ha que llave primaria pertenece
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
+
+
+}

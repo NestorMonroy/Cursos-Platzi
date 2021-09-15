@@ -15,6 +15,7 @@ public class ComprasProducto {
     private Boolean estado;
 
     @ManyToOne
+    @MapsId("idCompra") // Cuando compras ID se guarde en cascada, se va a saber ha que llave primaria pertenece
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
