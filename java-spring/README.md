@@ -526,3 +526,83 @@ public class ComprasProducto {
 
 
 }
+```
+
+#### Paso 4, se generan los servicios
+
+Se crea una clase dentro de service PurchaseService.java
+
+```java
+package com.nestor.market.domain.service;
+
+import com.nestor.market.domain.Purchase;
+import com.nestor.market.domain.repository.PurchaseRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class PurchaseService {
+    @Autowired
+    private PurchaseRepository purchaseRepository;
+
+    public List<Purchase> getAll() {
+        return purchaseRepository.getAll();
+    }
+
+    public Optional<List<Purchase>> getByClient(String clientId) {
+        return purchaseRepository.getByClient(clientId);
+    }
+
+    public Purchase save(Purchase purchase) {
+        return purchaseRepository.save(purchase);
+    }
+}
+```
+
+Se crea otra clase, la cual realiza el controlador del servico. Dentro de web controler se crea 
+PurchaseController.java
+
+
+```java
+package com.nestor.market.web.controller;
+
+import com.nestor.market.domain.Purchase;
+import com.nestor.market.domain.service.PurchaseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/purchases")
+public class PurchaseController {
+    @Autowired
+    private PurchaseService purchaseService;
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Purchase>> getAll() {
+        return new ResponseEntity<>(purchaseService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/client/{idClient}")
+    public ResponseEntity<List<Purchase>> getByClient(@PathVariable("idClient") String clientId) {
+        return purchaseService.getByClient(clientId).map(
+                purchases -> new ResponseEntity<>(purchases, HttpStatus.OK)
+        ).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<Purchase> save(@RequestBody Purchase purchase) {
+        return new ResponseEntity<>(purchaseService.save(purchase), HttpStatus.CREATED);
+    }
+}
+```
+
+
+
+
