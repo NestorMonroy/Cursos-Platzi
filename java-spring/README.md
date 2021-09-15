@@ -692,3 +692,23 @@ public class ProductController {
 ```
 
 http://localhost:8090/market/api/swagger-ui.html#/product-controller
+
+
+### Configurar la seguridad de nuestra API con Spring Security
+
+https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+
+* Autenticacion y autorizacion para aplicaciones de Spring
+* Como todos los proyectos de Spring, es muy facil de configurar
+* Proteccion ante ataques como Session Fixatioon, clickjacking, cross site request forget, entre otros
+* Configuracion por defecto 
+
+
+Se instalan las dependencias en  build.gradle
+
+```
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+}
+```
