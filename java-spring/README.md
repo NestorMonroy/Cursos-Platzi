@@ -718,3 +718,20 @@ dependencies {
 * Estandar de codigo abierto basado en JSON para crear tokens de seguridad
 
 * La autenticacion viaja en el header de la peticion: Authorization: Bearer <token>
+
+
+### Desplegar nuestra API desde la ventana de comandos
+
+java - jar 
+
+Algunas propiedades adicionales 
+* -Xmx2048m
+* -Dspring.profiles.active=pdn
+* -Dserver.port=88
+
+
+Dentro de build/bootjar se genera el artefacto final
+
+market$ java -jar build/libs/market-1.0.jar 
+
+market$ java -jar -Dspring.profiles.active=pdn build/libs/market-1.0.jar 
