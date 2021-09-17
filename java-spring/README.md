@@ -712,3 +712,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 ```
+
+### Que es JWT
+
+* Estandar de codigo abierto basado en JSON para crear tokens de seguridad
+
+* La autenticacion viaja en el header de la peticion: Authorization: Bearer <token>
