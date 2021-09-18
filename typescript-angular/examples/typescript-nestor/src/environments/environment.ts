@@ -7,15 +7,13 @@ export const environment = {
   // Your web app's Firebase configuration
 
   firebase: {
-
-    apiKey: "AIzaSyDorocdJrfY3pfZ7NWPQzzUMDgXCK4fLgM",
-    authDomain: "typescript-nestor.firebaseapp.com",
-    databaseURL: "https://typescript-nestor-default-rtdb.firebaseio.com",
-    projectId: "typescript-nestor",
-    storageBucket: "typescript-nestor.appspot.com",
-    messagingSenderId: "494639891002",
-    appId: "1:494639891002:web:b99c71fedc98f1ed3aab03"
-
+    apiKey: "AIzaSyA9alqGBpgnQIab23JXTf6X2zbMH26q1Tg",
+    authDomain: "typescript-nestor-bf620.firebaseapp.com",
+    databaseURL: "https://typescript-nestor-bf620-default-rtdb.firebaseio.com",
+    projectId: "typescript-nestor-bf620",
+    storageBucket: "typescript-nestor-bf620.appspot.com",
+    messagingSenderId: "348697621382",
+    appId: "1:348697621382:web:bd9c74b2c9f8150498f207"
   }
 
 };

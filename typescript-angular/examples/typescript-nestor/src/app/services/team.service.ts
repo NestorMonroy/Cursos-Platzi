@@ -24,7 +24,7 @@ export class TeamService {
     return this.teamsDb.snapshotChanges().pipe(
       map(changes => {
         return changes.map(c => ({
-          $key: c.key,
+          $key: c.payload.key,
           ...c.payload.val()
         } as Team));
       })
@@ -36,7 +36,6 @@ export class TeamService {
   }
 
   deleteTeam(id: string) {
- 
     this.db.list('/teams').remove(id);
   }
 

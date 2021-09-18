@@ -1,4 +1,5 @@
 function init(target) {
+  //Regresa una nueva instancia de la clase
 
   return class extends target {
     nombre = 'Nestor';
@@ -16,7 +17,7 @@ class P {
   constructor() { }
 
   sayMyName() { }
-};
+}
 
 const p: P = new P();
 console.log(p.sayMyName()); //Nestor Monroy

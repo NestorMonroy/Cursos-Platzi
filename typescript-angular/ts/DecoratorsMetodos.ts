@@ -1,6 +1,7 @@
 
 ///target => elemento que contenga
-function log(target, key){
+//key => quien utiliza la logica extendida
+function logExample(target, key){
   console.log(key + "Se ha llamado")
 }
 
@@ -11,7 +12,7 @@ class Persona {
     this.name = name;
   }
 
-  @log
+  @logExample
   sayMyName() {
     return console.log(this.name);
   }

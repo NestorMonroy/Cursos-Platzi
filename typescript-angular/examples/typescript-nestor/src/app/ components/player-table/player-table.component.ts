@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
-import { Player } from '../interfaces/player';
-import { PlayerService } from '../services/player.service';
-import { TeamService } from '../services/team.service';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {take} from 'rxjs/operators';
+import {Player} from '../../interfaces/player';
+import {PlayerService} from '../../services/player.service';
+import {TeamService} from '../../services/team.service';
 
 @Component({
   selector: 'app-player-table',
@@ -12,22 +12,23 @@ import { TeamService } from '../services/team.service';
 })
 export class PlayerTableComponent implements OnInit {
 
-  public selectedPlayer!: Player | null;
+  public players$!: Observable<Player[]>;
+  public selectedPlayer?: Player;
   public showModal = false;
-  
+
   constructor(
     private playerService: PlayerService,
-    private teamService: TeamService,
-    public player$: Observable<Player[]>,
-    
-  ) { }
-
-  ngOnInit() {
-    this.player$ = this.playerService.getPlayers();
+    private teamService: TeamService
+  ) {
   }
 
-  newPlayer() {
+  ngOnInit() {
+    this.players$ = this.playerService.getPlayers();
+  }
+
+  newPlayer(): void {
     this.showModal = true;
+    // @ts-ignore
     this.selectedPlayer = null;
     setTimeout(() => {
       window.location.replace('#open-modal');
@@ -35,24 +36,26 @@ export class PlayerTableComponent implements OnInit {
   }
 
   editPlayer(player: Player) {
-    this.selectedPlayer = { ...player };
+    this.selectedPlayer = {...player};
     this.showModal = true;
     setTimeout(() => {
       window.location.replace('#open-modal');
     });
   }
 
-  deletePlayer(player: Player) {
+  deletePlayer(player: Player): void {
     this.teamService
       .getTeams()
       .pipe(take(1))
       .subscribe(teams => {
-        const moddifiedPlayers = teams[0].players ? teams[0].players.filter((p: any) => p.key !== player.$key) : teams[0].players;
+        const modifiedPlayers = teams[0].players ? teams[0].players.filter((p: any) => p.key !== player.$key) : teams[0].players;
         const formattedTeam = {
           ...teams[0],
-          players: [...moddifiedPlayers]
+          players: [...modifiedPlayers]
         };
-        this.playerService.deletePlayer(player.$key);
+        if (player.$key != null) {
+          this.playerService.deletePlayer(player.$key);
+        }
         this.teamService.editTeam(formattedTeam);
       });
   }

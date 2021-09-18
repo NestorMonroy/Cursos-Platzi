@@ -5,30 +5,32 @@ import { map } from 'rxjs/operators';
 import { Player } from '../interfaces/player';
 
 @Injectable({
+  //Crear una instancia
   providedIn: 'root'
 })
 export class PlayerService {
   private playersDb: AngularFireList<Player>;
 
   constructor(private db: AngularFireDatabase) {
-    //Acedemos a la base de datos de firebase // 
+    //Acedemos a la base de datos de firebase //
+    //De que tabla obtendremos los datos, y como ordenaremos la referencia
     this.playersDb = this.db.list('/players', ref => ref.orderByChild('name'));
   }
 
-  //Regresa un Observable 
+  // Regresa un Observable
   // getPlayers(): Observable<Player[]> {
-  //   //Obtenemos la informacion, con la key representativa dentro de firebase snapshotChanges()
-  //   this.playersDb = this.db.list('/players', ref => ref.orderByChild('name'))
+  // Obtenemos la información, con la key representativa dentro de firebase snapshotChanges()
+  //  this.playersDb = this.db.list('/players', ref => ref.orderByChild('name'))
   // }
 
   getPlayers(): Observable<Player[]> {
-    //Obtenemos la informacion, con la key representativa dentro de firebase snapshotChanges()
+    //Obtenemos la información, con la key representativa dentro de firebase snapshotChanges()
+    //snapshotChanges, obtiene la información, cuando nosotros pedimos la información
     return this.playersDb.snapshotChanges().pipe(
       map(changes => {
         return changes.map(c => ({
-          $key: c.key,
-          ...c.payload.val() //Se agrega la informacion adicional del objecto
-    
+          $key: c.payload.key,
+          ...c.payload.val() //Se agrega la información adicional del objeto
         } as Player));
       })
     );
@@ -39,19 +41,17 @@ export class PlayerService {
   }
 
   deletePlayer(id: string) {
-    this.db.list('/teams').remove(id);
     this.db.list('/players').remove(id);
   }
 
   editPlayer(newPlayerData: any) {
     const $key = newPlayerData.$key;
     //Eliminamos la key
-    delete (newPlayerData.$key);
-    //Actualizar la informacion
+    delete(newPlayerData.$key);
+    //Actualizar la información
     this.db.list('/players').update($key, newPlayerData);
   }
 
-    
 }
 
 
