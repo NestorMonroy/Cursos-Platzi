@@ -2,16 +2,18 @@ class Transporte {
     private velocidad: number;
     private formaDeMovilidad: string;
 
+    //Se utiliza cuando se inicializa la clase
     constructor(velocidad: number, formaDeMovilidad: string) {
         this.velocidad = velocidad;
         this.formaDeMovilidad = formaDeMovilidad;
     }
 
+    //Indicar el encapzulamiento de nuestras propiedades
     getVelocidad() {
         return this.velocidad
     }
 
-    setVelocidad() {
+    setVelocidad(velocidad : number) {
         this.velocidad = this.velocidad
     }
 
@@ -19,7 +21,7 @@ class Transporte {
         return this.formaDeMovilidad
     }
 
-    setFormaDeMovilidad() {
+    setFormaDeMovilidad(formaDeMovilidad: string) {
         this.formaDeMovilidad = this.formaDeMovilidad
     }
 
