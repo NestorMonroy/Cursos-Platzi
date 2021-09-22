@@ -3,6 +3,19 @@ package com.anncode.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * <h1>Clase Book </h1>
+ *
+ * Hereda {@link Film} e implementa {@link IVisualizable}
+ *
+ * Manejo de Libros
+ *
+ * @author NestorMonroy
+ * @version 1.1
+ * @since 2021
+ *
+ */
+
 public class Book extends Publication implements IVisualizable {
     private int id;
     private String isbn;
@@ -76,14 +89,18 @@ public class Book extends Publication implements IVisualizable {
         return detailBook;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Date startToSee(Date dateI) {
         // TODO Auto-generated method stub
         return dateI;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void stopToSee(Date dateI, Date dateF) {
         // TODO Auto-generated method stub

@@ -2,6 +2,20 @@ package com.anncode.amazonviewer.model;
 
 import java.util.ArrayList;
 
+/**
+ *  <h1> Serie </h1>
+ * Serie una clase que hereda {@link Film}
+ * <p>
+ *
+ * Esta clase contiene el método abstracto
+ * {@code view()} Que es obligatorio implementar. Ya que hereda directamente
+ * de la clase abstracta Film
+ *
+ *
+ * @author NestorMonroy
+ * @version 1.1
+ * @since 2021
+ */
 public class Serie extends Film {
 
     private int id;
@@ -35,7 +49,9 @@ public class Serie extends Film {
     public void setChapters(ArrayList<Chapter> chapters) {
         this.chapters = chapters;
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         // TODO Auto-generated method stub
@@ -46,7 +62,9 @@ public class Serie extends Film {
                 "\n Creator: " + getCreator() +
                 "\n Duration: " + getDuration();
     }
-
+    /**
+     * Este método nos crea una lista de series
+     */
     public static ArrayList<Serie> makeSeriesList() {
         ArrayList<Serie> series = new ArrayList();
 
@@ -58,6 +76,9 @@ public class Serie extends Film {
         return series;
     }
 
+    /**
+     * {@inheritDoc }
+     */
 
     @Override
     public void view() {

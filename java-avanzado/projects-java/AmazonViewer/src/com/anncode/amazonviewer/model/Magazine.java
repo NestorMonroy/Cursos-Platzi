@@ -3,6 +3,18 @@ package com.anncode.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+
+/**
+ * <h1>Magazine</h1>
+ * Este contenido es solo para visualización sin posibilidad de abrir el contenido
+ *
+ *
+ *
+ * @author NestorMonroy
+ * @version 1.1
+ * @since 2021
+ * */
+
 public class Magazine extends Publication {
 
     private int id;

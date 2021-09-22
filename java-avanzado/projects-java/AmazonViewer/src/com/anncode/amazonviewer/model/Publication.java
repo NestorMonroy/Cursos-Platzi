@@ -1,6 +1,18 @@
 package com.anncode.amazonviewer.model;
 
 import java.util.Date;
+/**
+ * <h1>Publication</h1>
+ * Es una clase padre
+ * <p>
+ * Esta es una clase base de la familia Publication, la cual
+ * contiene atributos para Book y Magazine
+ *
+ * @author NestorMonroy
+ * @version 1.1
+ * @since 2021
+ *
+ * */
 
 public class Publication {
 
