@@ -64,4 +64,5 @@ Los dump components tienene de apellido .component y los smart compnents .contai
 
 ### REDUX
 
+
 Resuelve toda la arquitectura y el manejo de datos en un sólo sentido.
