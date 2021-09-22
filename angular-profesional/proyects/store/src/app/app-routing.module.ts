@@ -16,6 +16,7 @@ const routes: Routes = [
       },
       {
         path:'home',
+        //Funciona de modo asíncrona
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
