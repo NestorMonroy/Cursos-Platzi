@@ -1,8 +1,7 @@
 package com.anncode.amazonviewer.model;
 
-public abstract class Film {
-	//Clase abstracta no se implementan todos los métodos
-	//No se pueden crear instancias
+public class Film {
+	
 	private String title;
 	private String genre;
 	private String creator;
@@ -60,24 +59,11 @@ public abstract class Film {
 		
 		return visto;
 	}
-	
-	public boolean getIsViewed() {
-		return viewed;
-	}
 	public void setViewed(boolean viewed) {
 		this.viewed = viewed;
 	}
 	
-	//Método abstract
-	public abstract void view();
+	
+	
 
 }
-
-
-
-
-
-
-
-
-

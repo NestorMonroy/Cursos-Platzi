@@ -261,3 +261,62 @@ Adaptadores
 Segregación de interfaces 
 
 <img with="20%" src="./static/images/diagram_009.png" />
+
+
+### Ejercicio. Clases Abstractas
+
+Tengo un programa que dibuja figuras automáticamente.
+
+He creado una clase abstracta llamada Figura, esta tiene un método llamado dibujate()
+
+¿Qué tendría que hacer para que la clase Triangulo pueda sobreescribir este método y poner el código que haga que dibuje la forma indicada?
+
+Analiza el problema, realiza tu diagrama y comparte tu respuesta en la sección de discuciones.
+
+<img with="20%" src="./static/images/diagram_010.jpg" />
+
+
+```java
+public abstract class Figura {
+	public abstract void dibujate();
+}
+
+public class Triangulo extends Figura {
+
+	@Override
+	public void dibujate() {
+		System.out.println("Voy a dibujar un Triangulo");
+	}	
+
+}
+```
+
+### Qué es JavaDocs
+
+En java habría dos tipos de comentario y una forma de crear la documentación.
+
+Para insertar comentarios seria
+
+// Primera forma de Comentario
+/*Segunda forma de Comentario en bloques de varias lineas */
+
+para generar la documentación seria:
+
+/**
+* Documentación de métodos, clases, 
+*
+*/
+
+
+
+Algunas etiquetas Javadoc y su significado:
+
+* @author: Nombre del desarrollador.
+* @version: Versión del método o clase.
+* @param: Definición de un parámetro de un método, es requerido para todos los parámetros del método.
+* @return: Informa de lo que devuelve el método, no se puede usar en constructores o métodos “void”.
+* @exception: Excepción lanzada por el método, posse un sinonimo de nombre @throws
+* @see: Enlaza con otro método o clase.
+* @deprecated: Indica que el método o clase es antigua y que no se recomienda su uso porque posiblemente desaparecerá en versiones posteriores.
+
+
