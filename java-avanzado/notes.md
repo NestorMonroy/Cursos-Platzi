@@ -575,3 +575,153 @@ public interface MyInterface {
 El ejemplo que das para usar privateMethod va de la mano con el patrón de estructura Facade porque integra un conjunto de interfaces de un subsistema, cierto? Es fascinante este nuevo feature 
 
 DAO 
+
+### Diferencias entre una clase Abstracta vs Interfaces
+
+Clase Abstracta:
+
+* Se podrán definir métodos con implementación y sin implementación (abstract).
+* No se pueden usar instancias (crear objetos).
+* Se utilizará para definir subclases. Siempre será heredada para poder utilizar y sobrescribir los métodos de su clase padre.
+* La herencia de los atributos y métodos se hará de forma líneal. De una clase padre a una clase hija.
+* Se pueden ir heredando métodos abstractos y no abstractos.
+* Redefinir nuevas clases sin crear nuevos objetos.
+* Se piensa en una clase abstracta cuando el enfoque es más en objetos (de las subclases).
+* Se pueden encontrar clases como Figure que se pueden crear clases como Circle, Square, Triangle.
+    
+Interfaces:
+* Nuevos modificadores de acceso (default y private). Esto permite añadir comportamiento a los métodos.
+* Se podrán definir métodos con implementación y sin implementación.
+* Los métodos se pueden implementar en muchas familias de clases. Por lo cual no es líneal.
+* Se utiliza una interface cuando existen métodos que se pueden implementar en muchas familias (La relación va más allá entre dos clases).
+* Se piensa en una interface cuando el enfoque es más en las acciones que pueden tener en común muchos objetos.
+* Se encuentra acciones como Drawable Dibujable, Runna* Ejecutable, Callable Llamable, Visualizable Visualizable.
+
+
+Una buena práctica es que el diseño de las aplicaciones siempre esté orientado a interfaces y no a la implementación. Crear buenas abstracciones. Encontrar el comportamiento común. Enfocarse en la declaración de los métodos.
+
+
+<img with="20%" src="./static/images/diagram_011.png" />
+<img with="20%" src="./static/images/diagram_012.png" />
+
+
+### Herencia en Interfaces
+
+
+Las interfaces pueden heredar de otras interfaces utilizando la palabra clave extends, el concepto de herencia se aplicará como naturalmente se practica en clases, es decir, la interfaz heredará y adquirirá los métodos de la interfaz padre.
+
+Una cosa interesante que sucede en caso de herencia con interfaces es que, aquí sí es permitido la herencia múltiple como ves a continuación:
+
+<img with="20%" src="./static/images/diagram_013.png" />
+
+Además siguiendo las nuevas implementaciones de métodos default y private de las versiones Java 8 y 9 respectivamente podemos sobreescribir métodos y añadirles comportamiento, si es el caso.
+
+<img with="20%" src="./static/images/diagram_014.png" />
+
+
+### Map, HashMap, TreeMap y LinkedHashMap
+
+En el Curso Básico de Java vimos esta estructura de Colecciones interfaces
+
+<img with="20%" src="./static/images/diagram_015.png" />
+
+#### Map
+Lo primero que debes saber es que tiene tres implementaciones:
+
+* HashTable
+* LinkedHashMap
+* HashMap
+* SortedMap ➡️ TreeMap
+
+<img with="20%" src="./static/images/diagram_016.png" />
+
+La interfaz Map no hereda de la interfaz Collection porque representa una estructura de datos de Mapeo y no de colección simple de objetos. Esta estructura es más compleja, pues cada elemento deberá venir en pareja con otro dato que funcionará como la llave del elemento.
+
+Map<K,V>
+
+* Donde K es el key o clave
+* Donde V es el value o valor
+
+Podemos declarar un map de la siguiente forma:
+
+```java
+Map<Integer, String> map = new HashMap<Integer, String>();
+Map<Integer, String> treeMap = new TreeMap<Integer, String>();
+Map<Integer, String> linkedHashMap = new LinkedHashMap<Integer, String>();
+```
+
+Como observas solo se puede construir el objeto con tres elementos que implementan de ella: HashMap, TreeMap y LinkedHashMap dejando fuera HashTable y SortedMap. SortedMap estará fuera pues es una interfaz y HashTable ha quedado deprecada pues tiene métodos redundantes en otras clases. Mira la funcionalidad de cada uno.
+
+Como te conté hace un momento Map tiene implementaciones:
+
+* HashMap: Los elementos no se ordenan. No aceptan claves duplicadas ni valores nulos.
+* LinkedHashMap Ordena los elementos conforme se van insertando; provocando que las búsquedas sean más lentas que las demás clases.
+* TreeMap El Mapa lo ordena de forma “natural”. Por ejemplo, si la clave son valores enteros (como luego veremos), los ordena de menos a mayor.
+
+Para iterar alguno de estos será necesario utilizar la interface Iterator y para recorrerlo lo haremos un bucle while así como se muestra:
+
+```java
+// Para HashMap
+// Imprimimos el Map con un Iterador
+Iterator it = map.keySet().iterator();
+while(it.hasNext()){
+  Integer key = it.next();
+  System.out.println("Clave: " + key + " -> Valor: " + map.get(key));
+}
+
+// Para LinkedHashMap
+// Imprimimos el Map con un Iterador
+Iterator it = linkedHashMap.keySet().iterator();
+while(it.hasNext()){
+  Integer key = it.next();
+  System.out.println("Clave: " + key + " -> Valor: " + linkedHashMap.get(key));
+}
+
+//Para TreeMap
+// Imprimimos el Map con un Iterador
+Iterator it = treeMap.keySet().iterator();
+while(it.hasNext()){
+  Integer key = it.next();
+  System.out.println("Clave: " + key + " -> Valor: " + treeMap.get(key));
+}
+
+
+```
+
+https://docs.oracle.com/javase/tutorial/collections/interfaces/deque.html
+
+
+Deque es la interfaz que nos proporciona java para manejar una lista doblemente enlazada. La interfaz Deque nos proporciona una abstracción de los métodos que necesitaremos para manejar tanto una Cola como una Pila.
+Ademas de esta interfaz java los proporciona las siguientes implementasiones de la misma:
+
+* ArrayDeque
+* ConcurrentLinkedDeque
+* LinkedBlockingDeque
+* LinkedList
+
+
+### Manejo de errores
+
+<img with="20%" src="./static/images/diagram_017.jpg" />
+
+```java
+public class Hola {
+	
+	public static int numerador = 10;
+	public static Integer denominador = 0;
+	public static float division;
+	
+	public static void main(String []args) {
+
+		try {
+			division = nuemrador / denominador;
+		} catch (AritmeticException e) {
+			division = 0;
+			System.out.println("Error "+e.getMessage());
+		} 
+	}
+}
+```
+
+finally -> Siempre se ejecuta
+
