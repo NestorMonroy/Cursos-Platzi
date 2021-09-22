@@ -481,3 +481,97 @@ public static void main(String[] args) {
         System.out.println(album);
 }
 ```
+
+### Enumerations
+
+Los enumerations son tipos de datos muy especiales pues es el único tipo de dato que posee una colección de constantes, al ser constantes estaremos obligados a escribirlos con mayúsculas.
+
+Usaremos enum cada vez que necesitemos representar un conjunto fijo de constantes. Por ejemplo los días de la semana.
+
+Así podemos declarar un enumeration usando la palabra reservada enum.
+
+
+```java
+public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+```
+
+Puedo crear referencias de enumerations de la siguiente forma:
+
+```java
+    Day day;
+    switch(day){
+        case MONDAY:
+            System.out.println("MONDAY ARE BAD."); 
+        case FRIDAY:
+            System.out.println("MONDAY ARE BETTER.");
+        default:
+            System.out.println("lorem ");
+            break;
+    }
+```
+
+Y puedo llamar un valor del enumeration así:
+
+```java
+
+Day.MONDAY
+Day.FRIDAY
+
+```
+
+Los enumerations pueden tener atributos, métodos y constructores, como se muestra:
+
+```java
+
+public enum Day {
+    SUNDAY("Domingo"), 
+    MONDAY("Lunes"), 
+    TUESDAY("Martes"), 
+    WEDNESDAY("Miercoles"), 
+    THURSDAY("Jueves"), 
+    FRIDAY("Viernes"), 
+    SATURDAY("Sabado")
+
+    private String spanish;
+    private Day(String s ){
+      spanish = s;
+    }
+
+    public String getSpanish(){
+      return spanish;
+    }
+}
+
+//Y para utilizarlo lo podemos hacer así:
+
+System.out.println(Day.MONDAY); //Imprimira MONDAY
+System.out.println(Day.MONDAY.getSpanish()); //Imprimira Lunes
+```
+
+### Métodos con implementación métodos default y private
+
+
+```java
+
+//Se puede conectar a circuitos
+public interface MyInterface {
+
+  default void defaultMethod(){
+    privateMethod("Hello");
+  
+  }
+
+  private void privateMethod(final String string){
+    System.out.println(string);
+  }
+
+
+  void normalMethod()
+}
+```
+
+El ejemplo que das para usar privateMethod va de la mano con el patrón de estructura Facade porque integra un conjunto de interfaces de un subsistema, cierto? Es fascinante este nuevo feature 
+
+DAO 

@@ -126,6 +126,11 @@ public class Book extends Publication implements IVisualizable {
         }
     }
 
+    public enum Day {
+        SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+    }
+
+
 
     public static ArrayList<Book> makeBookList() {
         ArrayList<Book> books = new ArrayList();
@@ -137,7 +142,7 @@ public class Book extends Publication implements IVisualizable {
         ArrayList<Page> pages = new ArrayList<>();
         int pagina = 0;
         for (int i = 0; i < 3; i++) {
-            pagina = i+1;
+            pagina = i + 1;
             pages.add(new Book.Page(pagina, "El contenido de la pagina " + pagina));
         }
         for (int i = 1; i <= 5; i++) {
