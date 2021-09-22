@@ -5,10 +5,11 @@ import { ProductsService } from '../../../core/services/products/products.servic
 
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  templateUrl: './products.container.html',
+  styleUrls: ['./products.container.scss']
 })
-export class ProductsComponent {
+// eslint-disable-next-line @angular-eslint/component-class-suffix
+export class ProductsContainer {
 
   products: Product[];
   constructor(private productsService: ProductsService) { }

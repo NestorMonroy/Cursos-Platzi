@@ -2,12 +2,12 @@ import {NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from "@angular/core"
 import {Routes, RouterModule} from "@angular/router";
 
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
-import  {ProductsComponent} from "./components/products/products.component";
+import  {ProductsContainer} from "./containers/products/products.container";
 
 const router: Routes = [
   {
     path:'',
-    component:ProductsComponent
+    component:ProductsContainer
   },
   {
     path:':id',

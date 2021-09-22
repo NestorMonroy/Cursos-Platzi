@@ -42,3 +42,22 @@ CLI builders: Son aquellos que nos habilitan extender las funcionalidades del cl
 * Tareas simples. ng help, ng version, ng doc
 * Tareas complejas. ng serve, ng build, ng test, ng lint.
 * los comandos de tareas complejas se abren para extender y hacerlo a nuestro manera. Ej. @angular/fire y @azure/ng-deploy
+
+
+### Patrón LIFT (Locate, Identify, Flat and Try DRY) y Naming
+
+El patrón LIFT lleva la escalabilidad desde las buenas prácticas que Angular propone para mantener un proyecto organizado y estandarizado.
+
+* Locate: Expresa que debe haber una facilidad de encontrar los componentes, directivas, pipes, servicios, etc en la estructura del proyecto.
+* Identify: Se trata de reconocer rápidamente el rol que cumple cada uno de los archivos, es decir, colocarle ‘ apellido’ al archivo.
+* Flat: Mantener la estructura de nuestro proyecto de forma plana, con máximo 3 niveles de profundidad en la estructura de carpetas del proyecto.
+* Try DRY: Alienta la reutilización de código con el fin de tener un proyecto mantenible.
+
+### Aplicando el patrón: Smart and Dumb components
+
+* Components = Renderizar (Inputs, Outputs)
+* Containers = Fetch (buscan datos) y mandan a renderizar en los componentes
+* Dumb component: debe encargarse de la parte visual e interactiva
+* Smart component: trae datos para mandarlos a al dump component
+
+Los dump components tienene de apellido .component y los smart compnents .container
