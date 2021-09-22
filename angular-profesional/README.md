@@ -61,3 +61,7 @@ El patrón LIFT lleva la escalabilidad desde las buenas prácticas que Angular p
 * Smart component: trae datos para mandarlos a al dump component
 
 Los dump components tienene de apellido .component y los smart compnents .container
+
+### REDUX
+
+Resuelve toda la arquitectura y el manejo de datos en un sólo sentido.
