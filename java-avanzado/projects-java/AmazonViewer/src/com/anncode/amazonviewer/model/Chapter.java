@@ -5,10 +5,9 @@ import java.util.ArrayList;
 /**
  * <h1>Chapter</h1>
  * Hereda de {@link Movie}
- *
+ * @see Film
  * @author NestorMonroy
  * @version 1.1
- * @see Film
  * @since 2021
  */
 

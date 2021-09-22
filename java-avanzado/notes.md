@@ -320,3 +320,164 @@ Algunas etiquetas Javadoc y su significado:
 * @deprecated: Indica que el método o clase es antigua y que no se recomienda su uso porque posiblemente desaparecerá en versiones posteriores.
 
 
+
+### Clases anidadas y tipos
+
+Clase estatica: son básicamente lo mismo que una clase no estática, pero hay una diferencia: una clase estática no puede ser instanciada.
+
+Clase anidada: Las clases anidadas te permiten agrupar lógicamente clases que solo se utilizan en un lugar, por lo tanto, esto aumenta el uso de la encapsulación y crea un código más fácil de leer y de mantener.
+
+Las clases anidadas te permiten agrupar lógicamente clases que solo se utilizan en un lugar, por lo tanto, esto aumenta el uso de la encapsulación y crea un código más fácil de leer y de mantener.
+
+* Una clase anidada no existe independientemente de su clase adjunta. Por lo tanto, el alcance de una clase anidada está limitado por su clase externa.
+
+* Una clase anidada también es miembro de su clase adjunta. También es posible declarar una clase anidada que es local a un bloque.
+
+* Como miembro de su clase adjunta, una clase anidada se puede declarar private, public, protected, o default (Leer sobre Modificadores de acceso).
+
+* Una clase anidada tiene acceso a los miembros, incluidos los miembros privados, de la clase en la que está anidado. Sin embargo, lo inverso no es verdadero, es decir, la clase adjunta no tiene acceso a los miembros de la clase anidada.
+
+* Hay dos tipos generales de clases anidadas: las que están precedidas por el modificador static (static nested class) y las que no lo están (inner class).
+
+
+Clases Anidades - Inner
+```java
+class OuterClass {
+  int x = 10;
+
+  class InnerClass {
+    int y = 5;
+  }
+
+}
+
+public class MyMainClass {
+  public static void main(String[] args) {
+    OuterClass myOuter = new OuterClass();
+    OuterClass.InnerClass myInner = myOuter.new InnerClass();
+    System.out.println(myInner.y + myOuter.x);
+  }
+}
+```
+
+Clases Locales a Metodo
+
+```java
+class NewEnclosing {
+
+  void run(){
+    class Local {
+      void run(){
+        //Method implementation
+      }
+    }
+
+    Local local = new Local();
+    local.run();
+  }
+
+  @Test
+  public void test(){
+    NewEnclosing newEnclosing = new NewEnclosing();
+    newEnclosing.run();
+  }
+}
+
+
+```
+
+Clases anonimas (Son clases Abstractas ** )
+Un metodo sin implementacion
+
+```java
+abstract class SimpleAbstractClass {
+  abstract void run();
+}
+
+
+public class AnonymousInnerTest{
+
+  @Test
+  public void whenRunAnonymousClass_thenCorrect(){
+    SimpleAbstractClass simpleAbstractClass = new SimpleAbstractClass(){
+      void run(){
+        //method implementation
+      }
+    };
+    simpleAbstractClass.run();
+  }
+}
+```
+
+
+### Ejercicio. Clases Anidadas
+
+Album.java
+```java
+
+public class Album {
+
+    private String name;
+    private String author;
+    private int year;
+    private Song[] songs;
+
+    public Album(String name, String author, int year) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+    }
+
+    public void setAlbum(String[] names, int[] durations) {
+        Song[] songs = new Song[names.length];
+        for (int i = 0; i < names.length; i++) {
+            songs[i] = new Song(names[i], durations[i]);
+        }
+        this.songs = songs;
+    }
+
+    private String getAlbum() {
+        StringBuilder sb = new StringBuilder();
+        for (Song song : songs) {
+            sb.append(song);
+        }
+        return sb.toString();
+    }
+
+    public String toString() {
+        return "\nALBUM: " + name +
+                "\nAUTHOR: " + author +
+                "\nYEAR: " + year +
+                "\n\n::SONGS::\n" + getAlbum();
+    }
+
+
+    private static class Song {
+
+        private String name;
+        private int duration;
+
+        private Song(String name, int duration) {
+            this.name = name;
+            this.duration = duration;
+        }
+
+        public String toString() {
+            return "\nName: " + name +
+                    "\nDuration: " + duration + " seconds\n";
+        }
+    }
+}
+```
+
+Main.java
+
+```java
+public static void main(String[] args) {
+        String[] names = {"Uno", "Divenire", "Monday", "Andare", "Rose", "Primavera", "Oltremare", "L'origine Nascosta", "Fly", "Ascolta", "Ritornare", "Svanire"};
+        int[] durations = {228, 402, 355, 422, 256, 444, 660, 192, 279, 289, 532, 449};
+        Album album = new Album("Divenire","Ludovico Einaudi",2006);
+        album.setAlbum(names, durations);
+        System.out.println(album);
+}
+```
