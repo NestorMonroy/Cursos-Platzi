@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+$primary: mat-palette($mat-teal);
+
+.c-color{
+  background-color: mat-color($primary);
+}
+nav > a {
+  padding: 5px;
+  text-decoration: none;
+}
+nav > a.active {
+  background-color: blue;
+}
+
+.header-row{
+  width: 100%;
+
+}
