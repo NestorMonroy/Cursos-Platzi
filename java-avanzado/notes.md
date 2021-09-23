@@ -752,3 +752,20 @@ dpkg -x mysql-connector-java_8.0.26-1ubuntu21.04_all.deb extrated
 buscamos el archivo mysql-connector-java-8.0.26.jar
 
 Lo configuramos en nuestro Intellij, se agrega el connector en File->Project Structure->Libraries … Add -> From JAVA
+
+```sql
+ALTER TABLE `amazonviewer`.`viewed` ADD COLUMN `datetime` DATETIME NOT NULL AFTER `id_user`;
+
+  SELECT * FROM amazonviewer.movie AS m INNER JOIN amazonviewer.viewed AS v
+  ON m.id = v.id_element
+  WHERE v.id_material = 1 AND v.id_user = 2
+  AND DATE(v.`datetime`) = '2021-09-22';
+
+```
+
+
+### **Interfaces funcionales **
+
+Concepto nuevo en Java SE 8 y que es la base para que podamos escribir expresiones lambda. Una interface funcional se define como una interface que tiene uno y solo un método abstracto y que éste sea diferente a los métodos definidos en java.lang.Object (a saber: equals, hashcode, clone, etc.). La interface puede tener métodos por defecto y estáticos sin que esto afecte su condición de ser interface funcional.
+
+Existe una nueva anotación denominada @FunctionalInterface que permite al compilador realizar la validación de que la interface tenga solamente un método abstracto

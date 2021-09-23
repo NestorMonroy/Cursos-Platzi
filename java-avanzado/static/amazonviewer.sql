@@ -20,16 +20,29 @@ SET time_zone = "+00:00";
 -- Base de datos: `amazonviewer`
 --
 
+CREATE OR REPLACE DATABASE `amazonviewer`;
+
+-- --------------------------------------------------------
+
+--
+-- Usuario y password de base de datos: `amazonviewer`
+--
+
+CREATE OR REPLACE USER 'amazonviewer'@'%' IDENTIFIED BY 'amazonviewer';
+GRANT ALL PRIVILEGES ON amazonviewer.* TO 'amazonviewer'@'%';
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `material`
 --
-
+USE `amazonviewer`;
 CREATE TABLE `material` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
 -- Volcado de datos para la tabla `material`
@@ -84,7 +97,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`) VALUES
-(1, 'ann');
+(1, 'nestor');
 
 -- --------------------------------------------------------
 
@@ -93,10 +106,10 @@ INSERT INTO `user` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `viewed` (
-  `id` int(11) NOT NULL,
   `id_material` int(11) NOT NULL,
   `id_element` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `date_viewed` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -126,8 +139,7 @@ ALTER TABLE `user`
 --
 -- Indices de la tabla `viewed`
 --
-ALTER TABLE `viewed`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE viewed ADD CONSTRAINT pk_key PRIMARY KEY (id_material, id_element, id_user);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -148,11 +160,6 @@ ALTER TABLE `movie`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `viewed`
---
-ALTER TABLE `viewed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
