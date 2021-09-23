@@ -766,6 +766,94 @@ ALTER TABLE `amazonviewer`.`viewed` ADD COLUMN `datetime` DATETIME NOT NULL AFTE
 
 ### **Interfaces funcionales **
 
+SAM
+@FunctionalInterface -> Interfaz de un solo metodo
+
+
 Concepto nuevo en Java SE 8 y que es la base para que podamos escribir expresiones lambda. Una interface funcional se define como una interface que tiene uno y solo un método abstracto y que éste sea diferente a los métodos definidos en java.lang.Object (a saber: equals, hashcode, clone, etc.). La interface puede tener métodos por defecto y estáticos sin que esto afecte su condición de ser interface funcional.
 
 Existe una nueva anotación denominada @FunctionalInterface que permite al compilador realizar la validación de que la interface tenga solamente un método abstracto
+
+### Programación Funcional Que?
+
+Acciones a realizar ** 
+
+
+Partes clave:
+Programación funcional, paradigma de programación.
+
+Paradigma declarativa vs imperativa
+Imperativa: Estructurados, Procedimental, OOP, Otros
+Declarativa: Funcional, Lógica, Otros
+
+Programación Imperativa: Cómo?
+Enfoque: delimitar todos los pasos para resolver el problema.
+Programación funcional: Qué?
+Enfoque: declarar qué está haciendo el programa
+
+Núcleo de la Programación funcional: funciones**
+entrada dato -> función -> salida dato
+
+Funciones de orden superior, característica de programación funcional
+entrada como función -> función como operación -> salida como función
+
+HOF
+
+### Lambdas: > Java 8
+
+Estructura básica: (parámetros) -> {cuerpo-lambda}
+
+Se utilizan únicamente en caso de:
+
+* Código con un tiempo de vida corto.
+* Encapsular código específico.
+
+Para definir una lambda podemos hacerlo al implementar:
+
+* Interfaces funcionales
+* Clases abstractas
+
+### Stream y Filter
+
+La clase StringBuilder crea cadenas que permiten mutación
+El encadenado es distinto a String. Con String, el resultado es una nueva cadena. StringBuilder realiza los cambios en la misma cadena, y devuelve una referencia a la misma
+
+StringBuilder sb=new StringBuilder(“uno”);
+sb.append("+dos");
+StringBuilder otro=sb.append("+tres");
+
+
+### Predicate y Consumer
+
+Existen 4 tipos de expresiones Lambda:
+
+Funciones (Function): Recibe como argumento dos parámetros de los cuales el primero <T> corresponde al tipo (objeto) de entrada y el segundo <R> como el tipo de salida de aquella operación.
+Ejemplo:
+
+```java
+Function<String, Integer> function = s -> s.length() + s.indexOf(" "); 
+
+// 10 + 4?Integer result = function.apply("Hola mundo"); // Tiene 10 caracteres y el " " se ubica 										      // en la posición 4.
+```
+Consumidores (Consumer): Un consumidor es aquella expresión que recibe un parámetro de entrada <T> pero que no retorna o genera ningún valor de salida. Son funciones terminales.
+Ejemplo:
+
+```java
+Consumer<String> consumer = s -> System.out.println(s.toLowerCase()); 
+consumer.accept("Hola Mundo");
+```
+
+Proveedores (Supplier): Un proveedor es una expresión que no recibe parámetros de entrada pero que retornan o generan un tipo de salida <T>
+
+```java
+Supplier<String> supplier = () -> "Hola mundo"; 
+supplier.get();
+Salida: "Hola mundo"
+```
+Predicados (Predicate): Los predicados son expresiones que aceptan expresiones booleanas, es decir, condiciones lógicas.
+
+```java
+Predicate<String> predicate = (str) -> str.length() > 6; 
+predicate.test("Hola mundo");
+Salida: true
+```

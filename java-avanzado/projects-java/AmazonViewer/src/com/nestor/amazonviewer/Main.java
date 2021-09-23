@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import com.nestor.amazonviewer.model.*;
 import com.nestor.makereport.Report;
@@ -86,9 +87,20 @@ public class Main {
         String option;
         do {
             System.out.println("\n:: MOVIES ::\n");
+            //AtomicInteger Genera numero unico
             AtomicInteger index = new AtomicInteger(1);
+
+//            for (int i = 0; i < movies.size(); i++) { //1. Movie 1
+//                System.out.println(i+1 + ". " +
+//                movies.get(i).getTitle() +
+//                " Seen: " + movies.get(i).isViewed()
+//                );
+//            }
+
+            //Lambdas apartir de Java8
             movies.forEach(movie -> System.out.println(
                     index.getAndIncrement() + ". " + movie.getTitle() + " Seen: " + movie.getViewed()));
+
             System.out.println("0. Return to Main Menu");
             option = AmazonUtil.validateUserResponseMenu(movies.size());
             if (!option.equals("0") && !option.equals("")) {
@@ -103,6 +115,11 @@ public class Main {
         do {
             System.out.println("\n:: SERIES ::\n");
             AtomicInteger index = new AtomicInteger(1);
+
+//            for (int i = 0; i < series.size(); i++) { //1. Serie 1
+//                System.out.println(i+1 + ". " + series.get(i).getTitle() + " Visto: " + series.get(i).isViewed());
+//            }
+
             series.forEach(serie -> System.out.println(
                     index.getAndIncrement() + ". " + serie.getTitle() + " Seen: " + serie.getViewed()));
             System.out.println("0. Return to Main Menu");
@@ -121,10 +138,17 @@ public class Main {
         do {
             System.out.println("\n:: CHAPTERS ::\n");
             AtomicInteger index = new AtomicInteger(1);
+
+//            for (int i = 0; i < chaptersOfSerieSelected.size(); i++) { //1. Chapter 1
+//                System.out.println(i+1 + ". " + chaptersOfSerieSelected.get(i).getTitle() + " Visto: " + chaptersOfSerieSelected.get(i).isViewed());
+//            }
+
             chapters.forEach(chapter -> System.out.println(
                     index.getAndIncrement() + ". " + chapter.getTitle() + " Seen: " + chapter.getViewed()));
+
             System.out.println("0. Return to Main Menu");
             option = AmazonUtil.validateUserResponseMenu(chapters.size());
+
             if (!option.equals("0") && !option.equals("")) {
                 Chapter chapterSelected = chapters.get(Integer.parseInt(option) - 1);
                 chapterSelected.view();
@@ -172,22 +196,70 @@ public class Main {
     }
 
     private static void makeReport() {
+        /*
+
+        Report report = new Report();
+        report.setNameFile("reporte");
+        report.setExtension("txt");
+        report.setTitle(":: VISTOS ::");
+        String contentReport = "";
+
+        for (Movie movie : movies) {
+            if (movie.getIsViewed()) {
+                contentReport += movie.toString() + "\n";
+
+            }
+        }
+
+        for (Serie serie : series) {
+            ArrayList<Chapter> chapters = serie.getChapters();
+            for (Chapter chapter : chapters) {
+                if (chapter.getIsViewed()) {
+                    contentReport += chapter.toString() + "\n";
+
+                }
+            }
+        }
+
+
+        for (Book book : books) {
+            if (book.getIsReaded()) {
+                contentReport += book.toString() + "\n";
+
+            }
+        }
+       }
+
+         */
+
+
         System.out.println("\n:: CREATING REPORT WITHOUT DATE ::\n");
         Report report = new Report("Report.txt", ":: ALREADY SEEN ::\n");
-        StringBuilder content = new StringBuilder();
+        StringBuilder content = new StringBuilder(); //StringBuilder, permite concatenar
+        //Stream & filter
         movies.stream()
                 .filter(movie -> movie.getViewed().equals("Yes"))
                 .forEach(movie -> content.append(movie.toString()).append("\n"));
+
+        //Predicate: Condicion dentro de filter
+        //Predicate<Serie> seriePredicate = s -> Boolean.parseBoolean(s.getViewed());
+
         series.stream()
+                //.filter(seriePredicate)
                 .filter(serie -> serie.getViewed().equals("Yes"))
                 .forEach(serie -> content.append(serie.toString()).append("\n"));
+        //Consumer:expresión que recibe un parámetro de entrada <T>,
+        //pero que no retorna o genera ningún valor de salida. Son funciones terminales.
+
         Consumer<Serie> chaptersViewed = serie -> {
             List<Chapter> chapters = serie.getChapters();
             chapters.stream()
                     .filter(chapter -> chapter.getViewed().equals("Yes"))
                     .forEach(chapter -> content.append(chapter.toString()).append("\n"));
         };
+
         series.stream().forEach(chaptersViewed);
+
         books.stream()
                 .filter(book -> book.isReaded().equals("Yes"))
                 .forEach(book -> content.append(book.toString()).append("\n"));

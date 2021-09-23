@@ -1,0 +1,115 @@
+:: ALREADY SEEN ::
+
+::MOVIE::
+Title: Coco
+Genre: Animación
+Year: 2017
+Creator: Pixart
+Duration: 120
+Seconds viewed: 0
+Date: 2021-09-23 01:11:15
+
+::MOVIE::
+Title: Amélie
+Genre: Romance
+Year: 2001
+Creator: Jean-Pierre Jeunet
+Duration: 123
+Seconds viewed: 0
+Date: 2021-09-23 01:11:20
+
+::SERIE::
+Title: Serie 1
+Genre: Genre 1
+Year: 0
+Creator: Director 1
+Duration: 1201
+Seconds viewed: 0
+
+::SERIE::
+Title: Serie 5
+Genre: Genre 5
+Year: 0
+Creator: Director 5
+Duration: 1205
+Seconds viewed: 0
+
+::CHAPTER::
+Title: Chapter 1
+Genre: Genre 1
+Year: 2015
+Creator: Author 1
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 2
+Genre: Genre 2
+Year: 2015
+Creator: Author 2
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 3
+Genre: Genre 3
+Year: 2015
+Creator: Author 3
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 4
+Genre: Genre 4
+Year: 2015
+Creator: Author 4
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 5
+Genre: Genre 5
+Year: 2015
+Creator: Author 5
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 1
+Genre: Genre 1
+Year: 2015
+Creator: Author 1
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 2
+Genre: Genre 2
+Year: 2015
+Creator: Author 2
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 3
+Genre: Genre 3
+Year: 2015
+Creator: Author 3
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 4
+Genre: Genre 4
+Year: 2015
+Creator: Author 4
+Duration: 45
+Seconds viewed: 2
+
+::CHAPTER::
+Title: Chapter 5
+Genre: Genre 5
+Year: 2015
+Creator: Author 5
+Duration: 45
+Seconds viewed: 2
