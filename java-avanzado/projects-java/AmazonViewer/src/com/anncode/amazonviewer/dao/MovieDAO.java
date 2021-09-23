@@ -3,18 +3,27 @@ package com.anncode.amazonviewer.dao;
 import com.anncode.amazonviewer.db.IDBConnection;
 import com.anncode.amazonviewer.model.Movie;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import static com.anncode.amazonviewer.db.DataBase.*;
 
 public interface MovieDAO extends IDBConnection {
-    //default: Puede ser llamado fuera de la interface
+    //default: Puede ser llamado fuera la interface
     default Movie setMovieViewed(Movie movie) {
+        try (Connection connection = connectToDB()) {
+            Statement statement = connection.createStatement();
+            String query = "INSERT INTO " + TVIEWED +
+                    " (" + TVIEWED_IDMATERIAL + ", " + TVIEWED_IDELEMENT + ", " + TVIEWED_IDUSUARIO + ")" +
+                    " VALUES(" + ID_TMATERIALS[0] + ", " + movie.getId() + ", " + TUSER_IDUSUARIO + ")";
+            if (statement.executeUpdate(query) > 0) {
+                System.out.println("Se marco en Visto");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error " + e);
+        }
         return movie;
+
     }
 
     default ArrayList<Movie> read() {

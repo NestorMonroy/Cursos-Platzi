@@ -97,15 +97,16 @@ public class Main {
         } while (exit != 0);
     }
 
-    static ArrayList<Movie> movies = Movie.makeMoviesList();
+    static ArrayList<Movie> movies = new ArrayList<>();
 
     public static void showMovies() {
+        movies = Movie.makeMoviesList();
         int exit = 1;
 
         do {
             System.out.println();
             System.out.println(":: MOVIES ::");
-            System.out.println();
+            System.out.println("---");
 
             for (int i = 0; i < movies.size(); i++) { //1. Movie 1
                 System.out.println(i + 1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
