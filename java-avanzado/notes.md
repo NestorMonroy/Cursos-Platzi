@@ -725,3 +725,30 @@ public class Hola {
 
 finally -> Siempre se ejecuta
 
+### Definición y composición del API
+
+Clases:
+
+* DriverManager: Nos permite crear una instancia de la conexión
+* Connection: Genera la sesión, maneja todo el ciclo de vida de una sesión cuando nos conectamos a una base de datos.
+* Statement: Nos ayuda a traer datos de una tabla.
+* PreparedStatement: Hace lo mismo que Statement con la diferencia de que éste nos permite recibir parámetros para la clausula where.
+* ResultSet: Es una interfaz que nos ayudará a manejar los datos obtenidos convirtiendo los datos en objetos.
+
+Para generar un CRUD también tenemos métodos a partir de Statement/PreparedStatement:
+
+* Para ejecutar un SELECT el método a usar será el: executeQuery(sqlString)
+* Para ejecutar INSERT,UPDATE,DELETE or a DDL usaremos el método: executeUpdate(sqlString)
+* Para ejecutar otros comandos de SQL usaremos: execute(sqlString)
+
+### Conectarse a una base de datos
+
+Descargar el conector
+
+https://dev.mysql.com/downloads/connector/j/
+
+dpkg -x mysql-connector-java_8.0.26-1ubuntu21.04_all.deb extrated
+
+buscamos el archivo mysql-connector-java-8.0.26.jar
+
+Lo configuramos en nuestro Intellij, se agrega el connector en File->Project Structure->Libraries … Add -> From JAVA
